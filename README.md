@@ -1,1 +1,1 @@
-# cre
+# Common Relability Enumeration (CRE) Specification
