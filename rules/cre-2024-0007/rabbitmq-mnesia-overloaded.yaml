@@ -1,0 +1,45 @@
+cre:
+  id: CRE-2024-007
+  severity: 0
+  title: RabbitMQ Mnesia overloaded recovering persistent queues
+  category: message-queue-problems
+  author: Prequel
+  description: |
+    - Look at the logs for the RabbitMQ container with the detection.
+    - Note the discarded messages and warning that Mnesia is overloaded (`** WARNING ** Mnesia is overloaded`).
+    - Review process data to view the CPU usage for the RabbitMQ cluster container
+    - The RabbitMQ cluster is processing a large number of persistent mirrored queues at boot. 
+    - High CPU usage indicates that the cluster is starving for additional CPU resources.
+  cause: |
+    - There are so many that the underlying Erlang process, Mnesia, is reporting that it is overloaded while recoving these queues on boot. 
+  impact: |
+    - RabbitMQ is unable to process any new messages, which can lead to outages in consumers and producers.
+  tags: 
+    - cre-2024-0007
+    - known-problem
+    - rabbitmq
+  mitigation: |
+    - Increase the size of the cluster
+    - Increase the Kubernetes CPU limits for the RabbitMQ brokers
+    - Consider adjusting mirroring policies to limit the number of mirrored queues
+    - Remove high-availability policies from queues where it is not needed
+    - Consider using [lazy queues](https://www.rabbitmq.com/docs/lazy-queues) to avoid incurring the costs of writing data to disk 
+  references:
+    - https://groups.google.com/g/rabbitmq-users/search?q=discarding%20message
+  applications:
+    - name: "rabbitmq"
+      version: "3.9.x"
+metadata:
+  kind: rules
+  id: 5UD1RZxGC5LJQnVpAkV11A
+  generation: 1
+rule:
+  sequence:
+    window: 30s
+    event:
+      source: rabbitmq
+    order:
+      - Discarding message(.+)in an old incarnation(.+)of this node
+      - Mnesia is overloaded
+    negate:
+      - SIGTERM received - shutting down

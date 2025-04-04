@@ -1,0 +1,107 @@
+metadata:
+  kind: tags
+  id: 9av5xggdtmVKNLUcPyGmN8
+  gen: 1
+tags:
+  - name: aws
+    displayName: AWS
+    description: Amazon Web Services
+  - name: gcp
+    displayName: GCP
+    description: Google Cloud Platform
+  - name: azure
+    displayName: Azure
+    description: Microsoft Azure
+  - name: k8s
+    displayName: K8s
+    description: Kubernetes
+  - name: ecr
+    displayName: ECR
+    description: Elastic Container Registry
+  - name: threshold-exceeded
+    displayName: Threshold Exceeded
+    description: An external API limit has been exceeded and API requests are currently failing or being throttled
+  - name: known-problem
+    displayName: Known Problem
+    description: This is a documented known problem with known mitigations
+  - name: cre-2023-0001
+    displayName: CRE-2023-0001
+    description: CRE-2023-0001 is a known problem with Kafka
+  - name: cre-2023-0004
+    displayName: CRE-2023-0004
+    description: CRE-2023-0004 is a known problem with Velero and Restic
+  - name: cre-2023-0005
+    displayName: CRE-2023-0005
+    description: CRE-2023-0005 is a known problem with Google Cloud SQL Proxy
+  - name: cre-2024-0006
+    displayName: CRE-2024-0006
+    description: CRE-2024-0006 is a known problem with Kafka Topic Operator
+  - name: cre-2024-0007
+    displayName: CRE-2024-0007
+    description: CRE-2024-0007 is a known problem with RabbitMQ Mnesia
+  - name: cre-2024-0010
+    displayName: CRE-2024-0010
+    description: CRE-2024-0010 is a known problem with Gunicorn
+  - name: gunicorn
+    displayName: Gunicorn
+    description: Problems with Python Gunicorn
+  - name: kafka
+    displayName: Kafka
+    description: Problems with Apache Kafka 
+  - name: known-anti-pattern
+    displayName: Known Anti-Pattern
+    description: This is a known anti-pattern that should be avoided
+  - name: database
+    displayName: Database
+    description: Problems with databases like MySQL, PostgreSQL, MongoDB, and others
+  - name: postgres
+    displayName: PostgreSQL
+    description: Problems with PostgreSQL
+  - name: gke
+    displayName: GKE
+    description: Google Kubernetes Engine
+  - name: velero
+    displayName: Velero
+    description: Problems with Velero
+  - name: vmware
+    displayName: VMware
+    description: Problems with VMware
+  - name: karpenter
+    displayName: Karpenter
+    description: Problems with Karpenter
+  - name: eks
+    displayName: EKS
+    description: Amazon Elastic Kubernetes Service
+  - name: beta
+    displayName: Beta
+    description: Beta rules are experimental and may change in the future
+  - name: cre-2024-004
+    displayName: CRE-2024-004
+    description: CRE-2024-004 is a known problem with Amazon VPC CNI plugin
+  - name: crash
+    displayName: Crash
+    description: Problems with applications crashing
+  - name: rabbitmq
+    displayName: RabbitMQ
+    description: Problems with RabbitMQ
+  - name: segfault
+    displayName: Segfault
+    description: Problems with applications segfaulting
+  - name: celery
+    displayName: Celery
+    description: Problems with Celery
+  - name: errors
+    displayName: Errors
+    description: Problems with application errors
+  - name: loki
+    displayName: Loki
+    description: Problems with Grafana Loki
+  - name: misconfiguration
+    displayName: Misconfiguration
+    description: Problems with misconfigurations
+  - name: cre-2024-0016
+    displayName: CRE-2024-0016
+    description: CRE-2024-0016 is a known problem with Keda Operator
+  - name: keda
+    displayName: KEDA
+    description: Problems with KEDA Operator

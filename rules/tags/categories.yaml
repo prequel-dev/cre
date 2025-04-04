@@ -1,0 +1,41 @@
+metadata:
+  kind: categories
+  id: xxtdmttg55Pg844dRw8Ti6
+  gen: 1
+categories:
+  - name: api-problems
+    displayName: API Problems
+    description: Problems related to well-known external APIs
+  - name: message-queue-problems
+    displayName: Message Queue Problems
+    description: Problems related to message queues, like Kafka, RabbitMQ, NATS, and others
+  - name: asynchronous-task-problems
+    displayName: Asynchronous Task Problems
+    description: Problems related to asynchronous tasks, like Celery, Sidekiq, and others
+  - name: database-problems
+    displayName: Database Problems
+    description: Problems related to databases, like MySQL, PostgreSQL, MongoDB, and others
+  - name: disaster-recovery-problems
+    displayName: Disaster Recovery Problems
+    description: Problems related to disaster recovery, like backup and restore, and failover
+  - name: memory-problems
+    displayName: Memory Problems
+    description: Problems related to memory, like out-of-memory crashes, memory leaks, and memory pressure
+  - name: scaling-problems
+    displayName: Scaling Problems
+    description: Problems related to scaling, like autoscaling, scale-up, and scale-down events
+  - name: noisy-neighbor-problems
+    displayName: Noisy Neighbor Problems
+    description: Problems related to noisy neighbors, like N+1 database queries, and noisy neighbors in shared infrastructure
+  - name: python-library-problems
+    displayName: Python Library Problems
+    description: Problems related to Python libraries, like requests, pandas, numpy, and others
+  - name: cloud-provider-problems
+    displayName: Cloud Provider Problems
+    description: Problems related to cloud providers, like AWS, GCP, Azure, and others
+  - name: unhealthy-events
+    displayName: Unhealthy Kubernetes Events
+    description: Problems related to unhealthy events, like probe failures and others
+  - name: observability-problems
+    displayName: Observability Problems
+    description: Problems related to observability, like monitoring, logging, and tracing
