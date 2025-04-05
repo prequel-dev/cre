@@ -1,38 +1,37 @@
-cre:
-  id: CRE-2024-0021
-  severity: 1
-  title: KEDA operator crash
-  category: crash
-  author: Prequel
-  description: |
-    KEDA allows for fine-grained autoscaling (including to/from zero) for event driven Kubernetes workloads. KEDA serves as a Kubernetes Metrics Server and allows users to define autoscaling rules using a dedicated Kubernetes custom resource definition.
-  cause: |
-    There is a known issue with the KEDA operator where the scalers cache from the ScaledObject controller is not being properly initialized. This can cause the KEDA operator to crash.
-  tags:
-    - keda
-    - crash
-    - known-problem
-  mitigation: |
-    - Upgrade to KEDA 2.13.1
-  references:
-    - https://github.com/kedacore/keda/issues/4207
-  applications:
-    - name: KEDA Operator
-      version: 2.9.2
-      imageUrl: ghcr.io/kedacore/keda:2.9.2
-      containerName: keda-operator
-    - name: KEDA Operator
-      version: 2.13.0
-      imageUrl: ghcr.io/kedacore/keda:2.13.1
-      containerName: keda-operator
-metadata:
-  kind: rules
-  id: HeGWs7nohNoRkbz9tBiQfC
-  hash: aN1vQ4RRua7QUEFyKTamtF
-  generation: 1
-rule:
-  set:
-    event:
-      source: keda-operator
-    match:
-      - invalid memory address or nil pointer dereference
+rules:
+  - cre:
+      id: CRE-2024-0021
+      severity: 1
+      title: KEDA operator crash
+      category: crash
+      author: Prequel
+      description: ""
+      cause: |
+        There is a known issue with the KEDA operator where the scalers cache from the ScaledObject controller is not being properly initialized. This can cause the KEDA operator to crash.
+      tags:
+        - keda
+        - crash
+        - known-problem
+      mitigation: |
+        - Upgrade to KEDA 2.13.1
+      references:
+        - https://github.com/kedacore/keda/issues/4207
+      applications:
+        - name: KEDA Operator
+          version: 2.9.2
+          imageUrl: ghcr.io/kedacore/keda:2.9.2
+          containerName: keda-operator
+        - name: KEDA Operator
+          version: 2.13.0
+          imageUrl: ghcr.io/kedacore/keda:2.13.1
+          containerName: keda-operator
+    metadata:
+      kind: rules
+      id: HeGWs7nohNoRkbz9tBiQfC
+      gen: 1
+    rule:
+      set:
+        event:
+          source: keda-operator
+        match:
+          - regex: invalid memory address or nil pointer dereference

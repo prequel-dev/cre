@@ -1,0 +1,342 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://docs.prequel.dev/cre-schema.json",
+  "title": "Common Reliability Enumerations",
+  "version": "0.1.0",
+  "type": "object",
+  "properties": {
+    "rules": {
+      "type": "array",
+      "description": "The list of rule definitions. Each rule embeds one or more rule.",
+      "items": {
+        "$ref": "#/definitions/rules"
+      }
+    },
+    "terms": {
+      "type": "object",
+      "description": "A map of named expressions that may be reused in one or more rules. Conditions may be referenced by name in rules as needed. Term names are globally reusable/unique.",
+      "additionalProperties": {
+        "$ref": "#/definitions/term"
+      }
+    }
+  },
+  "required": ["rules"],
+  "additionalProperties": false,
+  "definitions": {
+    "rules": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/metadata"
+        },
+        "cre": {
+          "$ref": "#/definitions/cre"
+        },
+        "rule": {
+          "$ref": "#/definitions/rule"
+        }
+      },
+      "required": ["metadata", "cre", "rule"],
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Metadata containing unique identifying information about the rule.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "A unique identifier for the problem detector rule."
+        },
+        "hash": {
+          "type": "string",
+          "description": "A cryptographic hash unique identifier to detect changes in the rule's definition. This is automatically generated when the rule is built."
+        },
+        "gen": {
+          "type": "integer",
+          "description": "The revision number of the rule, updated by the author on each new change to the rule."
+        },
+        "kind": {
+          "type": "string",
+          "description": "The type of rule, e.g. prequel."
+        },
+        "version": {
+          "type": "string",
+          "description": "The semantic version string associated with this rule."
+        }
+      },
+      "additionalProperties": false
+    },
+    "rule": {
+      "type": "object",
+      "properties": {
+        "sequence": {
+          "$ref": "#/definitions/sequence"
+        },
+        "set": {
+          "$ref": "#/definitions/set"
+        }
+      },
+      "additionalProperties": false
+    },
+    "cre": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "A unique human-readable identifier that conforms to the CRE identification format CRE-YEAR-0NUM",
+          "pattern": "^CRE-\\d{4}-\\d{4}$"
+        },
+        "severity": {
+          "type": "integer",
+          "description": "Severity: 0=Critical, 1=High, 2=Medium, 3=Low, 4=Info",
+          "enum": [0, 1, 2, 3, 4]
+        },
+        "title": {
+          "type": "string",
+          "description": "A short, descriptive title for the CRE, e.g. \"RabbitMQ Mnesia overloaded recovering persistent queues\"."
+        },
+        "category": {
+          "type": "string",
+          "description": "Problem taxonomy category name (e.g., \"message-queue-problems\", \"asynchronous-task-problems\", \"database-problems\")."
+        },
+        "tags": {
+          "type": "array",
+          "description": "Arbitrary tags for additional categorization and search.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "author": {
+          "type": "string",
+          "description": "The individual, team, or organization that creates the CRE."
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief explanation of the problem."
+        },
+        "impact": {
+          "type": "string",
+          "description": "The impact of this problem if it is triggered (e.g., data loss, downtime, degraded performance, etc.)."
+        },
+        "impactScore": {
+          "type": "integer",
+          "description": "A rating of the severity of impact on a scale of 1 (least impactful) to 10 (most impactful)."
+        },
+        "cause": {
+          "type": "string",
+          "description": "A description of what causes this problem."
+        },
+        "mitigation": {
+          "type": "string",
+          "description": "Recommended steps or runbooks to minimize or eliminate the problem."
+        },
+        "mitigationScore": {
+          "type": "integer",
+          "description": "A rating of the difficult to mitigate on a scale of 1 (easiest) to 10 (most challenging)."
+        },
+        "references": {
+          "type": "array",
+          "description": "List of references or links for further reading on the problem, its impact or mitigation.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reports": {
+          "type": "integer",
+          "description": "A counter or metric indicating how many times this CRE has been reported or encountered."
+        },
+        "version": {
+          "type": "string",
+          "description": "Semantic version of the CRE specification in use."
+        },
+        "applications": {
+          "type": "array",
+          "description": "List of applications or components associated with this CRE.",
+          "items": {
+            "$ref": "#/definitions/application"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "application": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the application, process, or service."
+        },
+        "processName": {
+          "type": "string",
+          "description": "The process name as it appears in the operating system."
+        },
+        "processPath": {
+          "type": "string",
+          "description": "The file path to the application process."
+        },
+        "containerName": {
+          "type": "string",
+          "description": "The container name (if running in a containerized environment)."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "The container image URL or registry path."
+        },
+        "repoUrl": {
+          "type": "string",
+          "description": "The repository URL for the application."
+        },
+        "version": {
+          "type": "string",
+          "description": "The version or release number of the application. Version wildcards are permitted."
+        }
+      },
+      "additionalProperties": false
+    },
+    "sequence": {
+      "type": "object",
+      "description": "An ordered collection of two or more positive conditions and/or zero or more negative conditions where order matters and repetitions (duplicates) are allowed, e.g. A followed by B followed by and C. Positive conditions must be described in an order object.",
+      "properties": {
+        "window": {
+          "type": "string",
+          "description": "Two or more positive conditions in a sequence require an order window. An order window describes the maximum amount of time that is allowed to pass between matches of the first and last positive conditions. If one or more conditions match outside the window, the rule will not fire."
+        },
+        "correlations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "A correlation is used in nested conditions to add additional criteria to the match."
+          }
+        },
+        "event": {
+          "$ref": "#/definitions/event"
+        },
+        "origin": {
+          "type": "boolean",
+          "description": "When using nested conditions, the rule author must specify which expression on an abstract data source constitutes the origin event that will take the blame for the overall detection. The origin is implied when nested conditions are not used since the rule is only targeting one data source."
+        },
+        "order": {
+          "type": "array",
+          "description": "A list of positive conditions that must be met in order for the rule to fire. The order of conditions is important and must be specified by the rule author.",
+          "items": {
+            "$ref": "#/definitions/term"
+          }
+        },
+        "negate": {
+          "type": "array",
+          "description": "A list of negative conditions that must not be met for the rule to fire. The negate conditions are optional and may be omitted if not needed.",
+          "items": {
+            "$ref": "#/definitions/term"
+          }
+        }
+      },
+      "required": ["window", "order"],
+      "additionalProperties": false
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "A rule defines an abstract data source to target an addressable named data type (e.g. log, metric, trace, or event). Because the location and address of data sources vary based on the environment (e.g. Kubernetes vs. virtual machines vs. laptops and servers) and distribution (Docker Hub vs. Bitnami vs. Quay.io), CRE rules are created to target a data source abstraction that is translated by the problem detector to the actual source's location in the environment."
+        },
+        "origin": {
+          "type": "boolean",
+          "description": "When using nested conditions, the rule author must specify which expression on an abstract data source constitutes the origin event that will take the blame for the overall detection. The origin is implied when nested conditions are not used since the rule is only targeting one data source."
+        }
+      },
+      "required": ["source"],
+      "additionalProperties": false
+    },
+    "set": {
+      "type": "object",
+      "properties": {
+        "window": {
+          "type": "string",
+          "description": "A set requires a window when two or more positive conditions are used. A set window describes the maximum amount of time that is allowed to pass between matches of the first and last positive conditions. If one or more conditions match outside the window, the rule will not fire."
+        },
+        "correlations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "A correlation is used in nested conditions to add additional criteria to the match."
+          }
+        },
+        "event": {
+          "$ref": "#/definitions/event"
+        },
+        "match": {
+          "type": "array",
+          "description": "A list of positive conditions that must be met in order for the rule to fire. The order of conditions is important and must be specified by the rule author.",
+          "items": {
+            "$ref": "#/definitions/term"
+          }
+        },
+        "negate": {
+          "type": "array",
+          "description": "A list of negative conditions that must not be met for the rule to fire. The negate conditions are optional and may be omitted if not needed.",
+          "items": {
+            "$ref": "#/definitions/term"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "term": {
+      "description": "A map of named expressions that may be reused in one or more rules. Conditions may be referenced by name in rules as needed. Term names are globally reusable/unique.",
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "If this is a plain string, it will be treated as a literal string value."
+        },
+        {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            },
+            "jq": {
+              "type": "string",
+              "description": "A jq expression to evaluate the field value."
+            },
+            "regex": {
+              "type": "string",
+              "description": "A regular expression to evaluate the field value."
+            },
+            "count": {
+              "type": "integer",
+              "description": "A count of the number of times the field value appears in the data. Not allowed in a set. Sets require non-repetitive positive conditions."
+            },
+            "set": {
+              "$ref": "#/definitions/set"
+            },
+            "sequence": {
+              "$ref": "#/definitions/sequence"
+            },
+            "window": {
+              "type": "string",
+              "description": "The negate window is used to extend or move the amount of time in which a negative condition cannot occur relative to the positive conditions."
+            },
+            "slide": {
+              "type": "string",
+              "description": "Use the negate option slide to shift the total negate window to the left to define when negative conditions cannot happen before positive conditions."
+            },
+            "anchor": {
+              "type": "integer",
+              "description": "Use anchor to change when the relative negative window begins. The default negate window is relative to the first positive condition (i.e. when anchor: 0)."
+            },
+            "absolute": {
+              "type": "boolean",
+              "description": "Use the negate option absolute to avoid adding the match width to the total negate window and instead use only the negate window specified in negative condition. This is useful when the match width is unpredictable."
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}
+

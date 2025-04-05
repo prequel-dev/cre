@@ -1,29 +1,31 @@
-cre:
-  id: CRE-2024-0016
-  severity: 3
-  title: gke-metrics-agent failing to export metrics
-  category: observability-problems
-  author: Prequel
-  description: |
-  cause: | 
-    The gke-metrics-agent is failing to export metrics. asdfsdf
-  tags: 
-    - cre-2024-0016
-    - known-problem
-    - gke
-  mitigation: |
-  references:
-    - https://www.googlecloudcommunity.com/gc/Google-Kubernetes-Engine-GKE/Persistent-GKE-Metrics-Agent-Errors-Following-Manual-Upgrade-to/m-p/745413
-  applications:
-    - name: "rabbitmq"
-      version: "3.9.x"
-metadata:
-  kind: rules
-  id: rBj7HEGesPj8suW6G3DvrJ
-  generation: 1
-rule:
-  set:
-    event:
-      source: gke-metrics-agent
-    match:
-      - Failed to export(.+)metrics(.+)Please retry(.+)contact support
+rules:
+  - cre:
+      id: CRE-2024-0016
+      severity: 3
+      title: gke-metrics-agent failing to export metrics
+      category: observability-problems
+      author: Prequel
+      description: ""
+      cause: | 
+        The gke-metrics-agent is failing to export metrics.
+      tags: 
+        - cre-2024-0016
+        - known-problem
+        - gke
+      mitigation: |
+        The gke-metrics-agent is failing to export metrics.
+      references:
+        - https://www.googlecloudcommunity.com/gc/Google-Kubernetes-Engine-GKE/Persistent-GKE-Metrics-Agent-Errors-Following-Manual-Upgrade-to/m-p/745413
+      applications:
+        - name: "rabbitmq"
+          version: "3.9.x"
+    metadata:
+      kind: rules
+      id: rBj7HEGesPj8suW6G3DvrJ
+      gen: 1
+    rule:
+      set:
+        event:
+          source: gke-metrics-agent
+        match:
+          - regex: Failed to export(.+)metrics(.+)Please retry(.+)contact support

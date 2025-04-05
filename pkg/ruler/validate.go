@@ -3,6 +3,7 @@ package ruler
 import (
 	"errors"
 
+	"github.com/prequel-dev/prequel/pkg/parser"
 	"github.com/prequel-dev/prequel/pkg/schema"
 	"github.com/rs/zerolog/log"
 )
@@ -24,7 +25,10 @@ var (
 	ErrMissingCategory       = errors.New("missing category field")
 )
 
-type tagsT map[string]struct{}
+type dupesT map[string]struct{}
+type tagsT dupesT
+type rulesT dupesT
+type termsT dupesT
 
 func validateTagsFields(t RuleIncludeT, tags tagsT) error {
 
@@ -71,42 +75,68 @@ func validateTags(tags []TagT, kind string, dupes tagsT) error {
 	return nil
 }
 
-func validateRules(rules RuleIncludeT, tags tagsT) error {
+func validateRules(rules parser.RulesT, allRules, allTerms dupesT, tags tagsT) error {
 
-	if rules.Cre.Id == "" {
-		log.Error().
-			Any("rule", rules).
-			Msg("Missing CRE id")
-		return ErrMissingId
-	}
+	for _, rule := range rules.Rules {
 
-	if rules.Metadata.Id == "" {
-		log.Error().
-			Any("rule", rules).
-			Msg("Missing rule id")
-		return ErrMissingId
-	}
+		log.Info().
+			Str("id", rule.Cre.Id).
+			Msg("Processing rule")
 
-	if rules.Cre.Category == "" {
-		log.Error().
-			Any("rule", rules).
-			Msg("Missing category")
-		return ErrMissingCategory
-	}
-
-	if _, ok := tags[rules.Cre.Category]; !ok {
-		log.Error().
-			Str("category", rules.Cre.Category).
-			Msg("Unknown category")
-		return ErrUnknownCategory
-	}
-
-	for _, tag := range rules.Cre.Tags {
-		if _, ok := tags[tag]; !ok {
+		if rule.Cre.Id == "" {
 			log.Error().
-				Str("tag", tag).
-				Msg("Uknown tag")
-			return ErrUnknownTag
+				Any("rule", rules).
+				Msg("Missing CRE id")
+			return ErrMissingId
+		}
+
+		if rule.Metadata.Id == "" {
+			log.Error().
+				Any("rule", rules).
+				Msg("Missing rule id")
+			return ErrMissingId
+		}
+
+		if rule.Cre.Category == "" {
+			log.Error().
+				Any("rule", rules).
+				Msg("Missing category")
+			return ErrMissingCategory
+		}
+
+		if _, ok := tags[rule.Cre.Category]; !ok {
+			log.Error().
+				Str("category", rule.Cre.Category).
+				Msg("Unknown category")
+			return ErrUnknownCategory
+		}
+
+		for _, tag := range rule.Cre.Tags {
+			if _, ok := tags[tag]; !ok {
+				log.Error().
+					Str("tag", tag).
+					Msg("Uknown tag")
+				return ErrUnknownTag
+			}
+		}
+
+		if _, ok := allRules[rule.Cre.Id]; ok {
+			log.Error().
+				Str("id", rule.Cre.Id).
+				Msg("Duplicate rule id")
+			return ErrDuplicateRuleId
+		}
+
+		log.Info().
+			Str("hash", rule.Metadata.Hash).
+			Msg("Rule")
+	}
+
+	for key := range rules.Terms {
+		if _, ok := allTerms[key]; ok {
+			log.Error().
+				Str("id", key).
+				Msg("Duplicate term key")
 		}
 	}
 

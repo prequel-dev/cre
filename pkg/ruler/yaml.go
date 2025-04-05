@@ -8,8 +8,7 @@ type RuleIncludeT struct {
 	Metadata   parser.ParseRuleMetadataT `yaml:"metadata"`
 	Tags       []TagT                    `yaml:"tags,omitempty"`
 	Categories []TagT                    `yaml:"categories,omitempty"`
-	Cre        parser.ParseCreT          `yaml:"cre,omitempty"`
-	Rule       parser.ParseRuleDataT     `yaml:"rule"`
+	Rules      []parser.ParseRuleT       `yaml:"rule"`
 }
 
 type TagT struct {
