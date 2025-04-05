@@ -39,3 +39,6 @@ categories:
   - name: observability-problems
     displayName: Observability Problems
     description: Problems related to observability, like monitoring, logging, and tracing
+  - name: operator-problems
+    displayName: Operator Problems
+    description: Problems related to operators, like KEDA, Prometheus, and others

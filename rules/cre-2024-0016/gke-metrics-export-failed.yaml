@@ -2,23 +2,34 @@ rules:
   - cre:
       id: CRE-2024-0016
       severity: 3
-      title: gke-metrics-agent failing to export metrics
+      title: Google Kubernetes Engine metrics agent failing to export metrics
       category: observability-problems
       author: Prequel
-      description: ""
+      description: The Google Kubernetes Engine metrics agent is failing to export metrics.
       cause: | 
-        The gke-metrics-agent is failing to export metrics.
+        The GKE team is aware of this issue and is working on a fix.
       tags: 
         - cre-2024-0016
         - known-problem
         - gke
       mitigation: |
-        The gke-metrics-agent is failing to export metrics.
+        - `gcloud logging sinks update _Default --add-exclusion=name=exclude-unimportant-gke-metadata-server-logs,filter=' resource.type = "k8s_container" resource.labels.namespace_name = "kube-system" resource.labels.pod_name =~ "gke-metadata-server-.*" resource.labels.container_name = "gke-metadata-server" severity <= "INFO" '`
+      mitigationScore: 2
+      impact: |
+        - Metrics will be missing from the GKE cluster.
+        - Autoscalers using these metrics will not be able to scale the workload.
+      impactScore: 4
       references:
         - https://www.googlecloudcommunity.com/gc/Google-Kubernetes-Engine-GKE/Persistent-GKE-Metrics-Agent-Errors-Following-Manual-Upgrade-to/m-p/745413
       applications:
-        - name: "rabbitmq"
-          version: "3.9.x"
+        - name: "Google Kubernetes Engine (GKE)"
+          version: "1.28.x"
+        - name: "Google Kubernetes Engine (GKE)"
+          version: "1.29.x"
+        - name: "Google Kubernetes Engine (GKE)"
+          version: "1.30.x"
+        - name: "Google Kubernetes Engine (GKE)"
+          version: "1.31.x"
     metadata:
       kind: rules
       id: rBj7HEGesPj8suW6G3DvrJ
