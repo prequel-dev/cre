@@ -15,6 +15,7 @@ rules:
         - There are so many that the underlying Erlang process, Mnesia, is reporting that it is overloaded while recoving these queues on boot. 
       impact: |
         - RabbitMQ is unable to process any new messages, which can lead to outages in consumers and producers.
+      impactScore: 9
       tags: 
         - cre-2024-0007
         - known-problem
@@ -25,6 +26,7 @@ rules:
         - Consider adjusting mirroring policies to limit the number of mirrored queues
         - Remove high-availability policies from queues where it is not needed
         - Consider using [lazy queues](https://www.rabbitmq.com/docs/lazy-queues) to avoid incurring the costs of writing data to disk 
+      mitigationScore: 8
       references:
         - https://groups.google.com/g/rabbitmq-users/search?q=discarding%20message
       applications:
