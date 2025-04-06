@@ -1,0 +1,42 @@
+name: New Rule
+description: Suggestions and ideas for new rules
+title: "[New Rule] Name of rule"
+labels: ["Rule: New"]
+assignees: []
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: "Provide a detailed description of the problem to be detected."
+      placeholder: "Detailed description..."
+
+  - type: textarea
+    id: rule
+    attributes:
+      label: Rule
+      description: "Provide the syntax for the rule (optional)."
+      placeholder: "Rule..."
+
+  - type: textarea
+    id: related_issues_prs
+    attributes:
+      label: Related issues or PRs
+      description: "Link any related issues or PRs (optional)."
+      placeholder: "Related issues or PRs..."
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: "List any references (optional)."
+      placeholder: "References..."
+
+  - type: textarea
+    id: example_data
+    attributes:
+      label: Redacted Example Data
+      description: "Provide redacted example data or link to a playground rule running on the data from the actual activity."
+      placeholder: "Example data..."
+

@@ -1,0 +1,39 @@
+name: Tune Existing Rule
+description: Suggestion for logic changes to an existing rule
+title: "[Rule Tuning] Name of rule"
+labels: ["Rule: Tuning"]
+assignees: []
+
+body:
+  - type: input
+    id: rule_link
+    attributes:
+      label: Link to Rule
+      description: "Provide a link to the rule being recommended."
+      placeholder: "https://github.com/prequel-dev/cre/tree/main/rules/..."
+
+  - type: dropdown
+    id: tuning_type
+    attributes:
+      label: Rule Tuning Type
+      options:
+      - False Positives - Reducing benign events mistakenly identified as problems.
+      - False Negatives - Enhancing detection of problems that were previously missed.
+      - Contextual Tuning - Customizing rules based on specific environment factors.
+      - Temporal Tuning - Adjusting rules based on time-based patterns.
+      - Severity Tuning - Adjusting priority or severity levels of alerts.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: "Provide a detailed description of the suggested changes."
+      placeholder: "Detailed description..."
+
+  - type: textarea
+    id: example_data
+    attributes:
+      label: Example Data
+      description: "If the query is to be changed, include example text data or a screenshot."
+      placeholder: "Example text data or screenshot..."
+
