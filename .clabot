@@ -1,4 +1,4 @@
 {
   "contributors": ["testuser1"],
-  "message": "Welcome to the Problem Detection Community and thank you for your pull request!\n\nNew contributors need to sign the [Contributor License Agreement](cla.md). In order for us to review and merge your code, please email contributor-agreement@prequel.dev with a link to this PR to complete the CLA process."
+  "message": "Welcome to the Problem Detection Community and thank you for your pull request!\n\nNew contributors need to sign the [Contributor License Agreement](https://github.com/prequel-dev/cre/blob/main/cla.md). In order for us to review and merge your code, please email contributor-agreement@prequel.dev with a link to this PR to complete the CLA process."
 }
