@@ -4,8 +4,6 @@ Thank you for your interest in contributing to Common Reliability Enumerations. 
 
 These guidelines will also help you post meaningful issues that will be more easily understood, considered, and resolved. These guidelines are here to help you whether you are creating a new rule, opening an issue to report a false positive, or requesting a feature.
 
-## Table of Contents
-
 ## Effective issue creation in CREs
 
 ### Why we create issues before contributing code or new rules
@@ -16,7 +14,7 @@ By contrast, starting with a pull request makes it more difficult to revisit the
 
 ### What a good issue looks like
 
-We have a few types of issue templates to [choose from](https://github.com/elastic/detection-rules/issues/new/choose). If you don't find a template that matches or simply want to ask a question, create a blank issue and add the appropriate labels.
+We have a few types of issue templates to [choose from](https://github.com/prequel-dev/cre/issues/new/choose). If you don't find a template that matches or simply want to ask a question, create a blank issue and add the appropriate labels.
 
 * **Bug report**: Create a report to help us improve
 * **Feature request**: Suggest an idea for this project
@@ -55,6 +53,26 @@ We follow the [GitHub forking model](https://help.github.com/articles/fork-a-rep
 * Please try to explain *how* and *why* your rule works. Can you explain what makes the logic sound? Does it actually detect what it's supposed to? If you include the screenshot, please make sure to crop out any sensitive information!
 * Please try to capture the expectations for noise levels: is the rule prone to false positives or false negatives?
 * See [Submitting a Pull Request](#submitting-a-pull-request) for more info.
+
+## Building
+
+### Using the `ruler` build tool
+
+### From source
+
+Ensure you have [Go 1.24.1 or newer](https://go.dev/doc/install) installed.
+
+```bash
+$ make
+rm -rf bin/*
+Apr  6 12:26:22.426820 INF ruler.go:32 > Starting creVersion=0.3.5 gitHash=bab564291a90d398612bb8624f5deb021d396fbf
+Apr  6 12:26:22.426952 INF build.go:204 > Building outPath=./bin vers=v0.3.5
+Apr  6 12:26:22.427611 INF build.go:180 > Rule hash=3JJigAvM37cTd12UHSUAW62ESCbmsyoP8yaLMG2ciZHn id=CRE-2024-0007
+Apr  6 12:26:22.427760 INF build.go:180 > Rule hash=9tYbXspjokxGYy4h77Y22XzMKYKC87cG51rAc5XX6beA id=CRE-2024-0016
+Apr  6 12:26:22.427917 INF build.go:180 > Rule hash=BsNNmQfmwjreJdBChDXKCsJbXFerepS4PpCVWEKxdLu1 id=CRE-2024-0021
+Wrote file [sha256 b6cea0c37104234650e00807a5ab23096061cd22e3e2d64df74b5358cf97f875]: cre-rules.0.3.5.b6cea0c3.yaml
+Wrote hash file: bin/cre-rules.0.3.5.b6cea0c3.yaml.sha256
+```
 
 ### Testing a rule
 

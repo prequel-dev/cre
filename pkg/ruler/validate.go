@@ -79,7 +79,7 @@ func validateRules(rules parser.RulesT, allRules, allTerms dupesT, tags tagsT) e
 
 	for _, rule := range rules.Rules {
 
-		log.Info().
+		log.Debug().
 			Str("id", rule.Cre.Id).
 			Msg("Processing rule")
 
@@ -126,10 +126,6 @@ func validateRules(rules parser.RulesT, allRules, allTerms dupesT, tags tagsT) e
 				Msg("Duplicate rule id")
 			return ErrDuplicateRuleId
 		}
-
-		log.Info().
-			Str("hash", rule.Metadata.Hash).
-			Msg("Rule")
 	}
 
 	for key := range rules.Terms {

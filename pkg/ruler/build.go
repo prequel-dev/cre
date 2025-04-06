@@ -142,7 +142,7 @@ func processRules(path string, ruleDupes, termDupes dupesT, tags tagsT) (*parser
 
 		var rules parser.RulesT
 
-		log.Info().
+		log.Debug().
 			Str("file", y.Name()).
 			Msg("Processing rule")
 
@@ -166,13 +166,19 @@ func processRules(path string, ruleDupes, termDupes dupesT, tags tagsT) (*parser
 			return nil, err
 		}
 
-		log.Info().Any("rules", rules).Msg("Rules")
+		log.Trace().Any("rules", rules).Msg("Rules")
 
 		for _, rule := range rules.Rules {
 			rule.Metadata.Hash, err = hashRule(rule)
 			if err != nil {
 				return nil, err
 			}
+
+			log.Info().
+				Str("hash", rule.Metadata.Hash).
+				Str("id", rule.Cre.Id).
+				Msg("Rule")
+
 			allRules.Rules = append(allRules.Rules, rule)
 		}
 
@@ -226,7 +232,7 @@ func _build(vers, inPath, outPath, packageName string) error {
 			continue
 		}
 
-		log.Info().Str("file", e.Name()).Msg("Processing target")
+		log.Debug().Str("file", e.Name()).Msg("Processing target")
 
 		if r, err = processRules(filepath.Join(inPath, e.Name()), ruleDupes, termDupes, tags); err != nil {
 			return err

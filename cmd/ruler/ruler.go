@@ -27,8 +27,8 @@ func main() {
 	initLogger()
 
 	log.Info().
-		Str("version", ruler.Version).
-		Str("hash", ruler.Githash).
+		Str("creVersion", ruler.Version).
+		Str("gitHash", ruler.Githash).
 		Msg("Starting")
 
 	err := ctx.Run()
