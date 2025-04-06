@@ -56,58 +56,22 @@ We follow the [GitHub forking model](https://help.github.com/articles/fork-a-rep
 * Please try to capture the expectations for noise levels: is the rule prone to false positives or false negatives?
 * See [Submitting a Pull Request](#submitting-a-pull-request) for more info.
 
-### Testing a rule with the CLI
-
-When a rule is ready, it can be tested with unit tests. Detection Rules has several tests that run locally to validate rules in the repository. These tests make sure that rules are syntactically correct, use ECS or Beats schemas correctly, and ensure that metadata is also validated. There are also internal tests to make sure that the tools and functions to manager the repository are working as expected.
-
-To run tests, simply run the command `test` with the CLI
-```console
-$ python -m detection_rules test
-
-============================================================= test session starts ==============================================================
-collected 73 items
-
-tests/test_all_rules.py::TestValidRules::test_all_rule_files PASSED                                                                                               [  1%]
-tests/test_all_rules.py::TestValidRules::test_all_rule_queries_optimized PASSED                                                                                   [  2%]
-tests/test_all_rules.py::TestValidRules::test_all_rules_as_rule_schema PASSED                                                                                     [  4%]
-tests/test_all_rules.py::TestValidRules::test_all_rules_tuned PASSED                                                                                              [  5%]
-...
-tests/kuery/test_parser.py::ParserTests::test_number_exists PASSED                                                                                                [ 98%]
-tests/kuery/test_parser.py::ParserTests::test_number_wildcard_fail PASSED                                                                                         [100%]
-
-========================================================================== 73 passed in 45.47s ==========================================================================
-```
-
-
-## Writing style
-
-Our rules are much more than queries. We capture a lot of metadata within the rules, such as severity, index pattterns, and noise level. We also have several fields that are user-readable text, such as `name`, `description`, `false_positives`, `investigation_notes`, and `name`. Those fields, which are populated with English text[*](#i18n-note), should follow the [Elastic UI writing guidelines](https://elastic.github.io/eui/#/guidelines/writing). We want our text to be *clear* and *concise*, *consistent* and *conversational*.
-
-<a id="i18n-note">\* Note</a>: We currently don't have i18n support for Detection Rules.
-
+### Testing a rule
 
 ## Signing the contributor license agreement
-
-Please make sure you've signed the [Contributor License Agreement](http://www.elastic.co/contributor-agreement/). We're not asking you to assign copyright to us, but to give us the right to distribute your code without restriction. We ask this of all contributors in order to assure our users of the origin and continuing existence of the code. You only need to sign the CLA once.
-
 
 ## Submitting a Pull Request
 
 Push your local changes to your forked copy of the repository and submit a Pull Request. In the Pull Request, describe what your changes do and mention the number of the issue where discussion has taken place, e.g., "Closes #123".
 
-Always submit your pull against `main` unless you are making changes for the pending release during feature freeze (see [Branching](#branching) for our branching strategy).
-
-Then sit back and wait. We will probably have a discussion in the pull request and may request changes before merging. We're not trying to get in the way, but want to work with you to get your contributions in Detection Rules.
-
+Always submit your pull against `main`.
 
 ### What to expect from a code review
 
-After a pull is submitted, it needs to get to review. If you have commit permissions on the Detection Rules repo you will probably perform these steps while submitting your Pull Request. If not, a member of the Elastic organization will do them for you, though you can help by suggesting a reviewer for your changes if you've interacted with someone while working on the issue.
+After a pull is submitted, it needs to get to review. If you have commit permissions on the CRE repo you will probably perform these steps while submitting your Pull Request. If not, a member of the Prequel organization will do them for you, though you can help by suggesting a reviewer for your changes if you've interacted with someone while working on the issue.
 
-Most likely, we will want to have a conversation in the pull request. We want to encourage contributions, but we also want to keep in mind how changes may affect other Elastic users. Please understand that even if a rule is working in your environment, it still may not be a good fit for all users of Elastic Security.
+Most likely, we will want to have a conversation in the pull request. Please understand that even if a rule is working in your environment, it still may not be a good fit for all users.
 
 ### How we handle merges
 
 We recognize that Git commit messages are a history of all changes to the repository. We want to make this history easy to read and as concise and clear as possible. When we merge a pull request, we squash commits using GitHub's "Squash and Merge" method of merging. This keeps a clear history to the repository, since we rarely need to know about the commits that happen *within* a working branch for a pull request.
-
-The exception to this rule is backport PRs. We want to maintain that commit history, because the commits within a release branch have already been squashed. If we were to squash again to a single commit, we would just see a commit "Backport changes from `{majorVersion.minorVersion}`" show up in main. This would obscure the changes. For backport pull requests, we will either "Create a Merge Commit" or "Rebase and Merge." For more information, see [Branching](#branching) for our branching strategy.
