@@ -8,7 +8,7 @@
 
 CREs provide a consistent way to describe reliability problems (cause, impact, and mitigation). The CRE schema and taxonomy enables the sharing of reliability intelligence and gives teams a vocabulary to discuss recurring problems without reinventing the wheel or diagnosing incidents in isolation.
 
-This standard was influenced by others, like CVEs (Common Vulnerabilities and Exposures). Just as CVEs provide a method to classify and share known threats, CREs offer an equivalent standard for reliability problems.
+Just as CVEs (Common Vulnerabilities and Exposures) provide a method to classify and share known threats, CREs offer an equivalent standard for reliability problems.
 
 With CREs, you can:
 
