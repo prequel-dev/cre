@@ -4,7 +4,7 @@
 
 ### What are CREs?
 
-***Common Reliability Enumerations (CREs)*** are an open, structured standard for naming and categorizing reliability problems found in production systems. CREs represent the collective knowledge of [the problem detection community](https://detect.sh) where hundreds of engineers and practitioners across startups, enterprises, and critical infrastructure providers discuss how to share, detect, and mitigate reliability problems.
+***Common Reliability Enumerations (CREs)*** are an open, structured standard for naming and categorizing reliability problems found in production systems. CREs represent the collective knowledge of [The Open Problem Detection (and Resolution) Community](https://detect.sh) where hundreds of engineers and practitioners across startups, enterprises, and critical infrastructure providers discuss how to share, detect, and mitigate reliability problems.
 
 CREs provide a consistent way to describe reliability problems (cause, impact, and mitigation). The CRE schema and taxonomy enables the sharing of reliability intelligence and gives teams a vocabulary to discuss recurring problems without reinventing the wheel or diagnosing incidents in isolation.
 
