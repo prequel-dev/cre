@@ -6,7 +6,7 @@ Until now, there's been no consistent way to describe reliability problems, impa
 
 Standards like CVEs (Common Vulnerabilities and Exposures) changed the game in security. They provide a method to classify and share known threats. CREs provide an equivalent standard for reliability problems.
 
-Common Reliability Enumerations (CREs) are an open, structured standard for naming and categorizing reliability problems found in production systems. CREs represent a community of hundreds of engineers and practitioners across startups, enterprises, and critical infrastructure providers on how best to detect reliability problems.
+***Common Reliability Enumerations (CREs)*** are an open, structured standard for naming and categorizing reliability problems found in production systems. CREs represent a community of hundreds of engineers and practitioners across startups, enterprises, and critical infrastructure providers on how best to detect reliability problems.
 
 The CRE standard makes problem detection repeatable. It helps teams move from reactive fire-fighting to proactive prevention while leveraging the knowledge of the problem detection community.
 
