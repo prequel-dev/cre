@@ -23,15 +23,16 @@ CREs give teams a common framework to ***identify***, ***compare***, and ***lear
 
 ### Schema
 
-The Common Relability Enumeration Schema is located in [cre-schema.json](cre-schema.json). Learn more about [CRE specification](http://docs.prequel.dev/cres/cre-spec) and [rule syntax](http://docs.prequel.dev/rules/syntax).
+The Common Relability Enumeration Schema is located in [cre-schema.json](cre-schema.json). Learn more about the [CRE specification](http://docs.prequel.dev/cres/cre-spec) and [rule syntax](http://docs.prequel.dev/rules/syntax).
 
-### CREs
+### CRE Rules
 
-CRE rules are located in the [`rules/`](rules/) folder. Each CRE is placed in its own folder. Tags and categories are also located in this folder in the [`rules/tags`](rules/tags/) subfolder.
+* CRE rules are located in the [`rules/`](rules/) folder. Each CRE is placed in its own folder. 
+* Tags and categories are also located in this folder in the [`rules/tags`](rules/tags/) subfolder.
 
 ### Rule Builder
 
-A rule builder executable is provided to combine individual CREs into one rules document for a problem detector. The rule builder generates and adds rule hashes derived from the content of the rules. The rule hash will only change if the content of the rule changes. It also validates tag and category references and ensures there are no duplicate IDs.
+A builder executable is provided to combine individual CREs into one rules document for a problem detector. The rule builder generates and adds rule hashes derived from the content of the rules. The rule hash will only change if the content of the rule changes. It also validates tag and category references and ensures there are no duplicate IDs.
 
 ### Playground
 
@@ -41,10 +42,12 @@ The fastest way to quickly test a rule on data is with the [CRE playground](http
 
 [Prequel](https://github.com/prequel-dev/prequel) is a free and open community-driven reliability problem detector that runs CREs on data. Use it to develop and test CREs on Linux, macOS, or Windows.
 
-## How to learn 
-
-## How to use
-
 ## How to contribute
 
+New contributors are encouraged to join the problem detection community add new CREs. Learn how to contribute in [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Join the community
+
+* [Discussions](https://github.com/prequel-dev/cre/discussions)
+* [Slack](https://prequel-dev.slack.com/)
+* [Detect.sh](https://www.detect.sh/) mailing list
