@@ -39,6 +39,6 @@ rules:
   rule:
     set:
       event:
-        source: logs
+        source: cre.log.loki
       match:
       - regex: .*backgroundCache writeBackLoop Cache.Store fail.*SERVER_ERROR out of memory storing object.*

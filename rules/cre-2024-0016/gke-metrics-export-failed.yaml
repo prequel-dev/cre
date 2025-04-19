@@ -37,6 +37,6 @@ rules:
     rule:
       set:
         event:
-          source: gke-metrics-agent
+          source: cre.log.gke-metrics-agent
         match:
           - regex: Failed to export(.+)metrics(.+)Please retry(.+)contact support

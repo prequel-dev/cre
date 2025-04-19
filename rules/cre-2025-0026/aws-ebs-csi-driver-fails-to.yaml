@@ -38,7 +38,7 @@ rules:
   rule:
     set:
       event:
-        source: aws-eks-nodeagent
+        source: cre.log.aws.eks-nodeagent
       window: 10s
       match:
         - value: the server could not find the requested resource (get volumesnapshotcontents.snapshot.storage.k8s.io)

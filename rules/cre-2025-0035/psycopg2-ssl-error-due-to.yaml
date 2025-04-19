@@ -42,6 +42,6 @@ rules:
   rule:
     set:
       event:
-        source: logs
+        source: cre.log.django
       match:
         - regex: '.*django\.db\.utils\.OperationalError: SSL error: decryption failed or bad record mac.*'

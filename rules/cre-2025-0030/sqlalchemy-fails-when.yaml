@@ -40,7 +40,7 @@ rules:
   rule:
     set:
       event:
-        source: logs
+        source: cre.log.sqlalchemy
       window: 5s
       match:
         - regex: '.*sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string.*'

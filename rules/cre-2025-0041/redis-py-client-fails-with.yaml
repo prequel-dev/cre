@@ -43,6 +43,6 @@ rules:
   rule:
     set:
       event:
-        source: logs
+        source: cre.log.redis-py
       match:
         - regex: '.*AttributeError: ''NoneType'' object has no attribute ''getpid''.*'

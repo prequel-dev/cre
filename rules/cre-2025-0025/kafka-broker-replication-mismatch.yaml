@@ -34,6 +34,6 @@ rules:
     rule:
       set:
         event:
-          source: kafka-topic-operator
+          source: cre.log.kafka.topic-operator
         match:
           - value: "InvalidReplicationFactorException"

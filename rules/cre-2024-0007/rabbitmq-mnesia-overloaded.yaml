@@ -40,7 +40,7 @@ rules:
       sequence:
         window: 30s
         event:
-          source: rabbitmq
+          source: cre.log.rabbitmq
         order:
           - regex: Discarding message(.+)in an old incarnation(.+)of this node
           - Mnesia is overloaded

@@ -29,6 +29,6 @@ rules:
     rule:
       set:
         event:
-          source: nginx
+          source: cre.log.nginx
         match:
           - regex: "\\[error\\].*?\\bcould not be resolved\\b.*?\\bServer failure\\b"

@@ -42,7 +42,7 @@ rules:
   rule:
     set:
       event:
-        source: logs
+        source: cre.log.opentelemetry-collector
       window: 5s
       match:
         - value: 'panic: runtime error: invalid memory address or nil pointer dereference'

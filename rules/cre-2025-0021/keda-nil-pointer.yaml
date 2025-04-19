@@ -39,7 +39,7 @@ rules:
       set:
         window: 5s
         event:
-          source: keda-operator
+          source: cre.log.keda-operator.2.*
         match:
           - value: "panic: runtime error:"
           - value: "ResolveScaleTargetPodSpec"

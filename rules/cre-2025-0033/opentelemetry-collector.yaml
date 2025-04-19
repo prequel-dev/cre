@@ -40,7 +40,7 @@ rules:
   rule:
     set:
       event:
-        source: logs
+        source: cre.log.opentelemetry-collector
       match:
         - regex: '.*scrape/scrape.go:\d+\s+Scrape commit failed.*\"error\": \"data refused due to high memory usage\"'
 

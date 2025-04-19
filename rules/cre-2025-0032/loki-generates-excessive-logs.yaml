@@ -45,7 +45,7 @@ rules:
   rule:
     sequence:
       event:
-        source: logs
+        source: cre.log.loki
       window: 60s
       order:
         - regex: '.*msg="failed to connect to memcached server.*lookup .* on .*: no such host.*'

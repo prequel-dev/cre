@@ -38,7 +38,7 @@ rules:
   rule:
     set:
       event:
-        source: logs
+        source: cre.log.django
       window: 5s
       match:
         - regex: '.*psycopg2\.errors\.DeadlockDetected: deadlock detected.*'
