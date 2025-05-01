@@ -9,7 +9,6 @@ rules:
       cause: | 
         The GKE team is aware of this issue and is working on a fix.
       tags: 
-        - cre-2024-0016
         - known-problem
         - gke
       mitigation: |
@@ -31,7 +30,7 @@ rules:
         - name: "Google Kubernetes Engine (GKE)"
           version: "1.31.x"
     metadata:
-      kind: rules
+      kind: prequel
       id: rBj7HEGesPj8suW6G3DvrJ
       gen: 1
     rule:

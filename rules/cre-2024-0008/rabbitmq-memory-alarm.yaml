@@ -1,0 +1,33 @@
+rules:
+  - cre:
+      id: CRE-2024-0008
+      severity: 1
+      title: RabbitMQ memory alarm
+      category: message-queue-problem
+      author: Prequel
+      description: |
+      cause: |
+      impact: |
+      impactScore: 9
+      tags: 
+        - known-problem
+        - rabbitmq
+      mitigation: |
+      mitigationScore: 6
+      references:
+      applications:
+        - name: "rabbitmq"
+    metadata:
+      kind: prequel
+      id: a3UdHsmsmAGCVRZuVLCsrX
+      gen: 1
+    rule:
+      sequence:
+        window: 30s
+        event:
+          source: cre.log.rabbitmq
+        order:
+          - memory resource limit alarm set on node
+          - Publishers will be blocked until this alarm clears
+        negate:
+          - memory resource limit alarm cleared on node

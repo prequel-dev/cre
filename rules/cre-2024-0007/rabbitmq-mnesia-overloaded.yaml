@@ -17,7 +17,6 @@ rules:
         - RabbitMQ is unable to process any new messages, which can lead to outages in consumers and producers.
       impactScore: 9
       tags: 
-        - cre-2024-0007
         - known-problem
         - rabbitmq
       mitigation: |
@@ -33,7 +32,7 @@ rules:
         - name: "rabbitmq"
           version: "3.9.x"
     metadata:
-      kind: rules
+      kind: prequel
       id: 5UD1RZxGC5LJQnVpAkV11A
       gen: 1
     rule:

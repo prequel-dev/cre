@@ -1,4 +1,0 @@
-{
-  "path": "../rules/cre-2024-0007/rabbitmq-mnesia-overloaded.yaml",
-  "expected": "Hello from test1!"
-}
