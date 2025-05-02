@@ -1,0 +1,38 @@
+rules:
+- cre:
+    id: CRE-2025-0048
+    severity: 3
+    title: Kubelet node not ready due to a DNS hostname resolution failure
+    category: kubernetes-problem
+    author: Kelsey Hightower
+    description: | 
+       A Kubernetes worker node has entered the **NotReady** state.
+    cause: |
+      - The node's DNS hostname resolution failed.
+    tags:
+      - kubelet
+      - kubernetes
+      - dns
+    mitigation: |
+      - Check the node's FQDN in /etc/hosts and ensure it is resolvable from the control-plane.
+    references: 
+      - https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/822
+    applications:
+      - name: kubelet
+        version: ">= 1.25"
+    impact: |
+      The node is not ready, and the control-plane cannot schedule pods on it.
+    impactScore: 5
+    mitigationScore: 3
+  metadata:
+    kind: prequel
+    id: 5VzX6RrgWVwBhWVWn5Cvcq
+    gen: 1
+  rule:
+    sequence:
+      window: 5s
+      event:
+        source: cre.log.kubelet
+      order:
+        - Unable to register node with API server
+        - regex: "failed to get node info: node(.+)not found"
