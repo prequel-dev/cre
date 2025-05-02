@@ -1,0 +1,27 @@
+2025-01-20T11:04:58.113Z|114851|poll_loop|INFO|Dropped 2572 log messages in last 51 seconds (most recently, 46 seconds ago) due to excessive rate
+2025-01-20T11:04:58.113Z|114852|poll_loop|INFO|wakeup due to 0-ms timeout at tcp:10.15.52.238:47362 (58% CPU usage) 
+2025-01-20T11:04:58.115Z|114853|poll_loop|INFO|wakeup due to 0-ms timeout at tcp:10.15.52.238:47362 (58% CPU usage) 
+2025-01-20T11:04:58.117Z|114854|poll_loop|INFO|wakeup due to 0-ms timeout at tcp:10.15.52.238:47362 (58% CPU usage)
+2025-01-20T11:04:58.118Z|114855|poll_loop|INFO|wakeup due to 0-ms timeout at tcp:10.15.52.238:47362 (58% CPU usage)
+2025-01-20T11:04:58.119Z|114856|poll_loop|INFO|wakeup due to 0-ms timeout at tcp:10.15.52.238:47362 (58% CPU usage)
+2025-01-20T11:04:58.120Z|114857|poll_loop|INFO|wakeup due to 0-ms timeout at tcp:10.15.52.238:47362 (58% CPU usage)
+2025-01-20T11:04:58.122Z|114858|poll_loop|INFO|wakeup due to 0-ms timeout at tcp:10.15.52.238:47362 (58% CPU usage)
+2025-01-20T11:04:58.123Z|114859|poll_loop|INFO|wakeup due to 0-ms timeout at ../ovsdb/log.c:1022 (58% CPU usage)
+2025-01-20T11:05:01.809Z|114860|poll_loop|INFO|Dropped 2739 log messages in last 3 seconds (most recently, 0 seconds ago) due to excessive rate
+2025-01-20T11:05:01.809Z|114861|poll_loop|INFO|wakeup due to [POLLIN] on fd 50 (10.15.58.43:6644<->10.15.52.238:47362) at ../lib/stream-fd.c:157 (60% CPU usage)
+2025-01-20T11:05:03.527Z|114862|raft|INFO|Dropped 151176 log messages in last 9 seconds (most recently, 0 seconds ago) due to excessive rate
+2025-01-20T11:05:07.809Z|114864|poll_loop|INFO|Dropped 4269 log messages in last 6 seconds (most recently, 0 seconds ago) due to excessive rate
+2025-01-20T11:05:07.809Z|114865|poll_loop|INFO|wakeup due to 0-ms timeout at tcp:10.15.52.238:47362 (83% CPU usage)
+2025-01-20T11:05:15.245Z|114866|reconnect|ERR|tcp:10.15.52.187:55622: no response to inactivity probe after 5 seconds, disconnecting
+2025-01-20T11:05:31.977Z|114867|reconnect|ERR|tcp:10.15.52.164:55002: no response to inactivity probe after 5 seconds, disconnecting
+2025-01-20T11:06:04.384Z|114868|raft|INFO|Dropped 121263 log messages in last 61 seconds (most recently, 55 seconds ago) due to excessive rate
+2025-01-20T11:06:33.309Z|114874|raft|INFO|Dropped 288 log messages in last 29 seconds (most recently, 23 seconds ago) due to excessive rate
+2025-01-20T11:06:33.309Z|114875|raft|INFO|current entry eid ID does not match prerequisite pre_id in execute_command_request
+2025-01-20T11:06:41.642Z|114876|raft|WARN|ignoring vote request received as leader
+2025-01-20T11:06:41.646Z|114877|raft|INFO|server 2c73 is leader for term 2504
+2025-01-20T11:06:41.651Z|114878|timeval|WARN|Unreasonably long 1649ms poll interval (1645ms user, 0ms system)
+2025-01-20T11:06:41.653Z|114879|timeval|WARN|disk: 0 reads, 24 writes
+2025-01-20T11:06:41.654Z|114880|timeval|WARN|context switches: 1 voluntary, 1 involuntary
+2025-01-20T11:06:41.654Z|114881|coverage|INFO|Skipping details of duplicate event coverage for hash=4b5d09e5
+2025-01-20T11:06:41.655Z|114882|poll_loop|INFO|Dropped 852 log messages in last 94 seconds (most recently, 92 seconds ago) due to excessive rate
+2025-01-20T11:06:41.655Z|114883|poll_loop|INFO|wakeup due to [POLLOUT] on fd 56 (10.15.58.43:6642<->10.15.52.89:43910) at ../lib/stream-fd.c:153 (52% CPU usage)

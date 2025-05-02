@@ -43,7 +43,7 @@ rules:
     impactScore: 4
     mitigationScore: 4
   metadata:
-    kind: rules
+    kind: prequel
     id: MeSYLTdBeDi1kroH6QidFq
     gen: 1
   rule:

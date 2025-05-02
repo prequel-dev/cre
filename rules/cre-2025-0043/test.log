@@ -1,0 +1,8 @@
+2025-04-21T03:29:05.871263406Z {
+  "level": "error",
+  "logger": "plugins.validation",
+  "msg": "Plugin validation failed",
+  "pluginId": "kentik-description-panel",
+  "error": "plugin 'kentik-description-panel' has no signature",
+  "t": "2025-04-09T03:29:05.87094421Z"
+}

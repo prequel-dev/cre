@@ -1,0 +1,37 @@
+rules:
+- cre:
+    id: CRE-2025-0020
+    severity: 2
+    title: Grafana alloy Loki fanout crash
+    category: storage-problem
+    author: Prequel
+    description: |
+      Grafana alloy Loki fanout crashes when the number of log files exceeds the number of ingesters.
+    cause: |
+      - The number of log files exceeds the number of ingesters.
+    tags:
+      - grafana
+      - alloy
+      - loki
+    mitigation: |
+      - Upgrade to the latest version of Grafana alloy.
+    references: 
+      - https://github.com/grafana/alloy/issues/2448
+    applications:
+      - name: "Grafana alloy"
+        version: "1.7.x"
+    impact: |
+    impactScore: 5
+    mitigationScore: 2
+  metadata:
+    kind: prequel
+    id: tN5qNhCE86n9bY7SypJZuJ
+    gen: 1
+  rule:
+    sequence:
+      window: 5s
+      event:
+        source: cre.log.alloy
+      order:
+        - regex: panic(.+)runtime error(.+)invalid memory address or nil pointer dereference
+        - regex: github.com/grafana/alloy/internal/component/loki/process(.+)handleOut

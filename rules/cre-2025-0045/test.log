@@ -1,0 +1,3 @@
+May 16 00:28:21.422694 INF main.go:28 > Boot githash=cd0901f423827a1efe1c17366749c88fe7c24dd9 semver=0.7.1
+May 16 00:28:21.660465 INF nutz.go:118 > Connecting to NATS url=nats://nats-server:4222
+May 16 00:28:21.761203 ERR nutz.go:136 > NATS connect retry on error error="nats: Authorization Violation" retry=0 url=nats://nats-server:4222

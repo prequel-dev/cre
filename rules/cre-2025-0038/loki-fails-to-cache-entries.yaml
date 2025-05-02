@@ -33,7 +33,7 @@ rules:
     mitigationScore: 3
     reports: 7
   metadata:
-    kind: rules
+    kind: prequel
     id: l8ums4nKERqZuKs1S31YSXZ
     gen: 1
   rule:
@@ -41,4 +41,4 @@ rules:
       event:
         source: cre.log.loki
       match:
-      - regex: .*backgroundCache writeBackLoop Cache.Store fail.*SERVER_ERROR out of memory storing object.*
+      - regex: "backgroundCache writeBackLoop Cache.Store fail.*SERVER_ERROR out of memory storing object.*"

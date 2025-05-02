@@ -1,0 +1,2 @@
+2025-04-20T13:40:17.166349778Z psycopg2.errors.DeadlockDetected: deadlock detected
+2025-04-20T13:40:17.174747930Z django.db.utils.OperationalError: deadlock detected

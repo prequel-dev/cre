@@ -1,0 +1,1 @@
+2025-04-15T20:17:58.568484769Z  error  internal/queue_sender.go:105  Exporting failed. Dropping data. Try enabling retry_on_failure config option to retry on retryable errors.  {"kind": "exporter", "data_type": "metrics", "name": "otlphttp", "error": "Permanent error: 413 Payload Too Large", "dropped_items": 3888}

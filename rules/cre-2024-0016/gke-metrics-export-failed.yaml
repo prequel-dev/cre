@@ -38,4 +38,4 @@ rules:
         event:
           source: cre.log.gke-metrics-agent
         match:
-          - regex: Failed to export(.+)metrics(.+)Please retry(.+)contact support
+          - regex: Exporting failed(.+)Please retry(.+)If internal errors persist, contact support at https://cloud.google.com/support/

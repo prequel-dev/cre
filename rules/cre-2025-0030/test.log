@@ -1,0 +1,7 @@
+2025-04-05T23:45:56.123456Z ERROR sqlalchemy.engine.base.Engine Could not parse rfc1738 URL from string 'postgresql://user:pa@ssword@db.example.com:5432/mydb'
+Traceback (most recent call last):
+  File "...", line ..., in ...
+    engine = create_engine("postgresql://user:pa@ssword@db.example.com:5432/mydb")
+  File "...sqlalchemy/engine/create.py", line ..., in create_engine
+    raise exc.ArgumentError("Could not parse rfc1738 URL from string '%s'" % url)
+sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string 'postgresql://user:pa@ssword@db.example.com:5432/mydb'

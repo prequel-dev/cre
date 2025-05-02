@@ -1,0 +1,53 @@
+rules:
+  - cre:
+      id: CRE-2024-0008
+      severity: 1
+      title: RabbitMQ busy distribution port performance issue
+      category: message-queue-performance
+      author: Prequel
+      description: |
+        The Erlang VM has reported a **`busy_dist_port`** condition, meaning the send buffer of a distribution port (used for inter-node traffic inside a
+        RabbitMQ cluster) is full. When this happens the scheduler suspends the process owning the port, stalling inter-node replication, management
+        calls, and any RabbitMQ process that must use that port. Throughput drops and latency rises until the buffer drains or the node is restarted.
+      cause: |
+        - Very large message payloads or batches that quickly saturate the default 128 MB buffer.  
+        - Bursty fan-out traffic (mirrored / quorum queues) flooding multiple peers simultaneously.  
+        - TLS on inter-node links adding overhead and slowing acknowledgements.  
+        - High network latency or packet loss between nodes, preventing timely buffer clearance.  
+        - `RABBITMQ_DISTRIBUTION_BUFFER_SIZE` (Erlang `+zdbbl`) set too low for the traffic profile.  
+        - Bugs in older RabbitMQ / Erlang versions that mismanage buffer accounting.
+      impact: |
+        - Publisher confirms slow down; application throughput and SLA latency degrade.  
+        - Queue mirrors lag or desynchronise, raising data-loss risk if a node fails.  
+        - Management UI and CLI become unresponsive, complicating diagnosis.  
+        - Memory pressure grows; clusters often hit `vm_memory_high_watermark` shortly after prolonged busy_dist_port events, forcing flow-control or node restarts.  
+        - Severe cases can drop inter-node links, triggering partition-handling logic and service outages.
+      impactScore: 8
+      tags: 
+        - known-problem
+        - rabbitmq
+      mitigation: |
+        - **Diagnose** – run `rabbitmq-diagnostics busy_dist_port` (3.13+) or inspect warnings to identify affected nodes.  
+        - **Raise the buffer limit** – set `RABBITMQ_DISTRIBUTION_BUFFER_SIZE=512000` (≈ 512 MB) or pass `-zdbbl 512000` to the Erlang VM; restart the node.  Ensure the pod / host memory limit is increased accordingly (≥ 512 MB × node count).  
+        - **Reduce message size / batch weight** – split or compress payloads larger than ~100 MB.  
+        - **Minimise cross-node chatter** – co-locate heavily interacting queues or prefer quorum/stream queues that require fewer replicas.  
+        - **Check network health** – keep RTT < 1 ms and eliminate loss between nodes (same AZ / rack where possible).  
+        - **Upgrade** – run RabbitMQ ≥ 3.13 and Erlang ≥ 26.2, which improve distribution buffer handling.  
+        - **Alert & monitor** – track `busy_dist_port`, distribution send queue length, and memory alarms to intervene before throughput collapses.
+      mitigationScore: 5
+      references:
+        - https://groups.google.com/g/rabbitmq-users/c/4AOwZrQyekI
+        - https://github.com/rabbitmq/cluster-operator/discussions/745
+        - https://groups.google.com/g/rabbitmq-users/c/Vrt72YQrSk4
+      applications:
+        - name: "rabbitmq"
+    metadata:
+      kind: prequel
+      id: vLdjbkHWbU3ZS6V9w9sGUW
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.rabbitmq
+        match:
+          - regex: "[warning](.+)rabbit_sysmon_handler busy_dist_port"

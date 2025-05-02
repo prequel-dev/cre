@@ -1,0 +1,9 @@
+2025-04-14T21:40:55.477455425Z {
+  "event": "Error running healthcheck",
+  "timestamp": "2025-02-14T21:40:55.474548Z",
+  "level": "error",
+  "service.name": "telemetry-worker",
+  "service.version": "abcdef1234567890deadbeefcafebabe_main",
+  "sb_env": "region01",
+  "exception": "django.db.utils.OperationalError: SSL error: decryption failed or bad record mac"
+}

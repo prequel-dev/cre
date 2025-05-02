@@ -28,7 +28,7 @@ rules:
         - name: Kafka
           version: 4.x
     metadata:
-      kind: rules
+      kind: prequel
       id: LikPvDPTX5kEKiR3EoBEM7
       gen: 1
     rule:

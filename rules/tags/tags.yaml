@@ -348,3 +348,6 @@ tags:
   - name: weak-ciphers
     displayName: Weak Ciphers
     description: Problems related to weak ciphers, such as RC4, DES, or MD5
+  - name: alloy
+    displayName: Alloy
+    description: Problems related to Grafana alloy, such as Loki fanout crashes, or entries too far behind.

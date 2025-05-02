@@ -1,0 +1,46 @@
+rules:
+  - cre:
+      id: CRE-2024-0018
+      severity: 2
+      title: Neutron Open Virtual Network (OVN) high CPU usage
+      category: networking-problem
+      author: Prequel
+      description: |
+        OVN daemons (e.g., ovn-controller) are stuck in a tight poll loop, driving CPU to 100 %. Logs show “Dropped … due to excessive rate” or
+        “Unreasonably long … poll interval,” slowing port-binding and network traffic.
+      cause: | 
+        - Probe interval too low leads to constant keep-alives  
+        - Burst of logical-flow updates (security-groups, LB changes)  
+        - Poll-loop bug in OVN ≤ 20.2.0
+        - CPU contention with GPU workloads; no offload/D PDK
+      tags: 
+        - known-problem
+        - ovn
+      mitigation: |
+        - Increase the OVN remote probe interval to 30 seconds:
+          ```
+          ovs-vsctl set open . external_ids:ovn-remote-probe-interval=30000
+          ```
+      mitigationScore: 5
+      impact: |
+        - Slower pod/VM networking; jobs see latency spikes  
+        - OVN & Neutron logs flood
+      impactScore: 4
+      references:
+        - https://mail.openvswitch.org/pipermail/ovs-dev/2019-July/361186.html
+      applications:
+        - name: neutron
+          version: <= 20.2.0
+          containerName: neutron-server
+    metadata:
+      kind: prequel
+      id: akx8PKAmcUjxYvKkSQJXzt
+      gen: 1
+    rule:
+      set:
+        window: 5s
+        event:
+          source: cre.log.neutron
+        match:
+          - regex: Dropped(.+)log messages in last(.+)due to excessive rate
+          - regex: Unreasonably long(.+)poll interval

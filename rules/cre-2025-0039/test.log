@@ -1,0 +1,2 @@
+2025-04-18T12:20:34.918Z  info  internal/retry_sender.go:126  Exporting failed. Will retry the request after interval.  {"kind": "exporter", "data_type": "logs", "name": "otlphttp", "error": "Post \"https://backend.example.com/v1/logs\": context deadline exceeded", "interval": "7.219s"}
+2025-04-18T12:21:00.214Z  error  customexporter/extension.go:309  Heartbeat error  {"kind": "extension", "name": "custom", "error": "collector heartbeat request failed: API error (status code: 502): <html><title>502 Bad Gateway</title></html>"}

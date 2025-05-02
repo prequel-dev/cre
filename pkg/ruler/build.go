@@ -168,7 +168,7 @@ func processRules(path string, ruleDupes, termDupes dupesT, tags tagsT) (*parser
 
 			var r = &rules.Rules[i]
 
-			r.Metadata.Hash, err = hashRule(rule)
+			r.Metadata.Hash, err = HashRule(rule)
 			if err != nil {
 				return nil, err
 			}

@@ -1,0 +1,4 @@
+2025-04-04T23:38:01.874041409-04:00 ERROR loki.storage.aws: WebIdentityErr: failed to retrieve credentials
+caused by: SerializationError: failed to unmarshal error message
+        status code: 405, request id:
+caused by: UnmarshalError: failed to unmarshal error message

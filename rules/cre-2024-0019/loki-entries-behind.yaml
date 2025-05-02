@@ -1,0 +1,50 @@
+rules:
+- cre:
+    id: CRE-2025-0019
+    severity: 3
+    title: Alloy entries too far behind
+    category: storage-problem
+    author: Prequel
+    description: |
+      Grafana can get into a state where it writes more errors messages than it can process. The problem is compounded when Grafana is collecting its own error logs that include the related warnings that it can no longer keep up.
+      This can consume several GB per day of storage.
+    cause: |
+      - Ingestion backlog: log volume exceeds the capacity of ingesters, so batches arrive with timestamps older than `reject_old_samples_max_age`.  
+      - Self-scraping feedback loop: Alloy tails its own error logs, each failure spawning more “entry too far behind” messages.  
+      - Undersized cluster: too few ingester replicas or slow disk / network I/O delays batch flushes.  
+    tags:
+      - grafana
+      - alloy
+      - loki
+    mitigation: |
+      Modify the following configuration parameters in Grafana:
+
+      ```
+      reject_old_samples: false
+      reject_old_samples_max_age: <raise this limit>
+      ```
+    references:
+      - https://github.com/grafana/loki/issues/9869
+    applications:
+      - name: "Grafana alloy"
+        version: "1.7.x"
+    impact: |
+      - Loki rejects late entries, creating gaps in observability data.  
+      - Error-retry loop can generate multiple GB of logs per day, rapidly consuming object/block storage.  
+      - Elevated CPU and memory on ingesters and queriers; query latency and alert evaluation slow down.  
+    impactScore: 3
+    mitigationScore: 2
+  metadata:
+    kind: prequel
+    id: cu51NjYHr4GYxghwjCtqBY
+    gen: 1
+  rule:
+    sequence:
+      window: 5s
+      event:
+        source: cre.log.alloy
+      order:
+        - regex: tail routine(.+)started
+        - final error sending batch
+        - entry too far behind
+

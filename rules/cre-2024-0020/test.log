@@ -1,0 +1,12 @@
+2025-03-10T17:26:07.862584338Z ts=2025-03-10T17:26:07.860799217Z level=info msg="tail routine: started" component_path=/pod_logs.feature component_id=loki.source.file.pod_logs component=tailer path=/var/log/pods/kube-system_aws-node-kppb7_0a4ca1d3-466c-48d7-b171-b88a8cc985f6/aws-node/1.log
+2025-03-10T17:26:07.862799301Z ts=2025-03-10T17:26:07.860827824Z level=info msg="Seeked /var/log/pods/kube-system_aws-node-kppb7_0a4ca1d3-466c-48d7-b171-b88a8cc985f6/aws-node/2.log - &{Offset:0 Whence:0}" component_path=/pod_logs.feature component_id=loki.source.file.pod_logs
+2025-03-10T17:26:07.862802787Z ts=2025-03-10T17:26:07.860836789Z level=info msg="tail routine: started" component_path=/pod_logs.feature component_id=loki.source.file.pod_logs component=tailer path=/var/log/pods/kube-system_aws-node-kppb7_0a4ca1d3-466c-48d7-b171-b88a8cc985f6/aws-node/2.log
+2025-03-10T17:26:07.862897013Z ts=2025-03-10T17:26:07.860861447Z level=info msg="Seeked /var/log/pods/kube-system_aws-node-kppb7_0a4ca1d3-466c-48d7-b171-b88a8cc985f6/aws-eks-nodeagent/1.log - &{Offset:0 Whence:0}" component_path=/pod_logs.feature component_id=loki.source.file.pod_logs
+2025-03-10T17:26:07.969700950Z panic: runtime error: invalid memory address or nil pointer dereference
+2025-03-10T17:26:07.969727128Z [signal SIGSEGV: segmentation violation code=0x1 addr=0x18 pc=0x49fbe52]
+2025-03-10T17:26:07.969728973Z 
+2025-03-10T17:26:07.969731098Z goroutine 12138 [running]:
+2025-03-10T17:26:07.972106696Z github.com/grafana/alloy/internal/component/loki/process.(*Component).handleOut(0xc003fe6d80, 0xc003fd3800, 0xc0037cd640?)
+2025-03-10T17:26:07.972123691Z /src/alloy/internal/component/loki/process/process.go:205 +0x372
+2025-03-10T17:26:07.972275052Z created by github.com/grafana/alloy/internal/component/loki/process.(*Component).Run in goroutine 12132
+2025-03-10T17:26:07.972300072Z /src/alloy/internal/component/loki/process/process.go:117 +0x19a

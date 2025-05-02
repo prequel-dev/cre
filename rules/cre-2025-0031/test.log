@@ -1,0 +1,7 @@
+2025-04-06T23:38:00.874041409-04:00 ERROR django.security.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.100'. You may need to add '192.168.1.100' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/app/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/app/.venv/lib/python3.11/site-packages/django/http/request.py", line 137, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.100'. You may need to add '192.168.1.100' to ALLOWED_HOSTS.

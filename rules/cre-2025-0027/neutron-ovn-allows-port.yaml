@@ -37,12 +37,14 @@ rules:
     mitigationScore: 2
     reports: 2
   metadata:
-    kind: rules
+    kind: prequel
     id: 6esZLHD9QRK4fHqTbtod4j
     gen: 1
   rule:
-    set:
+    sequence:
+      window: 2s
       event:
         source: cre.log.neutron
-      match:
-        - regex: '.* Failed to bind port .* on host .* for vnic_type .* using segments \[.*\].* Attempt .* to bind port .* .* Refusing to bind port .* to dead agent:  <.*>'
+      order:
+        - regex: "Failed to bind port(.+)for vnic_type(.+)using segments(.+)"
+        - regex: "Refusing to bind port(.+)to dead agent"

@@ -1,0 +1,9 @@
+2025-04-20T10:52:31.284Z ERROR app.worker.redis - AttributeError: 'NoneType' object has no attribute 'getpid'
+Traceback (most recent call last):
+  File "/app/workers/metrics.py", line 61, in collect
+    await redis_client.info()
+  File "/usr/local/lib/python3.11/site-packages/redis/asyncio/client.py", line 1092, in info
+    return await self.execute_command("INFO")
+  File "/usr/local/lib/python3.11/site-packages/redis/asyncio/connection.py", line 295, in get_event_loop
+    pid = self._loop.getpid()
+AttributeError: 'NoneType' object has no attribute 'getpid'

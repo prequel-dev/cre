@@ -1,0 +1,30 @@
+2024-09-04T10:42:31Z     INFO    Reconciling ScaledObject        {"controller": "scaledobject", "controllerGroup": "keda.sh", "controllerKind": "ScaledObject", "ScaledObject": {"name":"rabbitmq-scaledobject","namespace":"000000"}, "namespace": "000000", "name": "rabbitmq-scaledobject", "reconcileID": "38389842-7628-4b9e-bc34-76c5b28b4889"}
+2024-09-04T10:42:31Z     INFO    "metricName" is deprecated and will be removed in v2.12, please do not set it anymore   {"controller": "scaledobject", "controllerGroup": "keda.sh", "controllerKind": "ScaledObject", "ScaledObject": {"name":"rabbitmq-scaledobject","namespace":"000000"}, "namespace": "000000", "name": "rabbitmq-scaledobject", "reconcileID": "38389842-7628-4b9e-bc34-76c5b28b4889", "trigger.type": "rabbitmq"} 
+2024-09-04T10:42:31Z     ERROR   scale_resolvers target deployment doesn't exist {"scaledObject.Namespace": "000000", "scaledObject.Name": "rabbitmq-scaledobject", "resource": "apps/v1, Kind=Deployment", "name": "report-000000-core-report", "error": "Deployment.apps \"report-000000-core-report\" not found"}
+github.com/kedacore/keda/v2/pkg/scaling/resolver.ResolveScaleTargetPodSpec
+/workspace/pkg/scaling/resolver/scale_resolvers.go:105
+github.com/kedacore/keda/v2/pkg/scaling.(*scaleHandler).performGetScalersCache
+/workspace/pkg/scaling/scale_handler.go:355
+github.com/kedacore/keda/v2/pkg/scaling.(*scaleHandler).GetScalersCache
+/workspace/pkg/scaling/scale_handler.go:281
+github.com/kedacore/keda/v2/controllers/keda.(*ScaledObjectReconciler).getScaledObjectMetricSpecs
+/workspace/controllers/keda/hpa.go:209 
+github.com/kedacore/keda/v2/controllers/keda.(*ScaledObjectReconciler).newHPAForScaledObject
+/workspace/controllers/keda/hpa.go:75
+github.com/kedacore/keda/v2/controllers/keda.(*ScaledObjectReconciler).updateHPAIfNeeded
+/workspace/controllers/keda/hpa.go:153 
+github.com/kedacore/keda/v2/controllers/keda.(*ScaledObjectReconciler).ensureHPAForScaledObjectExists
+/workspace/controllers/keda/scaledobject_controller.go:417
+github.com/kedacore/keda/v2/controllers/keda.(*ScaledObjectReconciler).reconcileScaledObject
+/workspace/controllers/keda/scaledobject_controller.go:254
+github.com/kedacore/keda/v2/controllers/keda.(*ScaledObjectReconciler).Reconcile
+/workspace/controllers/keda/scaledobject_controller.go:177
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Reconcile
+/workspace/vendor/sigs.k8s.io/controller-runtime/pkg/internal/controller/controller.go:118
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler
+/workspace/vendor/sigs.k8s.io/controller-runtime/pkg/internal/controller/controller.go:314
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem
+/workspace/vendor/sigs.k8s.io/controller-runtime/pkg/internal/controller/controller.go:265
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Start.func2.2
+/workspace/vendor/sigs.k8s.io/controller-runtime/pkg/internal/controller/controller.go:226
+2024-09-04T10:42:31Z     ERROR   Error getting scalers   {"controller": "scaledobject", "controllerGroup": "keda.sh", "controllerKind": "ScaledObject", "ScaledObject": {"name":"rabbitmq-scaledobject","namespace":"000000"}, "namespace": "000000", "name": "rabbitmq-scaledobject", "reconcileID": "38389842-7628-4b9e-bc34-76c5b28b4889", "error": "Deployment.apps \"report-000000-core-report\" not found"}

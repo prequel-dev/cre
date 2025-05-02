@@ -23,7 +23,7 @@ rules:
       applications:
         - name: NGINX
     metadata:
-      kind: rules
+      kind: prequel
       id: oN49VMfoAw8rUre2bEhheP
       gen: 1
     rule:

@@ -6,15 +6,38 @@ rules:
       category: message-queue-problem
       author: Prequel
       description: |
+        A RabbitMQ node has entered the “memory alarm” state because the total memory used by the Erlang VM (plus allocated binaries, ETS tables,
+        and processes) has exceeded the configured `vm_memory_high_watermark`. While the alarm is active the broker
+        applies flow-control, blocking publishers and pausing most ingress activity to protect itself from running out of RAM.
       cause: |
+        - Large or rapidly growing queues keeping many messages in RAM.  
+        - Messages with very large payloads or headers.  
+        - Insufficient memory limits / cgroup constraints on the container or VM.  
+        - Consumers that are slow, offline, or ACKing messages late, preventing RAM from being reclaimed.  
+        - A too-low `vm_memory_high_watermark` setting relative to available memory on the host.
       impact: |
+        - All publishers connected to the affected node are blocked until the alarm clears, creating upstream back-pressure.  
+        - In a clustered deployment, mirrored queues on the node can stall, reducing overall throughput and increasing latency.  
+        - If memory continues to climb, the Erlang VM may crash, causing a node restart and potential message loss for non-persistent or in-flight messages.  
+        - Application components that rely on timely message delivery may experience delays or timeouts, degrading user-facing services.
       impactScore: 9
       tags: 
         - known-problem
         - rabbitmq
       mitigation: |
+        - Inspect memory usage to identify queues or processes consuming RAM: 
+             `rabbitmq-diagnostics memory_breakdown -n <node>`  
+        - Purge or truncate unused / dead-letter queues holding many messages.  
+        - Scale or speed up consumers so messages are ACKed and cleared from memory faster.  
+        - Enable “lazy queues” or set TTLs / max-length limits for queues that can tolerate disk-based storage.  
+        - Increase the node’s memory allocation or raise `vm_memory_high_watermark` (e.g., to 0.8) **only** after confirming the host has sufficient physical RAM.  
+        - In Kubernetes, also raise the Pod memory limit so the broker can use the additional headroom without OOM-killing.  
+        - Long-term: review message sizes, batch patterns, and queue topology to prevent unbounded growth.
       mitigationScore: 6
       references:
+        - https://github.com/rabbitmq/cluster-operator/discussions/1545
+        - https://www.rabbitmq.com/docs/alarms
+        - https://www.cloudamqp.com/blog/identify-and-protect-against-high-cpu-and-memory-usage.html
       applications:
         - name: "rabbitmq"
     metadata:
@@ -30,4 +53,6 @@ rules:
           - memory resource limit alarm set on node
           - Publishers will be blocked until this alarm clears
         negate:
-          - memory resource limit alarm cleared on node
+          - value: memory resource limit alarm cleared
+            anchor: 1
+            window: 15s

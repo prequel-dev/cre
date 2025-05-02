@@ -32,7 +32,7 @@ rules:
     mitigationScore: 1
     reports: 4
   metadata:
-    kind: rules
+    kind: prequel
     id: 5zUfAdZ9myfaMJh9VnNBWm
     gen: 1
   rule:
@@ -43,5 +43,5 @@ rules:
       match:
         - value: the server could not find the requested resource (get volumesnapshotcontents.snapshot.storage.k8s.io)
         - value: Unhandled Error
-        - value: k8s.io/client-go@(.+)/tools/cache/reflector.go
+        - regex: k8s.io/client-go@(.+)/tools/cache/reflector.go
         - value: Failed to watch *v1.VolumeSnapshotClass

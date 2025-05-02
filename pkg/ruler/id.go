@@ -33,7 +33,7 @@ func randomId() (string, error) {
 	return encoded, nil
 }
 
-func hashRule(data any) (string, error) {
+func HashRule(data any) (string, error) {
 	// json.Marshal to produce deterministic output
 	jsonBytes, err := json.Marshal(data)
 	if err != nil {

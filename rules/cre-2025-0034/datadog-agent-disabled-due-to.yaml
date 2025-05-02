@@ -33,7 +33,7 @@ rules:
     mitigationScore: 2
     reports: 8
   metadata:
-    kind: rules
+    kind: prequel
     id: 4F3JxvZDuzaScqJ7o1hKnY
     gen: 1
   rule:

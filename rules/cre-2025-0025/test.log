@@ -1,0 +1,2 @@
+[2025-05-02 02:02:34,296] ERROR org.apache.kafka.common.errors.InvalidReplicationFactorException: Unable to replicate the partition 3 time(s): The target replication factor of 3 cannot be reached because only 1 broker(s) are registered.
+ (org.apache.kafka.tools.TopicCommand)

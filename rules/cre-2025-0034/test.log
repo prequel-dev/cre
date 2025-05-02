@@ -1,0 +1,1 @@
+2025-04-13T18:12:58.724579357Z {"event": "DD_API_KEY undefined. Metrics, logs and events will not be reported to DataDog", "timestamp": "2025-02-12T18:12:58.715528Z", "level": "warning", "service.name": "telemetry-worker", "service.version": "abcdef1234567890deadbeefcafebabe_main", "sb_env": "region01"}

@@ -4,7 +4,6 @@ import (
 	"errors"
 
 	"github.com/prequel-dev/prequel-compiler/pkg/parser"
-	"github.com/prequel-dev/prequel-compiler/pkg/schema"
 	"github.com/rs/zerolog/log"
 )
 
@@ -28,9 +27,14 @@ var (
 type dupesT map[string]struct{}
 type tagsT dupesT
 
+var (
+	kindTags       = "tags"
+	kindCategories = "categories"
+)
+
 func validateTagsFields(t RuleIncludeT, tags tagsT) error {
 
-	if t.Metadata.Kind != schema.KindTags {
+	if t.Metadata.Kind != kindTags {
 		return ErrInvalidTagsKind
 	}
 
@@ -38,7 +42,7 @@ func validateTagsFields(t RuleIncludeT, tags tagsT) error {
 }
 
 func validateCategoriesFields(t RuleIncludeT, tags tagsT) error {
-	if t.Metadata.Kind != schema.KindCategories {
+	if t.Metadata.Kind != kindCategories {
 		return ErrInvalidCategoriesKind
 	}
 

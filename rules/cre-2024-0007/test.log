@@ -13,3 +13,4 @@
 2025-03-11 14:00:21.337940+00:00 [info] <0.519.0> Recovering 0 queues of type rabbit_quorum_queue took 0ms
 2025-03-11 14:00:21.338046+00:00 [info] <0.519.0> Recovering 0 queues of type rabbit_stream_queue took 0ms
 2025-03-11 14:00:21.505654+00:00 [info] <0.229.0> Running boot step empty_db_check defined by app rabbit
+2025-03-11 14:05:05.303788+00:00 [noti] <0.60.0>

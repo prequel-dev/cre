@@ -1,0 +1,2 @@
+2025-04-19 15:21:20.601 11 ERROR neutron.plugins.ml2.managers ovsdbapp.backend.ovs_idl.idlutils.RowNotFound: Cannot find Logical_Switch with name=neutron-df87cfce-xxxx-yyyy-zzzz-aabbccddeeff
+2025-04-19 15:21:20.603 11 ERROR neutron.plugins.ml2.plugin mechanism_manager.create_port_postcommit failed, deleting port 'cb2c52ce-xxxx-yyyy-zzzz-99ba94bea2b1': neutron.plugins.ml2.common.exceptions.MechanismDriverError

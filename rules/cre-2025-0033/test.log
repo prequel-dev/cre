@@ -1,0 +1,1 @@
+2025-04-12T23:38:00.874041409-04:00       error   scrape/scrape.go:1298   Scrape commit failed    {"kind": "receiver", "name": "prometheus", "data_type": "metrics", "scrape_pool": "logs-collector", "target": "http://10.15.58.23:8888/metrics", "error": "data refused due to high memory usage"}

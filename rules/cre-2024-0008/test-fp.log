@@ -1,0 +1,10 @@
+2025-07-21 11:54:06.968596+00:00 [info] <0.369.0> vm_memory_high_watermark set. Memory used:18964570112 allowed:18897856102
+2025-07-21 11:54:06.968837+00:00 [warning] <0.367.0> memory resource limit alarm set on node 'rabbit@rabbitmq-server-0.rabbitmq-nodes.default'.
+2025-07-21 11:54:06.968837+00:00 [warning] <0.367.0> 
+2025-07-21 11:54:06.968837+00:00 [warning] <0.367.0> **********************************************************
+2025-07-21 11:54:06.968837+00:00 [warning] <0.367.0> *** Publishers will be blocked until this alarm clears ***
+2025-07-21 11:54:06.968837+00:00 [warning] <0.367.0> **********************************************************
+2025-07-21 11:54:06.968837+00:00 [warning] <0.367.0> 
+2025-07-21 11:54:14.979415+00:00 [info] <0.369.0> vm_memory_high_watermark clear. Memory used:18680410112 allowed:18897856102
+2025-07-21 11:54:14.981783+00:00 [warning] <0.367.0> memory resource limit alarm cleared on node 'rabbit@rabbitmq-server-0.rabbitmq-nodes.default'
+2025-07-21 11:54:14.981884+00:00 [warning] <0.367.0> memory resource limit alarm cleared across the cluster

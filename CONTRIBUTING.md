@@ -207,7 +207,14 @@ Wrote file: cre-rules.0.3.10.yaml
 
 ## Testing a rule
 
-We will be adding tests in an upcoming release. In the meantime, we test with both `preq` and [the CRE playground](https://play.prequel.dev).
+In the `tests` folder, run:
+
+```bash
+cd ./tests
+LOG_LEVEL=INFO go test
+```
+
+When adding a new rule, you must add a `test.log` file that contains the postive conditions to detect the problem. You are also encouraged to add a `test-fp.log` file that contains the data that would match all of the positive conditions but also contains negative conditions that would indicate a false positive.
 
 ## Signing the contributor license agreement
 

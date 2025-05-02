@@ -32,7 +32,7 @@ rules:
           imageUrl: ghcr.io/kedacore/keda:2.13.1
           containerName: keda-operator
     metadata:
-      kind: rules
+      kind: prequel
       id: HeGWs7nohNoRkbz9tBiQfC
       gen: 1
     rule:
@@ -41,7 +41,6 @@ rules:
         event:
           source: cre.log.keda-operator.2.*
         match:
-          - value: "panic: runtime error:"
           - value: "ResolveScaleTargetPodSpec"
-          - value: "scale_resolvers.go:71"
+          - value: "scale_resolvers.go"
           - value: "performGetScalersCache"

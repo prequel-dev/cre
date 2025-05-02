@@ -69,3 +69,6 @@ categories:
   - name: insecure-configuration
     displayName: Insecure Configuration
     description: "Problems related to insecure configuration"
+  - name: message-queue-performance
+    displayName: Message Queue Performance
+    description: "Problems related to message queue performance"

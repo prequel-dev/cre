@@ -1,0 +1,7 @@
+2025-04-03T23:38:01.874041409-04:00   ERROR opentelemetry.context:Failed to detach context
+Traceback (most recent call last):
+  File "/app/.venv/lib/python3.10/site-packages/opentelemetry/context/__init__.py", line 157, in detach
+    _RUNTIME_CONTEXT.detach(token)  # type: ignore
+  File "/app/.venv/lib/python3.10/site-packages/opentelemetry/context/contextvars_context.py", line 50, in detach
+    self._current_context.reset(token)  # type: ignore
+ValueError: <Token var=<ContextVar name='current_context' default={} at 0x7f33b28ea750> at 0x7f33244d7e40> was created in a different Context
