@@ -13,6 +13,7 @@ rules:
       - kubelet
       - kubernetes
       - dns
+      - public
     mitigation: |
       - Check the node's FQDN in /etc/hosts and ensure it is resolvable from the control-plane.
     references: 
