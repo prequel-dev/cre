@@ -71,8 +71,8 @@ github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 h1:Jamvg5psRI
 github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prequel-dev/preq v0.1.20 h1:lpKH050iA7UNLMW8fM0E62UJzbhtA8kjMQ2Cs8PtoPg=
 github.com/prequel-dev/preq v0.1.20/go.mod h1:CC8AKtkryisosURCynyiIoM28HnK5jFf/WjlC8Bjgqs=
-github.com/prequel-dev/prequel-compiler v0.0.11 h1:SC9XYv41TiPqQvIXbgKPBmlH5XSSQVqlKgkqwjBF9Vw=
-github.com/prequel-dev/prequel-compiler v0.0.11/go.mod h1:PBk0LDu2xSMVC+Qq0/1C5XXls3KyO5rIYGI4wcoLScE=
+github.com/prequel-dev/prequel-compiler v0.0.12 h1:FTYuuLb8IEZ5ZSvjO0zi1gCv0QYj0T5ShG84qMn7+0Y=
+github.com/prequel-dev/prequel-compiler v0.0.12/go.mod h1:PBk0LDu2xSMVC+Qq0/1C5XXls3KyO5rIYGI4wcoLScE=
 github.com/prequel-dev/prequel-logmatch v0.0.13 h1:cPKs1FbhfDyPevGkEOVEud+HZT7r385a+ZumWvBlmQw=
 github.com/prequel-dev/prequel-logmatch v0.0.13/go.mod h1:Dpfd/79s8vMCmIdmNQ5kC8WAvw/XjOd2z6wEIe3Lkck=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
