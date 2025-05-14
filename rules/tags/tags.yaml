@@ -330,3 +330,12 @@ tags:
   - name: public
     displayName: Public
     description: Open source CREs contributed by the problem detection community
+  - name: kubernetes-problem
+    displayName: Kubernetes Problem
+    description: Problems related to Kubernetes, such as pod failures, API errors, or scheduling issues
+  - name: kubelet
+    displayName: Kubelet
+    description: Problems related to Kubelet, such as node not ready, or pod failures
+  - name: dns
+    displayName: DNS
+    description: Problems related to DNS, such as hostname resolution failures, or DNS server misconfigurations
