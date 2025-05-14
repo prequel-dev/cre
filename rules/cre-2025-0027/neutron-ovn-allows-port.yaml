@@ -31,7 +31,7 @@ rules:
       - name: neutron
         version: <= 20.2.0
         containerName: neutron-server
-    impact: network provisioning failure for VMs
+    impact: Network provisioning failure for VMs
     impactScore: 7
     mitigationScore: 2
     reports: 2

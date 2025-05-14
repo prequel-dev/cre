@@ -10,7 +10,7 @@ rules:
       - PostgreSQL raises this error when two or more transactions block each other cyclically while waiting for locks, and one must be aborted.
       - Django surfaces this as an `OperationalError`, and the affected transaction is rolled back.
     cause: | 
-      - A deadlock occurs when multiple transactions acquire locks in different orders, causing a cycle that PostgreSQL''s deadlock detector resolves by aborting one transaction. This is more likely during bulk inserts, updates with overlapping WHERE clauses, or transactions accessing rows in inconsistent order.
+      A deadlock occurs when multiple transactions acquire locks in different orders, causing a cycle that PostgreSQL''s deadlock detector resolves by aborting one transaction. This is more likely during bulk inserts, updates with overlapping WHERE clauses, or transactions accessing rows in inconsistent order.
     tags:
       - postgres
       - psycopg2
@@ -20,7 +20,11 @@ rules:
       - operational error
       - public
       - known-issue
-    mitigation: "- Ensure that transactions access rows in a consistent order across code paths.\n- Break large transactions into smaller units of work.\n- Use explicit `select_for_update()` to control locking behavior and reduce contention.\n- Monitor PostgreSQL\u2019s `pg_stat_activity` and `pg_locks` to detect deadlock-prone queries.\n"
+    mitigation: |
+      - Ensure that transactions access rows in a consistent order across code paths.
+      - Break large transactions into smaller units of work.
+      - Use explicit `select_for_update()` to control locking behavior and reduce contention.
+      - Monitor PostgreSQL `pg_stat_activity` and `pg_locks` to identify deadlock-prone queries.
     references:
       - https://www.postgresql.org/docs/current/errcodes-appendix.html
       - https://docs.djangoproject.com/en/stable/ref/models/querysets/#select-for-update

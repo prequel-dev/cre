@@ -8,9 +8,9 @@ rules:
       description: |
         The RabbitMQ cluster is processing a large number of persistent mirrored queues at boot. The underlying Erlang process, Mnesia, is overloaded (`** WARNING ** Mnesia is overloaded`).
       cause: |
-        - There are so many that the underlying Erlang process, Mnesia, is reporting that it is overloaded while recoving these queues on boot. 
+        There are so many that the underlying Erlang process, Mnesia, is reporting that it is overloaded while recoving these queues on boot. 
       impact: |
-        - RabbitMQ is unable to process any new messages, which can lead to outages in consumers and producers.
+        RabbitMQ is unable to process any new messages, which can lead to outages in consumers and producers.
       impactScore: 9
       tags: 
         - known-problem

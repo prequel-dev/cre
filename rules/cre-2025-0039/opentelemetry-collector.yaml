@@ -6,7 +6,7 @@ rules:
     category: observability-problem
     author: Prequel
     description: |
-      - The OpenTelemetry Collector may intermittently fail to export telemetry data when the backend API is unavailable or overloaded. These failures manifest as timeouts (`context deadline exceeded`) or transient HTTP 502 responses. While retry logic is typically enabled, repeated failures can introduce delay or backpressure.
+      The OpenTelemetry Collector may intermittently fail to export telemetry data when the backend API is unavailable or overloaded. These failures manifest as timeouts (`context deadline exceeded`) or transient HTTP 502 responses. While retry logic is typically enabled, repeated failures can introduce delay or backpressure.
     cause: |
       Exporter components (e.g., `otlphttp`, `sumologic`, `splunk_hec`, `datadog`) may encounter:
       - `context deadline exceeded`: the HTTP request took longer than the configured timeout.
@@ -33,7 +33,7 @@ rules:
       - name: opentelemetry-collector
         version: '>=0.80.0'
         containerName: otel-collector
-    impact: telemetry delay or export failure due to network or backend errors
+    impact: Telemetry delay or export failure due to network or backend errors
     impactScore: 5
     mitigationScore: 3
     reports: 6

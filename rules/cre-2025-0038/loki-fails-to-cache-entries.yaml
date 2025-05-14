@@ -29,7 +29,7 @@ rules:
     - name: loki
       version: '*'
       containerName: loki
-    impact: degraded query performance or cache miss behavior in Loki due to failed cache insertions
+    impact: Degraded query performance or cache miss behavior in Loki due to failed cache insertions
     impactScore: 5
     mitigationScore: 3
     reports: 7

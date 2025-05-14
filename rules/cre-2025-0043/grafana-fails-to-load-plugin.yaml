@@ -6,7 +6,7 @@ rules:
     category: observability-problem
     author: Prequel
     description: |
-      - Grafana may reject custom or third-party plugins at runtime if they are not digitally signed. When plugin signature validation is enabled (default since Grafana 8+), unsigned plugins are blocked and logged as validation errors during startup or plugin loading.
+      Grafana may reject custom or third-party plugins at runtime if they are not digitally signed. When plugin signature validation is enabled (default since Grafana 8+), unsigned plugins are blocked and logged as validation errors during startup or plugin loading.
     cause: | 
       - Grafana enforces plugin signing to prevent tampering and supply chain attacks.
       - If a plugin such as `kentik-description-panel` lacks a valid signature or is locally built without signing, the validation step fails, and the plugin is not loaded.
@@ -31,7 +31,7 @@ rules:
       - name: grafana
         version: '>= 8.0.0'
         containerName: grafana
-    impact: plugin is blocked and unavailable in dashboards or panels
+    impact: The plugin is blocked and unavailable in dashboards or panels
     impactScore: 4
     mitigationScore: 2
     reports: 6

@@ -27,7 +27,7 @@ rules:
       - name: loki
         version: < 2.8.0
         containerName: loki
-    impact: service startup failure
+    impact: Loki fails to start and is unable to store or retrieve data.
     impactScore: 6
     mitigationScore: 5
     reports: 4

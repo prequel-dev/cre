@@ -6,9 +6,9 @@ rules:
     category: networking-problem
     author: Prequel
     description: |
-      - During load balancer creation or other operations involving logical router and logical switch associations, Neutron OVN may raise a `RowNotFound` exception when attempting to reference a logical switch that has just been deleted. This leads to a port binding failure and a rollback of the affected operation.
+      During load balancer creation or other operations involving logical router and logical switch associations, Neutron OVN may raise a `RowNotFound` exception when attempting to reference a logical switch that has just been deleted. This leads to a port binding failure and a rollback of the affected operation.
     cause: |
-      - When the logical topology changes rapidly, such as a subnet being deleted concurrently with a load balancer setup, Neutron's ML2/OVN driver may try to bind to a logical switch that no longer exists in OVN NBDB. This results in `ovsdbapp.backend.ovs_idl.idlutils.RowNotFound` being raised, followed by a `MechanismDriverError`, and the port creation is rolled back.
+      When the logical topology changes rapidly, such as a subnet being deleted concurrently with a load balancer setup, Neutron's ML2/OVN driver may try to bind to a logical switch that no longer exists in OVN NBDB. This results in `ovsdbapp.backend.ovs_idl.idlutils.RowNotFound` being raised, followed by a `MechanismDriverError`, and the port creation is rolled back.
     tags:
       - neutron
       - ovn
@@ -30,7 +30,7 @@ rules:
     - name: neutron
       version: <= 22.0.0
       containerName: neutron-server
-    impact: failed load balancer provisioning and port binding due to race condition in logical switch lookups
+    impact: Failed load balancer provisioning and port binding due to race condition in logical switch lookups
     impactScore: 6
     mitigationScore: 4
     reports: 8

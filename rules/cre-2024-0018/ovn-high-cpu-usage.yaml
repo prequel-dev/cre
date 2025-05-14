@@ -18,10 +18,10 @@ rules:
         - ovn
         - public
       mitigation: |
-        - Increase the OVN remote probe interval to 30 seconds:
-          ```
-          ovs-vsctl set open . external_ids:ovn-remote-probe-interval=30000
-          ```
+        Increase the OVN remote probe interval to 30 seconds:
+        ```
+        ovs-vsctl set open . external_ids:ovn-remote-probe-interval=30000
+        ```
       mitigationScore: 5
       impact: |
         - Slower pod/VM networking; jobs see latency spikes  

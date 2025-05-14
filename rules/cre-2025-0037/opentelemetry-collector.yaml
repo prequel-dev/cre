@@ -6,9 +6,9 @@ rules:
     category: observability-problem
     author: Prequel
     description: |
-      - The OpenTelemetry Collector can panic due to a nil pointer dereference in the Prometheus Remote Write exporter. The issue occurs when attribute values are assumed to be strings, but the internal representation is nil or incompatible, leading to a runtime `SIGSEGV` segmentation fault and crashing the collector.
+      The OpenTelemetry Collector can panic due to a nil pointer dereference in the Prometheus Remote Write exporter. The issue occurs when attribute values are assumed to be strings, but the internal representation is nil or incompatible, leading to a runtime `SIGSEGV` segmentation fault and crashing the collector.
     cause: | 
-      - The Prometheus Remote Write translator (`createAttributes`) iterates over attribute maps using `.Range` and directly calls `.AsString()` on a `pcommon.Value` without checking its type or for nil values. If the internal protobuf-backed `AnyValue` is unset or incompatible, it triggers a Go panic.
+      The Prometheus Remote Write translator (`createAttributes`) iterates over attribute maps using `.Range` and directly calls `.AsString()` on a `pcommon.Value` without checking its type or for nil values. If the internal protobuf-backed `AnyValue` is unset or incompatible, it triggers a Go panic.
     tags:
       - crash
       - prometheus

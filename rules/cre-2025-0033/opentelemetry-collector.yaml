@@ -6,9 +6,9 @@ rules:
     category: observability-problem
     author: Prequel
     description: |
-      - The OpenTelemetry Collector may refuse to ingest metrics during a Prometheus scrape if it exceeds its configured memory limits. When the `memory_limiter` processor is enabled, the Collector actively drops data to prevent out-of-memory errors, resulting in log messages indicating that data was refused due to high memory usage.
+      The OpenTelemetry Collector may refuse to ingest metrics during a Prometheus scrape if it exceeds its configured memory limits. When the `memory_limiter` processor is enabled, the Collector actively drops data to prevent out-of-memory errors, resulting in log messages indicating that data was refused due to high memory usage.
     cause: |
-      - When the Collector''s memory usage surpasses configured soft or hard thresholds, the memory_limiter processor prevents ingestion of new telemetry data. This safeguards the process from crashing but leads to temporary loss of incoming metrics.
+      When the Collector''s memory usage surpasses configured soft or hard thresholds, the memory_limiter processor prevents ingestion of new telemetry data. This safeguards the process from crashing but leads to temporary loss of incoming metrics.
     tags:
       - otel-collector
       - prometheus

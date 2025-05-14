@@ -8,7 +8,7 @@ rules:
     description: |
       Grafana alloy Loki fanout crashes when the number of log files exceeds the number of ingesters.
     cause: |
-      - The number of log files exceeds the number of ingesters.
+      The number of log files exceeds the number of ingesters.
     tags:
       - grafana
       - alloy
@@ -21,7 +21,7 @@ rules:
     applications:
       - name: "Grafana alloy"
         version: "1.7.x"
-    impact: |
+    impact: Loki crashes and data is lost.
     impactScore: 5
     mitigationScore: 2
   metadata:

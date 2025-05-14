@@ -6,9 +6,9 @@ rules:
     category: orm-problem
     author: Prequel
     description: | 
-      - SQLAlchemy applications using `create_engine()` may fail to connect to a database if the username or password contains special characters (e.g., `@`, `:`, `/`, `#`). These characters must be URL-encoded when included in the database connection string. Failure to encode them leads to parsing errors or incorrect credential usage.
+      SQLAlchemy applications using `create_engine()` may fail to connect to a database if the username or password contains special characters (e.g., `@`, `:`, `/`, `#`). These characters must be URL-encoded when included in the database connection string. Failure to encode them leads to parsing errors or incorrect credential usage.
     cause: | 
-      - Special characters in database credentials (such as `@`) conflict with reserved URL characters used to delimit user info, host, and port. If unencoded, SQLAlchemy misinterprets the connection string, leading to failed authentication or malformed URIs.
+      Special characters in database credentials (such as `@`) conflict with reserved URL characters used to delimit user info, host, and port. If unencoded, SQLAlchemy misinterprets the connection string, leading to failed authentication or malformed URIs.
     tags:
       - sqlalchemy
       - configuration

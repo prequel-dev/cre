@@ -15,8 +15,9 @@ rules:
       tags:
         - kafka
         - known-problem
+        - public
       mitigation: |
-        - Match or lower the replication factor to the actual broker count, or scale up the Kafka cluster to accommodate the higher replication factor.
+        Match or lower the replication factor to the actual broker count, or scale up the Kafka cluster to accommodate the higher replication factor.
       mitigationScore: 5
       references:
         - https://strimzi.io/docs/operators/latest/deploying#proc-changing-topic-replicas-str

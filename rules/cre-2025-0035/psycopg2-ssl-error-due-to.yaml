@@ -6,7 +6,7 @@ rules:
     category: database-problem
     author: Prequel
     description: |
-      - Applications using psycopg2 with OpenTelemetry instrumentation or threading may fail with SSL-related errors such as "decryption failed or bad record mac". This often occurs when a database connection is created before a fork or from an unsafe thread context, causing the SSL state to become invalid.
+      Applications using psycopg2 with OpenTelemetry instrumentation or threading may fail with SSL-related errors such as "decryption failed or bad record mac". This often occurs when a database connection is created before a fork or from an unsafe thread context, causing the SSL state to become invalid.
     cause: |
       This error results from unsafe interaction between OpenSSL, process forks, and threading. psycopg2 uses libpq, which in turn uses OpenSSL. If a fork occurs after a connection is established, or if shared SSL state is accessed across threads unsafely, PostgreSQL may reject the connection with SSL-level errors.
     tags:

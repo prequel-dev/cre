@@ -10,7 +10,7 @@ rules:
       - `AttributeError: ''NoneType'' object has no attribute ''getpid''`.
       - This typically occurs when the client or connection pool is reused across forks or when event loop context is lost, especially in async frameworks or multiprocessing setups.
     cause: |
-      - 'redis-py tracks the active event loop and process ID in the connection pool. If a Redis client is reused in a different process or async task after the original event loop is gone, internal context like `self._loop` becomes `None`, causing `self._loop.getpid()` to raise an AttributeError.
+      redis-py tracks the active event loop and process ID in the connection pool. If a Redis client is reused in a different process or async task after the original event loop is gone, internal context like `self._loop` becomes `None`, causing `self._loop.getpid()` to raise an AttributeError.
     tags:
       - redis
       - redis-py
@@ -33,7 +33,7 @@ rules:
       - name: redis-py
         version: ' >= 5.0.0, < 5.1.0'
         containerName: app
-    impact: process/thread-local Redis context loss leading to runtime exceptions
+    impact: Process/thread-local Redis context loss leading to runtime exceptions
     impactScore: 5
     mitigationScore: 4
     reports: 9

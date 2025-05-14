@@ -6,9 +6,9 @@ rules:
     category: framework-problem
     author: Prequel
     description: |
-      - Django applications may return a "DisallowedHost" error when receiving requests with an unrecognized or missing Host header. This typically occurs in production environments where reverse proxies, load balancers, or external clients send requests using an unexpected domain or IP address. Django blocks these requests unless the domain is explicitly listed in `ALLOWED_HOSTS`.
+      Django applications may return a "DisallowedHost" error when receiving requests with an unrecognized or missing Host header. This typically occurs in production environments where reverse proxies, load balancers, or external clients send requests using an unexpected domain or IP address. Django blocks these requests unless the domain is explicitly listed in `ALLOWED_HOSTS`.
     cause: |  
-      - The error is raised when the HTTP request contains a Host header not present in the Django `ALLOWED_HOSTS` setting. This is a security measure to prevent HTTP Host header attacks and request spoofing.
+      The error is raised when the HTTP request contains a Host header not present in the Django `ALLOWED_HOSTS` setting. This is a security measure to prevent HTTP Host header attacks and request spoofing.
     tags:
       - django
       - disallowedhost
@@ -37,7 +37,7 @@ rules:
       - name: django
         version: '>= 1.10'
         containerName: web
-    impact: Errors
+    impact: Django application unable to process requests with unrecognized Host headers
     impactScore: 5
     mitigationScore: 5
     reports: 20

@@ -13,7 +13,7 @@ rules:
         - gke
         - public
       mitigation: |
-        - `gcloud logging sinks update _Default --add-exclusion=name=exclude-unimportant-gke-metadata-server-logs,filter=' resource.type = "k8s_container" resource.labels.namespace_name = "kube-system" resource.labels.pod_name =~ "gke-metadata-server-.*" resource.labels.container_name = "gke-metadata-server" severity <= "INFO" '`
+        `gcloud logging sinks update _Default --add-exclusion=name=exclude-unimportant-gke-metadata-server-logs,filter=' resource.type = "k8s_container" resource.labels.namespace_name = "kube-system" resource.labels.pod_name =~ "gke-metadata-server-.*" resource.labels.container_name = "gke-metadata-server" severity <= "INFO" '`
       mitigationScore: 2
       impact: |
         - Metrics will be missing from the GKE cluster.

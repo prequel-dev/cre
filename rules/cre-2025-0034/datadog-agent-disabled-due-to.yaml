@@ -6,9 +6,9 @@ rules:
     category: observability-problem
     author: Prequel
     description: |
-      - If the Datadog agent or client libraries do not detect a configured API key, they will skip sending metrics, logs, and events. This results in a silent failure of observability reporting, often visible only through startup log messages.
+      If the Datadog agent or client libraries do not detect a configured API key, they will skip sending metrics, logs, and events. This results in a silent failure of observability reporting, often visible only through startup log messages.
     cause: |
-      - The environment variable `DD_API_KEY` was not set, or was set to an empty value in the container or application environment. As a result, the Datadog agent or SDK initializes in a no-op mode and skips exporting telemetry.
+      The environment variable `DD_API_KEY` was not set, or was set to an empty value in the container or application environment. As a result, the Datadog agent or SDK initializes in a no-op mode and skips exporting telemetry.
     tags:
       - datadog
       - configuration
@@ -29,7 +29,7 @@ rules:
       - name: datadog-agent
         version: '*'
         containerName: datadog
-    impact: no metrics, logs, or events exported to Datadog
+    impact: No metrics, logs, or events exported to Datadog
     impactScore: 6
     mitigationScore: 2
     reports: 8
