@@ -1,0 +1,44 @@
+rules:
+- cre:
+    id: CRE-2025-0058
+    severity: 3
+    title: Verbose Logging in AWS Network Policy Agent During Policy Verdicts
+    category: logging-problem
+    author: Prequel
+    description: |
+      - When using AWS Network Policy Agent with VPC CNI addon v1.17.1, the log message `failed to get caller` may appear frequently.
+      - This behavior correlates with policy verdicts being evaluated, and the volume increases in environments with higher traffic or more active policies.
+      - The issue does not indicate functional failure, but it increases log volume and may obscure real issues.
+    cause: |
+      - A logging bug in version v1.1.1 of the AWS Network Policy Agent caused excessive error messages during policy verdict processing.
+      - The error message appears when the agent fails to resolve caller metadata but continues functioning normally.
+    tags:
+      - aws
+      - vpc-cni
+      - log‑noise
+    mitigation: |
+      - Upgrade to AWS Network Policy Agent v1.1.2 or later, where the issue is resolved.
+      - Upgrade the VPC CNI addon to v1.18.2 or later, which includes the fixed version of the agent.
+      - If immediate upgrade is not possible, use log filtering or rate‑limiting in your logging pipeline to reduce noise.
+    references:
+      - https://github.com/aws/aws-network-policy-agent/issues/103
+      - https://github.com/aws/amazon-vpc-cni-k8s/releases/tag/v1.18.2
+    applications:
+      - name: aws network policy agent
+        version: "v1.1.1"
+      - name: amazon vpc cni
+        version: "v1.17.1"
+    impact: high log volume, obscuring real errors and increasing storage costs
+    impactScore: 3
+    mitigationScore: 1
+    reports: 2
+  metadata:
+    kind: prequel
+    id: FCbWczYs4hKEAWvnkvzLkB
+    gen: 1
+  rule:
+    set:
+      event:
+        source: cre.log.
+      match:
+        - "Logger.check error: failed to get caller"

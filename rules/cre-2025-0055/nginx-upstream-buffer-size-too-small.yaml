@@ -1,0 +1,61 @@
+rules:
+- cre:
+    title: Nginx upstream buffer size too small
+    id: CRE-2025-0055
+    applications:
+        - name: nginx
+          version: ">=1.0"
+    author: Prequel
+    category: web-server-problem
+    cause: |
+        - Upstream server sending responses with unusually large headers or cookies
+        - Default or configured proxy buffer sizes are too small for the application needs
+        - API responses containing large authentication tokens in headers
+        - Applications setting many or large cookies in responses
+        - Session data being inappropriately stored in cookies or headers instead of server-side storage
+    description: |
+        Nginx reports that an upstream server is sending headers that exceed the configured buffer size limits.
+        This typically happens when the upstream application sends responses with large headers, cookies, or other
+        header fields that don't fit in the default buffer allocation. When this occurs, Nginx cannot properly
+        proxy the response to clients, resulting in HTTP errors.
+    impact: |
+        - Clients receive HTTP 502 Bad Gateway errors instead of the intended response
+        - Critical API requests may fail, breaking dependent applications and services
+        - User sessions may be terminated unexpectedly during normal usage
+        - Degraded user experience due to intermittent failures
+        - Increased error rates in monitoring systems
+        - Potential loss of business functionality and customer trust
+    impactScore: 8
+    mitigation: |
+        - Increase the proxy_buffer_size and proxy_buffers settings in the nginx configuration:
+          proxy_buffer_size 16k;
+          proxy_buffers 4 16k;
+        - For very large headers, you may need to adjust to even higher values
+        - Add the configuration either in the http, server, or location context depending on where it's needed
+        - After changing configuration values, test and reload nginx:
+          nginx -t && nginx -s reload
+        - Long term: Review upstream applications to determine if header/cookie size can be reduced
+        - Consider using server-side session storage instead of large cookies
+        - If using JWT tokens in headers, evaluate if they can be made smaller
+    mitigationScore: 3
+    references:
+        - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffer_size
+        - https://ma.ttias.be/nginx-proxy-upstream-sent-big-header-upstream-response-headers/
+        - https://serverfault.com/questions/587386/nginx-error-upstream-sent-too-big-header-while-reading-response-header-from-upstr
+    severity: 2
+    tags:
+        - nginx
+        - configuration
+        - proxy
+        - header-size
+        - buffer
+  metadata:
+    gen: 1
+    id: nXbFTklsJKRayzLpMqWs
+    kind: prequel
+  rule:
+    set:
+        event:
+            source: cre.log.nginx
+        match:
+            - upstream sent too big header

@@ -1,0 +1,12 @@
+ 2024-01-17T21:09:29.524Z        INFO    controller.provisioner.cloudprovider    launched new instance   {"commit": "dc3af1a", "provisioner": "fd-qa2-blank-com", "id": "i-08008296570d13db7", "hostname": "ip-10-0-2-86.us-west-2.compute.internal", "instance-type": "m5a.2xlarge", "zone": "us-west-2b", "capacity-type": "on-demand"} 
+ E0117 21:10:33.916387       1 leaderelection.go:367] Failed to update lock: Put "https://172.20.0.1:443/apis/coordination.k8s.io/v1/namespaces/karpenter/leases/karpenter-leader-election": context deadline exceeded
+ I0117 21:10:33.917784       1 leaderelection.go:283] failed to renew lease karpenter/karpenter-leader-election: timed out waiting for the condition 
+ panic: leader election lost
+ goroutine 426 [running]:
+ github.com/samber/lo.must({0x23ae880, 0xc00b0f2c90}, {0x0, 0x0, 0x0})
+ github.com/samber/lo.Must0(...)
+         github.com/samber/lo@v1.37.0/errors.go:72 
+ github.com/aws/karpenter-core/pkg/operator.(*Operator).Start.func1()
+         github.com/aws/karpenter-core@v0.27.0/pkg/operator/operator.go:159 +0x85 
+ created by github.com/aws/karpenter-core/pkg/operator.(*Operator).Start
+         github.com/aws/karpenter-core@v0.27.0/pkg/operator/operator.go:157 +0xec

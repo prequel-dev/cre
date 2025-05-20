@@ -1,0 +1,13 @@
+2024-10-29T13:39:42.809794617-05:00   [2024-10-29 18:39:42,809: ERROR/MainProcess] consumer: Cannot connect to redis://redacted.cluster.local:6379/13: Error 111 connecting to redacted.svc.cluster.local:6379. Connection refused..
+2024-10-29T18:54:36.791117964-05:00   fail(error)
+2024-10-29T18:54:36.791126294-05:00   lambda error: self._disconnect_raise_connect(conn, error),
+2024-10-29T18:54:36.791134114-05:00   raise error
+2024-10-29T18:54:36.791158656-05:00   return conn.read_response(disconnect_on_error=False, push_request=True)
+2024-10-29T18:54:36.791202238-05:00   raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+2024-10-29T18:54:36.791206419-05:00   redis.exceptions.ConnectionError: Connection closed by server.
+2024-10-29T18:54:36.791376268-05:00   fail(error)
+2024-10-29T18:54:36.791384559-05:00   lambda error: self._disconnect_raise_connect(conn, error),
+2024-10-29T18:54:36.791392528-05:00   raise error
+2024-10-29T18:54:36.791419961-05:00   return conn.read_response(disconnect_on_error=False, push_request=True)
+2024-10-29T18:54:36.791460423-05:00   raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+2024-10-29T18:54:36.791464523-05:00   redis.exceptions.ConnectionError: Connection closed by server.

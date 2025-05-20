@@ -1,0 +1,47 @@
+rules:
+- cre:
+    applications:
+        - name: nginx
+          version: ">=1.0"
+    author: Prequel
+    category: web-server-problems
+    cause: |
+        The client is attempting to upload a file or send data that exceeds the NGINX 'client_max_body_size'
+        configuration limit. By default, this limit is set to 1MB, but can be adjusted in the NGINX
+        configuration.
+    description: |
+        NGINX server is receiving upload requests with bodies that exceed the configured size limits.
+        This occurs when clients attempt to send files or data that are larger than what the server is
+        configured to accept.
+    id: CRE-2025-0053
+    impact: |
+        - Failed uploads and POST requests for legitimate users
+        - Increased error rates in application logs
+        - Potential for client frustration if no clear error message is provided
+        - Possible resource utilization as NGINX has to handle and reject these requests
+    impactScore: 5
+    mitigation: |
+        - Increase the 'client_max_body_size' setting in the NGINX configuration to accommodate
+          legitimate large uploads if appropriate
+        - Add clear error messages to inform users about file size limitations
+        - Implement frontend validations to prevent oversized upload attempts
+        - Consider implementing chunked uploads for handling large files
+    mitigationScore: 3
+    references:
+        - http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size
+    severity: 2
+    tags:
+        - nginx
+        - upload-limits
+        - configuration
+    title: NGINX Client Upload Size Limit Exceeded
+  metadata:
+    gen: 1
+    id: n5zUfAdZ9myfaMJh9VnNBWm
+    kind: prequel
+  rule:
+    set:
+        event:
+            source: cre.log.nginx
+        match:
+          - regex: 'client intended to send too large body: '

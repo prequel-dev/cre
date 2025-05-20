@@ -1,0 +1,1 @@
+2023/07/15 16:44:53 [error] 12345#0: *69 no live upstreams while connecting to upstream, client: 192.168.1.1, server: example.com, request: "GET /api/data HTTP/1.1", upstream: "http://backend/api/data", host: "example.com"

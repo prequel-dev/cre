@@ -42,6 +42,7 @@ rules:
       - name: nats
         version: ">= 2.x"
     impact: |
+      - degraded throughput
     impactScore: 2
     mitigationScore: 8
   metadata:

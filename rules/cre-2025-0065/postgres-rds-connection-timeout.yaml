@@ -1,0 +1,43 @@
+rules:
+- cre:
+    id: CRE-2025-0065
+    severity: 2
+    title: PostgreSQL Connection Timeout
+    category: database-problem
+    author: Prequel
+    description: |
+      - Application is unable to reach the configured PostgreSQL instance. This can block components that rely on an active database connection, such as web servers, job runners, or health checks.
+    cause: |
+      - Network Access Issue: The application cannot reach the PostgreSQL endpoint, possibly due to a security group, firewall, or DNS issue.
+      - Database Not Ready: The RDS instance may still be starting up or temporarily unavailable due to maintenance or failover.
+      - Incorrect Configuration: The host or port in the database configuration may be incorrect or point to a non‑existent resource.
+    tags:
+      - postgresql
+      - rds
+    mitigation: |
+      - Verify that the RDS endpoint resolves and is reachable on port 5432 from the application environment.
+      - Check the health and availability status of the RDS instance in the AWS console.
+      - Ensure the application's configuration includes the correct hostname and port.
+      - Review security groups, VPC rules, and DNS settings to confirm the application has access to the database.
+    references:
+      - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html
+      - https://www.postgresql.org/docs/current/app-psql.html
+    applications:
+      - name: amazon rds
+      - name: postgresql
+    impact: unavailable database connections, causing service downtime or failed healthchecks
+    impactScore: 6
+    mitigationScore: 3
+    reports: 2
+  metadata:
+    kind: prequel
+    id: F9e9BK44k8R6nwHZX1zbrf
+    gen: 1
+  rule:
+    sequence:
+      event:
+        source: cre.log.application
+      window: 5s
+      order:
+        - "Waiting for PostgreSQL"
+        - "[a-zA-Z0-9.-]+\\.rds\\.amazonaws\\.com:5432 - no response"

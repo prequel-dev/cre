@@ -1,0 +1,41 @@
+rules:
+- cre:
+    id: CRE-2025-0063
+    severity: 2
+    title: Karpenter Version Incompatible with Kubernetes Version
+    category: incompatibility-problem
+    author: Prequel
+    description: |
+      - Karpenter logs an error when its current version is not compatible with the running Kubernetes control plane version.
+      - This results in provisioning failures and indicates a required upgrade to align compatibility.
+      - The issue is surfaced via structured logs from the controller.
+    cause: |
+      - Karpenter performs a runtime check against the Kubernetes API server version.
+      - If the cluster is running a newer version than Karpenter supports, the controller will reject provisioning requests.
+    tags:
+      - version‑incompatibility
+      - karpenter
+    mitigation: |
+      - Upgrade Karpenter to a version that supports the running Kubernetes version.
+      - Review the Karpenter release notes and compatibility matrix prior to cluster upgrades.
+      - Consider pinning cluster upgrades behind workload compatibility checks.
+    references:
+      - https://github.com/aws/karpenter-provider-aws/issues/5528
+      - https://github.com/aws/karpenter/releases
+    applications:
+      - name: karpenter
+      - name: kubernetes
+    impact: failed node provisioning due to version incompatibility, breaking autoscaling
+    impactScore: 6
+    mitigationScore: 2
+    reports: 2
+  metadata:
+    kind: prequel
+    id: 5Dy2FDKmSQqWiPPCh8XyHz
+    gen: 2
+  rule:
+    set:
+      event:
+        source: cre.log.karpenter
+      match:
+        - '{"level":"ERROR".*"karpenter version is not compatible with K8s version"}'

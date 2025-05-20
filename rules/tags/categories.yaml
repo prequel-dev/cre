@@ -59,16 +59,67 @@ categories:
     description: Object Relational Mapper issue that impacts data availability.
   - name: cache-problem
     displayName: Cache Problems
-    description: "Cache related problems"
+    description: Cache related problems
   - name: framework-problem
     displayName: Framework Problems
-    description: "Problems in frameworks such as Django"
+    description: Problems in frameworks such as Django
   - name: authorization-problem
     displayName: Authorization Problems
-    description: "Problems related to authorization"
+    description: Problems related to authorization
   - name: insecure-configuration
     displayName: Insecure Configuration
-    description: "Problems related to insecure configuration"
+    description: Problems related to insecure configuration
   - name: message-queue-performance
     displayName: Message Queue Performance
-    description: "Problems related to message queue performance"
+    description: Problems related to message queue performance
+  - name: kubernetes-api-problems
+    displayName: Kubernetes API Problem
+    description: Problems related to the Kubernetes API
+  - name: web-server-problems
+    displayName: Web Server Problem
+    description: Problems related to web servers
+  - name: kubernetes-problem
+    displayName: Kubernetes Problems
+    description: Problems related to Kubernetes
+  - name: load-balancer-problems
+    displayName: Load Balancer Problems
+    description: Problems related to load balancers
+  - name: proxy-timeout-problem
+    displayName: Proxy Timeout Problems
+    description: Problems related to proxy timeouts
+  - name: web-server-problem
+    displayName: Web Server Problems
+    description: Problems related to web servers
+  - name: configuration-problem
+    displayName: Configuration Problem
+    description: Problems related to system or application configurations
+  - name: monitoring-problem
+    displayName: Monitoring Problem
+    description: Problems related to system or application monitoring
+  - name: noise-problem
+    displayName: Noise Problem
+    description: Problems related to unwanted or irrelevant logs and alerts
+  - name: service-mesh-problem
+    displayName: Service Mesh Problem
+    description: Problems related to monitoring within a service mesh architecture
+  - name: incompatibility-problem
+    displayName: Incompatibility Problem
+    description: Problems due to incompatible components or versions.
+  - name: instability-problem
+    displayName: Instability Problem
+    description: Issues causing system instability or crashes.
+  - name: service-mesh-problems
+    displayName: Service Mesh Problems
+    description: Problems specific to monitoring within a service mesh.
+  - name: logging-problem
+    displayName: Logging Problems
+    description: Issues related to logging mechanisms and processes.
+  - name: provisioning-problem
+    displayName: Provisioning Problems
+    description: Issues related to the provisioning of resources and infrastructure.
+  - name: stability-problem
+    displayName: Stability Problems
+    description: Issues that affect the stability and uptime of systems and services.
+  - name: task-management-problem
+    displayName: Task Management Problems
+    description: Issues related to the management and execution of tasks and workflows.

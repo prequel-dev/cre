@@ -1,0 +1,58 @@
+rules:
+- cre:
+    id: CRE-2025-0062
+    severity: 2
+    title: Karpenter Stability Issues on EKS During Leader Election
+    category: stability-problem
+    author: Prequel
+    description: |
+      - EKS may be able to handle steady, predictable scale, but struggles during large‑scale auto scaling events when many workloads and nodes are spinning up or down simultaneously.
+      - This instability affects components that implement leader election using the Kubernetes API, such as:
+        - aws‑load‑balancer‑controller
+        - karpenter
+        - keda‑operator
+        - ebs‑csi‑controller
+        - efs‑csi‑controller
+    cause: |
+      - During high cluster activity, the etcd database enters a defragmentation phase, making it temporarily read‑only and blocking write operations such as Kubernetes leader election updates.
+      - The Kubernetes API server becomes overwhelmed and cannot fulfill PUT requests in time, causing clients to timeout.
+    tags:
+      - karpenter
+      - keda
+      - aws
+      - eks
+    mitigation: |
+      - Use Kubernetes API Priority and Fairness (FlowSchema and PriorityLevelConfiguration) to prioritize leader election traffic during high load.
+      - Assign `workload‑high` priority to requests from critical components like the Karpenter controller.
+      - Monitor etcd size and schedule regular defragmentation to reduce unplanned contention.
+    references:
+      - https://github.com/aws/karpenter-provider-aws/issues/4168
+      - https://aws.amazon.com/blogs/containers/explore-etcd-defragmentation-in-amazon-eks/
+      - https://aws.amazon.com/blogs/containers/managing-etcd-database-size-on-amazon-eks-clusters/
+    applications:
+      - name: kubernetes
+        version: "1.25.9-eks-5f89878"
+      - name: bottlerocket os
+        version: "1.14.1"
+    impact: autoscaler instability and failed pod provisioning during leader election contention
+    impactScore: 7
+    mitigationScore: 4
+    reports: 3
+  metadata:
+    kind: prequel
+    id: EcysSGwT11HwGN132UVcbc
+    gen: 1
+  rule:
+    set:
+      event:
+        source: cre.log.karpenter
+      window: 10s
+      match:
+        - "karpenter.*panic: leader election lost"
+        - "*Failed to update lock"
+        - "*error retrieving resource lock.*TLS handshake timeout"
+        - "*http2: client connection lost"
+        - "failed to renew lease"
+        - "client-side throttling"
+        - "invariant violated registering host port usage"
+ 

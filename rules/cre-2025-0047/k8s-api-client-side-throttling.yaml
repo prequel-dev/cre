@@ -1,0 +1,56 @@
+rules:
+  - cre:
+      id: CRE-2025-0047
+      severity: 1
+      title: Kubernetes API Server Client-Side Throttling
+      author: Prequel
+      applications:
+          - name: kubernetes
+            version: 1.x
+      category: kubernetes-api-problems
+      cause: |
+          - Client applications or controllers making excessive API requests
+          - Insufficient rate limit configuration
+          - Large cluster operations triggering many simultaneous requests
+          - Poorly implemented controllers with inadequate backoff or batching
+          - Misconfigured or malfunctioning operators continually retrying operations
+      description: "The Kubernetes API server is experiencing client-side throttling, causing requests to be delayed or rejected. \nThis happens when clients make too many requests to the API server in a short period, exceeding rate limits \nconfigured for the client.\n"
+      impact: |
+          - Delayed processing of critical workload operations
+          - Failed deployments or updates
+          - Service degradation or outages
+          - Increased latency for operations that depend on the Kubernetes API
+          - Cascading failures in automation tools or controllers that depend on API access
+      impactScore: 8
+      mitigation: |
+          - Implement exponential backoff in client applications
+          - Use informers and shared caches instead of direct API polling
+          - Optimize controllers to reduce API calls
+          - Consider increasing API server resources
+          - Configure appropriate QPS (queries per second) and burst limits in client configurations
+          - Use server-side apply to reduce GET operations before updates
+          - Implement workload priorities using Priority and Fairness feature
+          - Consider using client-go's rate limiter utilities
+      mitigationScore: 6
+      references:
+          - https://kubernetes.io/docs/reference/using-api/client-libraries/#client-throttling
+          - https://github.com/kubernetes/client-go/tree/master/util/workqueue
+          - https://kubernetes.io/docs/concepts/cluster-administration/flow-control/
+      tags:
+          - kubernetes
+          - api-server
+          - throttling
+          - performance
+          - rate-limiting
+      version: 1.0.0
+    metadata:
+      gen: 1
+      kind: Prequel
+      version: 1.0.0
+      id: Hz1V1rbZ8DwZyYAHuKkbyL
+    rule:
+      set:
+          event:
+              source: cre.log.k8s.client-go
+          match:
+              - regex: Waited for [0-9]+(?:\.[0-9]+)?s due to client-side throttling, not priority and fairness

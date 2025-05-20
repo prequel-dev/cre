@@ -1,0 +1,42 @@
+rules:
+- cre:
+    id: CRE-2025-0061
+    severity: 3
+    title: Datadog OpenMetrics Scrape Returns 404
+    category: monitoring-problem
+    author: Prequel
+    description: |
+      - The Datadog Agent is unable to scrape metrics from an OpenMetrics endpoint, returning a 404 Not Found error.
+      - This typically indicates that the target service is either not exposing the `/metrics` path, the port or path is misconfigured, or the service is not running.
+    cause: |
+      - Incorrect Path: The metrics endpoint may be incorrectly configured or not implemented at the expected URL.
+      - Service Not Running: The target service may not have started, or it is failing health checks and is unavailable.
+      - Networking Issues: Internal DNS or IP mappings may be stale, misconfigured, or targeting the wrong pod or service.
+    tags:
+      - observability
+      - datadog
+    mitigation: |
+      - Confirm the target service is healthy and exposing the `/metrics` endpoint.
+      - Use `curl` or `kubectl port‑forward` to validate the endpoint from within the cluster.
+      - Ensure the Datadog `openmetrics` check configuration uses the correct port and path.
+      - Review service discovery and label selectors in your check configuration.
+    references:
+      - https://docs.datadoghq.com/integrations/openmetrics/
+      - https://docs.datadoghq.com/agent/guide/agent-log-files/
+    applications:
+      - name: datadog agent
+      - name: openmetrics
+    impact: missing metrics in Datadog, leading to observability blind spots
+    impactScore: 5
+    mitigationScore: 2
+    reports: 2
+  metadata:
+    kind: prequel
+    id: CqQDzmAKtcdxAu7DyaWNq9
+    gen: 1
+  rule:
+    set:
+      event:
+        source: cre.log.datadog
+      match:
+        - "Error running check:.*openmetrics.*404 Client Error: Not Found for url: http://[0-9.]+:7801/metrics"

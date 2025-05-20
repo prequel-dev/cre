@@ -1,0 +1,5 @@
+2025-01-22 15:36:20,529: INFO/MainProcess] Task project.tasks.send_finished_run_notifications_for_finished_scenario_job[redacted] received
+2025-01-22 15:36:20,977: ERROR/ForkPoolWorker-6] Failed to create workspace. Status code: 401, Response: {"errors":[{"status":"401","title":"unauthorized"}]}
+2025-01-22 15:36:20,978: ERROR/ForkPoolWorker-6] Failed to create Terraform Cloud workspace for HIM deployment
+2025-01-22 15:36:21,429: ERROR/ForkPoolWorker-6] Failed to trigger destroy plan. Status code: 401, Response: {"errors":[{"status":"401","title":"unauthorized"}]}
+2025-01-22 15:36:21,429: ERROR/ForkPoolWorker-6] Failed to destroy workspace ws-redacted. Failed to trigger destroy plan.

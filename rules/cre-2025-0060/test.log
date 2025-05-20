@@ -1,0 +1,1 @@
+2025-02-04T12:59:00.755731843Z 2025-02-04 12:59:00 UTC | CLUSTER | ERROR | (pkg/clusteragent/admission/controllers/webhook/controller_base.go:112 in mutatingWebhooks) | failed to register CWS Instrumentation webhook: can't initialize CWS Instrumentation in remote_copy mode without providing a service account name in config (cluster_agent.service_account_name)

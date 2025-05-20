@@ -330,12 +330,120 @@ tags:
   - name: public
     displayName: Public
     description: Open source CREs contributed by the problem detection community
-  - name: kubernetes-problem
-    displayName: Kubernetes Problem
-    description: Problems related to Kubernetes, such as pod failures, API errors, or scheduling issues
   - name: kubelet
     displayName: Kubelet
     description: Problems related to Kubelet, such as node not ready, or pod failures
   - name: dns
     displayName: DNS
     description: Problems related to DNS, such as hostname resolution failures, or DNS server misconfigurations
+  - name: api-server
+    displayName: API Server
+    description: Problems involving the Kubernetes API server, such as request failures, unavailability, or authentication errors
+  - name: throttling
+    displayName: Throttling
+    description: Problems where requests are delayed or dropped due to client-side or server-side rate limits or resource contention
+  - name: performance
+    displayName: Performance
+    description: Issues that impact system responsiveness or efficiency, such as latency, CPU/memory bottlenecks, or slow processing
+  - name: rate-limiting
+    displayName: Rate Limiting
+    description: Problems where systems enforce limits on request rates, often resulting in 429 errors or degraded service behavior
+  - name: upstream-failure
+    displayName: Upstream Failure
+    description: Problems where Nginx cannot successfully forward requests to backend services
+  - name: connection-refused
+    displayName: Connection Refused
+    description: Problems where a connection attempt is rejected by the target server
+  - name: buffer
+    displayName: Buffer
+    description: Problems related to buffering
+  - name: capacity-issue
+    displayName: Capacity Issue
+    description: Problems related to system capacity
+  - name: connectivity
+    displayName: Connectivity
+    description: Problems related to network connectivity
+  - name: header-size
+    displayName: Header Size
+    description: Problems related to the size of headers
+  - name: upload-limits
+    displayName: Upload Limits
+    description: Problems related to upload size limits
+  - name: proxy
+    displayName: Proxy
+    description: Problems related to proxy configurations or usage
+  - name: request-size
+    displayName: Request Size
+    description: Problems related to the size of requests
+  - name: web-server
+    displayName: Web Server
+    description: Problems related to web server configurations or issues
+  - name: admission-controller
+    displayName: Admission Controller
+    description: Problems related to Kubernetes admission controllers
+  - name: aws-cni
+    displayName: AWS CNI
+    description: Problems related to Amazon Web Services VPC Container Network Interface (CNI) plugin
+  - name: cni
+    displayName: CNI
+    description: Problems related to Container Network Interface
+  - name: disk-monitor
+    displayName: Disk Monitor
+    description: Problems related to disk monitoring
+  - name: istio
+    displayName: Istio
+    description: Problems related to the Istio service mesh
+  - name: kiali
+    displayName: Kiali
+    description: Problems related to the Kiali service mesh monitoring tool
+  - name: kombu
+    displayName: Kombu
+    description: Problems related to the Kombu messaging library
+  - name: backend-issue
+    displayName: Backend Issue
+    description: Problems related to the backend systems or services
+  - name: cws
+    displayName: CWS
+    description: Problems related to Cloud Workload Security
+  - name: log-noise
+    displayName: Log Noise
+    description: Problems related to unwanted or irrelevant log data
+  - name: memory-leak
+    displayName: Memory Leak
+    description: Problems caused by memory leaks in applications
+  - name: monitoring
+    displayName: Monitoring
+    description: Problems related to system or application monitoring
+  - name: npa
+    displayName: NPA
+    description: Problems related to Network Policy Administration
+  - name: permissions
+    displayName: Permissions
+    description: Problems related to user or system permissions
+  - name: log‑noise
+    displayName: Log Noise
+    description: Problems related to excessive or irrelevant log entries that obscure meaningful information.
+  - name: postgresql
+    displayName: PostgreSQL
+    description: Problems related to the PostgreSQL database system.
+  - name: rds
+    displayName: RDS
+    description: Problems related to Amazon Relational Database Service (RDS).
+  - name: service-mesh
+    displayName: Service Mesh
+    description: Problems related to service mesh technologies and implementations.
+  - name: silent‑failure
+    displayName: Silent Failure
+    description: Problems that do not produce visible errors or logs, making them hard to detect.
+  - name: terraform
+    displayName: Terraform
+    description: Problems related to the Terraform infrastructure as code tool.
+  - name: version‑incompatibility
+    displayName: Version Incompatibility
+    description: Problems arising from incompatible versions of software components or libraries.
+  - name: vpc-cni
+    displayName: VPC CNI
+    description: Problems related to the VPC CNI (Container Network Interface) plugin.
+  - name: webhook
+    displayName: webhook
+    description: Problems related to webhooks.

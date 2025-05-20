@@ -1,0 +1,63 @@
+rules:
+- cre:
+    id: CRE-2025-0054
+    severity: 2
+    title: NGINX upstream connection timeout
+    category: proxy-timeout-problem
+    author: Prequel
+    description: |
+      NGINX reports an upstream timeout error when it cannot establish or maintain a connection to backend services within the configured timeout threshold. 
+      This occurs when backend services are unresponsive, overloaded, or when the timeout values are set too low for normal operation conditions.
+      The error indicates that NGINX attempted to proxy a request to an upstream server, but the connection or read operation timed out before completion.
+    cause: |
+      - Overloaded backend services unable to process requests in time
+      - Network latency between NGINX and backend services
+      - Backend service processing requests too slowly
+      - Insufficient timeout settings in NGINX configuration
+      - Backend service connection pool exhaustion
+      - Resource constraints on backend servers (CPU, memory, disk I/O)
+      - Application code inefficiencies in backend services
+    impact: |
+      - Failed requests and HTTP 504 Gateway Timeout errors returned to clients
+      - Degraded user experience due to slow or failed responses
+      - Increased error rates in monitoring systems
+      - Potential cascading failures if retry mechanisms overwhelm already struggling backends
+      - Loss of business transactions if timeout affects critical user flows
+      - Reduced application reliability and availability metrics
+    impactScore: 7
+    tags: 
+      - nginx
+      - timeout
+      - proxy
+      - backend-issue
+      - networking
+    mitigation: |
+      - Review backend service performance and identify bottlenecks
+      - Adjust NGINX timeout settings to accommodate realistic response times:
+        - Increase `proxy_read_timeout` if backends need more time to generate responses
+        - Adjust `proxy_connect_timeout` for connection establishment issues
+        - Consider `proxy_send_timeout` for slow uploads
+      - Scale backend services horizontally to handle increased load
+      - Implement health checks to remove unhealthy backends from rotation
+      - Add caching for frequently requested content to reduce backend load
+      - Optimize backend application code and database queries
+      - Consider implementing circuit breakers to fail fast rather than waiting for timeouts
+      - Monitor backend response times and set alerts for increasing latency
+    mitigationScore: 5
+    references:
+      - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_read_timeout
+      - https://www.nginx.com/blog/avoiding-top-10-nginx-configuration-mistakes/
+      - https://www.nginx.com/blog/tuning-nginx/
+    applications:
+      - name: "nginx"
+        version: ">=1.0"
+  metadata:
+    kind: prequel
+    id: nGxUpsT8MtmNv7YzeRwQp
+    gen: 1
+  rule:
+    set:
+      event:
+        source: cre.log.nginx
+      match:
+        - upstream timed out

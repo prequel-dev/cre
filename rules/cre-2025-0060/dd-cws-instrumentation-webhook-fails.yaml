@@ -1,0 +1,49 @@
+rules:
+- cre:
+    id: CRE-2025-0060
+    severity: 3
+    title: Datadog CWS Instrumentation webhook registration fails without service account
+    category: configuration-problem
+    author: Prequel
+    description: |
+      - Datadog Cluster Agent fails to register its CWS (Container Workload Security) instrumentation webhook when running in `remote_copy` mode without a configured service account.
+    cause: |
+      - The `cluster_agent.service_account_name` configuration is missing.
+      - In `remote_copy` mode, the Cluster Agent requires a Kubernetes ServiceAccount to manage its admission webhooks.
+    tags:
+      - datadog
+      - cws
+      - admission-controller
+      - webhook
+      - configuration
+      - known-issue
+    mitigation: |
+      - Set `cluster_agent.service_account_name` in your Helm values or Agent config:
+        ```yaml
+        cluster_agent:
+          service_account_name: datadog-cluster-agent
+        ```
+      - Redeploy the Datadog Cluster Agent after applying the correct service account.
+      - Verify that the ServiceAccount exists and has the necessary RBAC permissions.
+    references:
+      - https://docs.datadoghq.com/containers/troubleshooting/admission-controller/?tab=helm
+    applications:
+      - name: datadog-cluster-agent
+        version: "<=1.40.0"
+        containerName: cluster-agent
+    impact: CWS instrumentation disabled, leading to missing workload security insights
+    impactScore: 6
+    mitigationScore: 2
+    reports: 1
+  metadata:
+    kind: prequel
+    id: 3lsC29EOGDp9xy
+    hash: 96481c82765df7674d24c8d76a33cad2
+    gen: 1
+  rule:
+    set:
+      event:
+        source: cre.log.datadog
+      match:
+        - 'failed to register CWS Instrumentation webhook.*cluster_agent\.service_account_name'
+

@@ -1,0 +1,59 @@
+rules:
+- cre:
+    id: CRE-2025-0056
+    title: NGINX worker connections limit exceeded
+    applications:
+        - name: nginx
+    author: Prequel
+    category: web-server-problem
+    cause: |
+        - Insufficient worker_connections setting for the traffic volume
+        - Unexpected traffic spike or DDoS attack
+        - Slow upstream servers causing connections to remain open longer than expected
+        - Keep-alive connections accumulating and not being closed properly
+        - Memory constraints preventing optimal worker_connections settings
+    description: |
+        NGINX has reported that the configured worker_connections limit has been reached. This indicates that the web server
+        has exhausted the available connection slots for handling concurrent client requests. When this limit is reached,
+        new connection attempts may be rejected until existing connections are closed, causing service degradation or outages.
+    impact: |
+        - New client connections will be rejected
+        - Increased latency for users attempting to connect
+        - HTTP 503 Service Unavailable errors returned to clients
+        - Degraded website or API performance
+        - Potential cascading failures in service dependencies
+        - Loss of revenue and negative user experience during high-traffic periods
+    impactScore: 8
+    mitigation: |
+        - Increase the worker_connections directive in the events block of your nginx.conf file:
+          events {
+            worker_connections 8192;  # Increase from default 1024
+          }
+        - Ensure worker_processes is set optimally (usually equal to number of CPU cores)
+        - Consider enabling multi_accept for high-traffic situations
+        - Tune keepalive_timeout to release connections faster if appropriate
+        - Monitor connection usage with "nginx -V" and adjust based on system resources
+        - For persistent high traffic, consider horizontal scaling with load balancing
+        - Implement rate limiting for abusive clients
+    mitigationScore: 3
+    references:
+        - https://nginx.org/en/docs/ngx_core_module.html#worker_connections
+        - https://www.nginx.com/blog/tuning-nginx/
+        - https://www.digitalocean.com/community/tutorials/how-to-optimize-nginx-configuration
+    severity: 2
+    tags:
+        - nginx
+        - capacity-issue
+        - web-server
+        - configuration
+        - public
+  metadata:
+    gen: 1
+    id: XCmkPg3Lyv6daVh8Wb6Sv1
+    kind: prequel
+  rule:
+    set:
+        event:
+            source: cre.log.nginx
+        match:
+            - worker_connections are not enough

@@ -1,0 +1,41 @@
+rules:
+- cre:
+    id: CRE-2025-0051
+    title: NGINX No Live Upstreams Available
+    severity: 1
+    applications:
+        - name: nginx
+          version: ">= 1.x"
+    author: Prequel
+    category: load-balancer-problems
+    cause: |
+      This issue occurs when all servers defined in an NGINX upstream block are unreachable, have failed health checks, or are otherwise unable to accept connections. This could be due to backend server failures, network connectivity issues, or misconfiguration in the upstream definition.
+    description: NGINX is reporting that all backend servers in an upstream group are unavailable. This means that NGINX cannot route requests to any of its configured backend servers, resulting in client-facing errors.
+    impact: All client requests that should be forwarded to the affected upstream group will fail, resulting in HTTP 502 Bad Gateway errors being returned to clients. This effectively creates a complete service outage for the affected application or API endpoints.
+    impactScore: 9
+    mitigation: |
+        - Check the health and status of each backend server in the upstream group
+        - Verify network connectivity between NGINX and the backend servers
+        - Review the NGINX upstream configuration for errors or typos
+        - Consider adding more backup servers to improve resilience
+        - Implement automatic health checks and failover mechanisms
+        - Ensure proper monitoring is in place to detect backend server failures quickly
+    mitigationScore: 5
+    references:
+        - https://last9.io/blog/quick-fixes-for-upstream-connect-errors/
+        - https://nginx.org/en/docs/http/ngx_http_upstream_module.html
+    tags:
+        - nginx
+        - load-balancer
+        - upstream-failure
+        - connectivity
+  metadata:
+    gen: 1
+    id: NGC1RZxGC5LJQnVpAkV11B
+    kind: prequel
+  rule:
+    set:
+        event:
+            source: cre.log.nginx
+        match:
+            - regex: '[error].+no live upstreams while connecting to upstream'

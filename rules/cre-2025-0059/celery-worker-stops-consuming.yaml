@@ -1,0 +1,48 @@
+rules:
+- cre:
+    id: CRE-2025-0059
+    severity: 2
+    title: Celery Worker Stops Consuming Tasks After Redis Restart
+    category: task-management-problem
+    author: Prequel
+    description: |
+      - When Redis is restarted, Celery workers using Redis as a broker may stop consuming tasks without exiting or logging a fatal error.
+      - Although Celery Beat continues to publish tasks successfully, the worker remains in a broken state until manually restarted.
+      - This results in a silent backlog of scheduled but unprocessed tasks.
+    cause: |
+      - After Redis restarts, open connections from the Celery worker are closed by the server.
+      - The Celery worker does not detect or recover from the dropped connection, entering a non‑responsive state.
+      - This issue is caused by a bug in Kombu (Celery’s messaging library) affecting connection recovery.
+    tags:
+      - celery
+      - silent‑failure
+      - redis
+      - kombu
+    mitigation: |
+      - Monitor Redis availability and trigger Celery worker restarts automatically when Redis restarts.
+      - Consider using process managers like `supervisord`, `systemd`, or Kubernetes liveness probes to enforce recovery.
+      - Upgrade to Celery 5.4.0 or later, which includes Kombu 5.4.0 where the issue is fixed.
+      - If upgrading is not possible, implement monitoring for task queue depth and alert on worker stalls.
+    references:
+      - https://github.com/celery/celery/issues/8091
+      - https://github.com/celery/celery/issues/8091#issuecomment-2139623078
+      - https://docs.celeryproject.org/en/latest/changelog.html
+    applications:
+      - name: celery
+        version: "5.3.x"
+      - name: redis
+    impact: silent task backlog as Celery workers stall, causing reliability failures
+    impactScore: 7
+    mitigationScore: 4
+    reports: 3
+  metadata:
+    kind: prequel
+    id: TZjeKktUNaSE7hcPyAPFng
+    gen: 2
+  rule:
+    set:
+      event:
+        source: cre.log.redis
+      match:
+        - "redis.exceptions.ConnectionError: Connection closed by server"
+  
