@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"slices"
 	"sort"
 	"strings"
 
@@ -28,13 +29,7 @@ var (
 	catsYaml    = "categories.yaml"
 )
 
-type BuildCmd struct {
-	InPath  string `name:"path" short:"p" help:"Path to read rules" default:"rules"`
-	OutPath string `name:"out" short:"o" help:"Optional path to write files; default curdir"`
-	Version string `name:"vers" short:"v" help:"Optional semantic version override"`
-}
-
-func RunBuild(inPath, outPath, vers string) error {
+func RunBuild(inPath, outPath, vers string, exclude []string) error {
 
 	if outPath == "" {
 		var err error
@@ -64,7 +59,7 @@ func RunBuild(inPath, outPath, vers string) error {
 		}
 	}
 
-	if err := _build(vers, inPath, outPath, packageName); err != nil {
+	if err := _build(vers, inPath, outPath, packageName, exclude); err != nil {
 		return err
 	}
 
@@ -200,7 +195,17 @@ func processRules(path string, ruleDupes, termDupes dupesT, tags tagsT) (*parser
 	return allRules, nil
 }
 
-func _build(vers, inPath, outPath, packageName string) error {
+func containsAny[T comparable](a, b []T) bool {
+	for _, v := range b {
+		log.Debug().Any("v", v).Any("a", a).Msg("containsAny")
+		if slices.Contains(a, v) {
+			return true
+		}
+	}
+	return false
+}
+
+func _build(vers, inPath, outPath, packageName string, exclude []string) error {
 
 	var (
 		allRules  = make(map[string]parser.ParseRuleT)
@@ -253,6 +258,10 @@ func _build(vers, inPath, outPath, packageName string) error {
 		}
 
 		for _, rule := range r.Rules {
+			if containsAny(rule.Cre.Tags, exclude) {
+				log.Info().Str("id", rule.Cre.Id).Msg("Skipping rule due to exclude tag match")
+				continue
+			}
 			allRules[rule.Cre.Id] = rule
 		}
 
@@ -282,20 +291,6 @@ func _build(vers, inPath, outPath, packageName string) error {
 	fmt.Printf("Wrote file: %s\n", fileName)
 
 	return nil
-}
-
-func unmarshal(data []byte) (*parser.RulesT, error) {
-
-	var (
-		rules *parser.RulesT
-		err   error
-	)
-
-	if rules, err = parser.Unmarshal(data); err != nil {
-		return nil, err
-	}
-
-	return rules, nil
 }
 
 func compile(rules *parser.RulesT) error {
