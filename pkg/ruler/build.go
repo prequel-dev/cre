@@ -245,7 +245,7 @@ func _build(vers, inPath, outPath, packageName string, exclude []string) error {
 			continue
 		}
 
-		if !strings.HasPrefix(e.Name(), "cre-") {
+		if !strings.HasPrefix(e.Name(), "cre-") && !strings.HasPrefix(e.Name(), "prequel-") {
 			log.Debug().Str("file", e.Name()).Msg("Skipping")
 			continue
 		}
