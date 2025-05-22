@@ -9,9 +9,9 @@ rules:
       title: Loki Log Line Exceeds Max Size Limit
       severity: 3
       category: log-processing-problems
-      author: Your Name/Organization
+      author: dosmanak
       description: |
-        This Common Reliability Enumeration (CRE) detects instances where Loki is dropping log lines because they exceed the configured maximum line size.
+        Alloy detects the Loki is dropping log lines because they exceed the configured maximum line size.
         This typically indicates that applications are emitting extremely long log entries, which Loki is configured to reject by default.
       cause: |
         Loki has a `max_line_size` limit (defaulting to 256KB) to prevent excessively large log entries from consuming too many resources.
@@ -29,18 +29,19 @@ rules:
 
         You can apply these changes via Loki's runtime configuration overrides, typically in a YAML file like this:
 
+        ```
         ---
         overrides:
           limits_config:
-            max_line_size: 10485760 # Example: Set to 10MB (10 * 1024 * 1024 bytes)
+            max_line_size: 10485760 # Set to 10MB (10 * 1024 * 1024 bytes)
             max_line_size_truncate: true
+        ```
 
         Ensure that your Loki deployment is configured to load this runtime override file.
       tags:
         - alloy
         - loki
         - logs
-        - error
         - line-too-long
         - observability
         - grafana
@@ -49,7 +50,7 @@ rules:
     rule:
       set: # Using 'set' for single event matching, as it's a single log line detection
         event:
-          source: 'loki.write.endpoint'
+          source: Alloy log
         match:
           - regex: >
               level=error msg="final error sending batch" component_path=/ component_id=loki\.write\.endpoint component=client host=.*?
