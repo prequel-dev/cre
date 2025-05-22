@@ -1,0 +1,57 @@
+rules:
+  - metadata:
+      id: URE4JfAmWXG8qee2kyZcps
+      gen: 1
+      kind: "prequel"
+      version: "1.0.0"
+    cre:
+      id: CRE-2025-0070
+      title: Loki Log Line Exceeds Max Size Limit
+      severity: 3
+      category: log-processing-problems
+      author: Your Name/Organization
+      description: |
+        This Common Reliability Enumeration (CRE) detects instances where Loki is dropping log lines because they exceed the configured maximum line size.
+        This typically indicates that applications are emitting extremely long log entries, which Loki is configured to reject by default.
+      cause: |
+        Loki has a `max_line_size` limit (defaulting to 256KB) to prevent excessively large log entries from consuming too many resources.
+        When a log line from an application exceeds this limit, Loki rejects it, leading to data loss for that specific log entry.
+      impact: |
+        Critical log data or important diagnostic information contained within the excessively long lines is lost, making debugging
+        and monitoring challenging. This can lead to blind spots in observability for systems generating large log entries.
+      mitigation: |
+        To resolve this issue, you can adjust Loki's runtime configuration to either:
+
+        1.  **Increase `max_line_size`**: Allow Loki to accept larger log lines. Be cautious when increasing this significantly,
+            as it can impact Loki's performance and memory consumption.
+        2.  **Enable `max_line_size_truncate`**: Configure Loki to automatically truncate log lines that exceed the limit
+            instead of dropping them entirely. This preserves the beginning of the log message.
+
+        You can apply these changes via Loki's runtime configuration overrides, typically in a YAML file like this:
+
+        ---
+        overrides:
+          limits_config:
+            max_line_size: 10485760 # Example: Set to 10MB (10 * 1024 * 1024 bytes)
+            max_line_size_truncate: true
+
+        Ensure that your Loki deployment is configured to load this runtime override file.
+      tags:
+        - alloy
+        - loki
+        - logs
+        - error
+        - line-too-long
+        - observability
+        - grafana
+      references:
+        - "https://grafana.com/docs/grafana-cloud/send-data/logs/troubleshoot/#line-too-long"
+    rule:
+      set: # Using 'set' for single event matching, as it's a single log line detection
+        event:
+          source: 'loki.write.endpoint'
+        match:
+          - regex: >
+              level=error msg="final error sending batch" component_path=/ component_id=loki\.write\.endpoint component=client host=.*?
+              status=400 tenant=.*? error="server returned HTTP status 400 Bad Request \(400\): Max entry size \'(\d+)\' bytes
+              exceeded for stream \'\{.*?\}\' while adding an entry with length \'(\d+)\' bytes"
