@@ -1,0 +1,113 @@
+rules:
+  - cre:
+      id: CRE-2025-0071
+      severity: 0
+      title: Nginx Upstream Failure Cascade Crisis
+      category: load-balancer-problem
+      author: Prequel
+      description: |
+        Detects critical Nginx upstream failure cascades that lead to complete service unavailability.
+        This advanced rule identifies comprehensive upstream failure patterns including DNS resolution
+        failures, connection timeouts, SSL/TLS handshake errors, protocol violations, and server
+        unavailability, followed by HTTP 5xx error responses within a 60-second window.
+
+        The rule uses optimized regex patterns for maximum detection coverage while maintaining
+        high performance and low false-positive rates. It captures both the root cause (upstream
+        failures) and the user-facing impact (HTTP errors) to provide complete incident context.
+      cause: |
+        ROOT CAUSES:
+        - Complete backend server cluster failure (crash, hang, resource exhaustion)
+        - Critical database outages affecting all application instances
+        - Network partitions isolating nginx from backend infrastructure
+        - DNS resolution failures for backend service discovery
+        - SSL/TLS certificate expiration or misconfiguration
+        - Load balancer configuration errors or upstream pool exhaustion
+        - Infrastructure failures (cloud provider outages, data center issues)
+        - Cascading microservice dependencies causing widespread failures
+        - Memory/CPU exhaustion across entire backend server fleet
+        - Container orchestration failures (Kubernetes, Docker Swarm)
+        - Security policy changes blocking backend communication
+      impact: |
+        BUSINESS IMPACT:
+        - CRITICAL: Complete service unavailability affecting all users globally
+        - 100% error rate for client requests (502/503/504 HTTP responses)
+        - Immediate revenue loss and potential customer churn
+        - SLA violations triggering financial penalties
+        - Brand reputation damage from prolonged outages
+
+        TECHNICAL IMPACT:
+        - Total loss of application functionality and user sessions
+        - Potential data inconsistency if transactions were interrupted
+        - Monitoring and alerting system overload from error volume
+        - Increased infrastructure costs from emergency scaling attempts
+        - Operations team emergency escalation and incident response
+
+        COMPLIANCE IMPACT:
+        - Regulatory compliance violations for critical services
+        - Audit trail gaps during service unavailability periods
+        - Potential legal implications for service level agreements
+      impactScore: 10
+      tags:
+        - nginx
+        - reverse-proxy
+        - upstream
+        - service-outage
+        - high-availability
+        - load-balancer
+        - cascading-failure
+      mitigation: |
+        IMMEDIATE TRIAGE (0-5 minutes):
+        - Check nginx error logs: `tail -f /var/log/nginx/error.log | grep -E "upstream|backend"`
+        - Verify backend service health: `curl -f http://backend-server:port/health`
+        - Test network connectivity: `ping backend-servers && telnet backend-server port`
+        - Check nginx configuration: `nginx -t && nginx -s reload`
+        - Monitor system resources: `top`, `free -h`, `df -h`
+        - Review recent deployments and configuration changes
+
+        EMERGENCY RESPONSE (5-15 minutes):
+        1. Activate incident response team and communication channels
+        2. Implement emergency maintenance page to inform users
+        3. Scale up healthy backend instances if available
+        4. Restart failed backend services with health checks
+        5. Consider nginx failover to backup upstream pools
+        6. Enable nginx static content serving for critical pages
+        7. Implement traffic throttling to reduce backend load
+
+        RECOVERY ACTIONS (15-60 minutes):
+        1. Identify and resolve root cause (database, network, resources)
+        2. Gradually restore backend services with canary deployments
+        3. Monitor error rates and response times during recovery
+        4. Validate end-to-end functionality before full restoration
+        5. Update monitoring thresholds based on incident learnings
+        6. Document incident timeline and resolution steps
+
+        PREVENTION STRATEGIES:
+        - Implement comprehensive health checks with circuit breakers
+        - Configure nginx upstream backup servers and failover logic
+        - Set up multi-region deployment with automatic failover
+        - Implement graceful degradation and static content fallbacks
+        - Monitor backend dependencies and cascade failure risks
+        - Establish automated scaling policies for traffic spikes
+        - Regular disaster recovery testing and runbook validation
+      mitigationScore: 6
+      references:
+        - https://nginx.org/en/docs/http/ngx_http_upstream_module.html
+        - https://nginx.org/en/docs/http/load_balancing.html
+        - https://docs.nginx.com/nginx/admin-guide/load-balancer/http-health-check/
+        - https://www.nginx.com/blog/nginx-caching-guide/
+      applications:
+        - name: "nginx"
+          version: ">=1.0.0"
+        - name: "nginx-plus"
+          version: ">=R1"
+    metadata:
+      kind: prequel
+      id: HA4nWSYE1T7goRZUS5B1Vz
+    rule:
+      sequence:
+        window: 60s
+        event:
+          source: cre.log.nginx
+        order:
+          - regex: "could not be resolved|Host not found|Name or service not known|no resolver defined to resolve|connect\\(\\) failed|Connection refused|Connection timed out|Connection reset by peer|No route to host|Network is unreachable|kevent\\(\\) reported that connect\\(\\) failed|no live upstreams|upstream server temporarily disabled|upstream timed out|upstream prematurely closed connection|upstream prematurely closed|SSL_do_handshake\\(\\) failed|SSL handshaking to upstream|SSL_connect\\(\\) failed|upstream sent too big header|upstream sent invalid header|upstream sent invalid chunked response|upstream sent no valid HTTP|upstream sent invalid response|recv\\(\\) failed|send\\(\\) failed|broken pipe|upstream: no port in upstream"
+          - regex: "502|503|504"
