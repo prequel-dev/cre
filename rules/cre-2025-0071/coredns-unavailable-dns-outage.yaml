@@ -1,0 +1,60 @@
+rules:
+  - metadata:
+      id: 3XWJJQRXwFVG1aJPammi5j
+      hash: CAbgxyQnLLP12A6GrRHAdcBsbtstGio1gEAj3kLqyRe9
+      generation: 1
+      kind: prequel
+    cre:
+      id: CRE-2025-0071
+      severity: 1
+      title: "CoreDNS unavailable - DNS outage imminent"
+      category: "kubernetes-problem"
+      tags:
+        - "kubernetes"
+        - "networking"
+        - "dns"
+        - "high-availability"
+      author: "Nicolas Yarosz"
+      description: >
+        CoreDNS deployment is unavailable or has no ready endpoints, indicating
+        an imminent cluster-wide DNS outage. This detects the failure BEFORE
+        DNS queries start timing out, providing critical early warning.
+      impact: >
+        When CoreDNS becomes unavailable, all service discovery fails, readiness
+        probes that rely on DNS begin to fail, pods cycle in and out, and the
+        entire cluster can grind to a halt. This is a commonly cited root cause
+        in production Kubernetes outage post-mortems.
+      impactScore: 9
+      cause: >
+        CoreDNS deployment scaled to zero replicas, pods crashed due to bad
+        configuration, or underlying infrastructure issues causing CoreDNS
+        pods to become unready or unavailable.
+      mitigation: >
+        **Immediate Actions:**
+        - Check CoreDNS deployment status: `kubectl -n kube-system get deployment coredns`
+        - Verify CoreDNS pod health: `kubectl -n kube-system get pods -l k8s-app=kube-dns`
+        - Check CoreDNS logs: `kubectl -n kube-system logs -l k8s-app=kube-dns`
+        
+        **Common Fixes:**
+        - Scale deployment if replicas are 0: `kubectl -n kube-system scale deploy/coredns --replicas=2`
+        - Restart pods if configuration issues: `kubectl -n kube-system rollout restart deployment/coredns`
+        - Verify kube-dns service endpoints: `kubectl -n kube-system get endpoints kube-dns`
+      mitigationScore: 8
+      references:
+        - "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/"
+        - "https://coredns.io/manual/toc/#troubleshooting"
+      reports: 0
+      version: "0.1.0"
+      applications:
+        - name: "coredns"
+          processName: "coredns"
+          version: "*"
+        - name: "kubernetes"
+          processName: "kubelet"
+          version: "v1.29+"
+    rule:
+      set:
+        event:
+          source: cre.log.kubernetes
+        match:
+          - regex: "Scaled down replica set coredns-.+ from [1-9]+ to 0|Stopping container coredns|Readiness probe failed.+connection refused" 
