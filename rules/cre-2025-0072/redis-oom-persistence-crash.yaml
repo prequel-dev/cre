@@ -1,0 +1,87 @@
+rules:
+  - cre:
+      id: CRE-2025-0072
+      severity: 0
+      title: Redis Out-Of-Memory → Persistence Crash → Replica/ACL Write Failures
+      category: in-memory-database-problem
+      author: Prequel
+      description: |
+        Detects a cascade of critical Redis failure modes in a single session:
+        - Redis refuses writes when maxmemory is exceeded (OOM).
+        - RDB snapshot (BGSAVE) fails (MISCONF) due to simulated full-disk.
+        - Replica refuses writes (READONLY).
+        - ACL denies a write (NOPERM).
+
+      cause: |
+        ROOT CAUSES:
+        - Redis is configured with `maxmemory 100mb` + `noeviction`.
+        - A Lua EVAL pushes memory usage over that cap → OOM refusal.
+        - A manual BGSAVE is then forced while disk is full → MISCONF.
+        - The instance is switched to replica mode → READONLY on write.
+        - A read-only ACL user attempts a SET → NOPERM.
+
+      impact: |
+        BUSINESS IMPACT:
+        - CRITICAL: Redis refuses all writes once memory is exhausted.
+        - RDB persistence fails, leaving data un-snapshotted at risk.
+        - Replica rejects writes → any followers are read-only.
+        - ACL denies writes for restricted users → no recovery path until ACL or role changes.
+        - Complete downtime for write-heavy features, risking data loss or service outage.
+
+      impactScore: 10
+      tags:
+        - redis
+        - out-of-memory
+        - persistence
+        - rdb
+        - misconf
+        - readonly
+        - acl
+        - security
+
+      mitigation: |
+        IMMEDIATE:
+        - Check Redis memory usage: `INFO memory`
+        - Inspect `maxmemory` / `maxmemory-policy`: `CONFIG GET maxmemory maxmemory-policy`
+        - Free up memory or increase `maxmemory`.
+        - Clear disk space so BGSAVE can succeed (remove dummy “/data/filler”).
+        - Restart Redis if it was killed.
+
+        RECOVERY ACTIONS (15-60 minutes):
+        - Restore from last valid RDB/AOF snapshot.
+        - Change eviction policy (e.g. `volatile-lru`).
+        - Monitor memory, disk, and persist errors (e.g. via RedisExporter → Prometheus alerts).
+        - Scale out / shard large keys to avoid a single Redis hitting 100 MB.
+
+        PREVENTION STRATEGIES:
+        - Avoid `noeviction` unless absolutely needed; use a TTL/eviction policy.
+        - Ensure persistence disk has enough headroom.
+        - Configure `stop-writes-on-bgsave-error` carefully.
+        - Use ACLs and replica roles deliberately, but monitor for “READONLY” or “NOPERM” events.
+
+      mitigationScore: 7
+
+      references:
+        - https://redis.io/docs/manual/memory/
+        - https://redis.io/docs/manual/persistence/
+        - https://redis.io/commands/bgsave/
+        - https://redis.io/commands/client-replicaof/
+        - https://redis.io/commands/acl-setuser/
+
+      applications:
+        - name: "redis"
+          version: ">=7.0.0"
+    metadata:
+      kind: prequel
+      id: AvK2m6UxieBqaSFmz1464XZETxMVQgfc2z3eACZTBq
+
+    rule:
+      sequence:
+        window: 120s
+        event:
+          source: cre.log.redis
+        order:
+          - regex: "OOM command not allowed when used memory > 'maxmemory'"
+          - regex: "MISCONF Redis is configured to save RDB snapshots, but it's currently unable to persist to disk"
+          - regex: "READONLY You can['’]t write against a read only replica"
+          - regex: "NOPERM User .* has no permissions to run the '.*' command"
