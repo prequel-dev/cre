@@ -17,13 +17,11 @@ rules:
       author: "Nicolas Yarosz"
       description: >
         CoreDNS deployment is unavailable or has no ready endpoints, indicating
-        an imminent cluster-wide DNS outage. This detects the failure BEFORE
-        DNS queries start timing out, providing critical early warning.
+        an imminent cluster-wide DNS outage.
       impact: >
         When CoreDNS becomes unavailable, all service discovery fails, readiness
         probes that rely on DNS begin to fail, pods cycle in and out, and the
-        entire cluster can grind to a halt. This is a commonly cited root cause
-        in production Kubernetes outage post-mortems.
+        entire cluster can grind to a halt.
       impactScore: 9
       cause: >
         CoreDNS deployment scaled to zero replicas, pods crashed due to bad
