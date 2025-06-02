@@ -120,6 +120,9 @@ tags:
   - name: redis
     displayName: Redis
     description: Issues involving Redis availability, eviction policies, or timeouts.
+  - name: redis-cli
+    displayName: Redis CLI
+    description: Problems with the Redis command-line interface, such as connection issues, command errors or rejections.
   - name: redis-py
     displayName: Redis Py
     description: Errors with the `redis-py` client library in Python.
@@ -285,6 +288,9 @@ tags:
   - name: memory
     displayName: Memory
     description: Problems related to memory usage, such as leaks, pressure, or out-of-memory crashes
+  - name: memory-pressure
+    displayName: Memory Pressure
+    description: Problems where applications or services experience high memory usage, leading to performance degradation or crashes
   - name: metrics
     displayName: Metrics
     description: Problems related to metrics collection or reporting, such as missing, delayed, or incorrect data

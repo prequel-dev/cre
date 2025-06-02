@@ -1,9 +1,9 @@
 rules:
   - cre:
-      id: CRE-2025-0071
+      id: CRE-2025-0073
       severity: 1
-      title: "Redis Rejects Writes Due to Reaching 'maxmemory' Limit"
-      category: "database-problem"
+      title: Redis Rejects Writes Due to Reaching 'maxmemory' Limit
+      category: database-problem
       author: "Andre Muta"
       description: |
         The Redis instance has reached its configured 'maxmemory' limit. Because its active memory
@@ -22,10 +22,9 @@ rules:
       tags:
         - redis
         - redis-cli
-        - oom
-        - maxmemory
-        - memory-limit
-        - write-failure
+        - memory-pressure
+        - memory
+        - data-loss
       mitigation: |
         IMMEDIATE ACTIONS:
         - **Verify Client Errors:** Check application logs for "(error) OOM command not allowed when used memory > 'maxmemory'" messages.
@@ -57,15 +56,15 @@ rules:
         - **Client-Side Error Handling:** Implement robust error handling in applications (e.g., retries with backoff, circuit breakers, fallback mechanisms) for Redis OOM conditions or other errors.
       mitigationScore: 6 # Score might be slightly lower due to complexity/risk of some mitigations
       references:
-        - "https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/memory-optimization/"
-        - "https://redis.io/docs/latest/operate/rs/databases/memory-performance/memory-limit/"
-        - "https://redis.io/docs/latest/operate/rs/databases/memory-performance/eviction-policy/"
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/memory-optimization/
+        - https://redis.io/docs/latest/operate/rs/databases/memory-performance/memory-limit/
+        - https://redis.io/docs/latest/operate/rs/databases/memory-performance/eviction-policy/
       applications:
-        - name: "redis"
+        - name: redis
           version: "*"
     metadata:
-      kind: "prequel"
-      id: "HcYe7N3XHfKLYNoWn8wQYL"
+      kind: prequel
+      id: HcYe7N3XHfKLYNoWn8wQYL
     rule:
       set:
         event:
