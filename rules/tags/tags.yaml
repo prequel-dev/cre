@@ -477,3 +477,15 @@ tags:
   - name: cluster-degradation
     displayName: Cluster Degradation
     description: Problems related to cluster availability
+  - name: load-balancer-problem
+    displayName: Load Balancer Problem
+    description: Problems related to load balancers, such as misrouting, unhealthy backends, or configuration faults
+  - name: reverse-proxy
+    displayName: Reverse Proxy
+    description: Problems related to reverse proxy configurations or issues
+  - name: service-outage
+    displayName: Service Outage
+    description: Problems related to service outages, such as complete service unavailability or critical failures
+  - name: cascading-failure
+    displayName: Cascading Failure
+    description: Problems related to cascading failures, where one failure leads to multiple dependent failures

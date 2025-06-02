@@ -50,7 +50,6 @@ rules:
       tags:
         - nginx
         - reverse-proxy
-        - upstream
         - service-outage
         - high-availability
         - load-balancer
