@@ -465,3 +465,39 @@ tags:
   - name: write-failure
     displayName: Write Failure
     description: Problems where writes to a database or storage system fail due to insufficient space or other issues
+  - name: out-of-memory
+    displayName: Out of Memory
+    description: Errors due to Redis (or other) exhausting its configured RAM.
+  - name: persistence
+    displayName: Persistence
+    description: Issues around writing data to disk (RDB/AOF) or failing to persist.
+  - name: rdb
+    displayName: RDB
+    description: Redis RDB snapshot errors (e.g. BGSAVE failures).
+  - name: misconf
+    displayName: MISCONF
+    description: Redis “MISCONF” errors (stop-writes due to snapshot or AOF failures).
+  - name: readonly
+    displayName: READONLY
+    description: Errors when writing to a read-only Redis replica.
+  - name: acl
+    displayName: ACL
+    description: Redis ACL (NOPERM) permission‐denied events.
+  - name: nfs
+    displayName: NFS
+    description: Problems related to NFS (network file systems)
+  - name: securityContext
+    displayName: securityContext
+    description: Problems related to Kubernetes securityContext
+  - name: replication
+    displayName: Replication
+    description: Problems related to Kafka replication
+  - name: high-availability
+    displayName: High Availability
+    description: Problems related to high-availability
+  - name: broker-failure
+    displayName: Broker Failure
+    description: Problems related to Kakfa broker failures
+  - name: cluster-degradation
+    displayName: Cluster Degradation
+    description: Problems related to cluster availability
