@@ -390,6 +390,9 @@ tags:
   - name: disk-monitor
     displayName: Disk Monitor
     description: Problems related to disk monitoring
+  - name: disk-full
+    displayName: Disk Full
+    description: Problems related to disk full errors, such as insufficient space for writes or data storage
   - name: istio
     displayName: Istio
     description: Problems related to the Istio service mesh
@@ -459,3 +462,6 @@ tags:
   - name: xorg
     displayName: Xorg
     description: Problems related to Xorg, such as input lag, or performance issues
+  - name: write-failure
+    displayName: Write Failure
+    description: Problems where writes to a database or storage system fail due to insufficient space or other issues
