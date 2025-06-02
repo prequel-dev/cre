@@ -7,7 +7,7 @@ rules:
     cre:
       id: CRE-2025-0071
       severity: 1
-      title: "CoreDNS unavailable - DNS outage imminent"
+      title: "CoreDNS unavailable"
       category: "kubernetes-problem"
       tags:
         - "kubernetes"
