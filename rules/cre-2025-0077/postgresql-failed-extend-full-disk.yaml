@@ -1,6 +1,6 @@
 rules:
 - cre:
-    id: CRE-2025-0074
+    id: CRE-2025-0077
     severity: 1
     title: PostgreSQL Fails to Extend File Due to Disk Full
     category: database-problem
