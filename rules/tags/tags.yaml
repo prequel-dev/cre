@@ -459,3 +459,26 @@ tags:
   - name: xorg
     displayName: Xorg
     description: Problems related to Xorg, such as input lag, or performance issues
+  - name: out-of-memory
+    displayName: Out of Memory
+    description: Errors due to Redis (or other) exhausting its configured RAM.
+
+  - name: persistence
+    displayName: Persistence
+    description: Issues around writing data to disk (RDB/AOF) or failing to persist.
+
+  - name: rdb
+    displayName: RDB
+    description: Redis RDB snapshot errors (e.g. BGSAVE failures).
+
+  - name: misconf
+    displayName: MISCONF
+    description: Redis “MISCONF” errors (stop-writes due to snapshot or AOF failures).
+
+  - name: readonly
+    displayName: READONLY
+    description: Errors when writing to a read-only Redis replica.
+
+  - name: acl
+    displayName: ACL
+    description: Redis ACL (NOPERM) permission‐denied events.
