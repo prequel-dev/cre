@@ -123,7 +123,12 @@ categories:
   - name: task-management-problem
     displayName: Task Management Problems
     description: Issues related to the management and execution of tasks and workflows.
-    description: "Problems related to message queue performance"
   - name: ubuntu-desktop-problem
     displayName: Ubuntu Desktop Problems
     description: "Problems related to Ubuntu Desktop"
+  - name: in-memory-database-problem
+    displayName: In-Memory Database Problems
+    description: Problems specific to in-memory data stores (e.g. Redis, Memcached)
+  - name: kubernetes-storage-problems
+    displayName: Kubernetes Storage Problems
+    description: Problems related to container storage in Kubernetes
