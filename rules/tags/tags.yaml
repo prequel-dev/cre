@@ -459,3 +459,21 @@ tags:
   - name: xorg
     displayName: Xorg
     description: Problems related to Xorg, such as input lag, or performance issues
+  - name: nfs
+    displayName: NFS
+    description: Problems related to NFS (network file systems)
+  - name: securityContext
+    displayName: securityContext
+    description: Problems related to Kubernetes securityContext
+  - name: replication
+    displayName: Replication
+    description: Problems related to Kafka replication
+  - name: high-availability
+    displayName: High Availability
+    description: Problems related to high-availability
+  - name: broker-failure
+    displayName: Broker Failure
+    description: Problems related to Kakfa broker failures
+  - name: cluster-degradation
+    displayName: Cluster Degradation
+    description: Problems related to cluster availability
