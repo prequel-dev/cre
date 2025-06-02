@@ -5,6 +5,15 @@ rules:
       title: Redis Out-Of-Memory → Persistence Crash → Replica/ACL Write Failures
       category: in-memory-database-problem
       author: Prequel
+      tags:
+        - redis
+        - out-of-memory
+        - persistence
+        - rdb
+        - misconf
+        - readonly
+        - acl
+        - security
       description: |
         Detects a cascade of critical Redis failure modes in a single session:
         - Redis refuses writes when maxmemory is exceeded (OOM).
@@ -29,16 +38,6 @@ rules:
         - Complete downtime for write-heavy features, risking data loss or service outage.
 
       impactScore: 10
-      tags:
-        - redis
-        - out-of-memory
-        - persistence
-        - rdb
-        - misconf
-        - readonly
-        - acl
-        - security
-
       mitigation: |
         IMMEDIATE:
         - Check Redis memory usage: `INFO memory`
