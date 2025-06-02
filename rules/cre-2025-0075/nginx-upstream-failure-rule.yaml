@@ -1,6 +1,6 @@
 rules:
   - cre:
-      id: CRE-2025-0071
+      id: CRE-2025-0075
       severity: 0
       title: Nginx Upstream Failure Cascade Crisis
       category: load-balancer-problem
