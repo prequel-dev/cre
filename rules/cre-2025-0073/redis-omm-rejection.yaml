@@ -25,6 +25,7 @@ rules:
         - memory-pressure
         - memory
         - data-loss
+        - public
       mitigation: |
         IMMEDIATE ACTIONS:
         - **Verify Client Errors:** Check application logs for "(error) OOM command not allowed when used memory > 'maxmemory'" messages.
