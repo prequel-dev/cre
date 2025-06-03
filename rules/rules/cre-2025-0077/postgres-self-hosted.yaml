@@ -21,15 +21,18 @@ rules:
         - HA controller (etcd/consul) DNS/name resolution failures or full cluster outage (quorum lost)
         - Disk full on primary prevents WAL writes or checkpointing
       tags:
-        - postgres
+        - postgresql
         - patroni
         - zalando
         - ha
         - etcd
         - replication
         - wal
-        - disk
+        - storage
         - quorum
+        - crash
+        - data-loss
+        - timeout
       mitigation: |
         PREVENTION:
           - Monitor disk usage on all PostgreSQL nodes, especially WAL and archive directories
