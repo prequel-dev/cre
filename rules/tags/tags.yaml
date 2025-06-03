@@ -120,6 +120,9 @@ tags:
   - name: redis
     displayName: Redis
     description: Issues involving Redis availability, eviction policies, or timeouts.
+  - name: redis-cli
+    displayName: Redis CLI
+    description: Problems with the Redis command-line interface, such as connection issues, command errors or rejections.
   - name: redis-py
     displayName: Redis Py
     description: Errors with the `redis-py` client library in Python.
@@ -285,6 +288,9 @@ tags:
   - name: memory
     displayName: Memory
     description: Problems related to memory usage, such as leaks, pressure, or out-of-memory crashes
+  - name: memory-pressure
+    displayName: Memory Pressure
+    description: Problems where applications or services experience high memory usage, leading to performance degradation or crashes
   - name: metrics
     displayName: Metrics
     description: Problems related to metrics collection or reporting, such as missing, delayed, or incorrect data
@@ -390,6 +396,9 @@ tags:
   - name: disk-monitor
     displayName: Disk Monitor
     description: Problems related to disk monitoring
+  - name: disk-full
+    displayName: Disk Full
+    description: Problems related to disk full errors, such as insufficient space for writes or data storage
   - name: istio
     displayName: Istio
     description: Problems related to the Istio service mesh
@@ -459,6 +468,9 @@ tags:
   - name: xorg
     displayName: Xorg
     description: Problems related to Xorg, such as input lag, or performance issues
+  - name: write-failure
+    displayName: Write Failure
+    description: Problems where writes to a database or storage system fail due to insufficient space or other issues
   - name: out-of-memory
     displayName: Out of Memory
     description: Errors due to Redis (or other) exhausting its configured RAM.
@@ -516,4 +528,15 @@ tags:
   - name: quorum
     displayName: Quorum
     description: Loss or degradation of cluster quorum in distributed systems.
-
+  - name: load-balancer-problem
+    displayName: Load Balancer Problem
+    description: Problems related to load balancers, such as misrouting, unhealthy backends, or configuration faults
+  - name: reverse-proxy
+    displayName: Reverse Proxy
+    description: Problems related to reverse proxy configurations or issues
+  - name: service-outage
+    displayName: Service Outage
+    description: Problems related to service outages, such as complete service unavailability or critical failures
+  - name: cascading-failure
+    displayName: Cascading Failure
+    description: Problems related to cascading failures, where one failure leads to multiple dependent failures

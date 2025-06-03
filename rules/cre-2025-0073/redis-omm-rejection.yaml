@@ -1,0 +1,74 @@
+rules:
+  - cre:
+      id: CRE-2025-0073
+      severity: 1
+      title: Redis Rejects Writes Due to Reaching 'maxmemory' Limit
+      category: database-problem
+      author: "Andre Muta"
+      description: |
+        The Redis instance has reached its configured 'maxmemory' limit. Because its active memory
+        management policy does not permit the eviction of existing keys to free up space (as is the
+        case when the 'noeviction' policy is in effect, which is often the default), Redis rejects
+        new write commands by sending an "OOM command not allowed" error to the client.
+      cause: |
+        - Redis 'maxmemory' limit has been reached.
+        - The active memory management policy prevents key eviction to make space (e.g., 'noeviction' policy is active by default or configuration).
+        - Application attempting to write data exceeding the available 'maxmemory'.
+      impact: |
+        - CRITICAL: Inability to write new data or modify data in a way that increases memory usage.
+        - Potential data loss if critical incoming writes are not handled by client applications.
+        - Service degradation or failure for application components dependent on Redis writes.
+      impactScore: 9
+      tags:
+        - redis
+        - redis-cli
+        - memory-pressure
+        - memory
+        - data-loss
+        - public
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - **Verify Client Errors:** Check application logs for "(error) OOM command not allowed when used memory > 'maxmemory'" messages.
+        - **Check Redis State (`redis-cli`):**
+          - `INFO memory`: Confirm `used_memory` is at/near `maxmemory`. Note the `maxmemory_policy` (often 'noeviction' by default if not otherwise set).
+          - `INFO COMMANDSTATS`: Observe `rejected_calls` for write commands.
+
+        RECOVERY STEPS:
+        1. **Increase `maxmemory` (if feasible):** `CONFIG SET maxmemory <new_size_bytes_or_mb_gb>`. This is often the safest first step if resources allow, to provide immediate relief without data loss.
+        2. **Manual Data Deletion:** If specific non-essential data can be identified, use `DEL <key_name> ...` to free up memory. This requires knowledge of the data.
+        3. **Evaluate and Consider Changing `maxmemory-policy` (Use with Caution):**
+           - If the current policy prevents eviction (e.g., 'noeviction', which is often the default when `maxmemory` is set) and writes must be restored quickly, consider changing to an eviction policy (e.g., `allkeys-lru`, `volatile-lru`, `allkeys-random`).
+           - **WARNING: Enabling an eviction policy WILL lead to Redis deleting keys** to stay under the `maxmemory` limit when new data is written.
+           - **Action:** Only proceed if the potential loss of some data (as determined by the chosen eviction strategy) is an acceptable trade-off to restore write availability. Thoroughly understand the behavior of different [Redis eviction policies](https://redis.io/docs/latest/operate/oss_and_stack/management/memory-optimization/#eviction-policies) before choosing one.
+           - Command: `CONFIG SET maxmemory-policy <chosen-eviction-policy>`
+        4. **Analyze & Optimize Application:** Investigate sources of high memory usage; optimize data structures, reduce data footprint, or change write patterns.
+        5. **Scale Redis Instance:** If memory pressure is persistent, provide more memory to the Redis server or consider migrating to a clustered solution.
+
+        PREVENTION:
+        - **Capacity Planning:** Set `maxmemory` based on careful estimation of workload and available resources, including a buffer for growth and spikes.
+        - **Informed `maxmemory-policy` Selection:**
+          - Consciously choose and configure a `maxmemory-policy` that aligns with your application's data access patterns, the importance of data persistence versus write availability, and your tolerance for data loss.
+          - Understand the implications of `noeviction` (default when `maxmemory` is set) versus various eviction strategies. Do not rely on defaults without understanding them.
+        - **Comprehensive Monitoring & Alerting:**
+          - Alert when `used_memory` approaches `maxmemory` (e.g., >80-85%).
+          - Monitor `rejected_commands` (if the policy is non-evicting) or `evicted_keys` (if an eviction policy is active).
+          - Monitor client-side error rates from Redis.
+        - **Use Time-To-Live (TTLs):** Set expirations on keys that do not need to persist indefinitely to help manage memory proactively.
+        - **Client-Side Error Handling:** Implement robust error handling in applications (e.g., retries with backoff, circuit breakers, fallback mechanisms) for Redis OOM conditions or other errors.
+      mitigationScore: 6 # Score might be slightly lower due to complexity/risk of some mitigations
+      references:
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/memory-optimization/
+        - https://redis.io/docs/latest/operate/rs/databases/memory-performance/memory-limit/
+        - https://redis.io/docs/latest/operate/rs/databases/memory-performance/eviction-policy/
+      applications:
+        - name: redis
+          version: "*"
+    metadata:
+      kind: prequel
+      id: HcYe7N3XHfKLYNoWn8wQYL
+    rule:
+      set:
+        event:
+          source: cre.log.redis-cli
+        match:
+          - regex: "OOM command not allowed when used memory > 'maxmemory'"
