@@ -21,10 +21,9 @@ rules:
         - HA controller (etcd/consul) DNS/name resolution failures or full cluster outage (quorum lost)
         - Disk full on primary prevents WAL writes or checkpointing
       tags:
-        - postgresql
+        - ha
         - patroni
         - zalando
-        - ha
         - etcd
         - replication
         - wal
@@ -49,9 +48,6 @@ rules:
         - https://etcd.io/docs/latest/op-guide/clustering/
       applications:
         - name: postgresql
-        - name: patroni
-        - name: zalando-postgres-operator
-        - name: etcd
       impact: |
         - Replication breakage; secondary/standby nodes cannot receive WAL
         - Potential for split-brain, data loss, or full cluster outage
