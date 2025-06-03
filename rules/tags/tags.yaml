@@ -495,3 +495,25 @@ tags:
   - name: cluster-degradation
     displayName: Cluster Degradation
     description: Problems related to cluster availability
+  - name: etcd
+    displayName: Etcd
+    description: Issues involving etcd clusters or consensus, especially in HA setups.
+  - name: patroni
+    displayName: Patroni
+    description: Issues related to Patroni high-availability controller for PostgreSQL.
+  - name: zalando
+    displayName: Zalando
+    description: Issues related to the Zalando Postgres Operator for HA Postgres.
+  - name: ha
+    displayName: High Availability
+    description: Problems or incidents involving high-availability clusters, failover, or consensus.
+  - name: replication
+    displayName: Replication
+    description: Replication failures, lag, or divergence in stateful systems.
+  - name: wal
+    displayName: WAL
+    description: Issues with Write-Ahead Logging in databases.
+  - name: quorum
+    displayName: Quorum
+    description: Loss or degradation of cluster quorum in distributed systems.
+
