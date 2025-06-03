@@ -1,0 +1,69 @@
+rules:
+  - cre:
+      id: CRE-2025-0072
+      severity: 0
+      title: Self-hosted PostgreSQL WAL Crash Due to Disk Full Triggers HA Failover
+      category: postgres-ha
+      author: M Vamshi
+      description: |
+        Critical failure in self-hosted PostgreSQL
+      cause: |
+        - WAL cannot flush due to disk saturation (`No space left on device`)
+        - Replication slots are missing or invalidated
+        - Streaming replication fails
+        - Etcd or HA controller becomes partially unavailable
+      impact: |
+        - PANIC or crash of PostgreSQL primary
+        - Failover triggered in HA systems
+        - Disconnected clients and broken replication
+        - Etcd failures worsen HA responsiveness
+      impactScore: 6
+      tags:
+        - postgres
+        - ha
+        - disk
+        - failover
+        - replication
+        - self-hosted
+      mitigation: |
+        PREVENTION:
+        - Set alerts for disk usage and WAL segment growth
+        - Enable `archive_command` and tune `wal_keep_size`
+        - Periodically clean `/var/lib/postgresql/data/pg_wal`
+
+        RECOVERY:
+        - Free disk space on the affected node
+        - Restart the crashed PostgreSQL instance
+        - Re-create replication slots if required
+        - Ensure replica promotion consistency in Patroni logs
+      mitigationScore: 5
+      references:
+        - https://www.postgresql.org/docs/current/wal-intro.html
+        - https://patroni.readthedocs.io/en/latest/failover.html
+      applications:
+        - name: "postgres"
+          processName: "postgres"
+          version: "*"
+        - name: "patroni"
+          processName: "patroni"
+          version: "*"
+        - name: "etcd"
+          processName: "etcd"
+          version: "*"
+    metadata:
+      kind: prequel
+      id: hA7kxPZ4TfB8nWmCyA59uA
+      gen: 1
+    rule:
+      sequence:
+        window: 120s
+        event:
+          source: cre.logs
+        order:
+          - regex: "No space left on device"
+          - regex: "could not write|PANIC"
+          - regex: "replication slot .* does not exist"
+          - regex: "could not start WAL streaming"
+          - regex: "Connection refused|MaxRetryError|ReadTimeoutError|ConnectTimeout"
+          - regex: "failed to resolve host"
+          - regex: "Paused replica|Resumed replica|promoted self to leader"
