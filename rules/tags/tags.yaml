@@ -519,3 +519,6 @@ tags:
   - name: cascading-failure
     displayName: Cascading Failure
     description: Problems related to cascading failures, where one failure leads to multiple dependent failures
+  - name: demo-problem
+    displayName: Demo Problem
+    description: This is a tag for demo problems

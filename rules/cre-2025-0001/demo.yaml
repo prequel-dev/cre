@@ -1,0 +1,37 @@
+rules:
+  - cre:
+      id: CRE-2025-0918
+      severity: 0
+      title: Demo Application Crashing due to ENV Misconfiguration
+      category: demo-problems
+      author: Tony Meehan
+      description: |
+        - The author of the demo application thought it would be interesting to make the application break if a secret environment variable was not set.
+      cause: |
+        - It's a demo application that needs to have PANIC=off set in the environment.
+      impact: |
+        - The application crashes and users can no longer access the demo service.
+      tags:
+        - demo-problem
+      mitigation: |
+        Run the demo service with PANIC=off
+
+        ```
+        PANIC=off ./demo
+        ```
+      references:
+        - https://docs.prequel.dev
+      applications:
+        - name: "preq-demo-app"
+    metadata:
+      id: YJ2r3QPQDj8iFnXmoUSG8p
+      gen: 1
+    rule:
+      set:
+        window: 1s
+        event:
+          source: cre.log.demo
+        match:
+          - "method=GET path=/panic"
+          - "panic: intentional panic inside goroutine for demo purposes"
+          - regex: "main.panicHandler(.+)demo.go:87"

@@ -132,3 +132,6 @@ categories:
   - name: kubernetes-storage-problems
     displayName: Kubernetes Storage Problems
     description: Problems related to container storage in Kubernetes
+  - name: demo-problems
+    displayName: Demo Problems
+    description: This is a category for demos
