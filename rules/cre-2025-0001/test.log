@@ -1,0 +1,10 @@
+2025/06/03 21:42:18 level=info msg="configuration" panic_mode=true
+2025/06/03 21:42:18 level=info msg="starting server" addr=:8080
+2025/06/03 21:42:24 level=info method=GET path=/panic status=200 duration=26.68µs
+panic: intentional panic inside goroutine for demo purposes
+
+goroutine 10 [running]:
+main.panicHandler.func1()
+	/home/tony/git/preq-demo-app/cmd/demo.go:87 +0x25
+created by main.panicHandler in goroutine 8
+	/home/tony/git/preq-demo-app/cmd/demo.go:86 +0x31
