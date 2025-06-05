@@ -111,6 +111,9 @@ tags:
   - name: prometheus
     displayName: Prometheus
     description: Problems with scraping, rule evaluation, or querying Prometheus data.
+  - name: connection-refused-startup
+    displayName: Connection Refused on Startup
+    description: Failures that occur when a service (e.g., Temporal worker) tries to connect to a backend and receives a connection refused error.
   - name: psycopg2
     displayName: Psycopg2
     description: Python client errors related to connecting or querying PostgreSQL using psycopg2.

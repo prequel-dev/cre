@@ -138,3 +138,6 @@ categories:
   - name: demo-problems
     displayName: Demo Problems
     description: This is a category for demos
+  - name: distributed-worker-connectivity
+    displayName: Distributed Worker Connectivity Issues
+    description: Failures where a distributed systems worker fails to reach or stay connected to the orchestration backend (e.g., Temporal, Celery).

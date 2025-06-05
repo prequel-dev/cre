@@ -1,0 +1,67 @@
+rules:
+  - cre:
+      id: CRE-2025-0074
+      severity: 0
+      title: Temporal Worker → Server Downtime → Connection Refused Failure
+      category: workflow-orchestration-connectivity
+      author: Prequel
+      description: |
+        Detects failure when a Temporal worker is unable to reach the Temporal server.
+        - This typically occurs during startup or after server downtime.
+        - Worker log contains gRPC error: "connection refused".
+      
+      cause: |
+        ROOT CAUSES:
+        - Temporal server was stopped or not reachable on port 7233.
+        - Worker container started before the server was healthy.
+        - Network misconfiguration or resource contention during startup.
+      
+      impact: |
+        BUSINESS IMPACT:
+        - Temporal workflows do not start or progress.
+        - Tasks queue up without being picked up by a worker.
+        - Can go unnoticed without active monitoring.
+      
+      impactScore: 10
+      tags:
+        - temporal
+        - worker
+        - grpc
+        - connection-refused
+        - startup-failure
+        
+      mitigation: |
+        IMMEDIATE:
+        - Confirm server is running: `docker ps`, `docker logs temporal`
+        - Ensure worker starts only after server is available.
+        - Restart worker manually or with retry logic.
+        RECOVERY ACTIONS:
+        - Add health checks for the server container.
+        - Use startup dependencies in Docker Compose.
+        - Improve alerting for “connection refused” messages.
+        PREVENTION STRATEGIES:
+        - Monitor port 7233 availability.
+        - Delay worker startup until Temporal is healthy.
+        - Add retry logic in the worker code.
+      mitigationScore: 6
+      references:
+        - https://docs.temporal.io/
+        - https://docs.temporal.io/production-deployment/production-deployment-overview
+        - https://grpc.io/docs/guides/
+        - https://github.com/temporalio/samples-go
+
+      applications:
+        - name: "temporal"
+          version: ">=1.27.0"
+    metadata:
+      kind: prequel
+      id: 7AUUSrCz9ssNvDvPwBVfAK
+
+    rule:
+      sequence:
+        window: 120s
+        event:
+          source: cre.log.temporal.worker
+        order:
+          - regex: "Failed to connect to Temporal: failed reaching server"
+          - regex: "connection refused"
