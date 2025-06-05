@@ -1,0 +1,61 @@
+2025-06-03T00:40:29Z FATAL   postgres   could not start WAL streaming: replication slot "patroni1" does not exist
+2025-06-03T00:40:29Z FATAL   postgres   could not start WAL streaming: replication slot "patroni1" does not exist
+2025-06-03T00:40:34Z FATAL   postgres   could not start WAL streaming: replication slot "patroni1" does not exist
+2025-06-03T00:40:29Z FATAL   postgres   could not start WAL streaming: replication slot "patroni3" does not exist
+2025-06-03T00:40:29Z ERROR   postgres   dd: error writing '/var/lib/postgresql/data/bigfile': No space left on device
+2025-06-03T00:40:29Z FATAL   postgres   could not start WAL streaming: replication slot "patroni3" does not exist
+2025-06-03T00:40:34Z FATAL   postgres   could not start WAL streaming: replication slot "patroni3" does not exist
+2025-06-03T00:40:29Z ERROR   postgres   replication slot "patroni3" does not exist
+2025-06-03T00:40:29Z ERROR   postgres   replication slot "patroni1" does not exist
+2025-06-03T00:40:29Z ERROR   postgres   replication slot "patroni1" does not exist
+2025-06-03T00:40:34Z ERROR   postgres   replication slot "patroni3" does not exist
+2025-06-03T00:40:34Z ERROR   postgres   replication slot "patroni1" does not exist
+
+2025-06-03T00:50:00Z WARNING etcd       failed to resolve host etcd2: [Errno -3] Temporary failure in name resolution
+2025-06-03T00:50:00Z ERROR   etcd       Failed to get list of machines from http://etcd2:2379/v3beta: MaxRetryError("Connection refused")
+2025-06-03T00:50:08Z WARNING etcd       failed to resolve host etcd1: [Errno -3] Temporary failure in name resolution
+2025-06-03T00:50:08Z ERROR   etcd       Failed to get list of machines from http://etcd1:2379/v3beta: MaxRetryError("Connection refused")
+2025-06-03T00:50:12Z ERROR   etcd       Request to server http://192.168.80.6:2379 failed: ReadTimeoutError
+2025-06-03T00:50:13Z ERROR   etcd       Request to server http://192.168.80.8:2379 failed: MaxRetryError("ConnectTimeout")
+2025-06-03T00:50:15Z ERROR   etcd       Request to server http://192.168.80.7:2379 failed: MaxRetryError("ConnectTimeout")
+2025-06-03T00:50:23Z WARNING etcd       failed to resolve host etcd1: [Errno -3] Temporary failure in name resolution
+2025-06-03T00:50:23Z ERROR   etcd       Failed to get list of machines from http://etcd1:2379/v3beta: MaxRetryError("Connection refused")
+
+2025-06-02T18:28:52Z ERROR   etcd       watchprefix failed: <FailedPrecondition error: “grpc: the client connection is closing”>
+2025-06-02T18:28:52Z ERROR   etcd       Request to server http://172.23.0.4:2379 failed: MaxRetryError("Connection refused")
+2025-06-02T18:28:52Z INFO    patroni    Reconnection allowed, trying another etcd node
+2025-06-02T18:28:52Z INFO    patroni    Retrying on http://172.23.0.5:2379
+2025-06-02T18:28:52Z INFO    patroni    Selected new etcd server http://172.23.0.5:2379
+2025-06-02T18:28:52Z ERROR   etcd       Failed to get list of machines from http://172.23.0.4:2379/v3beta: MaxRetryError("Connection refused")
+2025-06-02T18:28:52Z ERROR   etcd       Failed to get list of machines from http://172.23.0.3:2379/v3beta: MaxRetryError("Connection refused")
+2025-06-02T18:28:52Z WARNING etcd       Connected to Etcd node with term 2. Old known term 3. Switching again.
+2025-06-02T18:28:52Z ERROR   etcd       Request to server http://172.23.0.5:2379 failed: StaleEtcdNode()
+2025-06-02T18:28:52Z INFO    patroni    Reconnection allowed, trying yet another etcd node
+2025-06-02T18:28:52Z ERROR   etcd       Failed to get list of machines from http://172.23.0.4:2379/v3beta: MaxRetryError("Connection refused")
+2025-06-02T18:28:52Z ERROR   etcd       Failed to get list of machines from http://etcd2:2379/v3beta: MaxRetryError("Connection refused")
+2025-06-02T18:28:52Z ERROR   etcd       Failed to get list of machines from http://172.23.0.3:2379/v3beta: MaxRetryError("Connection refused")
+2025-06-02T18:28:54Z ERROR   etcd       Request to server http://172.23.0.4:2379 failed: MaxRetryError("ConnectTimeout")
+2025-06-02T18:28:56Z ERROR   etcd       Request to server http://172.23.0.3:2379 failed: MaxRetryError("ConnectTimeout")
+2025-06-02T18:28:57Z ERROR   etcd       Failed to get list of machines from http://172.23.0.4:2379/v3beta: MaxRetryError("ConnectTimeout")
+2025-06-02T18:28:59Z ERROR   etcd       Failed to get list of machines from http://172.23.0.3:2379/v3beta: MaxRetryError("ConnectTimeout")
+2025-06-02T18:29:02Z ERROR   etcd       Request to server http://172.23.0.5:2379 failed: ReadTimeoutError
+2025-06-02T18:29:02Z INFO    patroni    Reconnection allowed, trying another etcd node
+2025-06-02T18:29:02Z INFO    patroni    Retrying on http://172.23.0.3:2379
+
+2025-06-02T14:47:18Z FATAL   postgres   could not start WAL streaming: replication slot "patroni1" does not exist
+2025-06-02T14:47:18Z FATAL   postgres   could not start WAL streaming: replication slot "patroni1" does not exist
+2025-06-02T14:47:23Z FATAL   postgres   could not start WAL streaming: replication slot "patroni1" does not exist
+2025-06-02T14:47:19Z FATAL   postgres   could not start WAL streaming: replication slot "patroni2" does not exist
+2025-06-02T14:47:19Z FATAL   postgres   could not start WAL streaming: replication slot "patroni2" does not exist
+2025-06-02T14:47:24Z FATAL   postgres   could not start WAL streaming: replication slot "patroni2" does not exist
+2025-06-02T14:47:18Z ERROR   postgres   replication slot "patroni1" does not exist
+2025-06-02T14:47:18Z ERROR   postgres   replication slot "patroni1" does not exist
+2025-06-02T14:47:19Z ERROR   postgres   replication slot "patroni2" does not exist
+2025-06-02T14:47:19Z ERROR   postgres   replication slot "patroni2" does not exist
+2025-06-02T14:47:23Z ERROR   postgres   replication slot "patroni1" does not exist
+2025-06-02T14:47:24Z ERROR   postgres   replication slot "patroni2" does not exist
+
+2025-06-03T00:15:00Z NOTICE   postgres   relation "big_data" already exists, skipping
+2025-06-03T00:15:04Z INFO     patroni    Paused replica demo-patroni2
+2025-06-03T00:15:14Z INFO     patroni    Waiting 10s for WAL to build up on leader
+2025-06-03T00:15:15Z INFO     patroni    Resumed replica demo-patroni2

@@ -120,6 +120,9 @@ tags:
   - name: redis
     displayName: Redis
     description: Issues involving Redis availability, eviction policies, or timeouts.
+  - name: redis-cli
+    displayName: Redis CLI
+    description: Problems with the Redis command-line interface, such as connection issues, command errors or rejections.
   - name: redis-py
     displayName: Redis Py
     description: Errors with the `redis-py` client library in Python.
@@ -285,6 +288,9 @@ tags:
   - name: memory
     displayName: Memory
     description: Problems related to memory usage, such as leaks, pressure, or out-of-memory crashes
+  - name: memory-pressure
+    displayName: Memory Pressure
+    description: Problems where applications or services experience high memory usage, leading to performance degradation or crashes
   - name: metrics
     displayName: Metrics
     description: Problems related to metrics collection or reporting, such as missing, delayed, or incorrect data
@@ -390,6 +396,9 @@ tags:
   - name: disk-monitor
     displayName: Disk Monitor
     description: Problems related to disk monitoring
+  - name: disk-full
+    displayName: Disk Full
+    description: Problems related to disk full errors, such as insufficient space for writes or data storage
   - name: istio
     displayName: Istio
     description: Problems related to the Istio service mesh
@@ -471,3 +480,78 @@ tags:
   - name: high-availability
     displayName: High Availability
     description: Problems related to high-availability systems and failover
+  - name: write-failure
+    displayName: Write Failure
+    description: Problems where writes to a database or storage system fail due to insufficient space or other issues
+  - name: out-of-memory
+    displayName: Out of Memory
+    description: Errors due to Redis (or other) exhausting its configured RAM.
+  - name: persistence
+    displayName: Persistence
+    description: Issues around writing data to disk (RDB/AOF) or failing to persist.
+  - name: rdb
+    displayName: RDB
+    description: Redis RDB snapshot errors (e.g. BGSAVE failures).
+  - name: misconf
+    displayName: MISCONF
+    description: Redis “MISCONF” errors (stop-writes due to snapshot or AOF failures).
+  - name: readonly
+    displayName: READONLY
+    description: Errors when writing to a read-only Redis replica.
+  - name: acl
+    displayName: ACL
+    description: Redis ACL (NOPERM) permission‐denied events.
+  - name: nfs
+    displayName: NFS
+    description: Problems related to NFS (network file systems)
+  - name: securityContext
+    displayName: securityContext
+    description: Problems related to Kubernetes securityContext
+  - name: replication
+    displayName: Replication
+    description: Problems related to Kafka replication
+  - name: high-availability
+    displayName: High Availability
+    description: Problems related to high-availability
+  - name: broker-failure
+    displayName: Broker Failure
+    description: Problems related to Kakfa broker failures
+  - name: cluster-degradation
+    displayName: Cluster Degradation
+    description: Problems related to cluster availability
+  - name: etcd
+    displayName: Etcd
+    description: Issues involving etcd clusters or consensus, especially in HA setups.
+  - name: patroni
+    displayName: Patroni
+    description: Issues related to Patroni high-availability controller for PostgreSQL.
+  - name: zalando
+    displayName: Zalando
+    description: Issues related to the Zalando Postgres Operator for HA Postgres.
+  - name: ha
+    displayName: High Availability
+    description: Problems or incidents involving high-availability clusters, failover, or consensus.
+  - name: replication
+    displayName: Replication
+    description: Replication failures, lag, or divergence in stateful systems.
+  - name: wal
+    displayName: WAL
+    description: Issues with Write-Ahead Logging in databases.
+  - name: quorum
+    displayName: Quorum
+    description: Loss or degradation of cluster quorum in distributed systems.
+  - name: load-balancer-problem
+    displayName: Load Balancer Problem
+    description: Problems related to load balancers, such as misrouting, unhealthy backends, or configuration faults
+  - name: reverse-proxy
+    displayName: Reverse Proxy
+    description: Problems related to reverse proxy configurations or issues
+  - name: service-outage
+    displayName: Service Outage
+    description: Problems related to service outages, such as complete service unavailability or critical failures
+  - name: cascading-failure
+    displayName: Cascading Failure
+    description: Problems related to cascading failures, where one failure leads to multiple dependent failures
+  - name: demo-problem
+    displayName: Demo Problem
+    description: This is a tag for demo problems

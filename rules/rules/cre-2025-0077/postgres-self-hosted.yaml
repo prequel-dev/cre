@@ -1,0 +1,63 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: 5UD1RZxGC5LJQnVmAkV11A
+      gen: 1
+    cre:
+      id: CRE-2025-0072
+      severity: 1
+      title: "Self-hosted PostgreSQL HA: WAL Streaming & HA Controller Crisis (Replication Slot Loss, Disk Full, Etcd Quorum Failure)"
+      category: "postgres-ha"
+      author: Prequel
+      description: |
+        Detects high-severity failures in self-hosted PostgreSQL high-availability clusters managed by Patroni, Zalando, or similar HA controllers.
+        This rule targets catastrophic conditions that break replication or cluster consensus:
+          - WAL streaming failures due to missing replication slots (usually after disk full or crash events)
+          - Persistent errors resolving HA controller endpoints (etcd/consul) and loss of HA controller quorum
+          - Disk saturation leading to WAL write errors and replication breakage
+      cause: |
+        - Replication slot(s) "patroniN" missing or cannot be created due to disk full or corruption
+        - PostgreSQL unable to stream WAL (Write-Ahead Log) to replicas, causing FATAL errors
+        - HA controller (etcd/consul) DNS/name resolution failures or full cluster outage (quorum lost)
+        - Disk full on primary prevents WAL writes or checkpointing
+      tags:
+        - ha
+        - patroni
+        - zalando
+        - etcd
+        - replication
+        - wal
+        - storage
+        - quorum
+        - crash
+        - data-loss
+        - timeout
+      mitigation: |
+        PREVENTION:
+          - Monitor disk usage on all PostgreSQL nodes, especially WAL and archive directories
+          - Set up alerting for replication lag and missing replication slots
+          - Ensure HA controllers (etcd/consul) are running on redundant, reliable nodes
+        RESPONSE:
+          - Restore or recreate missing replication slots
+          - Free up disk space and restart affected PostgreSQL instances
+          - Restore etcd/consul cluster quorum; check container/network status
+          - Perform manual failover if automatic recovery fails
+      references:
+        - https://patroni.readthedocs.io/en/latest/
+        - https://www.postgresql.org/docs/current/warm-standby.html
+        - https://etcd.io/docs/latest/op-guide/clustering/
+      applications:
+        - name: postgresql
+      impact: |
+        - Replication breakage; secondary/standby nodes cannot receive WAL
+        - Potential for split-brain, data loss, or full cluster outage
+        - Cluster may lose HA/failover capability; clients disconnected
+      impactScore: 10
+      mitigationScore: 6
+      reports: 2
+    rule:
+      set:
+        event:
+          source: cre.log.postgresql
+        match:
+          - regex: 'FATAL.*could not start WAL streaming: (replication slot|ERROR:  replication slot) "patroni[0-9]+" does not exist|ERROR.*replication slot "patroni[0-9]+" does not exist|ERROR.*dd: error writing.*No space left on device|failed to resolve host etcd[0-9]: \[Errno -3\] Temporary failure in name resolution|Failed to get list of machines from http://etcd[0-9]:2379/v3beta: MaxRetryError|etcd\.EtcdConnectionFailed: No more machines in the cluster|Request to server http://[0-9.]+:2379 failed: (ReadTimeoutError|MaxRetryError)|watchprefix failed: ProtocolError.*InvalidChunkLength'

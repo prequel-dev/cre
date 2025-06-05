@@ -14,7 +14,6 @@ rules:
         - "kubernetes"
         - "nfs"
         - "securityContext"
-        - "permission-denied"
       author: "Nicolas Yarosz"
       description: >
         Pods that mount NFS volumes and set `securityContext.fsGroup`
