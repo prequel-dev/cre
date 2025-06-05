@@ -459,3 +459,15 @@ tags:
   - name: xorg
     displayName: Xorg
     description: Problems related to Xorg, such as input lag, or performance issues
+  - name: slurm
+    displayName: SLURM
+    description: Problems related to SLURM workload manager
+  - name: slurmdbd
+    displayName: SlurmDBD
+    description: Problems related to SLURM Database Daemon
+  - name: mysql
+    displayName: MySQL
+    description: Problems related to MySQL database
+  - name: high-availability
+    displayName: High Availability
+    description: Problems related to high-availability systems and failover

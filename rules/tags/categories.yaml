@@ -127,3 +127,6 @@ categories:
   - name: ubuntu-desktop-problem
     displayName: Ubuntu Desktop Problems
     description: "Problems related to Ubuntu Desktop"
+  - name: hpc-database-problem
+    displayName: HPC Database Problems
+    description: Database issues specific to high-performance computing systems like SLURM

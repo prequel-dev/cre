@@ -1,0 +1,8 @@
+2025-06-04T05:15:02Z slurmctld: debug:  accounting_storage/slurmdbd: dbd_conn_send_recv_rc_msg: Issue with call DBD_CLUSTER_TRES(1407): 7000(Unable to connect to database)
+2025-06-04T05:15:02Z slurmctld: error: slurm_receive_msg [172.22.0.5:55392]: Zero Bytes were transmitted or received
+2025-06-04T05:15:02Z slurmctld: debug:  slurm_recv_timeout at 0 of 4, recv zero bytes
+2025-06-04T05:15:02Z ERROR 2002 (HY000): Can't connect to MySQL server on 'mysql' (115)
+2025-06-04T05:16:02Z slurmdbd: debug2: Attempting to connect to mysql:3306
+2025-06-04T05:16:02Z slurmdbd: error: mysql_real_connect failed: 2005 Unknown MySQL server host 'mysql' (-2)
+2025-06-04T05:16:02Z slurmdbd: error: unable to re-connect to as_mysql database
+2025-06-04T05:16:02Z slurmdbd: error: Processing last message from connection 8(172.22.0.4) uid(990)

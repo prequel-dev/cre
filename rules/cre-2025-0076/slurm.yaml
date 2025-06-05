@@ -1,0 +1,73 @@
+rules:
+  - metadata:
+      id: E6PnFuqgKgRN16F38nJata
+      hash: Zq7kNwvYJuQRMtLFsdBjKo
+      gen: 1
+      kind: prequel
+    cre:
+      id: CRE-2025-0076
+      severity: 1
+      title: "SlurmDBD Database Connection Lost"
+      category: "hpc-database-problem"
+      tags:
+        - "slurm"
+        - "slurmdbd"
+        - "database-problem"
+        - "mysql"
+        - "high-availability"
+      author: "Prequel"
+      description: >
+        Detects when Slurm's accounting daemon (slurmdbd) or controller (slurmctld)
+        loses connection to its MySQL database, causing job scheduling and recording
+        to halt.
+      impact: >
+        When slurmdbd cannot reach MySQL, job accounting fails and slurmctld cannot
+        schedule or record jobs. This results in a full operational blackout of the
+        Slurm cluster.
+      cause: >
+        The MySQL server becomes unreachable (e.g., the container is stopped or crashes),
+        so slurmdbd and slurmctld cannot connect. Consequently, job state updates and
+        cluster accounting operations fail.
+      mitigation: >
+        **Immediate Actions:**
+          1. Restart the MySQL container:
+             ```bash
+             docker start mysql
+             ```
+          2. Confirm MySQL is healthy:
+             ```bash
+             docker logs mysql --tail 20
+             ```
+          3. Restart Slurm services to re-establish connections:
+             ```bash
+             docker restart slurmdbd slurmctld
+             ```
+          4. Check `slurmdbd` and `slurmctld` logs for any lingering errors.
+        **Long-term Fixes:**
+          - Deploy MySQL on a dedicated, persistent host or highly available service.
+          - Monitor MySQL health (CPU/memory/disk) and configure automatic restart.
+          - Configure slurmdbd retry and timeout parameters (`DBTimeout`, `DBConnectTimeout`)
+            in `slurmdbd.conf` to better tolerate transient database outages.
+          - Consider a hot backup slurmdbd node or clustering MySQL.
+      mitigationScore: 9
+      references:
+        - "https://slurm.schedmd.com/slurmdbd.html"
+        - "https://github.com/SchedMD/slurm"
+      reports: 0
+      version: "0.1.0"
+      applications:
+        - name: "slurmdbd"
+          processName: "slurmdbd"
+          version: "21.08+"
+        - name: "slurmctld"
+          processName: "slurmctld"
+          version: "21.08+"
+        - name: "mysql"
+          processName: "mysqld"
+          version: "10.3+"
+    rule:
+      set:
+        event:
+          source: cre.log.slurm
+        match:
+          - regex: "(ERROR\\s+2002 \\(HY000\\): Can't connect to MySQL server on 'mysql'|slurmdbd: (debug2: Attempting to connect to mysql:3306|error: (mysql_real_connect failed: (2002.*|.*Unknown MySQL server host 'mysql'.*)|unable to re-connect to as_mysql database|Processing last message from connection.*))|slurmctld: (accounting_storage/slurmdbd: dbd_conn_send_recv_rc_msg: Issue with call DBD_CLUSTER_TRES.*Unable to connect to database|error: slurm_receive_msg .* Zero Bytes were transmitted or received))"
