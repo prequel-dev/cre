@@ -144,3 +144,9 @@ categories:
   - name: distributed-worker-connectivity
     displayName: Distributed Worker Connectivity Issues
     description: Failures where a distributed systems worker fails to reach or stay connected to the orchestration backend (e.g., Temporal, Celery).
+  - name: authorization-systems
+    displayName: Authorization Systems
+    description: |
+      Failures in systems that manage access control, identity, or permissions.
+      This includes tools like SpiceDB, OPA, or Auth0 where schema, policy, or
+      integration issues can block authentication or authorization flows.
