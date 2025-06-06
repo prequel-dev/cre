@@ -71,4 +71,4 @@ rules:
         event:
           source: cre.log.redpanda
         match:
-          - regex: 'failure|leaving all raft grpups|down|CRITICAL|Multiple nodes unresponsive|Low available memory|health degraded'
+          - regex: 'failure|leaving all raft groups|down|CRITICAL|Multiple nodes unresponsive|Low available memory|health degraded'
