@@ -1,0 +1,14 @@
+2025-06-06 16:15:30.125+05:30 [node_id=3] [subsystem=storage] [level=ERROR] Critical I/O error on partition 'orders_topic-1' (segment: 00000000000000001234.log): Write failed due to EIO (Input/output error) on disk '/var/lib/redpanda/data'. Disk may be failing.
+2025-06-06 16:15:30.780+05:30 [node_id=1] [subsystem=rpc] [level=WARN] Heartbeat to node_id=3 (10.0.1.103:33145) timed out after 5000ms. Retrying...
+2025-06-06 16:15:31.201+05:30 [node_id=2] [subsystem=raft] [level=ERROR] Partition 'user_profiles_topic-0' (group_id=5, term=102): Failed to replicate entry 5038291 to follower node_id=3. Follower is offline or disk full.
+2025-06-06 16:15:32.500+05:30 [node_id=3] [subsystem=main] [level=CRITICAL] Node shutting down due to persistent critical storage failure. Unable to write to data directory '/var/lib/redpanda/data'.
+2025-06-06 16:15:32.505+05:30 [node_id=3] [subsystem=rpc] [level=INFO] RPC server shutting down.
+2025-06-06 16:15:32.510+05:30 [node_id=3] [subsystem=raft] [level=INFO] Leaving all Raft groups.
+2025-06-06 16:15:33.950+05:30 [node_id=1] [subsystem=rpc] [level=ERROR] Heartbeat to node_id=3 (10.0.1.103:33145) failed after 3 retries. Marking node as down.
+2025-06-06 16:15:34.010+05:30 [node_id=1] [subsystem=cluster] [level=WARN] Node node_id=3 reported as down. Re-evaluating leadership for its partitions.
+2025-06-06 16:15:34.550+05:30 [node_id=2] [subsystem=controller] [level=CRITICAL] Controller quorum lost. Available controller nodes: [node_id=2]. Required: 2. Cluster metadata operations stalled.
+2025-06-06 16:15:35.112+05:30 [node_id=1] [subsystem=raft] [level=ERROR] Partition 'orders_topic-2' (group_id=8, term=77): Leadership election failed. Not enough live replicas to form quorum (1/3 available). Data production/consumption may be stalled.
+2025-06-06 16:15:35.834+05:30 [node_id=2] [subsystem=kafka_api] [level=ERROR] Produce request for topic 'inventory_updates_topic' failed: NOT_LEADER_FOR_PARTITION. No leader available for partition 0.
+2025-06-06 16:15:36.200+05:30 [node_id=1] [subsystem=main] [level=ERROR] High number of under-replicated partitions: 15. Cluster health critical.
+2025-06-06 16:15:37.005+05:30 [node_id=2] [subsystem=memory_monitor] [level=CRITICAL] Low available memory detected (210MB free / 16384MB total). Risk of OOM. Aggressive resource reclamation initiated.
+2025-06-06 16:15:38.150+05:30 [node_id=1] [subsystem=health_manager] [level=CRITICAL] Cluster health degraded: Multiple nodes unresponsive or reporting critical errors. Controller quorum lost. Data availability severely impacted.

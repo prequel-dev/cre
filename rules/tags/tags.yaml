@@ -567,3 +567,21 @@ tags:
   - name: startup-failure
     displayName: Startup Failure
     description: Problems related to start-up failures
+  - name: redpanda
+    displayName: Redpanda
+    description: Problems related to Redpanda, a streaming data platform
+  - name: streaming-data
+    displayName: Streaming Data
+    description: Problems related to streaming data platforms and systems
+  - name: cluster-failure
+    displayName: Cluster Failure
+    description: Problems related to cluster failures, including node loss, quorum loss, and data availability impact
+  - name: node-down
+    displayName: Node Down
+    description: Problems related to nodes going down in a cluster, impacting availability and performance
+  - name: quorum-loss
+    displayName: Quorum Loss
+    description: Problems related to loss of quorum in distributed systems, impacting consensus and availability
+  - name: data-availability
+    displayName: Data Availability
+    description: Problems related to data availability in distributed systems, such as loss of access to critical data          
