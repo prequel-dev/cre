@@ -1,0 +1,66 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: 5UD1RZxGC5LJQnVpAkV12B
+      generation: 1
+    cre:
+      id: CRE-2025-0078
+      severity: 1
+      title: "SpiceDB Critical Datastore Connection Failures"
+      category: "authorization-systems"
+      author: Prequel
+      description: |
+        Detects critical SpiceDB datastore failures that prevent authorization service startup or operation.
+        Covers PostgreSQL/CockroachDB connection failures, authentication errors, and missing databases.
+      cause: |
+        - Database service unavailable or unreachable (hostname resolution failures)
+        - Invalid database credentials: password authentication failed
+        - Missing target database: specified database does not exist
+        - Network connectivity issues: connection refused, wrong ports
+        - PostgreSQL/CockroachDB service down or misconfigured
+      impact: |
+        - Complete authorization service outage; SpiceDB cannot start
+        - All dependent applications lose access control capabilities
+        - User authentication and authorization failures across systems
+        - Critical business operations blocked until datastore connectivity restored
+      tags:
+        - cre-2025-0078
+        - known-problem
+        - spicedb
+        - authorization
+        - datastore-failure
+        - postgres
+        - cockroachdb
+        - connectivity
+        - authentication
+      mitigation: |
+        IMMEDIATE RESPONSE:
+          - Verify database service health and accessibility
+          - Check database credentials and connection string
+          - Ensure target database exists
+          - Verify network connectivity and firewall rules
+          - Check DNS resolution for database hostnames
+        PREVENTIVE MEASURES:
+          - Implement database health monitoring
+          - Set up proper connection pooling and timeouts
+          - Test database connectivity in staging
+          - Monitor DNS resolution and network paths
+          - Implement automated database backup and recovery
+      references:
+        - https://docs.authzed.com/spicedb/concepts/datastores
+        - https://docs.authzed.com/spicedb/concepts/datastore-migrations
+        - https://github.com/authzed/spicedb/issues?q=datastore+connection
+      applications:
+        - name: spicedb
+          version: "1.x"
+        - name: postgresql
+        - name: cockroachdb
+      impactScore: 9
+      mitigationScore: 4
+      reports: 1
+    rule:
+      set:
+        event:
+          source: cre.log.spicedb
+        match:
+          - regex: 'failed to create datastore.*failed to create primary datastore.*(password authentication failed|database .* does not exist|connection refused|hostname resolving error|no such host)'

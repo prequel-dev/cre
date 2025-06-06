@@ -144,3 +144,6 @@ categories:
   - name: distributed-worker-connectivity
     displayName: Distributed Worker Connectivity Issues
     description: Failures where a distributed systems worker fails to reach or stay connected to the orchestration backend (e.g., Temporal, Celery).
+  - name: authorization-systems
+    displayName: Authorization Systems
+    description: Problems related to authorization service infrastructure, including fine-grained access control systems like SpiceDB, policy engines, and permission services. Covers datastore connectivity failures, service outages, and configuration issues that impact authorization capabilities.

@@ -567,3 +567,18 @@ tags:
   - name: startup-failure
     displayName: Startup Failure
     description: Problems related to start-up failures
+  - name: spicedb
+    displayName: SpiceDB
+    description: Problems related to SpiceDB authorization service, including datastore connectivity, configuration issues, and service failures
+  - name: datastore-failure
+    displayName: Datastore Failure
+    description: Problems related to datastore connectivity failures, including database connection errors, authentication failures, and network issues
+  - name: authorization-systems
+    displayName: Authorization Systems
+    description: Problems related to authorization systems and services, including access control failures, permission denials, and service outages
+  - name: cockroachdb
+    displayName: CockroachDB
+    description: Problems related to CockroachDB database, including connectivity issues, cluster failures, and performance problems
+  - name: fine-grained-access-control
+    displayName: Fine-Grained Access Control
+    description: Problems related to fine-grained access control systems, including policy evaluation failures and permission resolution issues
