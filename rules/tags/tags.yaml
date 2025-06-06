@@ -29,7 +29,7 @@ tags:
     description: Problems with Python Gunicorn
   - name: kafka
     displayName: Kafka
-    description: Problems with Apache Kafka 
+    description: Problems with Apache Kafka
   - name: known-anti-pattern
     displayName: Known Anti-Pattern
     description: This is a known anti-pattern that should be avoided
@@ -314,7 +314,7 @@ tags:
     description: Problems where code dereferences nil pointers, causing runtime crashes
   - name: observability
     displayName: Observability
-    description: Problems in observability tooling, such as unintended performance impact or missing telemetry 
+    description: Problems in observability tooling, such as unintended performance impact or missing telemetry
   - name: payload
     displayName: Payload
     description: Problems related to message payloads, such as malformed data or size limit violations
@@ -567,3 +567,18 @@ tags:
   - name: startup-failure
     displayName: Startup Failure
     description: Problems related to start-up failures
+  - name: spicedb
+    displayName: SpiceDB
+    description: Issues related to SpiceDB authorization service
+
+  - name: migration-failure
+    displayName: Migration Failure
+    description: Errors caused by failed or skipped database migrations
+
+  - name: schema-error
+    displayName: Schema Error
+    description: Missing or corrupted database schema elements such as tables or columns
+
+  - name: postgres
+    displayName: PostgreSQL
+    description: Failures involving PostgreSQL as the backend datastore
