@@ -5,7 +5,7 @@ rules:
       id: JQAAVPJSiVrsWxtj3jqzBy
       generation: 1
     cre:
-      id: CRE-2025-0078
+      id: CRE-2025-0102
       severity: 1
       title: Redpanda Cluster Critical Failure - Node Loss, Quorum Lost, and Data Availability Impacted
       category: "distributed-systems"
