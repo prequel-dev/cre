@@ -569,16 +569,19 @@ tags:
     description: Problems related to start-up failures
   - name: spicedb
     displayName: SpiceDB
-    description: Problems related to SpiceDB authorization service, including datastore connectivity, configuration issues, and service failures
-  - name: datastore-failure
-    displayName: Datastore Failure
-    description: Problems related to datastore connectivity failures, including database connection errors, authentication failures, and network issues
-  - name: authorization-systems
-    displayName: Authorization Systems
-    description: Problems related to authorization systems and services, including access control failures, permission denials, and service outages
-  - name: cockroachdb
-    displayName: CockroachDB
-    description: Problems related to CockroachDB database, including connectivity issues, cluster failures, and performance problems
+    description: Problems related to SpiceDB authorization service, including schema corruption, permission failures, and database connectivity issues
   - name: fine-grained-access-control
     displayName: Fine-Grained Access Control
-    description: Problems related to fine-grained access control systems, including policy evaluation failures and permission resolution issues
+    description: Problems related to fine-grained authorization and permission systems that manage detailed access policies
+  - name: database-corruption
+    displayName: Database Corruption
+    description: Problems where database tables, schemas, or data become corrupted, leading to missing relations or inaccessible data
+  - name: permission-failure
+    displayName: Permission Failure
+    description: Problems where authorization checks fail due to system issues rather than legitimate access denials
+  - name: schema-corruption
+    displayName: Schema Corruption
+    description: Problems where database schemas become corrupted or missing, preventing normal operations
+  - name: relation-missing
+    displayName: Relation Missing
+    description: Database errors where expected tables or relations do not exist, typically due to corruption or migration failures
