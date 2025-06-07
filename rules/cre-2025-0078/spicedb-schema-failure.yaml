@@ -1,0 +1,79 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: SuwKRMUWqbNL67mgNn8wXr
+    cre:
+      id: CRE-2025-0078
+      severity: 1
+      title: "SpiceDB Database Schema Failures: Missing Core Tables"
+      category: "authorization-systems"
+      author: Prequel
+      description: |
+        Detects critical SpiceDB database schema failures caused by missing core tables like
+        `metadata`, `alembic_version`, or `relation_tuple_transaction`. These errors often stem
+        from incomplete migrations, startup race conditions, or schema corruption, resulting in
+        a complete breakdown of SpiceDB authorization capabilities.
+      cause: |
+        - Migrations not executed or incomplete
+        - Alembic not initialized or failed
+        - Startup before DB schema readiness
+        - Schema corruption or manual table drop
+        - Permission errors during migration
+        - Race condition in container startup
+        - Concurrent conflicting migrations
+      impact: |
+        - SpiceDB startup or runtime failure
+        - All permission checks fail
+        - Application-wide access issues
+        - Service restart loops
+        - Schema version tracking broken
+        - Downstream authorization failures
+      tags:
+        - spicedb
+        - migration-failure
+        - schema-error
+        - postgres
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Stop the SpiceDB service immediately to prevent further inconsistent behavior.
+        - Check PostgreSQL connectivity and schema integrity.
+        - Run: `psql -U postgres -d spicedb -c "\dt"` to inspect existing tables.
+        - If tables are missing, initialize and apply migrations:
+         `spicedb migrate init && spicedb migrate head`
+      VALIDATION:
+        - Confirm presence of required tables:- `metadata`
+          - `alembic_version`
+          - `relation_tuple_transaction`
+        - Validate Alembic status:`SELECT * FROM alembic_version;`
+      RECOVERY:
+        - If migrations fail or tables are corrupted, restore from a known-good backup.
+        - Consider dropping the database and re-running migrations only if data loss is acceptable.
+      PREVENTION:
+        - Use **init containers** or pre-start hooks to apply migrations **before** SpiceDB starts.
+        - Monitor logs for missing relation errors (`relation does not exist`).
+        - Ensure correct user permissions for running migrations.
+        - Avoid race conditions by starting database fully before SpiceDB.
+      references:
+        - https://docs.authzed.com/spicedb/concepts/datastore-migrations
+        - https://github.com/authzed/spicedb/issues?q=relation+does+not+exist
+        - https://alembic.sqlalchemy.org
+        - https://github.com/authzed/spicedb/issues/1712
+      applications:
+        - name: spicedb
+          version: ">=1.0.0"
+        - name: postgresql
+          version: ">=12.0"
+        - name: alembic
+          version: ">=1.7.0"
+      impactScore: 10
+      mitigationScore: 2
+      reports: 3
+    rule:
+      set:
+        window: 5m
+        event:
+          source: cre.log.spicedb
+        match:
+          - regex: 'ERROR:\s+relation\s+"(metadata|alembic_version|relation_tuple_transaction)"\s+does\s+not\s+exist\s+at\s+character\s+\d+'
+          - regex: 'ERROR:\s+relation\s+".*tuple.*"\s+does\s+not\s+exist\s+at\s+character\s+\d+'
+          - regex: 'relation\s+"[^"]+"\s+does\s+not\s+exist\s+at\s+character\s+\d+'

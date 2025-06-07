@@ -40,6 +40,6 @@ rules:
   rule:
     set:
       event:
-        source: cre.log.datadog.agent
+        source: cre.log.datadog
       match:
         - regex: .*DD_API_KEY undefined\. Metrics, logs and events will not be reported to DataDog.*
