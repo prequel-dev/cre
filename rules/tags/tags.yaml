@@ -570,7 +570,6 @@ tags:
   - name: spicedb
     displayName: SpiceDB
     description: Issues related to SpiceDB authorization service
-<<<<<<< HEAD
 
   - name: migration-failure
     displayName: Migration Failure
@@ -611,7 +610,6 @@ tags:
   - name: broker-health
     displayName: Broker Health
     description: Issues affecting the operational status and stability of message brokers
-=======
   - name: migration-failure
     displayName: Migration Failure
     description: Errors caused by failed or skipped database migrations
@@ -621,4 +619,3 @@ tags:
   - name: logs
     displayName: Logs
     description: Problems with log processing
->>>>>>> main
