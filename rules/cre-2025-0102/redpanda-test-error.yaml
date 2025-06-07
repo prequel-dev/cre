@@ -1,0 +1,74 @@
+
+rules:
+  - metadata:
+      kind: prequel
+      id: JQAAVPJSiVrsWxtj3jqzBy
+      generation: 1
+    cre:
+      id: CRE-2025-0102
+      severity: 1
+      title: Redpanda Cluster Critical Failure - Node Loss, Quorum Lost, and Data Availability Impacted
+      category: "distributed-systems"
+      author: Prequel
+      description: |
+        - The Redpanda streaming data platform is experiencing a severe, cascading failure.
+        - This typically involves critical errors on one or more nodes (e.g., storage failures), leading to nodes becoming unresponsive or shutting down.
+        - Subsequently, this can cause loss of controller quorum, leadership election problems for partitions, and a significant degradation in overall cluster health and data availability.
+      cause: |
+        - Persistent hardware failures on a broker node (e.g., disk I/O errors, failing disk, NIC issues).
+        - A Redpanda broker process crashing repeatedly due to software bugs, resource exhaustion (OOM), or critical misconfiguration.
+        - Severe network partitioning that isolates nodes or groups of nodes from each other, preventing Raft consensus.
+        - Failure of critical system resources (e.g., full disk preventing writes, insufficient memory).
+        - Cascading effects where an initial failure on one node triggers instability across other nodes.
+      impact: |
+        - Significant disruption or complete loss of data production and consumption capabilities for multiple topics/partitions.
+        - High likelihood of data unavailability for partitions whose leaders or sufficient replicas are on the failed/unreachable nodes.
+        - Inability to perform cluster management operations (e.g., creating/deleting topics, reconfiguring partitions) if controller quorum is lost.
+        - Drastically increased error rates and latencies for client applications.
+        - Potential for prolonged service outage requiring manual intervention and complex recovery procedures.
+        - In worst-case scenarios with multiple simultaneous failures, risk of data loss for under-replicated partitions.
+      tags:
+        - redpanda
+        - streaming-data
+        - cluster-failure
+        - node-down
+        - quorum-loss
+        - data-availability
+        - critical-error
+        - distributed-system
+      mitigation: |
+        - **Initial Triage & Isolation:**
+          - Identify the specific node(s) reporting critical errors (e.g., I/O errors, shutdown messages) from Redpanda logs.
+          - Check basic system health on affected nodes: `dmesg`, disk space (`df -h`), memory usage (`free -m`), CPU load (`top` or `htop`), network connectivity (`ping`, `ip addr`).
+        - **Address Node-Specific Failures:**
+          - **Disk Issues:** If I/O errors or "No space left on device" occur, check disk health (e.g., `smartctl`), free up space, or prepare for disk replacement.
+          - **Node Shutdowns:** Investigate Redpanda logs on the failed node for the root cause of the shutdown.
+          - Attempt to restart the Redpanda service on the affected node if the underlying issue is resolved.
+        - **Cluster Stability:**
+          - **Controller Quorum:** If controller quorum is lost, prioritize bringing controller nodes back online. This may require resolving issues on those specific nodes.
+          - **Network Issues:** Verify robust network connectivity and low latency between all Redpanda brokers. Check switches, firewalls, and MTU settings.
+        - **Recovery Procedures (Consult Redpanda Documentation):**
+          - If a node is permanently lost, follow official Redpanda procedures for removing the dead node from the cluster and replacing it. This will trigger data re-replication.
+          - Monitor partition health and re-replication progress (`rpk cluster partitions list`, `rpk cluster health`).
+          - If leadership elections are failing, ensure a majority of replicas for those partitions are online and healthy.
+        - **Preventative Measures:**
+          - Implement comprehensive monitoring for Redpanda metrics and system-level metrics (disk, CPU, memory, network).
+          - Regularly review Redpanda logs for warnings or errors.
+          - Ensure sufficient disk space and I/O capacity.
+          - Maintain up-to-date Redpanda versions.
+          - Test disaster recovery procedures.
+      references:
+        - "https://docs.redpanda.com/redpanda-cloud/reference/public-metrics-reference/#redpanda_cluster_members_backend_queued_node_operations"
+        - "https://docs.redpanda.com/redpanda-cloud/reference/rpk/rpk-commands/"
+      applications:
+        - name: redpanda
+          version: "24.1.2"
+      impactScore: 0
+      mitigationScore: 0
+      reports: 1
+    rule:
+      set:
+        event:
+          source: cre.log.redpanda
+        match:
+          - regex: 'failure|leaving all raft groups|down|CRITICAL|Multiple nodes unresponsive|Low available memory|health degraded'
