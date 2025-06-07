@@ -1,0 +1,6 @@
+2025-06-06 05:50:30,587 [shard 0] cluster - (rate limiting dropped 9 similar messages) Error occurred while sending node status request: rpc::errc::exponential_backoff
+2025-06-06 06:27:17,581 [shard 0] r/heartbeat - heartbeat_manager.cc:281 - Received error when sending heartbeats to node 1 - rpc::errc::exponential_backoff
+2025-06-06 06:27:31,388 [shard 0] cluster - health_monitor_backend.cc:541 - unable to get node health report from 1 - rpc::errc::disconnected_endpoint(node down), marking node as down
+2025-06-06 06:29:26,343 [shard 0] raft - [group_id:2, {kafka_internal/id_allocator/0}] consensus.cc:2684 - triggering leadership notification with term: 1, new leader: {{id: {2}, revision: {25}}}
+2025-06-06 06:28:43,145 [shard 0] raft - [group_id:0, {redpanda/controller/0}] vote_stm.cc:77 - vote reply from {id: {2}, revision: {0}} - {term:{2}, vote_granted: 1, log_ok:1}
+2025-06-06 06:28:43,146 [shard 0] raft - [group_id:0, {redpanda/controller/0}] vote_stm.cc:264 - becoming the leader term:2

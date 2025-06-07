@@ -552,6 +552,18 @@ tags:
   - name: demo-problem
     displayName: Demo Problem
     description: This is a tag for demo problems
+  - name: redpanda
+    displayName: Redpanda
+    description: Problems and high-availability issues with Redpanda clusters
+  - name: raft
+    displayName: Raft
+    description: Issues related to Raft consensus protocol, elections, and leader changes
+  - name: quorum
+    displayName: Quorum
+    description: Loss or degradation of cluster quorum in distributed systems
+  - name: leader-election
+    displayName: Leader Election
+    description: Events and errors related to leader election processes in distributed systems
   - name: workflow-orchestration-connectivity
     displayName: Workflow Orchestration
     description: Problems related to workfow orchestration
