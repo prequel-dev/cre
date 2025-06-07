@@ -150,6 +150,7 @@ categories:
       Failures in systems that manage access control, identity, or permissions.
       This includes tools like SpiceDB, OPA, or Auth0 where schema, policy, or
       integration issues can block authentication or authorization flows.
+<<<<<<< HEAD
   - name: data-streaming-platforms
     displayName: Data Streaming Platforms
     description: |
@@ -157,3 +158,5 @@ categories:
       This includes platforms like Redpanda, Apache Kafka, Pulsar, and compatible systems
       where startup, configuration, or operational issues can disrupt data streaming pipelines
       and impact downstream applications relying on event-driven architectures.RetryClaude does not have the ability to run the code it generates yet.Claude can make mistakes. Please double-check responses. Sonnet 4
+=======
+>>>>>>> main
