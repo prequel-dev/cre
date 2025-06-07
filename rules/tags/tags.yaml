@@ -631,3 +631,12 @@ tags:
   - name: postgres
     displayName: PostgreSQL
     description: Failures involving PostgreSQL as the backend datastore
+  - name: migration-failure
+    displayName: Migration Failure
+    description: Errors caused by failed or skipped database migrations
+  - name: schema-error
+    displayName: Schema Error
+    description: Missing or corrupted database schema elements such as tables or columns
+  - name: logs
+    displayName: Logs
+    description: Problems with log processing
