@@ -5,10 +5,10 @@ rules:
       kind: "prequel"
       version: "1.0.0"
     cre:
-      id: CRE-2025-0070
+      id: CRE-2025-0090
       title: Loki Log Line Exceeds Max Size Limit
       severity: 3
-      category: log-processing-problems
+      category: observability-problem
       author: dosmanak
       description: |
         Alloy detects the Loki is dropping log lines because they exceed the configured maximum line size.
@@ -42,7 +42,6 @@ rules:
         - alloy
         - loki
         - logs
-        - line-too-long
         - observability
         - grafana
       references:
@@ -52,7 +51,4 @@ rules:
         event:
           source: Alloy log
         match:
-          - regex: >
-              level=error msg="final error sending batch" component_path=/ component_id=loki\.write\.endpoint component=client host=.*?
-              status=400 tenant=.*? error="server returned HTTP status 400 Bad Request \(400\): Max entry size \'(\d+)\' bytes
-              exceeded for stream \'\{.*?\}\' while adding an entry with length \'(\d+)\' bytes"
+          - regex: level=error(.+)final error sending batch(.+)component_id=loki\.write\.endpoint(.+)error(.+)server returned HTTP status 400 Bad Request(.+)Max entry size(.+)exceeded for stream
