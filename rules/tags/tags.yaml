@@ -672,3 +672,31 @@ tags:
   - name: sigkill
     displayName: SIGKILL
     description: Failures caused by processes being terminated with a SIGKILL signal.
+
+  - name: redpanda
+    displayName: Redpanda
+    description: Issues specific to the Redpanda streaming data platform
+
+  - name: startup-failure
+    displayName: Startup Failure
+    description: Service initialization problems preventing proper system startup
+
+  - name: configuration-error
+    displayName: Configuration Error
+    description: Missing, corrupted, or inaccessible configuration files and settings
+
+  - name: memory-allocation
+    displayName: Memory Allocation
+    description: Insufficient memory resources or memory management issues
+
+  - name: filesystem-compatibility
+    displayName: Filesystem Compatibility
+    description: Issues with unsupported or suboptimal filesystem types affecting performance
+
+  - name: crash-protection
+    displayName: Crash Protection
+    description: Mechanisms and failures related to crash loop prevention and recovery
+
+  - name: broker-health
+    displayName: Broker Health
+    description: Issues affecting the operational status and stability of message brokers

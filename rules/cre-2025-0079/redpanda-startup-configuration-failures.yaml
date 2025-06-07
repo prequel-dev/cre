@@ -1,0 +1,151 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: AwCupRNgNxuCPkhacvRn73
+    cre:
+      id: CRE-2025-0079
+      severity: 1
+      title: "Redpanda Startup and Storage Failures"
+      category: "Data Streaming Platforms"
+      author: Prequel
+      description: |
+        This rule detects various Redpanda startup failures and operational issues that can impact cluster stability and performance. 
+
+        Redpanda is a modern streaming data platform built for mission-critical workloads. During startup, Redpanda performs 
+        extensive system checks and initialization procedures that can fail due to various configuration, resource, or 
+        environmental issues.
+
+        The rule identifies multiple categories of problems:
+
+        **Configuration Issues:**
+        - Missing or inaccessible configuration files
+        - Filesystem permission problems preventing config file access
+
+        **System Resource Problems:**
+        - Insufficient memory allocation (below recommended 1GB minimum)
+        - Unsupported filesystem types (non-XFS/ext4) that can cause performance degradation
+
+        **Performance Monitoring Issues:**
+        - Failed performance profiler initialization due to kernel security restrictions
+        - Inability to access perf_event_paranoid settings for kernel-level profiling
+
+        **Operational Concerns:**
+        - Development mode warnings indicating potential data corruption risks
+        - Exception handling during critical startup phases
+        - Crash loop protection mechanism activation
+
+        These issues can lead to degraded performance, data corruption, monitoring blind spots, or complete service failure.
+        Early detection allows for proactive remediation before impacting production workloads.
+      tags:
+        - redpanda
+        - startup-failure
+        - configuration-error
+        - memory-allocation
+        - filesystem-compatibility
+        - crash-protection
+        - broker-health
+      applications:
+        - name: "Redpanda Data Streaming Platform"
+          version: "22.x, 23.x, 24.x+"
+        - name: "Apache Kafka Compatible Systems"
+          version: "2.8+, 3.x"
+        - name: "Confluent Platform"
+          version: "6.x, 7.x+"
+        - name: "Apache Pulsar"
+          version: "2.8+, 3.x"
+        - name: "Amazon MSK (Managed Streaming for Kafka)"
+          version: "2.6+, 2.8+, 3.x"
+      mitigation: |
+        **Immediate Actions:**
+        1. Check Redpanda service status and restart if necessary
+        2. Verify configuration file permissions and existence
+        3. Review system resource allocation (memory, disk space)
+        4. Examine filesystem compatibility and performance implications
+
+        **Configuration Fixes:**
+        - Ensure config_cache.yaml and .bootstrap.yaml files exist with proper permissions
+        - Set appropriate file ownership (typically redpanda:redpanda)
+        - Verify configuration file syntax and required parameters
+
+        **System Resource Optimization:**
+        - Increase memory allocation to meet minimum requirements (1GB+)
+        - Migrate to XFS or ext4 filesystem for optimal performance
+        - Ensure adequate disk space in /var/lib/redpanda/data
+
+        **Performance Monitoring Setup:**
+        - Set /proc/sys/kernel/perf_event_paranoid to 1 or lower for kernel profiling
+        - Configure appropriate user permissions for performance monitoring
+        - Enable crash report collection and monitoring
+
+        **Production Hardening:**
+        - Disable development mode in production environments
+        - Configure proper crash loop limits and recovery settings
+        - Implement comprehensive monitoring and alerting
+        - Regular backup and disaster recovery procedures
+
+        **Long-term Improvements:**
+        - Automate configuration management and validation
+        - Implement infrastructure as code for consistent deployments
+        - Set up proactive monitoring for resource utilization
+        - Regular system maintenance and updates
+      references:
+        - "Redpanda Documentation: https://docs.redpanda.com/"
+        - "Redpanda Configuration Reference: https://docs.redpanda.com/current/reference/properties/"
+        - "Redpanda System Requirements: https://docs.redpanda.com/current/deploy/deployment-option/self-hosted/manual/production/requirements/"
+        - "Redpanda Troubleshooting Guide: https://docs.redpanda.com/current/manage/troubleshooting/"
+        - "Crash Loop Protection: https://docs.redpanda.com/current/reference/properties/broker-properties/#crash_loop_limit"
+        - "Linux Performance Monitoring: https://www.kernel.org/doc/html/latest/admin-guide/perf-security.html"
+        - "XFS vs ext4 Performance: https://docs.redpanda.com/current/deploy/deployment-option/self-hosted/manual/production/production-deployment/"
+    rule:
+      set:
+        event:
+          source: cre.log.redpanda
+        window: 300s
+        match:
+          # Configuration file loading failures
+          - regex: "Can't load config cache"
+          - regex: "Can't load config bootstrap file"
+          - regex: "No such file or directory.*config_cache\\.yaml"
+          - regex: "No such file or directory.*\\.bootstrap\\.yaml"
+
+          # System checks and warnings
+          - regex: "syschecks - Memory.*below recommended"
+          - regex: "syschecks - Path.*uses other filesystem which is not XFS or ext4"
+          - regex: "unsupported configuration.*poor performance or instability"
+
+          # Performance profiler access issues
+          - regex: "Perf-based stall detector creation failed.*EACCESS"
+          - regex: "Perf-based cpu profiler creation failed.*EACCESS"
+          - regex: "try setting /proc/sys/kernel/perf_event_paranoid to 1 or less"
+          - regex: "falling back to posix timer"
+
+          # Exception handling during startup
+          - regex: "Throw exception at"
+          - regex: "exception - Throw exception at"
+
+          # Development mode warnings
+          - regex: "This is a setup for development purposes only"
+          - regex: "clusters may run unrealistically fast and data can be corrupted"
+          - regex: "computer shuts down uncleanly"
+
+          # Memory allocation settings
+          - regex: "Setting abort_on_allocation_failure.*abort on OOM"
+          - regex: "memory_abort_on_alloc_failure"
+          - regex: "process will terminate immediately when an allocation cannot be satisfied"
+
+          # Crash tracking and recovery
+          - regex: "crash_loop_limit"
+          - regex: "crash_loop_sleep_sec"
+          - regex: "Creating crash report directory"
+          - regex: "broker can crash within one hour"
+          - regex: "getting stuck in an infinite cycle of crashes"
+
+          # Filesystem errors
+          - regex: "filesystem_error.*open failed"
+          - regex: "error system:2.*filesystem error"
+
+          # General startup configuration issues
+          - regex: "abort_index_segment_size"
+          - regex: "abort_timed_out_transactions_interval_ms"
+          - regex: "cloud_storage_recovery_topic_validation_mode"
+          - regex: "raft_heartbeat_disconnect_failures"
