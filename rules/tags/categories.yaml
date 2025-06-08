@@ -156,3 +156,8 @@ categories:
       This includes tools like SpiceDB, OPA, or Auth0 where schema, policy, or
       integration issues can block authentication or authorization flows.
 
+  - name: Redpanda-state-missing
+    displayName: Redpanda State Missing
+    description: |
+      Problems related to Redpanda nodes starting up without key state files, such as the key-value store snapshot or configuration cache.
+      This can indicate a cleared or misconfigured volume on an existing node that is expected to have state.
