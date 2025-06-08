@@ -171,5 +171,5 @@ categories:
   - name: data-streaming
     displayName: Data Streaming
     description: |
-      Failures and issues within real-time data streaming systems, including
-      platform startups, configuration, runtime errors, and impact on data pipelines.
+      Failures and issues in real-time data streaming systems, covering platform
+      startups, configuration errors, runtime failures, and their impact on data pipelines.
