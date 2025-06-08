@@ -597,8 +597,25 @@ tags:
     displayName: Schema Error
     description: Missing or corrupted database schema elements such as tables or columns
 
-
-
+  - name: spicedb
+    displayName: SpiceDB
+    description: Problems related to SpiceDB authorization service, including schema corruption, permission failures, and database connectivity issues
+  - name: fine-grained-access-control
+    displayName: Fine-Grained Access Control
+    description: Problems related to fine-grained authorization and permission systems that manage detailed access policies
+  - name: database-corruption
+    displayName: Database Corruption
+    description: Problems where database tables, schemas, or data become corrupted, leading to missing relations or inaccessible data
+  - name: permission-failure
+    displayName: Permission Failure
+    description: Problems where authorization checks fail due to system issues rather than legitimate access denials
+  - name: schema-corruption
+    displayName: Schema Corruption
+    description: Problems where database schemas become corrupted or missing, preventing normal operations
+  - name: relation-missing
+    displayName: Relation Missing
+    description: Database errors where expected tables or relations do not exist, typically due to corruption or migration failures
+  
   - name: logs
     displayName: Logs
     description: Problems with log processing

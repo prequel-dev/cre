@@ -156,3 +156,12 @@ categories:
       This includes tools like SpiceDB, OPA, or Auth0 where schema, policy, or
       integration issues can block authentication or authorization flows.
 
+  - name: authorization-system-problem
+    displayName: Authorization System Problems
+    description: Problems related to authorization and permission systems like SpiceDB, OPA, and similar fine-grained access control systems
+  - name: database-corruption-problem
+    displayName: Database Corruption Problems
+    description: Problems related to database corruption, including missing tables, schema issues, and data integrity failures
+  - name: access-control-problem
+    displayName: Access Control Problems
+    description: Problems related to access control systems that prevent legitimate access due to system failures rather than policy violations
