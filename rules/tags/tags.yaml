@@ -585,37 +585,32 @@ tags:
 
   - name: redpanda
     displayName: Redpanda
-    description: Issues specific to the Redpanda streaming data platform
+    description: Issues related specifically to the Redpanda streaming platform
 
-  - name: startup-failure
-    displayName: Startup Failure
-    description: Service initialization problems preventing proper system startup
+  - name: container-crash
+    displayName: Container Crash
+    description: Failures causing container crashes and unexpected terminations
 
-  - name: configuration-error
-    displayName: Configuration Error
-    description: Missing, corrupted, or inaccessible configuration files and settings
+  - name: memory-exhaustion
+    displayName: Memory Exhaustion
+    description: Failures caused by running out of memory or excessive memory usage
 
-  - name: memory-allocation
-    displayName: Memory Allocation
-    description: Insufficient memory resources or memory management issues
+  - name: configuration-failure
+    displayName: Configuration Failure
+    description: Problems arising from incorrect or invalid configuration settings
 
-  - name: filesystem-compatibility
-    displayName: Filesystem Compatibility
-    description: Issues with unsupported or suboptimal filesystem types affecting performance
+  - name: streaming-platform
+    displayName: Streaming Platform
+    description: Issues related to distributed streaming data platforms and their operation
 
-  - name: crash-protection
-    displayName: Crash Protection
-    description: Mechanisms and failures related to crash loop prevention and recovery
+  - name: kafka-compatible
+    displayName: Kafka Compatible
+    description: Problems in Kafka-compatible systems or APIs affecting interoperability
 
-  - name: broker-health
-    displayName: Broker Health
-    description: Issues affecting the operational status and stability of message brokers
-  - name: migration-failure
-    displayName: Migration Failure
-    description: Errors caused by failed or skipped database migrations
-  - name: schema-error
-    displayName: Schema Error
-    description: Missing or corrupted database schema elements such as tables or columns
-  - name: logs
-    displayName: Logs
-    description: Problems with log processing
+  - name: permission-denied
+    displayName: Permission Denied
+    description: Failures caused by insufficient access rights or permission errors
+
+  - name: sigkill
+    displayName: SIGKILL
+    description: Failures involving forced process termination signals (SIGKILL)
