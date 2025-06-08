@@ -155,4 +155,6 @@ categories:
       Failures in systems that manage access control, identity, or permissions.
       This includes tools like SpiceDB, OPA, or Auth0 where schema, policy, or
       integration issues can block authentication or authorization flows.
-
+  - name: SpiceDB-datastore-failure
+    displayName: SpiceDB Datastore Failure
+    description: Failures in the datastore used by SpiceDB, which can lead to authentication or authorization issues.

@@ -603,3 +603,13 @@ tags:
     displayName: Logs
     description: Problems with log processing
 
+  - name: datastore
+    displayName: Datastore
+    description: Problems with data storage systems, such as databases or object stores
+  - name: startup-failure
+    displayName: Startup Failure
+    description: Problems related to application or service startup failures, such as missing dependencies or configuration errors
+  - name: misconfiguration
+    displayName: Misconfiguration
+    description: Problems caused by incorrect or missing configuration settings, leading to application or service failures  
+
