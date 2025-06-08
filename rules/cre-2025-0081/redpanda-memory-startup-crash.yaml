@@ -12,12 +12,7 @@ rules:
       description: |
         Redpanda streaming platform crashes due to a combination of system-level failures including 
         permission denied errors for performance monitoring subsystems, missing critical configuration 
-<<<<<<< HEAD
         files, and memory allocation failures.
-=======
-        files, and memory allocation failures. This pattern indicates a misconfigured environment 
-        leading to service unavailability.
->>>>>>> dca13c5 (Redpanda crash caused by memory exhaustion and startup failures)
       impact: |
         Complete streaming service outage affecting real-time data pipelines, potential message loss,
         cascading failures in downstream consumers, and degraded application performance. The crash
@@ -34,11 +29,6 @@ rules:
         3. Increase container memory limits and implement resource quotas
         4. Verify file system permissions and ownership (redpanda:redpanda)
         5. Implement readiness/liveness probes with appropriate restart policies
-<<<<<<< HEAD
-=======
-        6. Monitor memory usage and implement alerting on high utilization
-        7. Consider disabling memory_abort_on_alloc_failure in development environments
->>>>>>> dca13c5 (Redpanda crash caused by memory exhaustion and startup failures)
       mitigationScore: 7
       references:
         - "https://docs.redpanda.com/current/deploy/deployment-option/self-hosted/manual/linux-system-tuning/"
@@ -57,29 +47,14 @@ rules:
         - sigkill
       applications:
         - name: redpanda
-<<<<<<< HEAD
-=======
-          processName: redpanda
-          containerName: redpanda
->>>>>>> dca13c5 (Redpanda crash caused by memory exhaustion and startup failures)
           imageUrl: "docker.redpanda.com/redpandadata/redpanda"
           version: "*"
 
         - name: kafka
-<<<<<<< HEAD
-=======
-          processName: kafka
-          containerName: kafka
->>>>>>> dca13c5 (Redpanda crash caused by memory exhaustion and startup failures)
           imageUrl: "confluentinc/cp-kafka"
           version: "*"
 
         - name: apache-pulsar
-<<<<<<< HEAD
-=======
-          processName: pulsar
-          containerName: pulsar
->>>>>>> dca13c5 (Redpanda crash caused by memory exhaustion and startup failures)
           imageUrl: "apachepulsar/pulsar"
           version: "*"
     rule:
