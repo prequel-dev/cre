@@ -157,6 +157,7 @@ categories:
       integration issues can block authentication or authorization flows.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   - name: authorization-system-problem
     displayName: Authorization System Problems
@@ -191,3 +192,11 @@ categories:
       Failures and issues within real-time data streaming systems, including
       platform startups, configuration, runtime errors, and impact on data pipelines.
 >>>>>>> 386e3c6 (Update files and reassign PR to issue #69)
+=======
+
+  - name: data-streaming
+    displayName: Data Streaming
+    description: |
+      Failures and issues in real-time data streaming systems, covering platform
+      startups, configuration errors, runtime failures, and their impact on data pipelines.
+>>>>>>> dca13c5 (Redpanda crash caused by memory exhaustion and startup failures)

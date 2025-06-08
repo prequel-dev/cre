@@ -675,32 +675,32 @@ tags:
 
   - name: redpanda
     displayName: Redpanda
-    description: Issues related specifically to the Redpanda streaming platform
+    description: Issues specifically related to the Redpanda streaming platform.
 
   - name: container-crash
     displayName: Container Crash
-    description: Failures causing container crashes and unexpected terminations
+    description: Failures causing container crashes or unexpected terminations.
 
   - name: memory-exhaustion
     displayName: Memory Exhaustion
-    description: Failures caused by running out of memory or excessive memory usage
+    description: Failures due to running out of memory or excessive memory consumption.
 
   - name: configuration-failure
     displayName: Configuration Failure
-    description: Problems arising from incorrect or invalid configuration settings
+    description: Problems caused by incorrect or invalid configuration settings.
 
   - name: streaming-platform
     displayName: Streaming Platform
-    description: Issues related to distributed streaming data platforms and their operation
+    description: Issues related to distributed streaming platforms and their operations.
 
   - name: kafka-compatible
     displayName: Kafka Compatible
-    description: Problems in Kafka-compatible systems or APIs affecting interoperability
+    description: Problems affecting Kafka-compatible systems or APIs, impacting interoperability.
 
   - name: permission-denied
     displayName: Permission Denied
-    description: Failures caused by insufficient access rights or permission errors
+    description: Failures caused by insufficient access rights or permission errors.
 
   - name: sigkill
     displayName: SIGKILL
-    description: Failures involving forced process termination signals (SIGKILL)
+    description: Failures involving forced process termination via SIGKILL signals.
