@@ -156,6 +156,7 @@ categories:
       This includes tools like SpiceDB, OPA, or Auth0 where schema, policy, or
       integration issues can block authentication or authorization flows.
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   - name: authorization-system-problem
     displayName: Authorization System Problems
@@ -183,3 +184,10 @@ categories:
       where startup, configuration, or operational issues can disrupt data streaming pipelines
       and impact downstream applications relying on event-driven architectures.RetryClaude does not have the ability to run the code it generates yet.Claude can make mistakes. Please double-check responses. Sonnet 4
 >>>>>>> bd75fec (feat: add Redpanda cluster startup failure detection rule)
+=======
+  - name: data-streaming
+    displayName: Data Streaming
+    description: |
+      Failures and issues within real-time data streaming systems, including
+      platform startups, configuration, runtime errors, and impact on data pipelines.
+>>>>>>> 386e3c6 (Update files and reassign PR to issue #69)
