@@ -671,4 +671,4 @@ tags:
 
   - name: sigkill
     displayName: SIGKILL
-    description: Failures involving forced process termination via SIGKILL signals.
+    description: Failures caused by processes being terminated with a SIGKILL signal.
