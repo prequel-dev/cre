@@ -56,6 +56,6 @@ rules:
           source: cre.log.nats
           timestamp_format: "2006-01-02T15:04:05.000Z"
         order:
-          - regex: ".*ERROR connection failed: nats: connection closed"
+          - regex: ".*ERROR connection failed: (nats: connection closed|NATS server unreachable.*)"
             count: 5
-          - regex: ".*ERROR NATS client disconnected due to network partition"
+          - regex: ".*ERROR NATS client disconnected.*"
