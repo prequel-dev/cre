@@ -3,7 +3,7 @@ rules:
       kind: prequel
       id: 4hje4sHmZW2GnSxijP6TQh
     cre:
-      id: CRE-2025-0081
+      id: CRE-2025-0099
       generation: 1
       severity: 1
       title: "Redpanda Crash Due to Memory Exhaustion and Startup Failures"
