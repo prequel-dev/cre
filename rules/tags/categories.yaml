@@ -155,7 +155,7 @@ categories:
       Failures in systems that manage access control, identity, or permissions.
       This includes tools like SpiceDB, OPA, or Auth0 where schema, policy, or
       integration issues can block authentication or authorization flows.
-      
+
   - name: authorization-system-problem
     displayName: Authorization System Problems
     description: Problems related to authorization and permission systems like SpiceDB, OPA, and similar fine-grained access control systems
@@ -190,4 +190,3 @@ categories:
     description: |
       Failures and issues in real-time data streaming systems, covering platform
       startups, configuration errors, runtime failures, and their impact on data pipelines.
-
