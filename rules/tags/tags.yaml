@@ -567,7 +567,6 @@ tags:
   - name: startup-failure
     displayName: Startup Failure
     description: Problems related to start-up failures
-
   - name: redpanda
     displayName: Redpanda
     description: Problems related to Redpanda, a streaming data platform
@@ -585,8 +584,13 @@ tags:
     description: Problems related to loss of quorum in distributed systems, impacting consensus and availability
   - name: data-availability
     displayName: Data Availability
-    description: Problems related to data availability in distributed systems, such as loss of access to critical data          
-
+    description: Problems related to data availability in distributed systems, such as loss of access to critical data        
+  - name: rpc
+    displayName: RPC
+    description: Remote Procedure Call errors or connectivity issues (includes timeouts, client-request failures, handler-not-found, etc.).
+  - name: raft
+    displayName: Raft
+    description: Issues related to the Raft consensus protocol—leader elections, step-downs, append-entries rejections, vote requests/replies, etc.
   - name: spicedb
     displayName: SpiceDB
     description: Issues related to SpiceDB authorization service
@@ -596,7 +600,6 @@ tags:
   - name: schema-error
     displayName: Schema Error
     description: Missing or corrupted database schema elements such as tables or columns
-
   - name: spicedb
     displayName: SpiceDB
     description: Problems related to SpiceDB authorization service, including schema corruption, permission failures, and database connectivity issues
@@ -615,7 +618,6 @@ tags:
   - name: relation-missing
     displayName: Relation Missing
     description: Database errors where expected tables or relations do not exist, typically due to corruption or migration failures
-  
   - name: logs
     displayName: Logs
     description: Problems with log processing
