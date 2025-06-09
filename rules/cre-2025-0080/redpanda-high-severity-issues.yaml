@@ -4,7 +4,7 @@ rules:
       kind: prequel
       version: "0.1.0"
     cre:
-      id: CRE-2025-0082
+      id: CRE-2025-0080
       severity: 1
       title: "Redpanda High Severity Issues"
       category: "redpanda-startup-failure"
