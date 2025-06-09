@@ -1,0 +1,74 @@
+2025-06-06 05:50:30,587 [shard 0] cluster - (rate limiting dropped 9 similar messages) Error occurred while sending node status request: rpc::errc::exponential_backoff
+2025-06-06 06:27:17,581 [shard 0] r/heartbeat - heartbeat_manager.cc:281 - Received error when sending heartbeats to node 1 - rpc::errc::exponential_backoff
+2025-06-06 06:27:31,388 [shard 0] cluster - health_monitor_backend.cc:541 - unable to get node health report from 1 - rpc::errc::disconnected_endpoint(node down), marking node as down
+2025-06-06 06:29:26,343 [shard 0] raft - [group_id:2, {kafka_internal/id_allocator/0}] consensus.cc:2684 - triggering leadership notification with term: 1, new leader: {{id: {2}, revision: {25}}}
+2025-06-06 06:28:43,145 [shard 0] raft - [group_id:0, {redpanda/controller/0}] vote_stm.cc:77 - vote reply from {id: {2}, revision: {0}} - {term:{2}, vote_granted: 1, log_ok:1}
+2025-06-06 06:28:43,146 [shard 0] raft - [group_id:0, {redpanda/controller/0}] vote_stm.cc:264 - becoming the leader term:2
+2025-06-08 17:17:18,773 seastar - smp::count: 1
+2025-06-08 17:17:18,856 [shard 0:main] crash_tracker - recorder.cc:71 - Creating crash report directory /var/lib/redpanda/data/crash_reports
+2025-06-08 17:17:18,860 [shard 0:main] ERROR main - application.cc:540 - Failure during startup: std::__1::__fs::filesystem::filesystem_error (error system:13, filesystem error: mkdir failed: Permission denied ["/var/lib/redpanda/data/crash_reports"])
+2025-06-08 18:33:08,107 [shard 0:main] cluster - health_monitor_backend.cc:650 - requesting cluster state report with filter: {per_node_filter: {include_partitions: true, ntp_filters: {}}, nodes: {}}, force refresh: false
+2025-06-08 06:28:39,178 [shard 0] raft - [group_id:0, {redpanda/controller/0}] consensus.cc:200 - [heartbeats_majority] Stepping down as leader in term 1, dirty offset 22
+2025-06-08 18:33:08,874 [shard 0:main] raft - coordinated_recovery_throttle.cc:54 - Throttler bucket capacity reset to: 104857600, waiting bytes: 0
+2025-06-08 18:33:09,038 [shard 0:main] storage-resources - storage_resources.cc:165 - calc_falloc_step: step 851968 (max 33554432)
+2025-06-08 18:33:09,874 [shard 0:main] raft - coordinated_recovery_throttle.cc:54 - Throttler bucket capacity reset to: 104857600, waiting bytes: 0
+2025-06-08 18:33:10,039 [shard 0:main] storage-resources - storage_resources.cc:165 - calc_falloc_step: step 851968 (max 33554432)
+2025-06-08 18:33:10,874 [shard 0:main] raft - coordinated_recovery_throttle.cc:54 - Throttler bucket capacity reset to: 104857600, waiting bytes: 0
+2025-06-08 18:33:11,039 [shard 0:main] storage-resources - storage_resources.cc:165 - calc_falloc_step: step 851968 (max 33554432)
+2025-06-08 18:33:11,108 [shard 0:main] cluster - health_monitor_backend.cc:650 - requesting cluster state report with filter: {per_node_filter: {include_partitions: true, ntp_filters: {}}, nodes: {}}, force refresh: false
+2025-06-08 18:33:11,874 [shard 0:main] raft - coordinated_recovery_throttle.cc:54 - Throttler bucket capacity reset to: 104857600, waiting bytes: 0
+2025-06-08 18:33:12,040 [shard 0:main] storage-resources - storage_resources.cc:165 - calc_falloc_step: step 851968 (max 33554432)
+2025-06-08 18:33:12,875 [shard 0:main] raft - coordinated_recovery_throttle.cc:54 - Throttler bucket capacity reset to: 104857600, waiting bytes: 0
+2025-06-08 18:33:13,040 [shard 0:main] storage-resources - storage_resources.cc:165 - calc_falloc_step: step 851968 (max 33554432)
+2025-06-08 18:33:08,025 [shard 0:main] compaction_ctrl - backlog_controller.cc:129 - updating shares 10
+2025-06-08 18:33:08,034 [shard 0:main] storage-gc - disk_log_impl.cc:342 - [{kafka/large-topic/0}] time retention timestamp: {timestamp: 1748802788034}, first segment retention timestamp: {timestamp: 1749407503521}, retention_cfg: [.use_broker_time=true, .use_escape_hatch_for_timestamps_in_the_future=false]
+2025-06-08 18:33:08,034 [shard 0:main] storage-gc - disk_log_impl.cc:342 - [{kafka/large-topic/0}] time retention timestamp: {timestamp: 1749321188034}, first segment retention timestamp: {timestamp: 1749407503521}, retention_cfg: [.use_broker_time=true, .use_escape_hatch_for_timestamps_in_the_future=false]
+2025-06-08 18:34:21,837 [shard 0:prod] WARN kafka - [172.24.1.2:59478] rejecting produce request: no disk space; bytes free less than configurable threshold
+2025-06-08 18:34:44,582 [shard 0:prod] kafka - request_context.h:231 - [172.24.1.2:59478] sending 0:produce for {rpk}, response {responses=[{name=large-topic partitions={{partition_index=0 error_code={ error_code: kafka_storage_error [56] } base_offset=-9223372036854775808 log_append_time_ms={timestamp: missing} log_start_offset=-1 record_errors=[] error_message={no disk space; bytes free less than configurable threshold}}}},] throttle_time_ms=0}
+2025-06-08 18:33:08,035 [shard 0:main] storage - snapshot.cc:342 - Failed to stat snapshot file /var/lib/redpanda/data/redpanda/kvstore/0_0/snapshot: std::__1::__fs::filesystem::filesystem_error (error system:2, filesystem error: stat failed: No such file or directory ["/var/lib/redpanda/data/redpanda/kvstore/0_0/snapshot"])
+2025-06-08 18:34:44,582 [shard 0:prod] kafka - request_context.h:231 - [172.24.1.2:59478] sending 0:produce for {rpk}, response {responses=[{name=large-topic partitions={{partition_index=0 error_code={ error_code: kafka_storage_error [56] } base_offset=-9223372036854775808 log_append_time_ms={timestamp: missing} log_start_offset=-1 record_errors=[] error_message={no disk space; bytes free less than configurable threshold}}}},] throttle_time_ms=0}
+2025-06-08 18:28:39,383 [shard 0] raft - [group_id:0, {redpanda/controller/0}] consensus.cc:350 - ignoring append entries reply, not leader
+2025-06-08 18:28:40,391 [shard 0] cluster - (rate limiting dropped 9 similar messages) Error occurred while sending node status request: rpc::errc::exponential_backoff
+2025-06-08 18:28:40,472 [shard 0] storage - storage_resources.cc:166 - calc_falloc_step: step 33554432 (max 33554432)
+2025-06-08 18:28:41,400 [shard 0] rpc - transport.cc:210 - RPC timeout (100 ms) to {host: 172.24.1.4, port: 33145}, method: node_status_rpc::node_status, correlation id: 1791, 1 in flight, time since: {init: 100 ms, enqueue: 100 ms, dispatch: 100 ms, written: 100 ms}, flushed: true
+2025-06-08 18:28:41,400 [shard 0] cluster - (rate limiting dropped 9 similar messages) Error occurred while sending node status request: rpc::errc::client_request_timeout
+2025-06-08 18:28:41,473 [shard 0] storage - storage_resources.cc:166 - calc_falloc_step: step 33554432 (max 33554432)
+2025-06-08 18:28:41,495 [shard 0] rpc - transport.cc:366 - Unable to find handler for correlation 1791
+2025-06-08 18:28:41,987 [shard 0] raft - [group_id:0, {redpanda/controller/0}] vote_stm.cc:52 - Sending vote request to {id: {1}, revision: {0}} with timeout 1500
+2025-06-08 20:48:00,099 [shard 0:main] rpc - transport.cc:214 - RPC timeout (3000 ms) to {host: 172.24.1.3, port: 33145}, method: raftgen::heartbeat_v2, correlation id: 732, 11 in flight, time since: {init: 3000 ms, enqueue: 3000 ms, memory_reserved: 3000 ms dispatch: 3000 ms, written: 3000 ms}, flushed: true
+2025-06-08 20:48:00,099 [shard 0:main] r/heartbeat - heartbeat_manager.cc:306 - Received error when sending heartbeats to node 1 - rpc::errc::client_request_timeout
+2025-06-08 20:48:00,104 [shard 0:main] rpc - transport.cc:214 - RPC timeout (10000 ms) to {host: 172.24.1.3, port: 33145}, method: controller::collect_node_health_report, correlation id: 708, 11 in flight, time since: {init: 10000 ms, enqueue: 10000 ms, memory_reserved: 10000 ms dispatch: 10000 ms, written: 10000 ms}, flushed: true
+2025-06-08 20:48:00,104 [shard 0:main] WARN cluster - health_monitor_backend.cc:768 - unable to get node health report from 1 - rpc::errc::client_request_timeout, marking node as down
+2025-06-08 20:48:00,104 [shard 0:main] cluster - health_monitor_backend.cc:880 - collecting health report
+2025-06-08 20:48:00,105 [shard 0:main] cluster - health_monitor_backend.cc:814 - collected node 0 health report
+2025-06-08 20:48:00,105 [shard 0:main] cluster - health_monitor_backend.cc:821 - (cache contains previous node report from 0)
+2025-06-08 20:48:00,105 [shard 0:main] cluster - health_monitor_backend.cc:814 - collected node 2 health report
+2025-06-08 20:48:00,105 [shard 0:main] cluster - health_monitor_backend.cc:821 - (cache contains previous node report from 2)
+2025-06-08 20:17:59,648 [shard 1] ERROR storage - parser.cc:176 - detected header corruption. stopping parser. Expected CRC of 3704304617, but got header CRC: 945991046
+2025-06-08 20:48:00,187 [shard 0:main] rpc - transport.cc:214 - RPC timeout (100 ms) to {host: 172.24.1.3, port: 33145}, method: node_status_rpc::node_status, correlation id: 1090, 1 in flight, time since: {init: 100 ms, enqueue: 100 ms, memory_reserved: 100 ms dispatch: 100 ms, written: 100 ms}, flushed: true
+2025-06-08 20:48:00,388 [shard 0:main] rpc - transport.cc:214 - RPC timeout (100 ms) to {host: 172.24.1.3, port: 33145}, method: node_status_rpc::node_status, correlation id: 1091, 1 in flight, time since: {init: 100 ms, enqueue: 100 ms, memory_reserved: 100 ms dispatch: 100 ms, written: 100 ms}, flushed: true
+2025-06-08 20:48:00,399 [shard 0:main] rpc - transport.cc:214 - RPC timeout (3000 ms) to {host: 172.24.1.3, port: 33145}, method: raftgen::heartbeat_v2, correlation id: 733, 10 in flight, time since: {init: 3000 ms, enqueue: 3000 ms, memory_reserved: 3000 ms dispatch: 3000 ms, written: 3000 ms}, flushed: true
+2025-06-08 20:48:00,399 [shard 0:main] r/heartbeat - heartbeat_manager.cc:306 - Received error when sending heartbeats to node 1 - rpc::errc::client_request_timeout
+2025-06-08 20:48:00,588 [shard 0:main] rpc - transport.cc:214 - RPC timeout (100 ms) to {host: 172.24.1.3, port: 33145}, method: node_status_rpc::node_status, correlati
+2025-06-08 20:47:49,964 [shard 0:main] rpc - transport.cc:214 - RPC timeout (100 ms) to {host: 172.24.1.3, port: 33145}, method: node_status_rpc::node_status, correlation id: 1039, 1 in flight, time since: {init: 100 ms, enqueue: 100 ms, memory_reserved: 100 ms dispatch: 100 ms, written: 100 ms}, flushed: true
+2025-06-08 20:47:49,964 [shard 0:main] cluster - (rate limiting dropped 1 similar messages) Error occurred while sending node status request: rpc::errc::client_request_timeout
+2025-06-08 20:47:50,164 [shard 0:main] rpc - transport.cc:214 - RPC timeout (100 ms) to {host: 172.24.1.3, port: 33145}, method: node_status_rpc::node_status, correlation id: 1040, 1 in flight, time since: {init: 100 ms, enqueue: 100 ms, memory_reserved: 100 ms dispatch: 100 ms, written: 100 ms}, flushed: true
+2025-06-08 20:47:50,364 [shard 0:main] rpc - transport.cc:214 - RPC timeout (100 ms) to {host: 172.24.1.3, port: 33145}, method: node_status_rpc::node_status, correlation id: 1041, 1 in flight, time since: {init: 100 ms, enqueue: 100 ms, memory_reserved: 100 ms dispatch: 100 ms, written: 100 ms}, flushed: true
+2025-06-08 20:47:50,565 [shard 0:main] rpc - transport.cc:214 - RPC timeout (100 ms) to {host: 172.24.1.3, port: 33145}, method: node_status_rpc::node_status, correlation id: 1042, 1 in flight, time since: {init: 100 ms, enqueue: 100 ms, memory_reserved: 100 ms dispatch: 100 ms, written: 100 ms}, flushed: true
+2025-06-08 20:47:50,765 [shard 0:main] rpc - transport.cc:214 - RPC timeout (100 ms) to {host: 172.24.1.3, port: 33145}, method: node_status_rpc::node_status, correlation id: 1043, 1 in flight, time since: {init: 100 ms, enqueue: 100 ms, memory_reserved: 100 ms dispatch: 100 ms, written: 100 ms}, flushed: true
+2025-06-08 20:47:50,966 [shard 0:main] rpc - transport.cc:214 - RPC timeout (100 ms) to {host: 172.24.1.3, port: 33145}, method: node_status_rpc::node_status, correlation id: 1044, 1 in flight, time since: {init: 100 ms, enqueue: 100 ms, memory_reserved: 100 ms dispatch: 100 ms, written: 100 ms}, flushed: true
+2025-06-08 20:47:50,966 [shard 0:main] cluster - (rate limiting dropped 4 similar messages) Error occurred while sending node status request: rpc::errc::client_request_timeout
+2025-06-08 20:48:14,023 [shard 0:main] rpc - transport.cc:214 - RPC timeout (100 ms) to {host: 172.24.1.3, port: 33145}, method: node_status_rpc::node_status, correlation id: 1159, 1 in flight, time since: {init: 100 ms, enqueue: 100 ms, memory_reserved: 100 ms dispatch: 100 ms, written: 100 ms}, flushed: true
+2025-06-08 20:48:14,023 [shard 0:main] cluster - (rate limiting dropped 4 similar messages) Error occurred while sending node status request: rpc::errc::client_request_timeout
+2025-06-08 20:48:14,069 [shard 0:main] cluster - health_monitor_backend.cc:709 - timed out when refreshing cluster health state, falling back to previous cluster health snapshot
+2025-06-08 20:48:14,070 [shard 0:main] cluster - metadata_dissemination_service.cc:362 - unable to retrieve cluster health report - Timeout occurred while processing request
+2025-06-08 20:48:14,220 [shard 0:main] rpc - transport.cc:214 - RPC timeout (3000 ms) to {host: 172.24.1.3, port: 33145}, method: raftgen::heartbeat_v2, correlation id: 780, 11 in flight, time since: {init: 3000 ms, enqueue: 3000 ms, memory_reserved: 3000 ms dispatch: 3000 ms, written: 3000 ms}, flushed: true
+2025-06-08 20:48:14,220 [shard 0:main] r/heartbeat - heartbeat_manager.cc:306 - Received error when sending heartbeats to node 1 - rpc::errc::client_request_timeout
+2025-06-08 21:27:17,431 [shard 0] r/heartbeat - heartbeat_manager.cc:281 - Received error when sending heartbeats to node 1 - rpc::errc::disconnected_endpoint(node down)
+2025-06-08 21:27:17,449 [shard 0] dns_resolver - Query name 172.24.1.3 (INET)
+2025-06-08 21:27:17,449 [shard 0] dns_resolver - Query success: 172.24.1.3/172.24.1.3
+2025-06-08 21:27:17,449 [shard 0] cluster - Error occurred while sending node status request: rpc::errc::disconnected_endpoint(node down)
+2025-06-08 21:27:17,581 [shard 0] r/heartbeat - heartbeat_manager.cc:281 - Received error when sending heartbeats to node 1 - rpc::errc::exponential_backoff
+2025-06-08 21:27:17,732 [shard 0] r/heartbeat - heartbeat_manager.cc:281 - Received error when sending heartbeats to node 1 - rpc::errc::exponential_backoff
+2025-06-08 21:27:17,883 [shard 0] r/heartbeat - heartbeat_manager.cc:281 - Received error when sending heartbeats to node 1 - rpc::errc::exponential_backoff
+2025-06-08 21:27:18,034 [shard 0] r/heartbeat - heartbeat_manager.cc:281 - Received error when sending heartbeats to node 1 - rpc::errc::exponential_backoff

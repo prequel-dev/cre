@@ -1,0 +1,100 @@
+rules:
+  - metadata:
+      id: ArpxWk5dVu2Vw6wHQXYNBY
+      kind: prequel
+      version: "0.1.0"
+    cre:
+      id: CRE-2025-0082
+      severity: 1
+      title: "Redpanda High Severity Issues"
+      category: "redpanda-startup-failure"
+      tags:
+        - "redpanda"
+        - "storage"
+        - "startup"
+        - "disk-space"
+        - "snapshot"
+        - "permission-denied"
+        - "rpc"
+        - "cluster-health"
+        - "raft"
+      author: "Prequel"
+      description: >
+        Detects when Redpanda hits any of these on startup or early runtime:
+        1. Fails to create its crash_reports directory (POSIX error 13).  
+        2. Rejects produce requests due to no disk space.  
+        3. Logs missing KV-store snapshot (debug-level stat failure).
+        4. Heartbeat or node-status RPC failures indicating a broker is down.
+        5. Raft group failures (leader step-downs, append-entries rejections, vote outages).
+        6. Data center failure
+        7. Corrupt or unavailable data that also affects synchronous replicas
+      impact: >
+        These issues can abort startup (case 1) or indicate degraded operation (cases 2-3),
+        and can be symptomatic of Broker failure(case 4) which makes Loss of function for an individual broker or for any virtual machine (VM) that hosts the broker
+        ,rack/switch failures(case 5) makes Loss of brokers/VMs hosted within that rack, or loss of connectivity to them, Data center failure(case 6)
+        that results loss of brokers/VMs hosted within that data center or loss of connectivity to them and Data loss or corruption (case 7) that results in loss of data that also affects synchronous replicas.
+      cause: >
+        1. Runtime user lacks write permission on `/var/lib/redpanda/data`.  
+        2. Disk usage exceeds configured thresholds.  
+        3. No prior snapshot exists.
+        4. Broker unreachable or out of sync.
+        5. Network partition within Raft quorum.
+        6. Loss of brokers/VMs hosted within that data center or loss of connectivity to them
+        7. Loss of data that also affects synchronous replicas
+      mitigation: >
+        **Immediate Actions:**
+        ```bash
+        chown -R redpanda:redpanda /var/lib/redpanda/data
+        chmod -R 750 /var/lib/redpanda/data
+        # Free up disk or expand the data volume
+        systemctl restart redpanda
+        ```
+        **Long-term Fixes:**
+        - InitContainer or boot-script to validate permissions before start.  
+        - Disk-usage alerts and automated cleanup.  
+        - Snapshot retention policy tuning.
+        - Multi-broker deployment
+        - Monitor cluster health and broker reachability.
+        - Multi-broker deployment spread across multiple racks or network failure domains
+        - Multi-AZ or replicated deployment
+        - Offline backups
+      mitigationScore: 9
+      references:
+        - "https://docs.redpanda.com/current/deploy/deployment-option/self-hosted/manual/high-availability/"
+        - "https://docs.redpanda.com/current/manage/cluster-maintenance/disk-utilization/"
+        - "https://docs.redpanda.com/current/manage/rack-awareness/"
+        - "https://docs.redpanda.com/current/manage/recovery-mode/"
+        - "https://docs.redpanda.com/current/manage/cluster-maintenance/nodewise-partition-recovery/"
+        - "https://docs.redpanda.com/current/manage/raft-group-reconfiguration/"
+        - "https://docs.redpanda.com/current/manage/cluster-maintenance/node-property-configuration/"
+        - "https://docs.redpanda.com/current/manage/monitoring/"
+        - "https://vectorized.io"
+      reports: 0
+      version: "0.1.0"
+      applications:
+        - name: "redpanda"
+          processName: "redpanda"
+          version: "24.3+"
+    rule:
+      set:
+        event:
+          source: cre.log.redpanda
+        match:
+          - regex: "Failure during startup: .*filesystem_error.*Permission denied.*crash_reports|
+                rejecting produce request: no disk space; bytes free less than configurable threshold|
+                Failed to stat snapshot file .*kvstore/.*/snapshot.*No such file or directory|
+                health_monitor_backend\\.cc:\\d+.*unable to get node health report from \\d+ - rpc::errc::(exponential_backoff|client_request_timeout), marking node as down|
+                heartbeat_manager\\.cc:\\d+.*Received error when sending heartbeats to node \\d+ - rpc::errc::exponential_backoff|
+                transport\\.cc:\\d+.*RPC timeout.*node_status_rpc::node_status|
+                transport\\.cc:\\d+.*Unable to find handler for correlation \\d+|
+                Error occurred while sending node status request: rpc::errc::client_request_timeout|
+                RPC timeout \\(\\d+ ms\\) to \\{host: [^}]+\\}, method: (raftgen::heartbeat_v2|controller::collect_node_health_report|node_status_rpc::node_status)|
+                unable to get node health report from .* - .*?, marking node as down|
+                raft.*consensus\\.cc:\\d+.*Stepping down as leader|
+                raft.*vote_stm\\.cc:\\d+.*Sending vote request to .* with timeout|
+                raft.*vote_stm\\.cc:\\d+.*vote reply from .* - .*|
+                raft.*consensus\\.cc\\d+.*triggering leadership notification with term: \\d+, new leader: \\{\\{id: \\{\\d+\\}, revision: \\{\\d+\\}\\}\\}|
+                unable to retrieve cluster health report - .*|
+                parser\\.cc:\\d+.*detected header corruption\\. stopping parser\\. Expected CRC of \\d+, but got header CRC: \\d+|
+                raft.*vote_stm\\.cc:\\d+.*becoming the leader term:\\d+"
+                
