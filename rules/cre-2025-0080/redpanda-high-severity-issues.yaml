@@ -83,21 +83,21 @@ rules:
         event:
           source: cre.log.redpanda
         match:
-          - regex: "Failure during startup: .*filesystem_error.*Permission denied.*crash_reports|
-                rejecting produce request: no disk space; bytes free less than configurable threshold|
-                Failed to stat snapshot file .*kvstore/.*/snapshot.*No such file or directory|
-                health_monitor_backend\\.cc:\\d+.*unable to get node health report from \\d+ - rpc::errc::(exponential_backoff|client_request_timeout), marking node as down|
-                heartbeat_manager\\.cc:\\d+.*Received error when sending heartbeats to node \\d+ - rpc::errc::exponential_backoff|
-                transport\\.cc:\\d+.*RPC timeout.*node_status_rpc::node_status|
-                transport\\.cc:\\d+.*Unable to find handler for correlation \\d+|
-                Error occurred while sending node status request: rpc::errc::client_request_timeout|
-                RPC timeout \\(\\d+ ms\\) to \\{host: [^}]+\\}, method: (raftgen::heartbeat_v2|controller::collect_node_health_report|node_status_rpc::node_status)|
-                unable to get node health report from .* - .*?, marking node as down|
-                raft.*consensus\\.cc:\\d+.*Stepping down as leader|
-                raft.*vote_stm\\.cc:\\d+.*Sending vote request to .* with timeout|
-                raft.*vote_stm\\.cc:\\d+.*vote reply from .* - .*|
-                raft.*consensus\\.cc\\d+.*triggering leadership notification with term: \\d+, new leader: \\{\\{id: \\{\\d+\\}, revision: \\{\\d+\\}\\}\\}|
-                unable to retrieve cluster health report - .*|
-                parser\\.cc:\\d+.*detected header corruption\\. stopping parser\\. Expected CRC of \\d+, but got header CRC: \\d+|
-                raft.*vote_stm\\.cc:\\d+.*becoming the leader term:\\d+"
-                
+          - regex:
+              "Failure during startup: .*filesystem_error.*Permission denied.*crash_reports|
+              rejecting produce request: no disk space; bytes free less than configurable threshold|
+              Failed to stat snapshot file .*kvstore/.*/snapshot.*No such file or directory|
+              health_monitor_backend\\.cc:\\d+.*unable to get node health report from \\d+ - rpc::errc::(exponential_backoff|client_request_timeout), marking node as down|
+              heartbeat_manager\\.cc:\\d+.*Received error when sending heartbeats to node \\d+ - rpc::errc::exponential_backoff|
+              transport\\.cc:\\d+.*RPC timeout.*node_status_rpc::node_status|
+              transport\\.cc:\\d+.*Unable to find handler for correlation \\d+|
+              Error occurred while sending node status request: rpc::errc::client_request_timeout|
+              RPC timeout \\(\\d+ ms\\) to \\{host: [^}]+\\}, method: (raftgen::heartbeat_v2|controller::collect_node_health_report|node_status_rpc::node_status)|
+              unable to get node health report from .* - .*?, marking node as down|
+              raft.*consensus\\.cc:\\d+.*Stepping down as leader|
+              raft.*vote_stm\\.cc:\\d+.*Sending vote request to .* with timeout|
+              raft.*vote_stm\\.cc:\\d+.*vote reply from .* - .*|
+              raft.*consensus\\.cc\\d+.*triggering leadership notification with term: \\d+, new leader: \\{\\{id: \\{\\d+\\}, revision: \\{\\d+\\}\\}\\}|
+              unable to retrieve cluster health report - .*|
+              parser\\.cc:\\d+.*detected header corruption\\. stopping parser\\. Expected CRC of \\d+, but got header CRC: \\d+|
+              raft.*vote_stm\\.cc:\\d+.*becoming the leader term:\\d+"
