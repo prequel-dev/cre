@@ -8,7 +8,7 @@ rules:
       id: CRE-2025-0102
       severity: 1
       title: Redpanda Cluster Critical Failure - Node Loss, Quorum Lost, and Data Availability Impacted
-      category: "distributed-systems"
+      category: redpanda-problems
       author: Prequel
       description: |
         - The Redpanda streaming data platform is experiencing a severe, cascading failure.
@@ -34,8 +34,7 @@ rules:
         - node-down
         - quorum-loss
         - data-availability
-        - critical-error
-        - distributed-system
+        - errors
       mitigation: |
         - **Initial Triage & Isolation:**
           - Identify the specific node(s) reporting critical errors (e.g., I/O errors, shutdown messages) from Redpanda logs.
