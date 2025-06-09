@@ -1,2 +1,0 @@
-2023/07/15 14:22:31 [error] 12345#0: *67 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.1.1, server: example.com, request: "GET /api/data HTTP/1.1", upstream: "http://127.0.0.1:8080/api/data", host: "example.com"
-2023/07/15 14:33:00 end of file

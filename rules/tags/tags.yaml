@@ -497,13 +497,13 @@ tags:
     description: Redis RDB snapshot errors (e.g. BGSAVE failures).
   - name: misconf
     displayName: MISCONF
-    description: Redis “MISCONF” errors (stop-writes due to snapshot or AOF failures).
+    description: Redis "MISCONF" errors (stop-writes due to snapshot or AOF failures).
   - name: readonly
     displayName: READONLY
     description: Errors when writing to a read-only Redis replica.
   - name: acl
     displayName: ACL
-    description: Redis ACL (NOPERM) permission‐denied events.
+    description: Redis ACL (NOPERM) permission-denied events.
   - name: nfs
     displayName: NFS
     description: Problems related to NFS (network file systems)
@@ -567,7 +567,6 @@ tags:
   - name: startup-failure
     displayName: Startup Failure
     description: Problems related to start-up failures
-
   - name: redpanda
     displayName: Redpanda
     description: Problems related to Redpanda, a streaming data platform
@@ -586,7 +585,6 @@ tags:
   - name: data-availability
     displayName: Data Availability
     description: Problems related to data availability in distributed systems, such as loss of access to critical data          
-
   - name: spicedb
     displayName: SpiceDB
     description: Issues related to SpiceDB authorization service
@@ -596,7 +594,6 @@ tags:
   - name: schema-error
     displayName: Schema Error
     description: Missing or corrupted database schema elements such as tables or columns
-
   - name: spicedb
     displayName: SpiceDB
     description: Problems related to SpiceDB authorization service, including schema corruption, permission failures, and database connectivity issues
@@ -615,10 +612,10 @@ tags:
   - name: relation-missing
     displayName: Relation Missing
     description: Database errors where expected tables or relations do not exist, typically due to corruption or migration failures
-  
   - name: logs
     displayName: Logs
     description: Problems with log processing
+ redPanda-state-missing
   - name: redpanda-startup
     displayName: Redpanda Startup
     description: Problems related to Redpanda startup, such as configuration issues or missing state
@@ -628,4 +625,9 @@ tags:
   - name: snapshot
     displayName: Snapshot
     description: Problems related to snapshotting in Redpanda, such as missing or incomplete snapshots    
+
+  - name: distributed-system
+    displayName: Distributed System
+    description: Problems specific to distributed systems, including coordination, consistency, and network partition issues
+
 
