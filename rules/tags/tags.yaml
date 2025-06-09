@@ -497,13 +497,13 @@ tags:
     description: Redis RDB snapshot errors (e.g. BGSAVE failures).
   - name: misconf
     displayName: MISCONF
-    description: Redis “MISCONF” errors (stop-writes due to snapshot or AOF failures).
+    description: Redis "MISCONF" errors (stop-writes due to snapshot or AOF failures).
   - name: readonly
     displayName: READONLY
     description: Errors when writing to a read-only Redis replica.
   - name: acl
     displayName: ACL
-    description: Redis ACL (NOPERM) permission‐denied events.
+    description: Redis ACL (NOPERM) permission-denied events.
   - name: nfs
     displayName: NFS
     description: Problems related to NFS (network file systems)
@@ -621,4 +621,7 @@ tags:
   - name: logs
     displayName: Logs
     description: Problems with log processing
+  - name: distributed-system
+    displayName: Distributed System
+    description: Problems specific to distributed systems, including coordination, consistency, and network partition issues
 
