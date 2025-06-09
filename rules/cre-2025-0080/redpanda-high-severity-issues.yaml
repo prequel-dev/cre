@@ -9,15 +9,18 @@ rules:
       title: "Redpanda High Severity Issues"
       category: "redpanda-startup-failure"
       tags:
-        - "redpanda"
-        - "storage"
-        - "startup"
-        - "disk-space"
-        - "snapshot"
-        - "permission-denied"
-        - "rpc"
-        - "cluster-health"
-        - "raft"
+        - redpanda
+        - storage
+        - startup-failure
+        - disk-full
+        - permission-failure
+        - rpc
+        - cluster-health
+        - raft
+        - node-down
+        - cluster-degradation
+        - data-availability
+        - database-corruption
       author: "Prequel"
       description: >
         Detects when Redpanda hits any of these on startup or early runtime:
