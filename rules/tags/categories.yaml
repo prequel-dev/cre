@@ -165,3 +165,7 @@ categories:
   - name: access-control-problem
     displayName: Access Control Problems
     description: Problems related to access control systems that prevent legitimate access due to system failures rather than policy violations
+
+  - name: authorization-system-problem
+    displayName: Authorization System Problems
+    description: Problems related to authorization and permission systems like SpiceDB, OPA, and similar fine-grained access control systems
