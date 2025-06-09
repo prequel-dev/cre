@@ -155,10 +155,7 @@ categories:
       Failures in systems that manage access control, identity, or permissions.
       This includes tools like SpiceDB, OPA, or Auth0 where schema, policy, or
       integration issues can block authentication or authorization flows.
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
+      
   - name: authorization-system-problem
     displayName: Authorization System Problems
     description: Problems related to authorization and permission systems like SpiceDB, OPA, and similar fine-grained access control systems
@@ -176,7 +173,6 @@ categories:
     description: |
       Failures and issues in real-time data streaming systems, covering platform
       startups, configuration errors, runtime failures, and their impact on data pipelines.
-=======
   - name: data-streaming-platforms
     displayName: Data Streaming Platforms
     description: |
@@ -184,19 +180,14 @@ categories:
       This includes platforms like Redpanda, Apache Kafka, Pulsar, and compatible systems
       where startup, configuration, or operational issues can disrupt data streaming pipelines
       and impact downstream applications relying on event-driven architectures.RetryClaude does not have the ability to run the code it generates yet.Claude can make mistakes. Please double-check responses. Sonnet 4
->>>>>>> bd75fec (feat: add Redpanda cluster startup failure detection rule)
-=======
   - name: data-streaming
     displayName: Data Streaming
     description: |
       Failures and issues within real-time data streaming systems, including
       platform startups, configuration, runtime errors, and impact on data pipelines.
->>>>>>> 386e3c6 (Update files and reassign PR to issue #69)
-=======
-
   - name: data-streaming
     displayName: Data Streaming
     description: |
       Failures and issues in real-time data streaming systems, covering platform
       startups, configuration errors, runtime failures, and their impact on data pipelines.
->>>>>>> dca13c5 (Redpanda crash caused by memory exhaustion and startup failures)
+
