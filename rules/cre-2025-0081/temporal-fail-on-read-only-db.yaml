@@ -1,6 +1,6 @@
 rules:
   - cre:
-      id: CRE-2025-0080
+      id: CRE-2025-0081
       severity: 0
       title: "Temporal Server Fails Persistence on Read-Only Database"
       category: temporal-problem
