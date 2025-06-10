@@ -497,13 +497,13 @@ tags:
     description: Redis RDB snapshot errors (e.g. BGSAVE failures).
   - name: misconf
     displayName: MISCONF
-    description: Redis “MISCONF” errors (stop-writes due to snapshot or AOF failures).
+    description: Redis "MISCONF" errors (stop-writes due to snapshot or AOF failures).
   - name: readonly
     displayName: READONLY
     description: Errors when writing to a read-only Redis replica.
   - name: acl
     displayName: ACL
-    description: Redis ACL (NOPERM) permission‐denied events.
+    description: Redis ACL (NOPERM) permission-denied events.
   - name: nfs
     displayName: NFS
     description: Problems related to NFS (network file systems)
@@ -567,7 +567,6 @@ tags:
   - name: startup-failure
     displayName: Startup Failure
     description: Problems related to start-up failures
-
   - name: redpanda
     displayName: Redpanda
     description: Problems related to Redpanda, a streaming data platform
@@ -586,7 +585,6 @@ tags:
   - name: data-availability
     displayName: Data Availability
     description: Problems related to data availability in distributed systems, such as loss of access to critical data          
-
   - name: spicedb
     displayName: SpiceDB
     description: Issues related to SpiceDB authorization service
@@ -596,12 +594,30 @@ tags:
   - name: schema-error
     displayName: Schema Error
     description: Missing or corrupted database schema elements such as tables or columns
-
-
-
+  - name: spicedb
+    displayName: SpiceDB
+    description: Problems related to SpiceDB authorization service, including schema corruption, permission failures, and database connectivity issues
+  - name: fine-grained-access-control
+    displayName: Fine-Grained Access Control
+    description: Problems related to fine-grained authorization and permission systems that manage detailed access policies
+  - name: database-corruption
+    displayName: Database Corruption
+    description: Problems where database tables, schemas, or data become corrupted, leading to missing relations or inaccessible data
+  - name: permission-failure
+    displayName: Permission Failure
+    description: Problems where authorization checks fail due to system issues rather than legitimate access denials
+  - name: schema-corruption
+    displayName: Schema Corruption
+    description: Problems where database schemas become corrupted or missing, preventing normal operations
+  - name: relation-missing
+    displayName: Relation Missing
+    description: Database errors where expected tables or relations do not exist, typically due to corruption or migration failures
   - name: logs
     displayName: Logs
     description: Problems with log processing
+  - name: distributed-system
+    displayName: Distributed System
+    description: Problems specific to distributed systems, including coordination, consistency, and network partition issues
 
   - name: datastore
     displayName: Datastore

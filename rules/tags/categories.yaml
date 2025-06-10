@@ -145,8 +145,8 @@ categories:
     displayName: Distributed Worker Connectivity Issues
     description: Failures where a distributed systems worker fails to reach or stay connected to the orchestration backend (e.g., Temporal, Celery).
 
-  - name: redpanda-cluster-failure
-    displayName: Redpanda Cluster Failure
+  - name: redpanda-problems
+    displayName: Redpanda Problems
     description: Problems related to Redpanda cluster failures, including node loss, quorum loss, and data availability impact.
 
   - name: authorization-systems
@@ -155,6 +155,22 @@ categories:
       Failures in systems that manage access control, identity, or permissions.
       This includes tools like SpiceDB, OPA, or Auth0 where schema, policy, or
       integration issues can block authentication or authorization flows.
+
   - name: SpiceDB-datastore-failure
     displayName: SpiceDB Datastore Failure
     description: Failures in the datastore used by SpiceDB, which can lead to authentication or authorization issues.
+
+
+  - name: authorization-system-problem
+    displayName: Authorization System Problems
+    description: Problems related to authorization and permission systems like SpiceDB, OPA, and similar fine-grained access control systems
+  - name: database-corruption-problem
+    displayName: Database Corruption Problems
+    description: Problems related to database corruption, including missing tables, schema issues, and data integrity failures
+  - name: access-control-problem
+    displayName: Access Control Problems
+    description: Problems related to access control systems that prevent legitimate access due to system failures rather than policy violations
+  - name: temporal-problem
+    displayName: Temporal Server Failure
+    description: Temporal Server Failure Temporal Server Fails Persistence on Read-Only Database
+
