@@ -7,7 +7,7 @@ rules:
       id: CRE-2025-0080
       severity: 1
       title: "Redpanda High Severity Issues"
-      category: "redpanda-startup-failure"
+      category: "data-streaming"
       tags:
         - redpanda
         - startup-failure
