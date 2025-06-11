@@ -585,7 +585,6 @@ tags:
   - name: data-availability
     displayName: Data Availability
     description: Problems related to data availability in distributed systems, such as loss of access to critical data
-
   - name: spicedb
     displayName: SpiceDB
     description: Issues related to SpiceDB authorization service
@@ -619,88 +618,27 @@ tags:
   - name: distributed-system
     displayName: Distributed System
     description: Problems specific to distributed systems, including coordination, consistency, and network partition issues
-
-  - name: migration-failure
-    displayName: Migration Failure
-    description: Errors caused by failed or skipped database migrations
-
-  - name: schema-error
-    displayName: Schema Error
-    description: Missing or corrupted database schema elements such as tables or columns
-
-  - name: postgres
-    displayName: PostgreSQL
-    description: Failures involving PostgreSQL as the backend datastore
-  - name: migration-failure
-    displayName: Migration Failure
-    description: Errors caused by failed or skipped database migrations
-  - name: schema-error
-    displayName: Schema Error
-    description: Missing or corrupted database schema elements such as tables or columns
-  - name: logs
-    displayName: Logs
-    description: Problems with log processing
-
   - name: redpanda
     displayName: Redpanda
     description: Issues specifically related to the Redpanda streaming platform.
-
   - name: container-crash
     displayName: Container Crash
     description: Failures causing container crashes or unexpected terminations.
-
   - name: memory-exhaustion
     displayName: Memory Exhaustion
     description: Failures due to running out of memory or excessive memory consumption.
-
   - name: configuration-failure
     displayName: Configuration Failure
     description: Problems caused by incorrect or invalid configuration settings.
-
   - name: streaming-platform
     displayName: Streaming Platform
     description: Issues related to distributed streaming platforms and their operations.
-
   - name: kafka-compatible
     displayName: Kafka Compatible
     description: Problems affecting Kafka-compatible systems or APIs, impacting interoperability.
-
   - name: permission-denied
     displayName: Permission Denied
     description: Failures caused by insufficient access rights or permission errors.
-
-  - name: sigkill
-    displayName: SIGKILL
-    description: Failures caused by processes being terminated with a SIGKILL signal.
-
-  - name: redpanda
-    displayName: Redpanda
-    description: Issues specifically related to the Redpanda streaming platform.
-
-  - name: container-crash
-    displayName: Container Crash
-    description: Failures causing container crashes or unexpected terminations.
-
-  - name: memory-exhaustion
-    displayName: Memory Exhaustion
-    description: Failures due to running out of memory or excessive memory consumption.
-
-  - name: configuration-failure
-    displayName: Configuration Failure
-    description: Problems caused by incorrect or invalid configuration settings.
-
-  - name: streaming-platform
-    displayName: Streaming Platform
-    description: Issues related to distributed streaming platforms and their operations.
-
-  - name: kafka-compatible
-    displayName: Kafka Compatible
-    description: Problems affecting Kafka-compatible systems or APIs, impacting interoperability.
-
-  - name: permission-denied
-    displayName: Permission Denied
-    description: Failures caused by insufficient access rights or permission errors.
-
   - name: sigkill
     displayName: SIGKILL
     description: Failures caused by processes being terminated with a SIGKILL signal.
