@@ -567,9 +567,6 @@ tags:
   - name: startup-failure
     displayName: Startup Failure
     description: Problems related to start-up failures
-  - name: redpanda
-    displayName: Redpanda
-    description: Problems related to Redpanda, a streaming data platform
   - name: streaming-data
     displayName: Streaming Data
     description: Problems related to streaming data platforms and systems
@@ -584,10 +581,7 @@ tags:
     description: Problems related to loss of quorum in distributed systems, impacting consensus and availability
   - name: data-availability
     displayName: Data Availability
-    description: Problems related to data availability in distributed systems, such as loss of access to critical data          
-  - name: spicedb
-    displayName: SpiceDB
-    description: Issues related to SpiceDB authorization service
+    description: Problems related to data availability in distributed systems, such as loss of access to critical data
   - name: migration-failure
     displayName: Migration Failure
     description: Errors caused by failed or skipped database migrations
@@ -619,6 +613,7 @@ tags:
     displayName: Distributed System
     description: Problems specific to distributed systems, including coordination, consistency, and network partition issues
 
+
   - name: datastore
     displayName: Datastore
     description: Problems with data storage systems, such as databases or object stores
@@ -628,4 +623,30 @@ tags:
   - name: misconfiguration
     displayName: Misconfiguration
     description: Problems caused by incorrect or missing configuration settings, leading to application or service failures  
+
+
+  - name: redpanda
+    displayName: Redpanda
+    description: Issues specifically related to the Redpanda streaming platform.
+  - name: container-crash
+    displayName: Container Crash
+    description: Failures causing container crashes or unexpected terminations.
+  - name: memory-exhaustion
+    displayName: Memory Exhaustion
+    description: Failures due to running out of memory or excessive memory consumption.
+  - name: configuration-failure
+    displayName: Configuration Failure
+    description: Problems caused by incorrect or invalid configuration settings.
+  - name: streaming-platform
+    displayName: Streaming Platform
+    description: Issues related to distributed streaming platforms and their operations.
+  - name: kafka-compatible
+    displayName: Kafka Compatible
+    description: Problems affecting Kafka-compatible systems or APIs, impacting interoperability.
+  - name: permission-denied
+    displayName: Permission Denied
+    description: Failures caused by insufficient access rights or permission errors.
+  - name: sigkill
+    displayName: SIGKILL
+    description: Failures caused by processes being terminated with a SIGKILL signal.
 
