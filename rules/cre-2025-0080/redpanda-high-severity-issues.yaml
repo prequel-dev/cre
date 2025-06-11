@@ -10,9 +10,7 @@ rules:
       category: "redpanda-startup-failure"
       tags:
         - redpanda
-        - storage
         - startup-failure
-        - disk-full
         - permission-failure
         - rpc
         - cluster-health
@@ -25,12 +23,10 @@ rules:
       description: >
         Detects when Redpanda hits any of these on startup or early runtime:
         1. Fails to create its crash_reports directory (POSIX error 13).  
-        2. Rejects produce requests due to no disk space.  
-        3. Logs missing KV-store snapshot (debug-level stat failure).
-        4. Heartbeat or node-status RPC failures indicating a broker is down.
-        5. Raft group failures (leader step-downs, append-entries rejections, vote outages).
-        6. Data center failure
-        7. Corrupt or unavailable data that also affects synchronous replicas
+        2. Logs missing KV-store snapshot (debug-level stat failure).
+        3. Heartbeat or node-status RPC failures indicating a broker is down.
+        4. Raft group failures (leader step-downs, append-entries rejections, vote outages).
+        5. Data center failure
       impact: >
         These issues can abort startup (case 1) or indicate degraded operation (cases 2-3),
         and can be symptomatic of Broker failure(case 4) which makes Loss of function for an individual broker or for any virtual machine (VM) that hosts the broker
@@ -38,12 +34,10 @@ rules:
         that results loss of brokers/VMs hosted within that data center or loss of connectivity to them and Data loss or corruption (case 7) that results in loss of data that also affects synchronous replicas.
       cause: >
         1. Runtime user lacks write permission on `/var/lib/redpanda/data`.  
-        2. Disk usage exceeds configured thresholds.  
-        3. No prior snapshot exists.
-        4. Broker unreachable or out of sync.
-        5. Network partition within Raft quorum.
-        6. Loss of brokers/VMs hosted within that data center or loss of connectivity to them
-        7. Loss of data that also affects synchronous replicas
+        2. No prior snapshot exists.
+        3. Broker unreachable or out of sync.
+        4. Network partition within Raft quorum.
+        5. Loss of brokers/VMs hosted within that data center or loss of connectivity to them
       mitigation: >
         **Immediate Actions:**
         ```bash
@@ -54,7 +48,6 @@ rules:
         ```
         **Long-term Fixes:**
         - InitContainer or boot-script to validate permissions before start.  
-        - Disk-usage alerts and automated cleanup.  
         - Snapshot retention policy tuning.
         - Multi-broker deployment
         - Monitor cluster health and broker reachability.
@@ -79,25 +72,43 @@ rules:
           processName: "redpanda"
           version: "24.3+"
     rule:
-      set:
+      sequence:
+        window: "180s"
         event:
           source: cre.log.redpanda
-        match:
-          - regex:
-              "Failure during startup: .*filesystem_error.*Permission denied.*crash_reports|
-              rejecting produce request: no disk space; bytes free less than configurable threshold|
-              Failed to stat snapshot file .*kvstore/.*/snapshot.*No such file or directory|
-              health_monitor_backend\\.cc:\\d+.*unable to get node health report from \\d+ - rpc::errc::(exponential_backoff|client_request_timeout), marking node as down|
-              heartbeat_manager\\.cc:\\d+.*Received error when sending heartbeats to node \\d+ - rpc::errc::exponential_backoff|
-              transport\\.cc:\\d+.*RPC timeout.*node_status_rpc::node_status|
-              transport\\.cc:\\d+.*Unable to find handler for correlation \\d+|
-              Error occurred while sending node status request: rpc::errc::client_request_timeout|
-              RPC timeout \\(\\d+ ms\\) to \\{host: [^}]+\\}, method: (raftgen::heartbeat_v2|controller::collect_node_health_report|node_status_rpc::node_status)|
-              unable to get node health report from .* - .*?, marking node as down|
-              raft.*consensus\\.cc:\\d+.*Stepping down as leader|
-              raft.*vote_stm\\.cc:\\d+.*Sending vote request to .* with timeout|
-              raft.*vote_stm\\.cc:\\d+.*vote reply from .* - .*|
-              raft.*consensus\\.cc\\d+.*triggering leadership notification with term: \\d+, new leader: \\{\\{id: \\{\\d+\\}, revision: \\{\\d+\\}\\}\\}|
-              unable to retrieve cluster health report - .*|
-              parser\\.cc:\\d+.*detected header corruption\\. stopping parser\\. Expected CRC of \\d+, but got header CRC: \\d+|
-              raft.*vote_stm\\.cc:\\d+.*becoming the leader term:\\d+"
+        order:
+          - node_status_rpc_error
+          - heartbeat_rpc_error
+          - health_monitor_error
+          - raft_new_leader
+          - raft_vote_reply
+          - raft_leader_step_down
+          - failure_crash_reports
+terms:
+  node_status_rpc_error:
+    field: message
+    regex: "transport\\.cc:\\d+.*RPC timeout.*node_status_rpc::node_status|Error occurred while sending node status request: rpc::errc::client_request_timeout"
+
+  heartbeat_rpc_error:
+    field: message
+    regex: "heartbeat_manager\\.cc:\\d+.*Received error when sending heartbeats to node \\d+ - rpc::errc::exponential_backoff"
+
+  health_monitor_error:
+    field: message
+    regex: "health_monitor_backend\\.cc:\\d+.*unable to get node health report from \\d+ - rpc::errc::(exponential_backoff|disconnected_endpoint|client_request_timeout), marking node as down"
+
+  raft_new_leader:
+    field: message
+    regex: "raft.*consensus\\.cc:\\d+.*triggering leadership notification with term: \\d+, new leader: \\{\\{id: \\{\\d+\\}, revision: \\{\\d+\\}\\}\\}"
+
+  raft_vote_reply:
+    field: message
+    regex: "raft.*vote_stm\\.cc:\\d+.*vote reply from .* - .*"
+
+  raft_leader_step_down:
+    field: message
+    regex: "raft.*consensus\\.cc:\\d+.*Stepping down as leader"
+
+  failure_crash_reports:
+    field: message
+    regex: "Failure during startup: .*filesystem_error.*Permission denied.*crash_reports"
