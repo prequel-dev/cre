@@ -50,4 +50,4 @@ rules:
         event:
           source: cre.log.spicedb
         match:
-          - regex: 'does not exist|failed to create datastore|unable to determine datastore state|error|unable to list namespaces'
+          - regex: 'failed to create datastore|unable to determine datastore state|unable to list namespaces'
