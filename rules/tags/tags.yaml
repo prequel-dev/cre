@@ -567,9 +567,6 @@ tags:
   - name: startup-failure
     displayName: Startup Failure
     description: Problems related to start-up failures
-  - name: redpanda
-    displayName: Redpanda
-    description: Problems related to Redpanda, a streaming data platform
   - name: streaming-data
     displayName: Streaming Data
     description: Problems related to streaming data platforms and systems
@@ -624,4 +621,27 @@ tags:
   - name: distributed-system
     displayName: Distributed System
     description: Problems specific to distributed systems, including coordination, consistency, and network partition issues
-
+  - name: redpanda
+    displayName: Redpanda
+    description: Issues specifically related to the Redpanda streaming platform.
+  - name: container-crash
+    displayName: Container Crash
+    description: Failures causing container crashes or unexpected terminations.
+  - name: memory-exhaustion
+    displayName: Memory Exhaustion
+    description: Failures due to running out of memory or excessive memory consumption.
+  - name: configuration-failure
+    displayName: Configuration Failure
+    description: Problems caused by incorrect or invalid configuration settings.
+  - name: streaming-platform
+    displayName: Streaming Platform
+    description: Issues related to distributed streaming platforms and their operations.
+  - name: kafka-compatible
+    displayName: Kafka Compatible
+    description: Problems affecting Kafka-compatible systems or APIs, impacting interoperability.
+  - name: permission-denied
+    displayName: Permission Denied
+    description: Failures caused by insufficient access rights or permission errors.
+  - name: sigkill
+    displayName: SIGKILL
+    description: Failures caused by processes being terminated with a SIGKILL signal.
