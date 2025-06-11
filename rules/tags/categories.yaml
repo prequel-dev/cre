@@ -179,7 +179,7 @@ categories:
       Failures in distributed streaming data platforms used for real-time event processing.
       This includes platforms like Redpanda, Apache Kafka, Pulsar, and compatible systems
       where startup, configuration, or operational issues can disrupt data streaming pipelines
-      and impact downstream applications relying on event-driven architectures.RetryClaude does not have the ability to run the code it generates yet.Claude can make mistakes. Please double-check responses. Sonnet 4
+      and impact downstream applications relying on event-driven architectures.RetryClaude does not have the ability to run the code it generates yet.
   - name: data-streaming
     displayName: Data Streaming
     description: |
