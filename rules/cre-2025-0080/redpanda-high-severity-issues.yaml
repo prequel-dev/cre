@@ -22,21 +22,19 @@ rules:
       description: >
         Detects when Redpanda hits any of these on startup or early runtime:
         1. Fails to create its crash_reports directory (POSIX error 13).  
-        2. Logs missing KV-store snapshot (debug-level stat failure).
-        3. Heartbeat or node-status RPC failures indicating a broker is down.
-        4. Raft group failures (leader step-downs, append-entries rejections, vote outages).
-        5. Data center failure
+        2. Heartbeat or node-status RPC failures indicating a broker is down.
+        3. Raft group failure.
+        4. Data center failure
       impact: >
-        These issues can abort startup (case 1) or indicate degraded operation (cases 2-3),
-        and can be symptomatic of Broker failure(case 4) which makes Loss of function for an individual broker or for any virtual machine (VM) that hosts the broker
-        ,rack/switch failures(case 5) makes Loss of brokers/VMs hosted within that rack, or loss of connectivity to them, Data center failure(case 6)
-        that results loss of brokers/VMs hosted within that data center or loss of connectivity to them and Data loss or corruption (case 7) that results in loss of data that also affects synchronous replicas.
+        These issues can abort startup (case 1) or indicate degraded operation,
+        and can be symptomatic of Broker failure(case 2) which makes Loss of function for an individual broker or for any virtual machine (VM) that hosts the broker
+        ,rack/switch failures(case 3) makes Loss of brokers/VMs hosted within that rack, or loss of connectivity to them, Data center failure(case 4)
+        that results loss of brokers/VMs hosted within that data center or loss of connectivity to them.
       cause: >
         1. Runtime user lacks write permission on `/var/lib/redpanda/data`.  
-        2. No prior snapshot exists.
-        3. Broker unreachable or out of sync.
-        4. Network partition within Raft quorum.
-        5. Loss of brokers/VMs hosted within that data center or loss of connectivity to them
+        2. Broker unreachable or out of sync.
+        3. Network partition within Raft quorum.
+        4. Loss of brokers/VMs hosted within that data center or loss of connectivity to them
       mitigation: >
         **Immediate Actions:**
         ```bash
@@ -47,7 +45,6 @@ rules:
         ```
         **Long-term Fixes:**
         - InitContainer or boot-script to validate permissions before start.  
-        - Snapshot retention policy tuning.
         - Multi-broker deployment
         - Monitor cluster health and broker reachability.
         - Multi-broker deployment spread across multiple racks or network failure domains
@@ -64,50 +61,18 @@ rules:
         - "https://docs.redpanda.com/current/manage/cluster-maintenance/node-property-configuration/"
         - "https://docs.redpanda.com/current/manage/monitoring/"
         - "https://vectorized.io"
-      reports: 0
+      reports: 1
       version: "0.1.0"
       applications:
         - name: "redpanda"
           processName: "redpanda"
           version: "24.3+"
     rule:
-      sequence:
-        window: "180s"
+      set:
         event:
           source: cre.log.redpanda
-        order:
-          - node_status_rpc_error
-          - heartbeat_rpc_error
-          - health_monitor_error
-          - raft_new_leader
-          - raft_vote_reply
-          - raft_leader_step_down
-          - failure_crash_reports
-terms:
-  node_status_rpc_error:
-    field: message
-    regex: "transport\\.cc:\\d+.*RPC timeout.*node_status_rpc::node_status|Error occurred while sending node status request: rpc::errc::client_request_timeout"
-
-  heartbeat_rpc_error:
-    field: message
-    regex: "heartbeat_manager\\.cc:\\d+.*Received error when sending heartbeats to node \\d+ - rpc::errc::exponential_backoff"
-
-  health_monitor_error:
-    field: message
-    regex: "health_monitor_backend\\.cc:\\d+.*unable to get node health report from \\d+ - rpc::errc::(exponential_backoff|disconnected_endpoint|client_request_timeout), marking node as down"
-
-  raft_new_leader:
-    field: message
-    regex: "raft.*consensus\\.cc:\\d+.*triggering leadership notification with term: \\d+, new leader: \\{\\{id: \\{\\d+\\}, revision: \\{\\d+\\}\\}\\}"
-
-  raft_vote_reply:
-    field: message
-    regex: "raft.*vote_stm\\.cc:\\d+.*vote reply from .* - .*"
-
-  raft_leader_step_down:
-    field: message
-    regex: "raft.*consensus\\.cc:\\d+.*Stepping down as leader"
-
-  failure_crash_reports:
-    field: message
-    regex: "Failure during startup: .*filesystem_error.*Permission denied.*crash_reports"
+        match:
+          - regex:
+              "Failure during startup: .*filesystem_error.*Permission denied.*crash_reports|heartbeat_manager\\.cc:\\d+.*Received error when sending heartbeats to node \\d+ - rpc::errc::exponential_backoff|
+               transport\\.cc:\\d+.*RPC timeout.*node_status_rpc::node_status| transport\\.cc:\\d+.*Unable to find handler for correlation \\d+|
+               Error occurred while sending node status request: rpc::errc::client_request_timeout"
