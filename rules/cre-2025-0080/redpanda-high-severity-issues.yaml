@@ -13,7 +13,6 @@ rules:
         - startup-failure
         - permission-failure
         - rpc
-        - cluster-health
         - raft
         - node-down
         - cluster-degradation
