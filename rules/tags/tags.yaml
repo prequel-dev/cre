@@ -615,7 +615,6 @@ tags:
   - name: logs
     displayName: Logs
     description: Problems with log processing
- redPanda-state-missing
   - name: redpanda-startup
     displayName: Redpanda Startup
     description: Problems related to Redpanda startup, such as configuration issues or missing state
