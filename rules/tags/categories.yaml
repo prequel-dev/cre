@@ -168,25 +168,10 @@ categories:
   - name: temporal-problem
     displayName: Temporal Server Failure
     description: Temporal Server Failure Temporal Server Fails Persistence on Read-Only Database
-  - name: data-streaming
-    displayName: Data Streaming
-    description: |
-      Failures and issues in real-time data streaming systems, covering platform
-      startups, configuration errors, runtime failures, and their impact on data pipelines.
   - name: data-streaming-platforms
     displayName: Data Streaming Platforms
     description: |
       Failures in distributed streaming data platforms used for real-time event processing.
       This includes platforms like Redpanda, Apache Kafka, Pulsar, and compatible systems
       where startup, configuration, or operational issues can disrupt data streaming pipelines
-      and impact downstream applications relying on event-driven architectures.RetryClaude does not have the ability to run the code it generates yet.
-  - name: data-streaming
-    displayName: Data Streaming
-    description: |
-      Failures and issues within real-time data streaming systems, including
-      platform startups, configuration, runtime errors, and impact on data pipelines.
-  - name: data-streaming
-    displayName: Data Streaming
-    description: |
-      Failures and issues in real-time data streaming systems, covering platform
-      startups, configuration errors, runtime failures, and their impact on data pipelines.
+      and impact downstream applications relying on event-driven architectures.
