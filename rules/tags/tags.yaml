@@ -588,9 +588,6 @@ tags:
   - name: raft
     displayName: Raft
     description: Issues related to the Raft consensus protocol—leader elections, step-downs, append-entries rejections, vote requests/replies, etc.
-  - name: spicedb
-    displayName: SpiceDB
-    description: Issues related to SpiceDB authorization service
   - name: migration-failure
     displayName: Migration Failure
     description: Errors caused by failed or skipped database migrations
