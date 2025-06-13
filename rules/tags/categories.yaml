@@ -141,6 +141,9 @@ categories:
   - name: demo-problems
     displayName: Demo Problems
     description: This is a category for demos
+  - name: redpanda-high-availability
+    displayName: Redpanda High Availability
+    description: High-severity issues related to quorum, leader election, Raft consensus, and node isolation in Redpanda clusters
   - name: distributed-worker-connectivity
     displayName: Distributed Worker Connectivity Issues
     description: Failures where a distributed systems worker fails to reach or stay connected to the orchestration backend (e.g., Temporal, Celery).
