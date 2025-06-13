@@ -1,0 +1,52 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: 4MguZvSBSCwvR3PTNbCjEw
+      generation: 1
+    cre:
+      id: CRE-2025-0105
+      severity: 1 
+      title: "SpiceDB Datastore Startup Failure"
+      category: "authorization-systems"
+      author: Prequel
+      description: |
+        Detects critical failures where a SpiceDB instance cannot start due to an invalid schema or an uninitialized datastore during the bootstrap process. This is a common configuration error that prevents the service from initializing and serving requests, leading to a total service outage.
+      cause: |
+        - **Invalid Schema:** The schema provided to `--datastore-bootstrap-files` contains syntactical or semantic errors, such as referencing a non-existent object type (`undefined object type user`).
+        - **Uninitialized Datastore:** The datastore (e.g., Postgres) has not been properly migrated before bootstrap. SpiceDB attempts to query for existing data before its own tables (like `namespace_config`) have been created, resulting in an error like `relation "namespace_config" does not exist`. This is the specific failure you reproduced.
+      impact: |
+        - **Complete Authorization Service Outage:** SpiceDB will fail to start and may enter a crash loop if managed by a container orchestrator.
+        - All dependent applications will lose their access control capabilities, likely resulting in widespread "permission denied" errors or full application unavailability.
+        - Blocks all user authentication and authorization flows that rely on SpiceDB.
+        - May prevent new user sign-ups or other critical business operations until the schema is corrected and the service is restored.
+      tags:
+        - spicedb
+        - authorization
+        - datastore
+        - misconfiguration
+        - startup-failure
+      mitigation: |
+        IMMEDIATE RESPONSE:
+          - Examine the SpiceDB container logs for a `FATAL` or `ERROR` level message.
+          - The error is `relation "namespace_config" does not exist`:** The datastore is uninitialized. For a fresh deployment, add the `--datastore-bootstrap-overwrite` flag to the SpiceDB `serve` command to force the database migration to run before bootstrapping the schema.
+          - **If the error is `undefined object type` or `schema parsing error`:** The schema itself is invalid. Retrieve the schema file, validate it using the `zed validate <file>` command, correct the errors, and redeploy.
+
+        PREVENTIVE MEASURES:
+          - Integrate `zed validate` into your CI/CD pipeline to automatically check all schema changes before deployment.
+          - Use the `--datastore-bootstrap-overwrite` flag in startup commands for all initial/fresh deployments to ensure tables are created correctly.
+          - Implement robust health checks that validate the service is not only running but also responsive to basic API calls after startup.
+      references:
+        - https://docs.authzed.com/reference/schema-lang
+        - https://github.com/authzed/zed
+      applications:
+        - name: spicedb
+          version: ">=1.0.0"
+      impactScore: 9
+      mitigationScore: 3 
+      reports: 1
+    rule:
+      set:
+        event:
+          source: cre.log.spicedb
+        match:
+          - regex: 'failed to create datastore|unable to determine datastore state|unable to list namespaces'

@@ -157,11 +157,17 @@ categories:
       integration issues can block authentication or authorization flows.
 
 
+
   - name: Redpanda-state-missing
     displayName: Redpanda State Missing
     description: |
       Problems related to Redpanda nodes starting up without key state files, such as the key-value store snapshot or configuration cache.
       This can indicate a cleared or misconfigured volume on an existing node that is expected to have state.
+
+
+  - name: SpiceDB-datastore-failure
+    displayName: SpiceDB Datastore Failure
+    description: Failures in the datastore used by SpiceDB, which can lead to authentication or authorization issues.
 
   - name: authorization-system-problem
     displayName: Authorization System Problems
