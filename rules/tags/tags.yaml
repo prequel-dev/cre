@@ -114,6 +114,33 @@ tags:
   - name: connection-refused-startup
     displayName: Connection Refused on Startup
     description: Failures that occur when a service (e.g., Temporal worker) tries to connect to a backend and receives a connection refused error.
+  - name: redpanda
+    displayName: Redpanda
+    description: Issues related to Redpanda streaming data platform
+  - name: consumer-groups
+    displayName: Consumer Groups
+    description: Kafka/Redpanda consumer group coordination failures
+  - name: coordinator-failure
+    displayName: Coordinator Failure
+    description: Failures in distributed system coordinators (group coordinators, cluster coordinators)
+  - name: mass-disconnect
+    displayName: Mass Disconnect
+    description: Scenarios where many clients/consumers disconnect simultaneously
+  - name: kafka-compatibility
+    displayName: Kafka Compatibility
+    description: Issues related to Kafka protocol compatibility in Redpanda
+  - name: message-processing-halt
+    displayName: Message Processing Halt
+    description: Complete stoppage of message processing in streaming systems
+  - name: connection-refused-startup
+    displayName: Connection Refused on Startup
+    description: Failures that occur when a service (e.g., Temporal worker) tries to connect to a backend and receives a connection refused error
+  - name: temporal
+    displayName: Temporal
+    description: Issues related to Temporal workflow orchestration  
+  - name: worker
+    displayName: Worker
+    description: Distributed system worker process failures
   - name: psycopg2
     displayName: Psycopg2
     description: Python client errors related to connecting or querying PostgreSQL using psycopg2.
