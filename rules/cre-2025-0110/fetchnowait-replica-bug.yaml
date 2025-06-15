@@ -1,0 +1,69 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: AwCupRNgNxuCPkhacvRn74
+    cre:
+      id: CRE-2025-0110
+      severity: 1
+      title: "NATS JetStream Consumer Replication and Fetch Failures"
+      category: "Message Streaming Platforms"
+      author: Prequel
+      description: |
+        Detects NATS JetStream consumer replication issues and fetch operation failures
+        that impact message delivery reliability.
+
+        Identifies scenarios where consumers with multiple replicas fail to retrieve
+        messages when batch sizes exceed available messages, leading to message loss,
+        delivery delays, and consumer state inconsistencies.
+      tags:
+        - nats
+        - jetstream
+        - consumer-replication
+        - fetch-failure
+        - message-delivery
+        - batch-processing
+        - cluster-consistency
+      applications:
+        - name: "NATS Server"
+          version: "2.10.x, 2.11.x, 2.12.x+"
+        - name: "NATS JetStream"
+          version: "2.2+, 2.3+, 2.4+"
+        - name: "NATS Go Client"
+          version: "v1.40+, v1.41+, v1.42+"
+      mitigation: |
+        **Immediate Actions:**
+        - Monitor consumer message delivery rates and batch processing
+        - Check consumer replica configuration and leadership status
+        - Verify message acknowledgment patterns and outstanding acks
+
+        **Configuration Fixes:**
+        - Use single replica consumers for critical message processing
+        - Set batch sizes equal to or less than available message count
+        - Implement retry logic for empty batch responses
+
+        **Operational Improvements:**
+        - Monitor consumer lag and pending message counts
+        - Implement consumer health checks and failover mechanisms
+        - Use exact batch sizing based on stream message counts
+      references:
+        - "NATS JetStream Documentation: https://docs.nats.io/nats-concepts/jetstream"
+        - "Consumer Configuration: https://docs.nats.io/nats-concepts/jetstream/consumers"
+        - "GitHub Issue: https://github.com/nats-io/nats-server/issues/6952"
+    rule:
+      set:
+        event:
+          source: cre.log.nats
+        window: 300s
+        match:
+          - regex: "Expected: 170 messages"
+          - regex: "Received: 0 messages"
+          - regex: "BUG REPRODUCED"
+          - regex: "Replicas: 3"
+          - regex: "batch size 1000"
+          - regex: "Outstanding Acks: 170"
+          - regex: "Pending Messages: 0"
+          - regex: "FetchNoWait.*batch size 1000"
+          - regex: "does not work with.*when consumer replicas > 1"
+          - regex: "Consumer with 3 replicas.*BUG"
+          - regex: "replicas > 1"
+          - regex: "Consumer replicas: 3"

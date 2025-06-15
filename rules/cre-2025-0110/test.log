@@ -1,0 +1,235 @@
+=== High Reproduction Failure in NATS Test Started at 2025-06-15 22:21:11 ===
+Test environment: Darwin SAIKIRANs-MacBook-Air.local 24.5.0 Darwin Kernel Version 24.5.0: Tue Apr 22 19:48:46 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T8103 arm64
+Docker version: Docker version 28.1.1, build 4eba377
+Go version: go version go1.24.4 darwin/arm64
+Start time: 2025-06-15 22:21:11
+
+=== Demo Execution Started at 2025-06-15 22:21:30 ===
+
+=== NATS JetStream Issue #6952 Enhanced Reproduction ===
+2025-06-15 22:21:30 INFO: Test started at: 2025-06-15 22:21:30
+2025-06-15 22:21:30 INFO: Server: v2.11.4, Client: v1.42.0
+2025-06-15 22:21:30 INFO: Stream replicas: 3, Consumer replicas: 3
+2025-06-15 22:21:30 INFO: Messages to publish: 170, Batch size: 1000
+
+2025-06-15 22:21:30 STEP CONNECTION: Attempting to connect to NATS server...
+2025-06-15 22:21:30 SUCCESS: ✅ Connected to NATS server in 9.3655ms
+2025-06-15 22:21:30 STEP JETSTREAM: Creating JetStream context...
+2025-06-15 22:21:30 STEP STREAM: Setting up stream...
+2025-06-15 22:21:30 STEP CLEANUP: Deleting existing stream if present...
+2025-06-15 22:21:30 INFO: Creating stream 'EVENTS' with 3 replicas...
+2025-06-15 22:21:30 SUCCESS: ✅ Stream created in 74.066209ms
+2025-06-15 22:21:30 STEP PUBLISH: Publishing test messages...
+2025-06-15 22:21:30 INFO: Publishing 170 messages to subject 'events.new'...
+2025-06-15 22:21:30 SUCCESS: ✅ All 170 messages published successfully in 5.568792ms
+2025-06-15 22:21:30 SUCCESS: ✅ Published 170 messages in 5.597375ms
+2025-06-15 22:21:30 STEP REPLICATION: Waiting for replication...
+2025-06-15 22:21:35 STEP VERIFICATION: Verifying stream state...
+2025-06-15 22:21:35 STEP VERIFY: Getting stream information...
+2025-06-15 22:21:35 INFO: Stream information retrieved in 5.434416ms
+
+Stream Information:
+  Name: EVENTS
+  Subjects: [events.>]
+  Replicas: 3
+  Storage: File
+  Messages: 170
+  Bytes: 14.7 KiB
+  First Sequence: 1
+  Last Sequence: 170
+  Cluster Name: nats-cluster
+  Leader: nats-2
+  Replica: nats-1, current: true, active: 9.969708ms
+  Replica: nats-3, current: true, active: 9.956917ms
+2025-06-15 22:21:35 SUCCESS: ✅ Stream verification completed - 170 messages ready
+2025-06-15 22:21:35 STEP TESTING: Starting test cases...
+
+=== Test Case 1: Consumer with 3 replicas, batch > available (BUG) ===
+2025-06-15 22:21:35 STEP TEST-1: Starting test case: Consumer with 3 replicas, batch > available (BUG)
+2025-06-15 22:21:35 STEP CONSUMER: Creating pull consumer 'consumer_replica3_bug' with 3 replicas...
+2025-06-15 22:21:35 STEP CLEANUP: Deleting existing consumer if present...
+2025-06-15 22:21:35 SUCCESS: ✅ Consumer created in 74.911208ms
+2025-06-15 22:21:35 INFO: Consumer information retrieved in 588.291µs
+Consumer Configuration:
+  Name: consumer_replica3_bug
+  Replicas: 3
+  Filter Subject: events.new
+  Cluster Leader: nats-3
+2025-06-15 22:21:35 STEP FETCH: Testing FetchNoWait with batch size 1000 (expected messages: 170)...
+2025-06-15 22:21:35 INFO: FetchNoWait call completed in 95µs, processing messages...
+2025-06-15 22:21:35 INFO: Message processing completed in 1.474708ms
+2025-06-15 22:21:35 INFO: Final consumer state retrieved in 723.5µs
+
+--- Results ---
+Expected: 170 messages
+Received: 0 messages
+Total Duration: 1.582833ms
+Processing Duration: 1.474708ms
+Outstanding Acks: 170
+Pending Messages: 0
+2025-06-15 22:21:35 BUG: 🐛 BUG REPRODUCED! FetchNoWait returned empty batch
+2025-06-15 22:21:35 BUG: 🐛 This demonstrates issue #6952: FetchNoWait with batch size > available
+2025-06-15 22:21:35 BUG: 🐛 messages does not work with v2.11.4 when consumer replicas > 1
+2025-06-15 22:21:35 RESULT: ❌ BUG REPRODUCED
+
+============================================================
+2025-06-15 22:21:35 STEP TEST-1: Test case completed in 79.295625ms
+2025-06-15 22:21:35 STEP TEST-1: Pausing before next test...
+
+=== Test Case 2: Consumer with 1 replica, batch > available (WORKS) ===
+2025-06-15 22:21:37 STEP TEST-2: Starting test case: Consumer with 1 replica, batch > available (WORKS)
+2025-06-15 22:21:37 STEP CONSUMER: Creating pull consumer 'consumer_replica1_works' with 1 replicas...
+2025-06-15 22:21:37 STEP CLEANUP: Deleting existing consumer if present...
+2025-06-15 22:21:37 SUCCESS: ✅ Consumer created in 2.912041ms
+2025-06-15 22:21:37 INFO: Consumer information retrieved in 927.375µs
+Consumer Configuration:
+  Name: consumer_replica1_works
+  Replicas: 1
+  Filter Subject: events.new
+  Cluster Leader: nats-1
+2025-06-15 22:21:37 STEP FETCH: Testing FetchNoWait with batch size 1000 (expected messages: 170)...
+2025-06-15 22:21:37 INFO: FetchNoWait call completed in 26.625µs, processing messages...
+2025-06-15 22:21:37 INFO: Received 25 messages so far...
+2025-06-15 22:21:37 INFO: Received 50 messages so far...
+2025-06-15 22:21:37 INFO: Received 75 messages so far...
+2025-06-15 22:21:37 INFO: Received 100 messages so far...
+2025-06-15 22:21:37 INFO: Received 125 messages so far...
+2025-06-15 22:21:37 INFO: Received 150 messages so far...
+2025-06-15 22:21:37 INFO: Message processing completed in 2.084417ms
+2025-06-15 22:21:37 INFO: Final consumer state retrieved in 1.147959ms
+
+--- Results ---
+Expected: 170 messages
+Received: 170 messages
+Total Duration: 2.114166ms
+Processing Duration: 2.084417ms
+Outstanding Acks: 146
+Pending Messages: 0
+2025-06-15 22:21:37 RESULT: ✅ Success: All messages received
+
+============================================================
+2025-06-15 22:21:37 STEP TEST-2: Test case completed in 8.779167ms
+2025-06-15 22:21:37 STEP TEST-2: Pausing before next test...
+
+=== Test Case 3: Consumer with 3 replicas, batch = available (WORKS) ===
+2025-06-15 22:21:39 STEP TEST-3: Starting test case: Consumer with 3 replicas, batch = available (WORKS)
+2025-06-15 22:21:39 STEP CONSUMER: Creating pull consumer 'consumer_replica3_exact' with 3 replicas...
+2025-06-15 22:21:39 STEP CLEANUP: Deleting existing consumer if present...
+2025-06-15 22:21:39 SUCCESS: ✅ Consumer created in 64.904792ms
+2025-06-15 22:21:39 INFO: Consumer information retrieved in 943.583µs
+Consumer Configuration:
+  Name: consumer_replica3_exact
+  Replicas: 3
+  Filter Subject: events.new
+  Cluster Leader: nats-3
+2025-06-15 22:21:39 STEP FETCH: Testing FetchNoWait with batch size 170 (expected messages: 170)...
+2025-06-15 22:21:39 INFO: FetchNoWait call completed in 121.042µs, processing messages...
+2025-06-15 22:21:39 INFO: Received 25 messages so far...
+2025-06-15 22:21:39 INFO: Received 50 messages so far...
+2025-06-15 22:21:39 INFO: Received 75 messages so far...
+2025-06-15 22:21:39 INFO: Received 100 messages so far...
+2025-06-15 22:21:39 INFO: Received 125 messages so far...
+2025-06-15 22:21:39 INFO: Received 150 messages so far...
+2025-06-15 22:21:39 INFO: Message processing completed in 1.852833ms
+2025-06-15 22:21:39 INFO: Final consumer state retrieved in 4.972083ms
+
+--- Results ---
+Expected: 170 messages
+Received: 170 messages
+Total Duration: 1.982875ms
+Processing Duration: 1.852833ms
+Outstanding Acks: 56
+Pending Messages: 0
+2025-06-15 22:21:39 RESULT: ✅ Success: All messages received
+
+============================================================
+2025-06-15 22:21:39 STEP TEST-3: Test case completed in 77.700792ms
+2025-06-15 22:21:39 STEP TEST-3: Pausing before next test...
+
+=== Test Case 4: Consumer with 3 replicas, small batch (WORKS) ===
+2025-06-15 22:21:41 STEP TEST-4: Starting test case: Consumer with 3 replicas, small batch (WORKS)
+2025-06-15 22:21:41 STEP CONSUMER: Creating pull consumer 'consumer_replica3_small' with 3 replicas...
+2025-06-15 22:21:41 STEP CLEANUP: Deleting existing consumer if present...
+2025-06-15 22:21:41 SUCCESS: ✅ Consumer created in 67.932125ms
+2025-06-15 22:21:41 INFO: Consumer information retrieved in 1.467458ms
+Consumer Configuration:
+  Name: consumer_replica3_small
+  Replicas: 3
+  Filter Subject: events.new
+  Cluster Leader: nats-2
+2025-06-15 22:21:41 STEP FETCH: Testing FetchNoWait with batch size 50 (expected messages: 50)...
+2025-06-15 22:21:41 INFO: FetchNoWait call completed in 24.666µs, processing messages...
+2025-06-15 22:21:41 INFO: Received 25 messages so far...
+2025-06-15 22:21:41 INFO: Received 50 messages so far...
+2025-06-15 22:21:41 INFO: Message processing completed in 1.19575ms
+2025-06-15 22:21:41 INFO: Final consumer state retrieved in 732.416µs
+
+--- Results ---
+Expected: 50 messages
+Received: 50 messages
+Total Duration: 1.224125ms
+Processing Duration: 1.19575ms
+Outstanding Acks: 33
+Pending Messages: 120
+2025-06-15 22:21:41 RESULT: ✅ Success: All messages received
+
+============================================================
+2025-06-15 22:21:41 STEP TEST-4: Test case completed in 73.551334ms
+2025-06-15 22:21:41 STEP TEST-4: Pausing before next test...
+2025-06-15 22:21:43 STEP ANALYSIS: Analyzing results...
+2025-06-15 22:21:43 STEP ANALYSIS: Starting comprehensive analysis...
+
+=== COMPREHENSIVE ANALYSIS ===
+
+Test 1: Consumer with 3 replicas, batch > available (BUG)
+  Consumer: consumer_replica3_bug (replicas: 3)
+  Batch size: 1000, Expected: 170, Received: 0
+  Duration: 1.582833ms
+  Started: 22:21:35
+  Ended: 22:21:35
+  Status: 🐛 BUG REPRODUCED
+2025-06-15 22:21:43 BUG: 🐛 Test 1 reproduced the bug
+
+Test 2: Consumer with 1 replica, batch > available (WORKS)
+  Consumer: consumer_replica1_works (replicas: 1)
+  Batch size: 1000, Expected: 170, Received: 170
+  Duration: 2.114166ms
+  Started: 22:21:37
+  Ended: 22:21:37
+  Status: ✅ SUCCESS
+2025-06-15 22:21:43 SUCCESS: ✅ Test 2 completed successfully
+
+Test 3: Consumer with 3 replicas, batch = available (WORKS)
+  Consumer: consumer_replica3_exact (replicas: 3)
+  Batch size: 170, Expected: 170, Received: 170
+  Duration: 1.982875ms
+  Started: 22:21:39
+  Ended: 22:21:39
+  Status: ✅ SUCCESS
+2025-06-15 22:21:43 SUCCESS: ✅ Test 3 completed successfully
+
+Test 4: Consumer with 3 replicas, small batch (WORKS)
+  Consumer: consumer_replica3_small (replicas: 3)
+  Batch size: 50, Expected: 50, Received: 50
+  Duration: 1.224125ms
+  Started: 22:21:41
+  Ended: 22:21:41
+  Status: ✅ SUCCESS
+2025-06-15 22:21:43 SUCCESS: ✅ Test 4 completed successfully
+
+=== SUMMARY ===
+Total tests: 4
+Successful: 3
+Bug reproduced: true
+Analysis completed in: 142.708µs
+2025-06-15 22:21:43 BUG: 🐛 NATS JetStream Issue #6952 CONFIRMED!
+2025-06-15 22:21:43 BUG: 🐛 The bug manifests when:
+2025-06-15 22:21:43 BUG: 🐛 - Consumer has replicas > 1
+2025-06-15 22:21:43 BUG: 🐛 - FetchNoWait batch size > available messages
+2025-06-15 22:21:43 BUG: 🐛 - Results in empty batch instead of available messages
+2025-06-15 22:21:43 INFO: Total execution time: 13.342502333s
+2025-06-15 22:21:43 INFO: Test completed at: 2025-06-15 22:21:43
+
+=== Demo Execution Completed at 2025-06-15 22:21:43 ===
+Total test duration: 13.00s
+Demo success: true
