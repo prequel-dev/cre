@@ -645,3 +645,19 @@ tags:
   - name: sigkill
     displayName: SIGKILL
     description: Failures caused by processes being terminated with a SIGKILL signal.
+
+  - name: connection-churn
+    displayName: Connection Churn
+    description: Problems where clients rapidly connect and disconnect, indicating system stress or overload conditions
+
+  - name: producer-overload
+    displayName: Producer Overload
+    description: Problems where message producers are overwhelmed and cannot maintain stable connections to messaging systems
+
+  - name: slow-consumer-symptom
+    displayName: Slow Consumer Symptom
+    description: Indirect indicators of slow consumer conditions, such as connection instability or message backlog
+
+  - name: performance-degradation
+    displayName: Performance Degradation
+    description: Problems that cause system performance to degrade over time, affecting throughput and response times
