@@ -1,0 +1,106 @@
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.group_max_session_timeout_ms:300000	- The maximum allowed session timeout for registered consumers. Longer timeouts give consumers more time to process messages in between heartbeats at the cost of a longer time to detect failures. 
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.group_min_session_timeout_ms:6000	- The minimum allowed session timeout for registered consumers. Shorter timeouts result in quicker failure detection at the cost of more frequent consumer heartbeating, which can overwhelm broker resources.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.group_new_member_join_timeout:30000	- Timeout for new member joins
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.group_offset_retention_check_ms:600000	- How often the system should check for expired group offsets.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.group_offset_retention_sec:{604800s}	- Consumer group offset retention seconds. Offset retention can be disabled by setting this value to null.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.memory_abort_on_alloc_failure:1	- If true, the redpanda process will terminate immediately when an allocation cannot be satisfied due to memory exhaustion. If false, an exception is thrown instead.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.memory_enable_memory_sampling:1	- If true, memory allocations will be sampled and tracked. A sampled live set of allocations can then be retrieved from the Admin API. Additionally, we will periodically log the top-n allocation sites
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.metadata_dissemination_interval_ms:3000	- Interval for metadata dissemination batching
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.metadata_dissemination_retries:30	- Number of attempts of looking up a topic's meta data like shard before failing a request
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.metadata_dissemination_retry_delay_ms:320	- Delay before retry a topic lookup in a shard or other meta tables
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.metadata_status_wait_timeout_ms:2000	- Maximum time to wait in metadata request for cluster health to be refreshed
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.metrics_reporter_report_interval:86400000	- cluster metrics reporter report interval
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.metrics_reporter_tick_interval:60000	- Cluster metrics reporter tick interval
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.metrics_reporter_url:https://m.rp.vectorized.io/v2	- cluster metrics reporter url
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.min_version:	- 
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.minimum_topic_replications:1	- Minimum permitted value of replication factor for new topics
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.node_isolation_heartbeat_timeout:3000	- How long after the last heartbeat request a node will wait before considering itself to be isolated
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.node_management_operation_timeout_ms:5000	- Timeout for executing node management operations
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.node_status_interval:100	- Time interval between two node status messages. Node status messages establish liveness status outside of the Raft protocol.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.node_status_reconnect_max_backoff_ms:15000	- Maximum backoff (in ms) to reconnect to an unresponsive peer during node status liveness checks.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.oidc_clock_skew_tolerance:0	- The amount of seconds to allow for when validating the exp, nbf, and iat claims in the token.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.oidc_discovery_url:https://auth.prd.cloud.redpanda.com/.well-known/openid-configuration	- The URL pointing to the well-known discovery endpoint for the OIDC provider.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.oidc_keys_refresh_interval:3600000	- The frequency of refreshing the JSON Web Keys (JWKS) used to validate access tokens.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.oidc_principal_mapping:$.sub	- Rule for mapping JWT Payload claim to a Redpanda User Principal
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.oidc_token_audience:redpanda	- A string representing the intended recipient of the token.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.partition_autobalancing_concurrent_moves:50	- Number of partitions that can be reassigned at once
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.partition_autobalancing_max_disk_usage_percent:80	- Disk usage threshold that triggers moving partitions from the node
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.partition_autobalancing_min_size_threshold:{nullopt}	- Minimum size of partition that is going to be prioritized when rebalancing cluster due to disk size threshold being breached. By default this value is calculated automaticaly
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.partition_autobalancing_mode:node_add	- Partition autobalancing mode
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.partition_autobalancing_movement_batch_size_bytes:5368709120	- Total size of partitions that autobalancer is going to move in one batch (deprecated, use partition_autobalancing_concurrent_moves to limit the autobalancer concurrency)
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.partition_autobalancing_node_availability_timeout_sec:900000	- Node unavailability timeout that triggers moving partitions from the node
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.partition_autobalancing_tick_interval_ms:30000	- Partition autobalancer tick interval
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.partition_autobalancing_tick_moves_drop_threshold:0.2	- If the number of scheduled tick moves drops by this ratio, a new tick is scheduled immediately. Valid values are (0, 1]. For example, with a value of 0.2 and 100 scheduled moves in a tick, a new tick is scheduled when the inprogress moves are < 80.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.partition_manager_shutdown_watchdog_timeout:30000	- A threshold value to detect partitions which shutdown might have been stuck. After this threshold a watchdog in partition manager will log information about partition shutdown not making progress
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.quota_manager_gc_sec:30000	- Quota manager GC frequency in milliseconds
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.raft_enable_lw_heartbeat:1	- enables raft optimization of heartbeats
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.raft_flush_timer_interval_ms:100	- Interval of checking partition against the `raft_replica_max_pending_flush_bytes`
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.raft_heartbeat_disconnect_failures:3	- After how many failed heartbeats to forcibly close an unresponsive TCP connection.  Set to 0 to disable force disconnection.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.raft_heartbeat_interval_ms:150	- Milliseconds for raft leader heartbeats
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.raft_heartbeat_timeout_ms:3000	- raft heartbeat RPC timeout
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.raft_io_timeout_ms:10000	- Raft I/O timeout
+2025-06-08 14:03:59,468 [shard 0:main] main - application.cc:750 - redpanda.storage_failure_injection_config_path:{nullopt}	- Path to the configuration file used for low level storage failure injection
+2025-06-08 14:03:59,468 [shard 0:main] main - application.cc:750 - redpanda.storage_failure_injection_enabled:0	- If true, inject low level storage failures on the write path. **Not** for production usage.
+2025-06-08 14:03:59,468 [shard 0:main] main - application.cc:750 - redpanda.upgrade_override_checks:0	- Whether to violate safety checks when starting a redpanda version newer than the cluster's consensus version
+2025-06-08 14:03:59,468 [shard 0:main] main - application.cc:750 - redpanda.verbose_logging_timeout_sec_max:{nullopt}	- Maximum duration in seconds for verbose (i.e. TRACE or DEBUG) logging. Values configured above this will be clamped. If null (the default) there is no limit. Can be overridded in the Admin API on a per-request basis.
+2025-06-08 14:03:59,468 [shard 0:main] main - application.cc:750 - pandaproxy.advertised_pandaproxy_api:{}	- Rest API address and port to publish to client
+2025-06-08 14:03:59,469 [shard 0:main] seastar - Enabling heap profiler - using 3000037 bytes sampling rate
+2025-06-08 14:03:59,469 [shard 0:main] main - application.cc:496 - Setting abort_on_allocation_failure (abort on OOM): true
+2025-06-08 14:03:59,470 [shard 0:main] syschecks - Writing pid file "/var/lib/redpanda/data/pid.lock"
+2025-06-08 14:03:59,472 [shard 0:main] storage - directories.h:33 - Checking `/var/lib/redpanda/data` for supported filesystems
+2025-06-08 14:03:59,473 [shard 0:main] syschecks - Detected file system type is ext2
+2025-06-08 14:03:59,473 [shard 0:main] syschecks - Path: `/var/lib/redpanda/data' is on ext4, not XFS. This will probably work, but Redpanda is only tested on XFS and XFS is recommended for best performance.
+2025-06-08 14:03:59,473 [shard 0:main] cloud_storage - cache_service.cc:1420 - Creating cache directory "/var/lib/redpanda/data/cloud_storage_cache"
+2025-06-08 14:03:59,519 [shard 0:main] dns_resolver - Query name 0.0.0.0 (ANY)
+2025-06-08 14:03:59,519 [shard 0:main] rpc - server.cc:41 - Creating net::server for internal_rpc with config {{://0.0.0.0:33145:PLAINTEXT}, max_service_memory_per_core: 188978560, metrics_enabled:true, listen_backlog:{nullopt}, tcp_recv_buf:{nullopt}, tcp_send_buf:{nullopt}, stream_recv_buf:{nullopt}}
+2025-06-08 14:03:59,520 [shard 0:main] storage - storage_resources.cc:167 - calc_falloc_step: step 33554432 (max 33554432)
+2025-06-08 14:03:59,520 [shard 0:main] kvstore - kvstore.cc:60 - Starting kvstore: dir /var/lib/redpanda/data/redpanda/kvstore/0_0
+2025-06-08 14:03:59,520 [shard 0:main] kvstore - kvstore.cc:421 - Load snapshot: no snapshot found
+2025-06-08 14:03:59,520 [shard 0:main] storage - storage_resources.cc:167 - calc_falloc_step: step 33554432 (max 33554432)
+2025-06-08 14:03:59,525 [shard 0:main] kvstore - kvstore.cc:507 - Replaying 0 segments from offset 0
+2025-06-08 14:03:59,525 [shard 0:main] features - feature_table.cc:351 - Activating features from bootstrap version 7
+2025-06-08 14:03:59,525 [shard 0:main] main - application.cc:2255 - Generated new UUID for node: {d1a45c62-2dec-48b4-a74b-29876247c06b}
+2025-06-08 14:03:59,536 [shard 0:main] storage - segment.cc:765 - Creating new segment /var/lib/redpanda/data/redpanda/kvstore/0_0/0-0-v1.log
+2025-06-08 14:03:59,536 [shard 0:main] storage - segment_reader.cc:99 - Opening segment file /var/lib/redpanda/data/redpanda/kvstore/0_0/0-0-v1.log
+2025-06-08 14:03:59,536 [shard 0:main] storage - segment_reader.cc:126 - Closing segment file /var/lib/redpanda/data/redpanda/kvstore/0_0/0-0-v1.log
+2025-06-08 14:03:59,538 [shard 0:main] main - application.cc:2285 - Started RPC server listening at {host: 0.0.0.0, port: 33145}
+2025-06-08 14:03:59,538 [shard 0:main] main - application.cc:2378 - Starting Redpanda with node_id 0, cluster UUID {nullopt}
+2025-06-08 14:03:59,538 [shard 0:main] raft - coordinated_recovery_throttle.cc:124 - Starting recovery throttle, rate: 104857600
+2025-06-08 14:03:59,538 [shard 0:main] cluster - producer_state_manager.cc:33 - Started producer state manager
+2025-06-08 14:03:59,538 [shard 0:main] main - application.cc:1457 - Partition manager started
+2025-06-08 14:03:59,539 [shard 0:main] kafka - snc_quota_manager.cc:231 - qm - Initial quota: (in:{quota:2147483647000, width:5000, tokens:10737418235000, burst:10737418235000, last_check:00.000000000}, eg:{quota:2147483647000, width:5000, tokens:10737418235000, burst:10737418235000, last_check:00.000000000})
+2025-06-08 14:03:59,539 [shard 0:main] resource_mgmt - storage.cc:178 - Setting new target log data size 604.112GiB. Disk size 1006.854GiB reservation percent 25 target percent {80} bytes {nullopt}
+2025-06-08 14:03:59,539 [shard 0:main] dns_resolver - Query name 0.0.0.0 (ANY)
+2025-06-08 14:03:59,539 [shard 0:main] dns_resolver - Query name 0.0.0.0 (ANY)
+2025-06-08 14:03:59,539 [shard 0:main] kafka - server.cc:41 - Creating net::server for kafka_rpc with config {{PLAINTEXT://0.0.0.0:29092:PLAINTEXT}{OUTSIDE://0.0.0.0:9092:PLAINTEXT}, max_service_memory_per_core: 283467840, metrics_enabled:true, listen_backlog:{nullopt}, tcp_recv_buf:{nullopt}, tcp_send_buf:{nullopt}, stream_recv_buf:{nullopt}}
+2025-06-08 14:03:59,542 [shard 0:main] kafka - server.cc:179 - Starting kafka server with 141733920 byte limit on fetch requests
+2025-06-08 14:03:59,542 [shard 0:main] fault_injector - hbadger.cc:25 - Invalid probe: raftgen_service::failure_probes
+2025-06-08 14:03:59,555 [shard 0:main] cluster - raft0_utils.h:30 - Current node is a cluster founder
+2025-06-08 14:03:59,555 [shard 0:main] cluster - partition_manager.cc:289 - Logs can't be downloaded because cloud storage is not configured. Continue creating {ntp: {redpanda/controller/0}, base_dir: /var/lib/redpanda/data, overrides: nullptr, revision: 0, initial_revision: 0} witout downloading the logs.
+2025-06-08 14:03:59,581 [shard 0:main] cluster - partition_manager.cc:232 - Log created manage completed, ntp: {redpanda/controller/0}, rev: 0, 0 segments, 0 bytes
+2025-06-08 14:03:59,460 [shard 0:n/a ] seastar - Perf-based stall detector creation failed (EACCESS), try setting /proc/sys/kernel/perf_event_paranoid to 1 or less to enable kernel backtraces: falling back to posix timer.
+2025-06-08 14:03:59,460 [shard 0:n/a ] cpu_profiler - Perf-based cpu profiler creation failed (EACCESS), try setting /proc/sys/kernel/perf_event_paranoid to 1 or less to enable kernel backtraces: falling back to posix timer.
+2025-06-08 14:03:59,461 [shard 0:main] seastar - generate_config dev_id: 0
+2025-06-08 14:03:59,461 [shard 0:main] seastar - Created fair group io-queue-0 for 1 queues, capacity rate 2147483:2147483, limit 12582912, rate 16777216 (factor 1), threshold 2000, per tick grab 12582912
+2025-06-08 14:03:59,461 [shard 0:main] seastar - IO queue uses 0.75ms latency goal for device 0
+2025-06-08 14:03:59,461 [shard 0:main] seastar - Created io group dev(0), length limit 4194304:4194304, rate 2147483647:2147483647
+2025-06-08 14:03:59,461 [shard 0:main] seastar - allocate 0 IO group with 1 queues, dev 0
+2025-06-08 14:03:59,462 [shard 0:main] seastar - Created io queue dev(0) capacities: 512:2000:2000 1024:3000:3000 2048:5000:5000 4096:9000:9000 8192:17000:17000 16384:33000:33000 32768:65000:65000 65536:129000:129000 131072:257000:257000
+2025-06-08 14:03:59,462 [shard 0:main] seastar - attached 0 queue to 0 IO group, dev 0
+2025-06-08 14:03:59,462 [shard 0:main] main - application.cc:414 - Redpanda v23.3.11 - 93f88bf377e558132eba04f81e4f83b033cec6e7
+2025-06-08 14:03:59,462 [shard 0:main] main - application.cc:422 - kernel=5.15.167.4-microsoft-standard-WSL2, nodename=28aefcebe85d, machine=x86_64
+2025-06-08 14:03:59,462 [shard 0:main] main - application.cc:350 - System resources: { cpus: 1, available memory: 1024.000MiB, reserved memory: 0.000bytes}
+2025-06-08 14:03:59,462 [shard 0:main] main - application.cc:358 - File handle limit: 1048576/1048576
+2025-06-08 14:03:59,465 [shard 0:main] cluster - config_manager.cc:510 - Can't load config cache: std::__1::__fs::filesystem::filesystem_error (error system:2, filesystem error: open failed: No such file or directory ["/var/lib/redpanda/data/config_cache.yaml"])
+2025-06-08 14:03:59,465 [shard 0:main] cluster - config_manager.cc:450 - Can't load config bootstrap file: std::__1::__fs::filesystem::filesystem_error (error system:2, filesystem error: open failed: No such file or directory ["/etc/redpanda/.bootstrap.yaml"])
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.raft_heartbeat_disconnect_failures:3	- After how many failed heartbeats to forcibly close an unresponsive TCP connection.  Set to 0 to disable force disconnection.
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.raft_heartbeat_interval_ms:150	- Milliseconds for raft leader heartbeats
+2025-06-08 14:03:59,467 [shard 0:main] main - application.cc:750 - redpanda.raft_heartbeat_timeout_ms:3000	- raft heartbeat RPC timeout
+2025-06-08 14:03:59,777 [shard 0:main] storage - snapshot.cc:336 - Failed to stat snapshot file /var/lib/redpanda/data/redpanda/kvstore/0_0/snapshot: std::__1::__fs::filesystem::filesystem_error (error system:2, filesystem error: stat failed: No such file or directory ["/var/lib/redpanda/data/redpanda/kvstore/0_0/snapshot"])
+2025-06-08 14:04:27,298 [shard 0:main] storage - snapshot.cc:336 - Failed to stat snapshot file /var/lib/redpanda/data/redpanda/kvstore/0_0/snapshot: std::__1::__fs::filesystem::filesystem_error (error system:2, filesystem error: stat failed: No such file or directory ["/var/lib/redpanda/data/redpanda/kvstore/0_0/snapshot"])
+2025-06-08 14:04:54,906 [shard 0:main] storage - snapshot.cc:336 - Failed to stat snapshot file /var/lib/redpanda/data/redpanda/kvstore/0_0/snapshot: std::__1::__fs::filesystem::filesystem_error (error system:2, filesystem error: stat failed: No such file or directory ["/var/lib/redpanda/data/redpanda/kvstore/0_0/snapshot"])
+2025-06-08 14:05:22,477 [shard 0:main] storage - snapshot.cc:336 - Failed to stat snapshot file /var/lib/redpanda/data/redpanda/kvstore/0_0/snapshot: std::__1::__fs::filesystem::filesystem_error (error system:2, filesystem error: stat failed: No such file or directory ["/var/lib/redpanda/data/redpanda/kvstore/0_0/snapshot"])
+2025-06-08 14:05:22,477 [shard 0:main] resource_mgmt - storage.cc:542 - Log storage usage 12.000KiB is within 128.000MiB threshold of target size 604.112GiB. No further work to do.
+2025-06-08 14:07:13,068 [shard 0:main] storage - snapshot.cc:336 - Failed to stat snapshot file /var/lib/redpanda/data/redpanda/kvstore/0_0/snapshot: std::__1::__fs::filesystem::filesystem_error (error system:2, filesystem error: stat failed: No such file or directory ["/var/lib/redpanda/data/redpanda/kvstore/0_0/snapshot"])
+2025-06-08 14:03:59,465 [shard 0:main] cluster - config_manager.cc:510 - Can't load config cache: std::__1::__fs::filesystem::filesystem_error (error system:2, filesystem error: open failed: No such file or directory ["/var/lib/redpanda/data/config_cache.yaml"])
+2025-06-08 14:03:59,465 [shard 0:main] cluster - config_manager.cc:450 - Can't load config bootstrap file: std::__1::__fs::filesystem::filesystem_error (error system:2, filesystem error: open failed: No such file or directory ["/etc/redpanda/.bootstrap.yaml"])
