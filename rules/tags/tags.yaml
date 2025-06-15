@@ -132,15 +132,6 @@ tags:
   - name: message-processing-halt
     displayName: Message Processing Halt
     description: Complete stoppage of message processing in streaming systems
-  - name: connection-refused-startup
-    displayName: Connection Refused on Startup
-    description: Failures that occur when a service (e.g., Temporal worker) tries to connect to a backend and receives a connection refused error
-  - name: temporal
-    displayName: Temporal
-    description: Issues related to Temporal workflow orchestration  
-  - name: worker
-    displayName: Worker
-    description: Distributed system worker process failures
   - name: psycopg2
     displayName: Psycopg2
     description: Python client errors related to connecting or querying PostgreSQL using psycopg2.
@@ -579,19 +570,10 @@ tags:
   - name: demo-problem
     displayName: Demo Problem
     description: This is a tag for demo problems
-  - name: redpanda
-    displayName: Redpanda
-    description: Problems and high-availability issues with Redpanda clusters
-  - name: raft
-    displayName: Raft
-    description: Issues related to Raft consensus protocol, elections, and leader changes
-  - name: quorum
-    displayName: Quorum
-    description: Loss or degradation of cluster quorum in distributed systems
   - name: leader-election
     displayName: Leader Election
     description: Events and errors related to leader election processes in distributed systems
-  - name: workflow-orchestration-connectivity
+  - name: workflow-orchestration
     displayName: Workflow Orchestration
     description: Problems related to workfow orchestration
   - name: temporal
@@ -660,9 +642,6 @@ tags:
   - name: startup-failure
     displayName: Startup Failure
     description: Problems related to application or service startup failures, such as missing dependencies or configuration errors
-  - name: redpanda
-    displayName: Redpanda
-    description: Issues specifically related to the Redpanda streaming platform.
   - name: container-crash
     displayName: Container Crash
     description: Failures causing container crashes or unexpected terminations.

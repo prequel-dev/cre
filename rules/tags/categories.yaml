@@ -65,10 +65,7 @@ categories:
     description: Problems in frameworks such as Django
   - name: distributed-messaging-connectivity
     displayName: Distributed Messaging Connectivity Issues
-    description: Failures in distributed messaging systems where message brokers, consumers, or producers lose connectivity or coordination, leading to processing halts or data loss  
-  - name: distributed-worker-connectivity
-    displayName: Distributed Worker Connectivity Issues
-    description: Failures where a distributed systems worker fails to reach or stay connected to the orchestration backend (e.g., Temporal, Celery)   
+    description: Failures in distributed messaging systems where message brokers, consumers, or producers lose connectivity or coordination, leading to processing halts or data loss    
   - name: workflow-orchestration-connectivity
     displayName: Workflow Orchestration Connectivity
     description: Connection failures between workflow orchestration components like Temporal workers and servers
