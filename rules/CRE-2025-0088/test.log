@@ -1,0 +1,400 @@
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:07.599556 [INF] Starting nats-server
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:07.599598 [INF]   Version:  2.11.4
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:07.599600 [INF]   Git:      [4c2fc7f]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:07.599604 [DBG]   Go build: go1.24.3
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:07.599606 [INF]   Name:     nats-slow-consumer-test
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:07.599607 [INF]   ID:       NBETPFERVIQKDNEJHWHQMDFCKGSI2P5NVGXPJG2ZMBDP2U4IGHHAPNY6
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:07.599618 [INF] Using configuration file: /etc/nats/nats.conf (sha256:038cb1cdd5cf6a4e030a021f9d57997326fa9135ddc6d43703fd8d16aca13e60)
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:07.599626 [DBG] Created system account: "$SYS"
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:07.599946 [INF] Starting http monitor on 0.0.0.0:8222
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:07.600018 [INF] Listening for client connections on 0.0.0.0:4222
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:07.600027 [INF] Server is ready
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:07.600128 [DBG] maxprocs: Leaving GOMAXPROCS=2: CPU quota undefined
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.321023 [DBG] 172.18.0.6:52372 - cid:5 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.321300 [TRC] 172.18.0.6:52372 - cid:5 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.321360 [TRC] 172.18.0.6:52372 - cid:5 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.321362 [TRC] 172.18.0.6:52372 - cid:5 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.321494 [DBG] 172.18.0.6:52372 - cid:5 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.401169 [DBG] 172.18.0.6:52374 - cid:6 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.401384 [TRC] 172.18.0.6:52374 - cid:6 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.401419 [TRC] 172.18.0.6:52374 - cid:6 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.401421 [TRC] 172.18.0.6:52374 - cid:6 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.401526 [DBG] 172.18.0.6:52374 - cid:6 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.486196 [DBG] 172.18.0.6:52378 - cid:7 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.486554 [TRC] 172.18.0.6:52378 - cid:7 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.486593 [TRC] 172.18.0.6:52378 - cid:7 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.486596 [TRC] 172.18.0.6:52378 - cid:7 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.486752 [DBG] 172.18.0.6:52378 - cid:7 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.579112 [DBG] 172.18.0.6:52382 - cid:8 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.579412 [TRC] 172.18.0.6:52382 - cid:8 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.579534 [TRC] 172.18.0.6:52382 - cid:8 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.579597 [TRC] 172.18.0.6:52382 - cid:8 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.579822 [DBG] 172.18.0.6:52382 - cid:8 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.675731 [DBG] 172.18.0.6:52390 - cid:9 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.676601 [TRC] 172.18.0.6:52390 - cid:9 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.676853 [TRC] 172.18.0.6:52390 - cid:9 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.676864 [TRC] 172.18.0.6:52390 - cid:9 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.677684 [DBG] 172.18.0.6:52390 - cid:9 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.782613 [DBG] 172.18.0.6:52398 - cid:10 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.782975 [TRC] 172.18.0.6:52398 - cid:10 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.783089 [TRC] 172.18.0.6:52398 - cid:10 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.783095 [TRC] 172.18.0.6:52398 - cid:10 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.783528 [DBG] 172.18.0.6:52398 - cid:10 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.903188 [DBG] 172.18.0.6:52406 - cid:11 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.903891 [TRC] 172.18.0.6:52406 - cid:11 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.904057 [TRC] 172.18.0.6:52406 - cid:11 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.904074 [TRC] 172.18.0.6:52406 - cid:11 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.904471 [DBG] 172.18.0.6:52406 - cid:11 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.997506 [DBG] 172.18.0.6:52408 - cid:12 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.998071 [TRC] 172.18.0.6:52408 - cid:12 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.998209 [TRC] 172.18.0.6:52408 - cid:12 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.998220 [TRC] 172.18.0.6:52408 - cid:12 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:11.998538 [DBG] 172.18.0.6:52408 - cid:12 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.084651 [DBG] 172.18.0.6:52418 - cid:13 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.085113 [TRC] 172.18.0.6:52418 - cid:13 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.085260 [TRC] 172.18.0.6:52418 - cid:13 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.085290 [TRC] 172.18.0.6:52418 - cid:13 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.085548 [DBG] 172.18.0.6:52418 - cid:13 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.171390 [DBG] 172.18.0.6:52422 - cid:14 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.171946 [TRC] 172.18.0.6:52422 - cid:14 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.172246 [TRC] 172.18.0.6:52422 - cid:14 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.172252 [TRC] 172.18.0.6:52422 - cid:14 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.172764 [DBG] 172.18.0.6:52422 - cid:14 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.259735 [DBG] 172.18.0.6:52428 - cid:15 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.260230 [TRC] 172.18.0.6:52428 - cid:15 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.260294 [TRC] 172.18.0.6:52428 - cid:15 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.260298 [TRC] 172.18.0.6:52428 - cid:15 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.260622 [DBG] 172.18.0.6:52428 - cid:15 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.351212 [DBG] 172.18.0.6:52432 - cid:16 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.351561 [TRC] 172.18.0.6:52432 - cid:16 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.351745 [TRC] 172.18.0.6:52432 - cid:16 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.351761 [TRC] 172.18.0.6:52432 - cid:16 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.352315 [DBG] 172.18.0.6:52432 - cid:16 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.442571 [DBG] 172.18.0.6:52436 - cid:17 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.443012 [TRC] 172.18.0.6:52436 - cid:17 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.443129 [TRC] 172.18.0.6:52436 - cid:17 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.443171 [TRC] 172.18.0.6:52436 - cid:17 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.443418 [DBG] 172.18.0.6:52436 - cid:17 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.529246 [DBG] 172.18.0.6:52438 - cid:18 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.529720 [TRC] 172.18.0.6:52438 - cid:18 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.529847 [TRC] 172.18.0.6:52438 - cid:18 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.529852 [TRC] 172.18.0.6:52438 - cid:18 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.530095 [DBG] 172.18.0.6:52438 - cid:18 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.617331 [DBG] 172.18.0.6:52440 - cid:19 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.617766 [TRC] 172.18.0.6:52440 - cid:19 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.617950 [TRC] 172.18.0.6:52440 - cid:19 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.617965 [TRC] 172.18.0.6:52440 - cid:19 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.618231 [DBG] 172.18.0.6:52440 - cid:19 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.706606 [DBG] 172.18.0.6:52452 - cid:20 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.707123 [TRC] 172.18.0.6:52452 - cid:20 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.707187 [TRC] 172.18.0.6:52452 - cid:20 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.707192 [TRC] 172.18.0.6:52452 - cid:20 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.707587 [DBG] 172.18.0.6:52452 - cid:20 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.798531 [DBG] 172.18.0.6:52466 - cid:21 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.798992 [TRC] 172.18.0.6:52466 - cid:21 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.799102 [TRC] 172.18.0.6:52466 - cid:21 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.799107 [TRC] 172.18.0.6:52466 - cid:21 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.799363 [DBG] 172.18.0.6:52466 - cid:21 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.885669 [DBG] 172.18.0.6:52472 - cid:22 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.886204 [TRC] 172.18.0.6:52472 - cid:22 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.886331 [TRC] 172.18.0.6:52472 - cid:22 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.886423 [TRC] 172.18.0.6:52472 - cid:22 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.886760 [DBG] 172.18.0.6:52472 - cid:22 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.982085 [DBG] 172.18.0.6:52480 - cid:23 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.982591 [TRC] 172.18.0.6:52480 - cid:23 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.982745 [TRC] 172.18.0.6:52480 - cid:23 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.982761 [TRC] 172.18.0.6:52480 - cid:23 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:12.983095 [DBG] 172.18.0.6:52480 - cid:23 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.077855 [DBG] 172.18.0.6:52494 - cid:24 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.078235 [TRC] 172.18.0.6:52494 - cid:24 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.078353 [TRC] 172.18.0.6:52494 - cid:24 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.078406 [TRC] 172.18.0.6:52494 - cid:24 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.078744 [DBG] 172.18.0.6:52494 - cid:24 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.179016 [DBG] 172.18.0.6:52510 - cid:25 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.179515 [TRC] 172.18.0.6:52510 - cid:25 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.179705 [TRC] 172.18.0.6:52510 - cid:25 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.179756 [TRC] 172.18.0.6:52510 - cid:25 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.180039 [DBG] 172.18.0.6:52510 - cid:25 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.275767 [DBG] 172.18.0.6:52516 - cid:26 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.276230 [TRC] 172.18.0.6:52516 - cid:26 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.276289 [TRC] 172.18.0.6:52516 - cid:26 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.276293 [TRC] 172.18.0.6:52516 - cid:26 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.276642 [DBG] 172.18.0.6:52516 - cid:26 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.324469 [DBG] 172.18.0.3:56846 - cid:27 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.324892 [TRC] 172.18.0.3:56846 - cid:27 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.325014 [TRC] 172.18.0.3:56846 - cid:27 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.325046 [TRC] 172.18.0.3:56846 - cid:27 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.325378 [TRC] 172.18.0.3:56846 - cid:27 - <<- [SUB slow.test  1]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.325442 [TRC] 172.18.0.3:56846 - cid:27 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.325467 [TRC] 172.18.0.3:56846 - cid:27 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.365668 [DBG] 172.18.0.6:52526 - cid:28 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.365912 [TRC] 172.18.0.6:52526 - cid:28 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.365955 [TRC] 172.18.0.6:52526 - cid:28 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.365957 [TRC] 172.18.0.6:52526 - cid:28 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.366159 [DBG] 172.18.0.6:52526 - cid:28 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.463252 [DBG] 172.18.0.6:52530 - cid:29 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.463668 [TRC] 172.18.0.6:52530 - cid:29 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.463726 [TRC] 172.18.0.6:52530 - cid:29 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.463729 [TRC] 172.18.0.6:52530 - cid:29 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.463947 [DBG] 172.18.0.6:52530 - cid:29 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.564652 [DBG] 172.18.0.6:52542 - cid:30 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.565038 [TRC] 172.18.0.6:52542 - cid:30 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.565115 [TRC] 172.18.0.6:52542 - cid:30 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.565121 [TRC] 172.18.0.6:52542 - cid:30 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.565407 [DBG] 172.18.0.6:52542 - cid:30 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.676210 [DBG] 172.18.0.6:52552 - cid:31 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.676653 [TRC] 172.18.0.6:52552 - cid:31 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.676709 [TRC] 172.18.0.6:52552 - cid:31 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.676712 [TRC] 172.18.0.6:52552 - cid:31 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.678718 [DBG] 172.18.0.6:52552 - cid:31 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.769975 [DBG] 172.18.0.6:52568 - cid:32 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.770366 [TRC] 172.18.0.6:52568 - cid:32 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.770431 [TRC] 172.18.0.6:52568 - cid:32 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.770437 [TRC] 172.18.0.6:52568 - cid:32 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.770757 [DBG] 172.18.0.6:52568 - cid:32 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.872925 [DBG] 172.18.0.6:52580 - cid:33 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.873214 [TRC] 172.18.0.6:52580 - cid:33 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.873253 [TRC] 172.18.0.6:52580 - cid:33 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.873256 [TRC] 172.18.0.6:52580 - cid:33 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.873602 [DBG] 172.18.0.6:52580 - cid:33 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.974423 [DBG] 172.18.0.6:52586 - cid:34 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.974756 [TRC] 172.18.0.6:52586 - cid:34 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.974785 [TRC] 172.18.0.6:52586 - cid:34 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.974790 [TRC] 172.18.0.6:52586 - cid:34 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:13.975070 [DBG] 172.18.0.6:52586 - cid:34 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.077470 [DBG] 172.18.0.6:52598 - cid:35 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.078476 [TRC] 172.18.0.6:52598 - cid:35 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.078566 [TRC] 172.18.0.6:52598 - cid:35 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.078570 [TRC] 172.18.0.6:52598 - cid:35 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.078909 [DBG] 172.18.0.6:52598 - cid:35 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.180600 [DBG] 172.18.0.6:52604 - cid:36 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.180974 [TRC] 172.18.0.6:52604 - cid:36 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.181016 [TRC] 172.18.0.6:52604 - cid:36 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.181020 [TRC] 172.18.0.6:52604 - cid:36 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.181353 [DBG] 172.18.0.6:52604 - cid:36 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.287727 [DBG] 172.18.0.6:52612 - cid:37 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.288298 [TRC] 172.18.0.6:52612 - cid:37 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.288358 [TRC] 172.18.0.6:52612 - cid:37 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.288361 [TRC] 172.18.0.6:52612 - cid:37 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.288687 [DBG] 172.18.0.6:52612 - cid:37 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.295458 [DBG] 172.18.0.5:43628 - cid:38 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.295928 [TRC] 172.18.0.5:43628 - cid:38 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.295989 [TRC] 172.18.0.5:43628 - cid:38 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.296048 [TRC] 172.18.0.5:43628 - cid:38 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.296343 [TRC] 172.18.0.5:43628 - cid:38 - <<- [SUB slow.test  1]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.296392 [TRC] 172.18.0.5:43628 - cid:38 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.296424 [TRC] 172.18.0.5:43628 - cid:38 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.385121 [DBG] 172.18.0.3:56846 - cid:27 - Client Ping Timer
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.385132 [TRC] 172.18.0.3:56846 - cid:27 - ->> [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.385389 [TRC] 172.18.0.3:56846 - cid:27 - <<- [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.390594 [DBG] 172.18.0.6:52616 - cid:39 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.391072 [TRC] 172.18.0.6:52616 - cid:39 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.391118 [TRC] 172.18.0.6:52616 - cid:39 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.391121 [TRC] 172.18.0.6:52616 - cid:39 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.391476 [DBG] 172.18.0.6:52616 - cid:39 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.491457 [DBG] 172.18.0.6:52620 - cid:40 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.491942 [TRC] 172.18.0.6:52620 - cid:40 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.492029 [TRC] 172.18.0.6:52620 - cid:40 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.492073 [TRC] 172.18.0.6:52620 - cid:40 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.492449 [DBG] 172.18.0.6:52620 - cid:40 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.593522 [DBG] 172.18.0.6:52630 - cid:41 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.593970 [TRC] 172.18.0.6:52630 - cid:41 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.594121 [TRC] 172.18.0.6:52630 - cid:41 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.594193 [TRC] 172.18.0.6:52630 - cid:41 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.594581 [DBG] 172.18.0.6:52630 - cid:41 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.700553 [DBG] 172.18.0.6:52638 - cid:42 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.700930 [TRC] 172.18.0.6:52638 - cid:42 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.701085 [TRC] 172.18.0.6:52638 - cid:42 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.701089 [TRC] 172.18.0.6:52638 - cid:42 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.701305 [DBG] 172.18.0.6:52638 - cid:42 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.804325 [DBG] 172.18.0.6:52652 - cid:43 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.804684 [TRC] 172.18.0.6:52652 - cid:43 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.804738 [TRC] 172.18.0.6:52652 - cid:43 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.804760 [TRC] 172.18.0.6:52652 - cid:43 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.804977 [DBG] 172.18.0.6:52652 - cid:43 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.906211 [DBG] 172.18.0.6:52662 - cid:44 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.906687 [TRC] 172.18.0.6:52662 - cid:44 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.906760 [TRC] 172.18.0.6:52662 - cid:44 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.906765 [TRC] 172.18.0.6:52662 - cid:44 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:14.906966 [DBG] 172.18.0.6:52662 - cid:44 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.007916 [DBG] 172.18.0.6:52674 - cid:45 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.008224 [TRC] 172.18.0.6:52674 - cid:45 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.008253 [TRC] 172.18.0.6:52674 - cid:45 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.008256 [TRC] 172.18.0.6:52674 - cid:45 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.008520 [DBG] 172.18.0.6:52674 - cid:45 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.110326 [DBG] 172.18.0.6:52680 - cid:46 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.110644 [TRC] 172.18.0.6:52680 - cid:46 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.110744 [TRC] 172.18.0.6:52680 - cid:46 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.110814 [TRC] 172.18.0.6:52680 - cid:46 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.111044 [DBG] 172.18.0.6:52680 - cid:46 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.218748 [DBG] 172.18.0.6:52686 - cid:47 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.219109 [TRC] 172.18.0.6:52686 - cid:47 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.219179 [TRC] 172.18.0.6:52686 - cid:47 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.219210 [TRC] 172.18.0.6:52686 - cid:47 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.219540 [DBG] 172.18.0.6:52686 - cid:47 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.302051 [DBG] 172.18.0.5:43628 - cid:38 - Client Ping Timer
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.302104 [TRC] 172.18.0.5:43628 - cid:38 - ->> [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.303005 [TRC] 172.18.0.5:43628 - cid:38 - <<- [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.318414 [DBG] 172.18.0.6:52690 - cid:48 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.318923 [TRC] 172.18.0.6:52690 - cid:48 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.318998 [TRC] 172.18.0.6:52690 - cid:48 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.319002 [TRC] 172.18.0.6:52690 - cid:48 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.319322 [DBG] 172.18.0.6:52690 - cid:48 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.390176 [DBG] 172.18.0.3:56846 - cid:27 - Client Ping Timer
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.390242 [TRC] 172.18.0.3:56846 - cid:27 - ->> [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.391068 [TRC] 172.18.0.3:56846 - cid:27 - <<- [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.420660 [DBG] 172.18.0.6:52698 - cid:49 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.421098 [TRC] 172.18.0.6:52698 - cid:49 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.421214 [TRC] 172.18.0.6:52698 - cid:49 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.421233 [TRC] 172.18.0.6:52698 - cid:49 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.421612 [DBG] 172.18.0.6:52698 - cid:49 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.525778 [DBG] 172.18.0.6:52706 - cid:50 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.526180 [TRC] 172.18.0.6:52706 - cid:50 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.526267 [TRC] 172.18.0.6:52706 - cid:50 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.526294 [TRC] 172.18.0.6:52706 - cid:50 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.526653 [DBG] 172.18.0.6:52706 - cid:50 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.628912 [DBG] 172.18.0.6:52714 - cid:51 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.629230 [TRC] 172.18.0.6:52714 - cid:51 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.629289 [TRC] 172.18.0.6:52714 - cid:51 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.629294 [TRC] 172.18.0.6:52714 - cid:51 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.629565 [DBG] 172.18.0.6:52714 - cid:51 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.732387 [DBG] 172.18.0.6:52716 - cid:52 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.732655 [TRC] 172.18.0.6:52716 - cid:52 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.732726 [TRC] 172.18.0.6:52716 - cid:52 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.732730 [TRC] 172.18.0.6:52716 - cid:52 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.732936 [DBG] 172.18.0.6:52716 - cid:52 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.829040 [DBG] 172.18.0.6:52720 - cid:53 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.829373 [TRC] 172.18.0.6:52720 - cid:53 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.829453 [TRC] 172.18.0.6:52720 - cid:53 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.829460 [TRC] 172.18.0.6:52720 - cid:53 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.829713 [DBG] 172.18.0.6:52720 - cid:53 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.906916 [DBG] 172.18.0.6:52734 - cid:54 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.907126 [TRC] 172.18.0.6:52734 - cid:54 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.907185 [TRC] 172.18.0.6:52734 - cid:54 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.907188 [TRC] 172.18.0.6:52734 - cid:54 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.907288 [DBG] 172.18.0.6:52734 - cid:54 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.983180 [DBG] 172.18.0.6:52736 - cid:55 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.983357 [TRC] 172.18.0.6:52736 - cid:55 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.983415 [TRC] 172.18.0.6:52736 - cid:55 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.983421 [TRC] 172.18.0.6:52736 - cid:55 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:15.983532 [DBG] 172.18.0.6:52736 - cid:55 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.064313 [DBG] 172.18.0.6:52750 - cid:56 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.064600 [TRC] 172.18.0.6:52750 - cid:56 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.064637 [TRC] 172.18.0.6:52750 - cid:56 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.064653 [TRC] 172.18.0.6:52750 - cid:56 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.064800 [DBG] 172.18.0.6:52750 - cid:56 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.150559 [DBG] 172.18.0.6:52756 - cid:57 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.150774 [TRC] 172.18.0.6:52756 - cid:57 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.150808 [TRC] 172.18.0.6:52756 - cid:57 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.150812 [TRC] 172.18.0.6:52756 - cid:57 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.151054 [DBG] 172.18.0.6:52756 - cid:57 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.245525 [DBG] 172.18.0.6:52766 - cid:58 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.245870 [TRC] 172.18.0.6:52766 - cid:58 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.246028 [TRC] 172.18.0.6:52766 - cid:58 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.246052 [TRC] 172.18.0.6:52766 - cid:58 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.246264 [DBG] 172.18.0.6:52766 - cid:58 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.302780 [DBG] 172.18.0.5:43628 - cid:38 - Client Ping Timer
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.302815 [TRC] 172.18.0.5:43628 - cid:38 - ->> [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.303539 [TRC] 172.18.0.5:43628 - cid:38 - <<- [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.331810 [DBG] 172.18.0.6:52776 - cid:59 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.332099 [TRC] 172.18.0.6:52776 - cid:59 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.332213 [TRC] 172.18.0.6:52776 - cid:59 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.332224 [TRC] 172.18.0.6:52776 - cid:59 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.332447 [DBG] 172.18.0.6:52776 - cid:59 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.394121 [DBG] 172.18.0.3:56846 - cid:27 - Client Ping Timer
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.394153 [TRC] 172.18.0.3:56846 - cid:27 - ->> [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.394764 [TRC] 172.18.0.3:56846 - cid:27 - <<- [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.419378 [DBG] 172.18.0.6:52780 - cid:60 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.419744 [TRC] 172.18.0.6:52780 - cid:60 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.419872 [TRC] 172.18.0.6:52780 - cid:60 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.419885 [TRC] 172.18.0.6:52780 - cid:60 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.420203 [DBG] 172.18.0.6:52780 - cid:60 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.524007 [DBG] 172.18.0.6:52790 - cid:61 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.524358 [TRC] 172.18.0.6:52790 - cid:61 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.524436 [TRC] 172.18.0.6:52790 - cid:61 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.524459 [TRC] 172.18.0.6:52790 - cid:61 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.524766 [DBG] 172.18.0.6:52790 - cid:61 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.634271 [DBG] 172.18.0.6:52796 - cid:62 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.634704 [TRC] 172.18.0.6:52796 - cid:62 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.634831 [TRC] 172.18.0.6:52796 - cid:62 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.634847 [TRC] 172.18.0.6:52796 - cid:62 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.635135 [DBG] 172.18.0.6:52796 - cid:62 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.737420 [DBG] 172.18.0.6:52808 - cid:63 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.737859 [TRC] 172.18.0.6:52808 - cid:63 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.737959 [TRC] 172.18.0.6:52808 - cid:63 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.737997 [TRC] 172.18.0.6:52808 - cid:63 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.738316 [DBG] 172.18.0.6:52808 - cid:63 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.836097 [DBG] 172.18.0.6:52812 - cid:64 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.836380 [TRC] 172.18.0.6:52812 - cid:64 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.836472 [TRC] 172.18.0.6:52812 - cid:64 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.836509 [TRC] 172.18.0.6:52812 - cid:64 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.836773 [DBG] 172.18.0.6:52812 - cid:64 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.936983 [DBG] 172.18.0.6:52816 - cid:65 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.937336 [TRC] 172.18.0.6:52816 - cid:65 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.937454 [TRC] 172.18.0.6:52816 - cid:65 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.937509 [TRC] 172.18.0.6:52816 - cid:65 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:16.937775 [DBG] 172.18.0.6:52816 - cid:65 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.037299 [DBG] 172.18.0.6:52824 - cid:66 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.037524 [TRC] 172.18.0.6:52824 - cid:66 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.037568 [TRC] 172.18.0.6:52824 - cid:66 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.037579 [TRC] 172.18.0.6:52824 - cid:66 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.037860 [DBG] 172.18.0.6:52824 - cid:66 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.142757 [DBG] 172.18.0.6:52834 - cid:67 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.143157 [TRC] 172.18.0.6:52834 - cid:67 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.143210 [TRC] 172.18.0.6:52834 - cid:67 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.143214 [TRC] 172.18.0.6:52834 - cid:67 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.143526 [DBG] 172.18.0.6:52834 - cid:67 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.242764 [DBG] 172.18.0.6:52838 - cid:68 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.243187 [TRC] 172.18.0.6:52838 - cid:68 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.243242 [TRC] 172.18.0.6:52838 - cid:68 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.243244 [TRC] 172.18.0.6:52838 - cid:68 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.243611 [DBG] 172.18.0.6:52838 - cid:68 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.304270 [DBG] 172.18.0.5:43628 - cid:38 - Client Ping Timer
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.304367 [TRC] 172.18.0.5:43628 - cid:38 - ->> [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.305145 [TRC] 172.18.0.5:43628 - cid:38 - <<- [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.341124 [DBG] 172.18.0.6:52840 - cid:69 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.341622 [TRC] 172.18.0.6:52840 - cid:69 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.341701 [TRC] 172.18.0.6:52840 - cid:69 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.341716 [TRC] 172.18.0.6:52840 - cid:69 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.342120 [DBG] 172.18.0.6:52840 - cid:69 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.398768 [DBG] 172.18.0.3:56846 - cid:27 - Client Ping Timer
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.398825 [TRC] 172.18.0.3:56846 - cid:27 - ->> [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.399544 [TRC] 172.18.0.3:56846 - cid:27 - <<- [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.448903 [DBG] 172.18.0.6:52854 - cid:70 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.449199 [TRC] 172.18.0.6:52854 - cid:70 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.449259 [TRC] 172.18.0.6:52854 - cid:70 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.449265 [TRC] 172.18.0.6:52854 - cid:70 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.449420 [DBG] 172.18.0.6:52854 - cid:70 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.551385 [DBG] 172.18.0.6:52868 - cid:71 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.551759 [TRC] 172.18.0.6:52868 - cid:71 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.551809 [TRC] 172.18.0.6:52868 - cid:71 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.551828 [TRC] 172.18.0.6:52868 - cid:71 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.552165 [DBG] 172.18.0.6:52868 - cid:71 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.653986 [DBG] 172.18.0.6:52876 - cid:72 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.654435 [TRC] 172.18.0.6:52876 - cid:72 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.654521 [TRC] 172.18.0.6:52876 - cid:72 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.654528 [TRC] 172.18.0.6:52876 - cid:72 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.654858 [DBG] 172.18.0.6:52876 - cid:72 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.760572 [DBG] 172.18.0.6:52886 - cid:73 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.760919 [TRC] 172.18.0.6:52886 - cid:73 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.760962 [TRC] 172.18.0.6:52886 - cid:73 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.760965 [TRC] 172.18.0.6:52886 - cid:73 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.761324 [DBG] 172.18.0.6:52886 - cid:73 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.864947 [DBG] 172.18.0.6:52888 - cid:74 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.865243 [TRC] 172.18.0.6:52888 - cid:74 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.865319 [TRC] 172.18.0.6:52888 - cid:74 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.865332 [TRC] 172.18.0.6:52888 - cid:74 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.865754 [DBG] 172.18.0.6:52888 - cid:74 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.965773 [DBG] 172.18.0.6:52904 - cid:75 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.966108 [TRC] 172.18.0.6:52904 - cid:75 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.966214 [TRC] 172.18.0.6:52904 - cid:75 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.966290 [TRC] 172.18.0.6:52904 - cid:75 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:17.966552 [DBG] 172.18.0.6:52904 - cid:75 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:18.071244 [DBG] 172.18.0.6:52910 - cid:76 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:18.071589 [TRC] 172.18.0.6:52910 - cid:76 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:18.071677 [TRC] 172.18.0.6:52910 - cid:76 - <<- [PING]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:18.071698 [TRC] 172.18.0.6:52910 - cid:76 - ->> [PONG]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:18.071854 [DBG] 172.18.0.6:52910 - cid:76 - Client connection closed: Client Closed
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:18.178449 [DBG] 172.18.0.6:52922 - cid:77 - Client connection created
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:18.179013 [TRC] 172.18.0.6:52922 - cid:77 - <<- [CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"NATS CLI Version v0.2.3","lang":"go","version":"1.42.0","protocol":1,"echo":true,"headers":true,"no_responders":true}]
+2025/06/15 03:53:16 nats-slow-consumer-test  | [1] 2025/06/15 02:52:18.179345 [TRC] 172.18.0.6:52922 - cid:77 - <<- [PING]

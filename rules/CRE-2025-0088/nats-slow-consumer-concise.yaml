@@ -1,0 +1,43 @@
+rules:
+  - cre:
+      id: CRE-2025-0088
+      severity: 1
+      title: NATS Producer Connection Churn
+      category: message-queue-problems
+      author: Community
+      description: |
+        NATS producers rapidly connecting and disconnecting, indicating slow consumer 
+        backpressure or system overload preventing stable message delivery.
+      cause: |
+        Slow consumers unable to process messages at production rate, causing 
+        connection instability and message delivery failures.
+      impact: |
+        Message delivery interruptions and potential data loss as producers 
+        cannot maintain stable connections to NATS server.
+      impactScore: 7
+      tags:
+        - nats
+        - slow-consumer
+        - connection-churn
+        - performance-degradation
+      mitigation: |
+        Scale consumer applications and implement connection pooling with 
+        exponential backoff retry logic in producers.
+      mitigationScore: 6
+      references:
+        - https://docs.nats.io/nats-concepts/core-nats/slow-consumers
+      applications:
+        - name: nats-server
+          version: ">=2.9.0"
+    metadata:
+      kind: prequel
+      id: 8KdL9mNpQ2rVxYzE3FwGhJ
+      gen: 1
+    rule:
+      set:
+        window: 60s
+        event:
+          source: cre.log.nats
+        match:
+          - regex: "Client connection closed: Client Closed"
+            count: 10
