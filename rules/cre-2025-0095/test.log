@@ -1,0 +1,13 @@
+[1] 2025/06/15 07:45:17.458398 [INF] Starting nats-server
+[1] 2025/06/15 07:45:17.458464 [INF]   Version:  2.11.4
+[1] 2025/06/15 07:45:17.458465 [INF]   Git:      [4c2fc7f]
+[1] 2025/06/15 07:45:17.458466 [INF]   Name:     nats-connection-exhaustion-test
+[1] 2025/06/15 07:45:17.458467 [INF]   ID:       NA6WGNT6A5USX5I5TGSZB2D32WV42MAT5CGBIF4ZPP6GGL4M7SVWO7HA
+[1] 2025/06/15 07:45:17.458638 [INF] Using configuration file: /etc/nats/nats.conf (sha256:009376fbbe494b1f48c86919b5c4d3106f48673d2e22b2fdac3bbd506722afbd)
+[1] 2025/06/15 07:45:17.459150 [INF] Starting http monitor on 0.0.0.0:8222
+[1] 2025/06/15 07:45:17.459262 [INF] Listening for client connections on 0.0.0.0:4222
+[1] 2025/06/15 07:45:17.459380 [INF] Server is ready
+[1] 2025/06/15 07:45:23.314849 [ERR] 172.18.0.9:45732 - cid:9 - maximum connections exceeded
+[1] 2025/06/15 07:45:23.335452 [ERR] 172.18.0.7:43396 - cid:10 - maximum connections exceeded
+[1] 2025/06/15 07:45:23.344016 [ERR] 172.18.0.5:53452 - cid:11 - maximum connections exceeded
+[1] 2025/06/15 07:45:27.558791 [ERR] [::1]:41151 - cid:12 - maximum connections exceeded
