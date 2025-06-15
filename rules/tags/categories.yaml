@@ -65,10 +65,10 @@ categories:
     description: Problems in frameworks such as Django
   - name: distributed-messaging-connectivity
     displayName: Distributed Messaging Connectivity Issues
-    description: Failures in distributed messaging systems where message brokers, consumers, or producers lose connectivity or coordination, leading to processing halts or data loss  
+    description: Failures in distributed messaging systems where message brokers, consumers, or producers lose connectivity or coordination, leading to processing halts or data loss
   - name: distributed-worker-connectivity
     displayName: Distributed Worker Connectivity Issues
-    description: Failures where a distributed systems worker fails to reach or stay connected to the orchestration backend (e.g., Temporal, Celery)   
+    description: Failures where a distributed systems worker fails to reach or stay connected to the orchestration backend (e.g., Temporal, Celery)
   - name: workflow-orchestration-connectivity
     displayName: Workflow Orchestration Connectivity
     description: Connection failures between workflow orchestration components like Temporal workers and servers
@@ -190,3 +190,7 @@ categories:
       This includes platforms like Redpanda, Apache Kafka, Pulsar, and compatible systems
       where startup, configuration, or operational issues can disrupt data streaming pipelines
       and impact downstream applications relying on event-driven architectures.
+  - name: Message Streaming Platforms
+    description: |
+      Failures, performance problems, and best‑practice rules that apply to
+      distributed message‑streaming systems such as NATS JetStream.

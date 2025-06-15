@@ -137,7 +137,7 @@ tags:
     description: Failures that occur when a service (e.g., Temporal worker) tries to connect to a backend and receives a connection refused error
   - name: temporal
     displayName: Temporal
-    description: Issues related to Temporal workflow orchestration  
+    description: Issues related to Temporal workflow orchestration
   - name: worker
     displayName: Worker
     description: Distributed system worker process failures
@@ -617,7 +617,7 @@ tags:
     description: Problems related to loss of quorum in distributed systems, impacting consensus and availability
   - name: data-availability
     displayName: Data Availability
-    description: Problems related to data availability in distributed systems, such as loss of access to critical data        
+    description: Problems related to data availability in distributed systems, such as loss of access to critical data
   - name: rpc
     displayName: RPC
     description: Remote Procedure Call errors or connectivity issues (includes timeouts, client-request failures, handler-not-found, etc.).
@@ -647,7 +647,7 @@ tags:
     description: Problems where database schemas become corrupted or missing, preventing normal operations
   - name: relation-missing
     displayName: Relation Missing
-    description: Database errors where expected tables or relations do not exist, typically due to corruption or migration failures 
+    description: Database errors where expected tables or relations do not exist, typically due to corruption or migration failures
   - name: logs
     displayName: Logs
     description: Problems with log processing
@@ -684,3 +684,17 @@ tags:
   - name: sigkill
     displayName: SIGKILL
     description: Failures caused by processes being terminated with a SIGKILL signal.
+  - name: nats
+    description: Rules specific to the NATS messaging system.
+  - name: jetstream
+    description: Topics that involve NATS JetStream (persistence, streams, consumers).
+  - name: consumer-replication
+    description: Issues arising from multi‑replica consumer configurations.
+  - name: fetch-failure
+    description: Failures or anomalies during Fetch/FetchNoWait pull operations.
+  - name: message-delivery
+    description: Message‑delivery integrity, loss, duplication, or delay.
+  - name: batch-processing
+    description: Behaviour and pitfalls when processing messages in batches.
+  - name: cluster-consistency
+    description: State‑consistency problems in clustered or replicated deployments.
