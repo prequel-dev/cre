@@ -178,3 +178,6 @@ categories:
       This includes platforms like Redpanda, Apache Kafka, Pulsar, and compatible systems
       where startup, configuration, or operational issues can disrupt data streaming pipelines
       and impact downstream applications relying on event-driven architectures.
+  - name: message-queue-problem
+    displayName: Message Queue Problems
+    description: Problems related to message queues, like Kafka, RabbitMQ, NATS, and others

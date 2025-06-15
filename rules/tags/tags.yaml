@@ -645,3 +645,25 @@ tags:
   - name: sigkill
     displayName: SIGKILL
     description: Failures caused by processes being terminated with a SIGKILL signal.
+
+  - name: connection-exhaustion
+    displayName: Connection Exhaustion
+    description: Problems where systems reach their maximum connection limits, preventing new connections and causing service degradation
+  - name: connection-limit
+    displayName: Connection Limit
+    description: Issues related to connection limits being reached or exceeded in messaging systems, databases, or network services
+  - name: messaging-failure
+    displayName: Messaging Failure
+    description: Failures in messaging infrastructure that prevent or disrupt message delivery between services
+  - name: infrastructure-failure
+    displayName: Infrastructure Failure
+    description: Critical failures in core infrastructure components that can cause cascading system outages
+  - name: scalability-issue
+    displayName: Scalability Issue
+    description: Problems that occur when systems cannot scale to meet demand, often exposing resource or design limitations
+  - name: microservices
+    displayName: Microservices
+    description: Problems specific to microservices architectures, including inter-service communication and distributed system challenges
+  - name: critical-infrastructure
+    displayName: Critical Infrastructure
+    description: Issues affecting mission-critical infrastructure components that require immediate attention to prevent widespread outages
