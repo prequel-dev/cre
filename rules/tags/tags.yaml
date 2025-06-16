@@ -684,7 +684,18 @@ tags:
   - name: sigkill
     displayName: SIGKILL
     description: Failures caused by processes being terminated with a SIGKILL signal.
-
+  - name: nats
+    displayName: NATS
+    description: Problems related to NATS, such as authorization failures, message loss, or configuration issues.
+  - name: jetstream
+    displayName: JetStream
+    description: NATS JetStream persistence & streaming subsystem issues.
+  - name: ack-deadlock
+    displayName: Ack Deadlock
+    description: Deadlocks caused by unacknowledged messages or backpressure in JetStream acks.
+  - name: unsynced-replica
+    displayName: Unsynced Replica
+    description: JetStream replicas that fail to synchronize state with the leader after restart or failover.
   - name: connection-exhaustion
     displayName: Connection Exhaustion
     description: Problems where systems reach their maximum connection limits, preventing new connections and causing service degradation

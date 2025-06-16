@@ -1,0 +1,9 @@
+2025-06-15 23:01:56 JetStream stream 'app > some-stream' is not current: monitor goroutine not running
+2025-06-15 23:08:15 [INFO] attempting to create stream `some-stream`
+2025-06-15 23:21:36 [ERROR] failed to create stream: context deadline exceeded
+2025-06-15 23:21:42 [ERROR] Fetch error: context deadline exceeded
+2025-06-15 23:48:11 [INFO] Running stream-check --unsynced on cluster...
+2025-06-15 23:48:17 [INFO] Found unsynced object store replicas:
+│ OBJ_task-documents               │ S-R3F-qGDUF5RO │ 5094964000 │ ABE56KWF6GW4LIMZI723WJMPKODITQIM3OYVACQAQWXRHYNHQCQY2LT3 │ nats-0* │       29 │  2061405 │       16 │       6 │         0 │      1 │     35 │ UNSYNCED │ nats-0 │ nats-2(current=true ,offline=false)      nats-1(current=true ,offline=false) │  │
+│ OBJ_task-documents               │ S-R3F-qGDUF5RO │ 5094964000 │ ABE56KWF6GW4LIMZI723WJMPKODITQIM3OYVACQAQWXRHYNHQCQY2LT3 │ nats-1  │       29 │  2061405 │       16 │       6 │         0 │      1 │     35 │ UNSYNCED │ nats-0 │ nats-2(current=false,offline=false)      nats-0(current=true ,offline=false) │  │
+│ OBJ_task-documents               │ S-R3F-qGDUF5RO │ 5094964000 │ ABE56KWF6GW4LIMZI723WJMPKODITQIM3OYVACQAQWXRHYNHQCQY2LT3 │ nats-2  │       23 │  1676277 │       12 │       6 │         0 │      1 │     29 │ UNSYNCED │ nats-0 │ nats-1(current=false,offline=false)      nats-0(current=true ,offline=false) │  │

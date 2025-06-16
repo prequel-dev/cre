@@ -8,7 +8,7 @@ categories:
     description: Problems related to well-known external APIs
   - name: message-queue-problem
     displayName: Message Queue Problems
-    description: Problems related to message queues, like Kafka, RabbitMQ, NATS, and others
+    description: Problems related to message queues, like Kafka, RabbitMQ, NATS and others
   - name: asynchronous-task-problem
     displayName: Asynchronous Task Problems
     description: Problems related to asynchronous tasks, like Celery, Sidekiq, and others
