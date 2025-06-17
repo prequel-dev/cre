@@ -5,7 +5,7 @@ rules:
       gen: 1
     cre:
       id: CRE-2025-0103
-      severity: 1
+      severity: 2
       title: NATS Connection Failures and Network Partitions
       category: messaging-problems
       tags:
@@ -54,7 +54,6 @@ rules:
         window: 30s
         event:
           source: cre.log.nats
-          timestamp_format: "2006-01-02T15:04:05.000Z"
         order:
           - regex: ".*ERROR connection failed: (nats: connection closed|NATS server unreachable.*)"
             count: 5
