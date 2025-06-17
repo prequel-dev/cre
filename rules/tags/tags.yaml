@@ -645,7 +645,6 @@ tags:
   - name: sigkill
     displayName: SIGKILL
     description: Failures caused by processes being terminated with a SIGKILL signal.
-
   - name: connection-exhaustion
     displayName: Connection Exhaustion
     description: Problems where systems reach their maximum connection limits, preventing new connections and causing service degradation
