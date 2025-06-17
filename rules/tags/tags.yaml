@@ -192,15 +192,6 @@ tags:
   - name: api-key
     displayName: Api Key
     description: Problems related to API keys, such as missing, invalid, or expired credentials
-  - name: nats
-    displayName: NATS
-    description: Problems with NATS messaging system, including connectivity, partitions, and client issues
-  - name: connectivity
-    displayName: Connectivity
-    description: Network connectivity issues, connection failures, and communication problems
-  - name: high-severity
-    displayName: High Severity
-    description: Critical issues that require immediate attention and can severely impact system reliability
   - name: async
     displayName: Async
     description: Problems related to asynchronous execution, such as hung tasks, race conditions, or callback errors
@@ -327,6 +318,9 @@ tags:
   - name: payload
     displayName: Payload
     description: Problems related to message payloads, such as malformed data or size limit violations
+  - name: nats
+    displayName: NATS
+    description: Problems related to NATS, such as authorization failures, message loss, or configuration issues
   - name: authorization
     displayName: Authorization
     description: Problems related to authorization, such as missing or invalid credentials, or misconfigurations
@@ -375,6 +369,12 @@ tags:
   - name: capacity-issue
     displayName: Capacity Issue
     description: Problems related to system capacity
+  - name: connectivity
+    displayName: Connectivity
+    description: Problems related to network connectivity
+  - name: header-size
+    displayName: Header Size
+    description: Problems related to the size of headers
   - name: upload-limits
     displayName: Upload Limits
     description: Problems related to upload size limits
@@ -564,12 +564,6 @@ tags:
   - name: grpc
     displayName: gRPC
     description: Problems related to gRPC
-  - name: startup-failure
-    displayName: Startup Failure
-    description: Problems related to start-up failures
-  - name: redpanda
-    displayName: Redpanda
-    description: Problems related to Redpanda, a streaming data platform
   - name: streaming-data
     displayName: Streaming Data
     description: Problems related to streaming data platforms and systems
@@ -585,9 +579,12 @@ tags:
   - name: data-availability
     displayName: Data Availability
     description: Problems related to data availability in distributed systems, such as loss of access to critical data
-  - name: spicedb
-    displayName: SpiceDB
-    description: Issues related to SpiceDB authorization service
+  - name: rpc
+    displayName: RPC
+    description: Remote Procedure Call errors or connectivity issues (includes timeouts, client-request failures, handler-not-found, etc.).
+  - name: raft
+    displayName: Raft
+    description: Issues related to the Raft consensus protocol—leader elections, step-downs, append-entries rejections, vote requests/replies, etc.
   - name: migration-failure
     displayName: Migration Failure
     description: Errors caused by failed or skipped database migrations
@@ -618,3 +615,55 @@ tags:
   - name: distributed-system
     displayName: Distributed System
     description: Problems specific to distributed systems, including coordination, consistency, and network partition issues
+  - name: datastore
+    displayName: Datastore
+    description: Problems with data storage systems, such as databases or object stores
+  - name: startup-failure
+    displayName: Startup Failure
+    description: Problems related to application or service startup failures, such as missing dependencies or configuration errors
+  - name: redpanda
+    displayName: Redpanda
+    description: Issues specifically related to the Redpanda streaming platform.
+  - name: container-crash
+    displayName: Container Crash
+    description: Failures causing container crashes or unexpected terminations.
+  - name: memory-exhaustion
+    displayName: Memory Exhaustion
+    description: Failures due to running out of memory or excessive memory consumption.
+  - name: configuration-failure
+    displayName: Configuration Failure
+    description: Problems caused by incorrect or invalid configuration settings.
+  - name: streaming-platform
+    displayName: Streaming Platform
+    description: Issues related to distributed streaming platforms and their operations.
+  - name: kafka-compatible
+    displayName: Kafka Compatible
+    description: Problems affecting Kafka-compatible systems or APIs, impacting interoperability.
+  - name: permission-denied
+    displayName: Permission Denied
+    description: Failures caused by insufficient access rights or permission errors.
+  - name: sigkill
+    displayName: SIGKILL
+    description: Failures caused by processes being terminated with a SIGKILL signal.
+
+  - name: connection-exhaustion
+    displayName: Connection Exhaustion
+    description: Problems where systems reach their maximum connection limits, preventing new connections and causing service degradation
+  - name: connection-limit
+    displayName: Connection Limit
+    description: Issues related to connection limits being reached or exceeded in messaging systems, databases, or network services
+  - name: messaging-failure
+    displayName: Messaging Failure
+    description: Failures in messaging infrastructure that prevent or disrupt message delivery between services
+  - name: infrastructure-failure
+    displayName: Infrastructure Failure
+    description: Critical failures in core infrastructure components that can cause cascading system outages
+  - name: scalability-issue
+    displayName: Scalability Issue
+    description: Problems that occur when systems cannot scale to meet demand, often exposing resource or design limitations
+  - name: microservices
+    displayName: Microservices
+    description: Problems specific to microservices architectures, including inter-service communication and distributed system challenges
+  - name: critical-infrastructure
+    displayName: Critical Infrastructure
+    description: Issues affecting mission-critical infrastructure components that require immediate attention to prevent widespread outages
