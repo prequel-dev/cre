@@ -570,9 +570,6 @@ tags:
   - name: demo-problem
     displayName: Demo Problem
     description: This is a tag for demo problems
-  - name: leader-election
-    displayName: Leader Election
-    description: Events and errors related to leader election processes in distributed systems
   - name: workflow-orchestration
     displayName: Workflow Orchestration
     description: Problems related to workfow orchestration
