@@ -20,11 +20,9 @@ rules:
         - **High (on unexpected restart):** If an existing node loses its data, it must rebuild all of its state from the remaining replicas in the cluster. This is a very resource-intensive process that puts significant network and disk I/O strain on the other nodes and can take a long time to complete. During this time, the cluster's fault tolerance is reduced.
       tags:
         - redpanda
-        - startup
-        - state-missing
+        - redpanda-startup
+        - redpanda-state-missing
         - snapshot
-        - kvstore
-        - informational
       mitigation: |
         - **On first boot:** No action is required. This is expected.
         - **On an unexpected restart of an existing node:**
