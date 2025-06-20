@@ -659,11 +659,6 @@ tags:
     displayName: Startup Failure
     description: Problems related to application or service startup failures, such as missing dependencies or configuration errors
 
-
-  - name: redpanda
-    displayName: Redpanda
-    description: Issues specifically related to the Redpanda streaming platform.
-
   - name: container-crash
     displayName: Container Crash
     description: Failures causing container crashes or unexpected terminations.
