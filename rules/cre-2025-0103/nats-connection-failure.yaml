@@ -7,7 +7,7 @@ rules:
       id: CRE-2025-0103
       severity: 2
       title: NATS Connection Failures and Network Partitions
-      category: messaging-problems
+      category: message-queue-problem
       tags:
         - nats
         - connectivity
