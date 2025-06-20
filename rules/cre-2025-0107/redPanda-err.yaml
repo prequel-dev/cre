@@ -7,7 +7,7 @@ rules:
       id: CRE-2025-0107
       severity: 2
       title: "Redpanda Node Missing State Files on Startup"
-      category: "distributed-systems"
+      category: "redpanda-problems"
       author: Prequel
       description: |
         Detects when a Redpanda node starts up but cannot find key state files, such as the key-value store snapshot or configuration cache. This is normal behavior for a brand-new node starting for the first time but can indicate a problem (like a cleared or misconfigured volume) if it occurs on an existing node that is expected to have state.
