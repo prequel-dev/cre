@@ -114,6 +114,24 @@ tags:
   - name: connection-refused-startup
     displayName: Connection Refused on Startup
     description: Failures that occur when a service (e.g., Temporal worker) tries to connect to a backend and receives a connection refused error.
+  - name: redpanda
+    displayName: Redpanda
+    description: Issues related to Redpanda streaming data platform
+  - name: consumer-groups
+    displayName: Consumer Groups
+    description: Kafka/Redpanda consumer group coordination failures
+  - name: coordinator-failure
+    displayName: Coordinator Failure
+    description: Failures in distributed system coordinators (group coordinators, cluster coordinators)
+  - name: mass-disconnect
+    displayName: Mass Disconnect
+    description: Scenarios where many clients/consumers disconnect simultaneously
+  - name: kafka-compatibility
+    displayName: Kafka Compatibility
+    description: Issues related to Kafka protocol compatibility in Redpanda
+  - name: message-processing-halt
+    displayName: Message Processing Halt
+    description: Complete stoppage of message processing in streaming systems
   - name: psycopg2
     displayName: Psycopg2
     description: Python client errors related to connecting or querying PostgreSQL using psycopg2.
@@ -552,7 +570,7 @@ tags:
   - name: demo-problem
     displayName: Demo Problem
     description: This is a tag for demo problems
-  - name: workflow-orchestration-connectivity
+  - name: workflow-orchestration
     displayName: Workflow Orchestration
     description: Problems related to workfow orchestration
   - name: temporal
@@ -561,6 +579,12 @@ tags:
   - name: worker
     displayName: Worker Problems
     description: Problems related to process workers
+  - name: raft
+    displayName: Raft
+    description: Issues related to Raft consensus protocol, elections, and leader changes
+  - name: leader-election
+    displayName: Leader Election
+    description: Events and errors related to leader election processes in distributed systems
   - name: grpc
     displayName: gRPC
     description: Problems related to gRPC
@@ -582,9 +606,6 @@ tags:
   - name: rpc
     displayName: RPC
     description: Remote Procedure Call errors or connectivity issues (includes timeouts, client-request failures, handler-not-found, etc.).
-  - name: raft
-    displayName: Raft
-    description: Issues related to the Raft consensus protocol—leader elections, step-downs, append-entries rejections, vote requests/replies, etc.
   - name: migration-failure
     displayName: Migration Failure
     description: Errors caused by failed or skipped database migrations
@@ -621,9 +642,6 @@ tags:
   - name: startup-failure
     displayName: Startup Failure
     description: Problems related to application or service startup failures, such as missing dependencies or configuration errors
-  - name: redpanda
-    displayName: Redpanda
-    description: Issues specifically related to the Redpanda streaming platform.
   - name: container-crash
     displayName: Container Crash
     description: Failures causing container crashes or unexpected terminations.
