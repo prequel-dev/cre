@@ -633,15 +633,32 @@ tags:
   - name: logs
     displayName: Logs
     description: Problems with log processing
+  - name: redpanda-startup
+    displayName: Redpanda Startup
+    description: Problems related to Redpanda startup, such as configuration issues or missing state
+  - name: redpanda-state-missing
+    displayName: Redpanda State Missing
+    description: Problems related to missing state in Redpanda, such as missing offsets or partitions
+  - name: snapshot
+    displayName: Snapshot
+    description: Problems related to snapshotting in Redpanda, such as missing or incomplete snapshots    
+
   - name: distributed-system
     displayName: Distributed System
     description: Problems specific to distributed systems, including coordination, consistency, and network partition issues
+
+
+
+
+
+
   - name: datastore
     displayName: Datastore
     description: Problems with data storage systems, such as databases or object stores
   - name: startup-failure
     displayName: Startup Failure
     description: Problems related to application or service startup failures, such as missing dependencies or configuration errors
+
   - name: container-crash
     displayName: Container Crash
     description: Failures causing container crashes or unexpected terminations.
@@ -663,6 +680,9 @@ tags:
   - name: sigkill
     displayName: SIGKILL
     description: Failures caused by processes being terminated with a SIGKILL signal.
+
+
+
   - name: connection-exhaustion
     displayName: Connection Exhaustion
     description: Problems where systems reach their maximum connection limits, preventing new connections and causing service degradation
@@ -684,3 +704,4 @@ tags:
   - name: critical-infrastructure
     displayName: Critical Infrastructure
     description: Issues affecting mission-critical infrastructure components that require immediate attention to prevent widespread outages
+

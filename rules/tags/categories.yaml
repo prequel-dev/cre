@@ -165,9 +165,11 @@ categories:
       This includes tools like SpiceDB, OPA, or Auth0 where schema, policy, or
       integration issues can block authentication or authorization flows.
 
+
   - name: SpiceDB-datastore-failure
     displayName: SpiceDB Datastore Failure
     description: Failures in the datastore used by SpiceDB, which can lead to authentication or authorization issues.
+
   - name: authorization-system-problem
     displayName: Authorization System Problems
     description: Problems related to authorization and permission systems like SpiceDB, OPA, and similar fine-grained access control systems
@@ -180,6 +182,8 @@ categories:
   - name: temporal-problem
     displayName: Temporal Server Failure
     description: Temporal Server Failure Temporal Server Fails Persistence on Read-Only Database
+
+
   - name: data-streaming-platforms
     displayName: Data Streaming Platforms
     description: |

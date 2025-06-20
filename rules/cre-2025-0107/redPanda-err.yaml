@@ -1,0 +1,51 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: 4rEVBMgFrM3ffjTHmmyEyP
+      generation: 1
+    cre:
+      id: CRE-2025-0107
+      severity: 2
+      title: "Redpanda Node Missing State Files on Startup"
+      category: "redpanda-problems"
+      author: Prequel
+      description: |
+        Detects when a Redpanda node starts up but cannot find key state files, such as the key-value store snapshot or configuration cache. This is normal behavior for a brand-new node starting for the first time but can indicate a problem (like a cleared or misconfigured volume) if it occurs on an existing node that is expected to have state.
+      cause: |
+        - **Normal First Boot:** A new Redpanda node is being added to the cluster or a single-node instance is starting for the very first time.
+        - **Cleared Data Volume:** The data directory for an existing node was wiped (manually or due to ephemeral storage) before a restart.
+        - **Misconfigured Volume Mount:** The Docker volume or host directory is not correctly mounted to `/var/lib/redpanda/data`, causing the node to start with an empty directory.
+      impact: |
+        - **Low (on first boot):** This is expected behavior and has no negative impact. The node will create the necessary files and join the cluster.
+        - **High (on unexpected restart):** If an existing node loses its data, it must rebuild all of its state from the remaining replicas in the cluster. This is a very resource-intensive process that puts significant network and disk I/O strain on the other nodes and can take a long time to complete. During this time, the cluster's fault tolerance is reduced.
+      tags:
+        - redpanda
+        - redpanda-startup
+        - redpanda-state-missing
+        - snapshot
+      mitigation: |
+        - **On first boot:** No action is required. This is expected.
+        - **On an unexpected restart of an existing node:**
+          1.  Immediately investigate why the data volume was cleared. Check for manual errors, incorrect automation scripts, or issues with the underlying storage infrastructure.
+          2.  Monitor the cluster health and resource utilization (`CPU`, `network`, `disk I/O`) on the other nodes, as they will be under high load to replicate data to the new empty node.
+          3.  Consider throttling the recovery process (`raft_learner_recovery_rate` setting) if the replication load is impacting production traffic.
+
+        PREVENTIVE MEASURES:
+          - Use persistent, reliable storage for Redpanda's data directory.
+          - Implement strict access controls and change management procedures for the Redpanda data volumes to prevent accidental deletion.
+          - Use `rpk` to decommission a node properly before removing its data volumes.
+      references:
+        - https://docs.redpanda.com/current/manage/cluster-maintenance/
+        - https://docs.redpanda.com/current/reference/cluster-properties/
+      applications:
+        - name: redpanda
+          version: "23.3.11"
+      impactScore: 3 
+      mitigationScore: 6
+      reports: 1
+    rule:
+      set:
+        event:
+          source: cre.log.redpanda
+        match:
+          - regex: '(?i)(?:Failed to stat snapshot file.*No such file or directory|Can''t load config cache.*No such file or directory)'
