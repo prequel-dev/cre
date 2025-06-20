@@ -63,6 +63,12 @@ categories:
   - name: framework-problem
     displayName: Framework Problems
     description: Problems in frameworks such as Django
+  - name: distributed-messaging-connectivity
+    displayName: Distributed Messaging Connectivity Issues
+    description: Failures in distributed messaging systems where message brokers, consumers, or producers lose connectivity or coordination, leading to processing halts or data loss    
+  - name: workflow-orchestration-connectivity
+    displayName: Workflow Orchestration Connectivity
+    description: Connection failures between workflow orchestration components like Temporal workers and servers
   - name: authorization-problem
     displayName: Authorization Problems
     description: Problems related to authorization
@@ -141,6 +147,9 @@ categories:
   - name: demo-problems
     displayName: Demo Problems
     description: This is a category for demos
+  - name: redpanda-high-availability
+    displayName: Redpanda High Availability
+    description: High-severity issues related to quorum, leader election, Raft consensus, and node isolation in Redpanda clusters
   - name: distributed-worker-connectivity
     displayName: Distributed Worker Connectivity Issues
     description: Failures where a distributed systems worker fails to reach or stay connected to the orchestration backend (e.g., Temporal, Celery).
