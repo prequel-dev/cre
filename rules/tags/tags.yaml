@@ -636,7 +636,7 @@ tags:
   - name: redpanda-startup
     displayName: Redpanda Startup
     description: Problems related to Redpanda startup, such as configuration issues or missing state
-  - name: Redpanda-state-missing
+  - name: redpanda-state-missing
     displayName: Redpanda State Missing
     description: Problems related to missing state in Redpanda, such as missing offsets or partitions
   - name: snapshot
