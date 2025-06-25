@@ -1,0 +1,69 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: 9NmK2xPqR8vTyHJsEXwFbL
+      hash: TzUzLggVQLvReC1mivmkrK
+    cre:
+      id: CRE-2025-0095
+      severity: 1
+      title: "NATS Connection Exhaustion: Maximum Connections Exceeded"
+      category: "message-queue-problem"
+      author: Community
+      description: |
+        Detects NATS server connection exhaustion where the configured maximum
+        connection limit is exceeded, preventing new clients from establishing
+        connections. This represents a critical messaging infrastructure failure
+        that can cause cascading outages across distributed systems.
+      cause: |
+        - NATS server max_connections setting too low for current workload demands
+        - Auto-scaling events creating simultaneous connection burst attempts
+        - Connection pool misconfigurations in client applications
+        - Service restarts causing mass reconnection attempts
+        - Kubernetes pod restarts causing simultaneous reconnection storms
+      impact: |
+        - New services cannot establish connections to NATS messaging infrastructure
+        - Message delivery failures for all connection-dependent microservices
+        - Cascading failures across distributed system architecture
+        - Service startup failures during deployment or disaster recovery operations
+      tags:
+        - nats
+        - connection-exhaustion
+        - critical-infrastructure
+      mitigation: |
+        IMMEDIATE ACTIONS (CRITICAL):
+        - Check current NATS connection usage: `curl http://nats-server:8222/connz`
+        - Identify which services/IPs are consuming connection slots
+        - Temporarily increase max_connections in NATS server configuration
+        - Restart NATS server with updated connection limits to restore service
+        
+        RECOVERY:
+        - Scale NATS infrastructure horizontally by adding server instances
+        - Configure NATS clustering for high availability and load distribution
+        - Implement proper connection pooling and reuse in client applications
+        
+        PREVENTION:
+        - Monitor NATS connection metrics with alerting at 75-80% capacity
+        - Implement graceful connection handling and retry logic in clients
+        - Regular load testing to validate connection capacity planning
+      references:
+        - https://docs.nats.io/running-a-nats-service/configuration
+        - https://docs.nats.io/running-a-nats-service/configuration/resource_management
+      applications:
+        - name: nats-server
+          version: ">=2.9.0"
+      impactScore: 9
+      mitigationScore: 7
+      reports: 1
+    rule:
+      set:
+        window: 60s
+        event:
+          source: cre.log.nats
+        match:
+          
+          - regex: '(?i)maximum connections exceeded'
+            count: 2  # Reduced from 3 to 2 for easier detection
+        negate:
+          - "server shutdown"
+          - "shutting down"
+          - "planned maintenance"

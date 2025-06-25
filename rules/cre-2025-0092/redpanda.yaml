@@ -1,0 +1,58 @@
+rules:
+  - metadata:
+      id: 4mQ3it4AhLMM8djxutxYuo
+      kind: prequel
+    cre:
+      id: CRE-2025-0092
+      severity: 1
+      title: "Redpanda Quorum Loss"
+      category: "redpanda-high-availability"
+      tags:
+        - "redpanda"
+        - "raft"
+        - "quorum"
+        - "leader-election"
+      author: "Prequel"
+      description: >
+        Detects when a Redpanda node becomes isolated (heartbeats fail)
+        and triggers a Raft re-election, indicating quorum loss.
+      impact: >
+        Without a quorum, the cluster cannot commit new writes,
+        causing topic availability to drop to zero until a new leader is chosen.
+      cause: >
+        One or more replicas become unavailable (e.g., crashed, network-partitioned),
+        so heartbeats to that node timeout and the remaining nodes start a Raft election. 
+      mitigation: >
+        **Immediate Actions:**
+          1. Reconnect or restart the isolated node:
+             ```bash
+             docker start redpanda2
+             ```
+          2. Check Redpanda logs to confirm it rejoins the Raft cluster:
+             ```bash
+             docker logs redpanda2 --tail 20
+             ```
+          3. Verify leadership status with:
+             ```bash
+             rpk cluster show
+             ```
+        **Long-term Fixes:**
+          - Ensure minimum 3 voting replicas for quorum.
+          - Monitor inter-broker network latency and packet loss.
+          - Deploy Redpanda behind a stable DNS or static IPs.
+      mitigationScore: 9
+      references:
+        - "https://docs.redpanda.com/docs/concepts/architecture/raft/"
+        - "https://vectorized.io"
+      reports: 0
+      version: "0.1.0"
+      applications:
+        - name: "redpanda"
+          processName: "redpanda"
+          version: "23.1+"
+    rule:
+      set:
+        event:
+          source: cre.log.redpanda
+        match:
+          - regex: "Error occurred while sending node status request: rpc::errc::exponential_backoff"

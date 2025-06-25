@@ -16,27 +16,28 @@ jobs:
   build:
     name: Build Go Project
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        go-version: [1.24.2]
-        os: [ubuntu-24.04]
     steps:
-      - name: Checkout Repository
+      - name: "Checkout code"
         uses: actions/checkout@v4
-      
-      - name: Set up Go ${{ matrix.go-version }}
-        uses: actions/setup-go@v4
+
+      - name: "Set up Go"
+        uses: actions/setup-go@v5
         with:
-          go-version: ${{ matrix.go-version }}
+          go-version: '1.24.x'
 
-      - name: Verify Go Version
-        run: go version
+      - name: "Cache Go modules"
+        uses: actions/cache@v4
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
 
-      - name: Build rules
+      - name: "Install dependencies"
+        run: go mod download
+
+      - name: "Validate Rules and Tags"
         run: make
 
-      - name: Run CRE tests
-        run: |
-          make rules
-          cd tests
-          go test
+      - name: "Run Unit Tests"
+        run: make test

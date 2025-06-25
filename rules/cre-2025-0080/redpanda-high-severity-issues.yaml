@@ -1,0 +1,76 @@
+rules:
+  - metadata:
+      id: ArpxWk5dVu2Vw6wHQXYNBY
+      kind: prequel
+      version: "0.1.0"
+    cre:
+      id: CRE-2025-0080
+      severity: 1
+      title: "Redpanda High Severity Issues"
+      category: "data-streaming-platforms"
+      tags:
+        - redpanda
+        - startup-failure
+        - permission-failure
+        - rpc
+        - raft
+        - node-down
+        - cluster-degradation
+        - data-availability
+        - database-corruption
+      author: "Prequel"
+      description: >
+        Detects when Redpanda hits any of these on startup or early runtime:
+        1. Fails to create its crash_reports directory (POSIX error 13).  
+        2. Heartbeat or node-status RPC failures indicating a broker is down.
+        3. Raft group failure.
+        4. Data center failure
+      impact: >
+        These issues can abort startup (case 1) or indicate degraded operation,
+        and can be symptomatic of Broker failure(case 2) which makes Loss of function for an individual broker or for any virtual machine (VM) that hosts the broker
+        ,rack/switch failures(case 3) makes Loss of brokers/VMs hosted within that rack, or loss of connectivity to them, Data center failure(case 4)
+        that results loss of brokers/VMs hosted within that data center or loss of connectivity to them.
+      cause: >
+        1. Runtime user lacks write permission on `/var/lib/redpanda/data`.  
+        2. Broker unreachable or out of sync.
+        3. Network partition within Raft quorum.
+        4. Loss of brokers/VMs hosted within that data center or loss of connectivity to them
+      mitigation: >
+        **Immediate Actions:**
+        ```bash
+        chown -R redpanda:redpanda /var/lib/redpanda/data
+        chmod -R 750 /var/lib/redpanda/data
+        # Free up disk or expand the data volume
+        systemctl restart redpanda
+        ```
+        **Long-term Fixes:**
+        - InitContainer or boot-script to validate permissions before start.  
+        - Multi-broker deployment
+        - Monitor cluster health and broker reachability.
+        - Multi-broker deployment spread across multiple racks or network failure domains
+        - Multi-AZ or replicated deployment
+        - Offline backups
+      mitigationScore: 9
+      references:
+        - "https://docs.redpanda.com/current/deploy/deployment-option/self-hosted/manual/high-availability/"
+        - "https://docs.redpanda.com/current/manage/cluster-maintenance/disk-utilization/"
+        - "https://docs.redpanda.com/current/manage/rack-awareness/"
+        - "https://docs.redpanda.com/current/manage/recovery-mode/"
+        - "https://docs.redpanda.com/current/manage/cluster-maintenance/nodewise-partition-recovery/"
+        - "https://docs.redpanda.com/current/manage/raft-group-reconfiguration/"
+        - "https://docs.redpanda.com/current/manage/cluster-maintenance/node-property-configuration/"
+        - "https://docs.redpanda.com/current/manage/monitoring/"
+        - "https://vectorized.io"
+      reports: 1
+      version: "0.1.0"
+      applications:
+        - name: "redpanda"
+          processName: "redpanda"
+          version: "24.3+"
+    rule:
+      set:
+        event:
+          source: cre.log.redpanda
+        match:
+          - regex:
+              "Failure during startup: .*filesystem_error.*Permission denied.*crash_reports|heartbeat_manager\\.cc:\\d+.*Received error when sending heartbeats to node \\d+ - rpc::errc::exponential_backoff|transport\\.cc:\\d+.*RPC timeout.*node_status_rpc::node_status| transport\\.cc:\\d+.*Unable to find handler for correlation \\d+| Error occurred while sending node status request: rpc::errc::client_request_timeout"
