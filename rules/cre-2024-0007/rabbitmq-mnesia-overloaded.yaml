@@ -3,7 +3,8 @@ rules:
       id: CRE-2024-0007
       severity: 0
       title: RabbitMQ Mnesia overloaded recovering persistent queues
-      category: message-queue-problem
+      pillar: Infrastructure
+      category: resource-exhaustion-cpu
       author: Prequel
       description: |
         The RabbitMQ cluster is processing a large number of persistent mirrored queues at boot. The underlying Erlang process, Mnesia, is overloaded (`** WARNING ** Mnesia is overloaded`).
@@ -13,9 +14,7 @@ rules:
         RabbitMQ is unable to process any new messages, which can lead to outages in consumers and producers.
       impactScore: 9
       tags: 
-        - known-problem
-        - rabbitmq
-        - public
+        - high-cpu-usage
       mitigation: |
         - Increase the size of the cluster
         - Increase the Kubernetes CPU limits for the RabbitMQ brokers

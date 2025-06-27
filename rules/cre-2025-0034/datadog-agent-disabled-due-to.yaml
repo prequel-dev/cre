@@ -3,21 +3,15 @@ rules:
     id: CRE-2025-0034
     severity: 2
     title: Datadog agent disabled due to missing API key
-    category: observability-problem
+    pillar: Application
+    category: configuration-error
     author: Prequel
     description: |
       If the Datadog agent or client libraries do not detect a configured API key, they will skip sending metrics, logs, and events. This results in a silent failure of observability reporting, often visible only through startup log messages.
     cause: |
       The environment variable `DD_API_KEY` was not set, or was set to an empty value in the container or application environment. As a result, the Datadog agent or SDK initializes in a no-op mode and skips exporting telemetry.
     tags:
-      - datadog
-      - configuration
-      - api-key
-      - observability
-      - environment
-      - telemetry
-      - known-issue
-      - public
+      - misconfiguration
     mitigation: |
       - Ensure that the `DD_API_KEY` environment variable is present and correctly populated in the container or deployment spec.
       - Use Kubernetes secrets or external secret stores to safely inject credentials into the runtime environment.

@@ -3,7 +3,8 @@ rules:
       id: CRE-2024-0043
       severity: 2
       title: NGINX Upstream DNS Failure
-      category: proxy-problems
+      pillar: Networking
+      category: connectivity-dns-failure
       author: Prequel
       description: |
         When a NGINX upstream becomes unreachable or its DNS entry disappears, NGINX requests begin to fail.
@@ -13,9 +14,7 @@ rules:
         Clients experience partial or total service interruptions until the upstream is restored or reconfigured.
       impactScore: 6
       tags:
-        - kafka
-        - known-problem
-        - public
+        - upstream-failure
       mitigation: |
         Provide a stable or redundant upstream configuration so NGINX can gracefully handle DNS resolution failures.
       mitigationScore: 5
