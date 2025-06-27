@@ -1,0 +1,1 @@
+2025-06-26T14:18:39.324185Z    error    inpod::dnsproxy    failed to bind to address [::1]:15053: Address family not supported (os error 97)

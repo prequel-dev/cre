@@ -702,3 +702,9 @@ tags:
   - name: critical-infrastructure
     displayName: Critical Infrastructure
     description: Issues affecting mission-critical infrastructure components that require immediate attention to prevent widespread outages
+  - name: ambient
+    displayName: Ambient
+    description: Problems specific to Ambient-mode service-mesh failures
+  - name: ztunnel
+    displayName: Ztunnel
+    description: Issues specific to Istio's Ztunnel node proxy in Ambient mode—covering DNS-proxy binding errors, HBONE traffic capture failures, socket binding problems and other per-node proxy concerns

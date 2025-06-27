@@ -1,0 +1,54 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: bT9zPmQwXdFvUr1EaGh2J
+      hash: AbC3dEfGh1JkLmN2PqRsT
+    cre:
+      id: CRE-2025-0111
+      severity: 2
+      title: "Ztunnel IPv6 Bind Failure"
+      category: "istio-ambient-troubleshooting"
+      author: Prequel
+      description: |
+        Detects when Ztunnel's DNS proxy or control-plane component attempts to bind
+        to the IPv6 loopback address `[::1]:15053` on a node where IPv6 is disabled,
+        resulting in an `Address family not supported` error.
+      cause: |
+        - Kernel-level IPv6 support is disabled on the node
+        - `IPV6_ENABLED` not set to `false` in the Ztunnel configuration
+      impact: |
+        - Ztunnel's DNS proxy cannot start, preventing DNS-capture functionality
+        - Ambient traffic may fail to resolve service names or be misrouted
+      mitigation: |
+        IMMEDIATE:
+        - Re-enable IPv6 on the node if IPv6 is required:
+          ```bash
+          sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0
+          sudo sysctl -w net.ipv6.conf.default.disable_ipv6=0
+          ```
+        - Or disable IPv6 binding in Ztunnel by setting in your IstioOperator:
+          ```yaml
+          values:
+            ztunnel:
+              IPV6_ENABLED: false
+          ```
+        - Restart the Ztunnel DaemonSet:
+          ```bash
+          kubectl -n istio-system rollout restart daemonset ztunnel
+          ```
+        LONG-TERM:
+        - Incorporate node-level IPv6 capability checks into your cluster provisioning
+        - Validate the `IPV6_ENABLED` flag in your IstioOperator CI pipelines
+      tags:
+        - istio
+        - ambient
+        - ztunnel
+        - network
+      references:
+        - https://github.com/istio/istio/wiki/Troubleshooting-Istio-Ambient#scenario-ztunnel-fails-with-failed-to-bind-to-address-115053-address-family-not-supported
+    rule:
+      set:
+        event:
+          source: cre.log.ambient
+        match:
+          - regex: 'failed to bind to address \[::1\]:15053: Address family not supported(?: \(os error \d+\))?'
