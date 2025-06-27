@@ -1,9 +1,10 @@
 rules:
   - cre:
-      id: CRE-2024-0008
+      id: CRE-2024-0014
       severity: 1
       title: RabbitMQ busy distribution port performance issue
-      category: message-queue-performance
+      pillar: Infrastructure
+      category: resource-exhaustion-connections
       author: Prequel
       description: |
         The Erlang VM has reported a **`busy_dist_port`** condition, meaning the send buffer of a distribution port (used for inter-node traffic inside a
@@ -24,9 +25,8 @@ rules:
         - Severe cases can drop inter-node links, triggering partition-handling logic and service outages.
       impactScore: 8
       tags: 
-        - known-problem
-        - rabbitmq
-        - public
+        - high-latency
+        - invalid-payload
       mitigation: |
         - **Diagnose** – run `rabbitmq-diagnostics busy_dist_port` (3.13+) or inspect warnings to identify affected nodes.  
         - **Raise the buffer limit** – set `RABBITMQ_DISTRIBUTION_BUFFER_SIZE=512000` (≈ 512 MB) or pass `-zdbbl 512000` to the Erlang VM; restart the node.  Ensure the pod / host memory limit is increased accordingly (≥ 512 MB × node count).  

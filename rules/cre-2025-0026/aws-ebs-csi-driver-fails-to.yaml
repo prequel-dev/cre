@@ -3,18 +3,15 @@ rules:
     id: CRE-2025-0026
     severity: 3
     title: AWS EBS CSI Driver fails to detach volume when VolumeAttachment has empty nodeName
-    category: storage-problem
+    pillar: Data
+    category: persistence-failure
     author: Prequel
     description: |
       In clusters using the AWS EBS CSI driver, the controller may fail to detach a volume if the associated VolumeAttachment resource has an empty `spec.nodeName`. This results in a log error and skipped detachment, which may block PVC reuse or node cleanup.
     cause: |
       The controller attempts to locate the node based on `VolumeAttachment.spec.nodeName`. If this field is empty, the controller's logic skips processing, leading to a failure in detachment flow. This commonly happens when a VolumeAttachment is deleted before node assignment completes.
     tags:
-      - ebs
-      - csi
-      - aws
-      - storage 
-      - public
+      - bug
     mitigation: | 
       - Upgrade to aws-ebs-csi-driver v1.26.1 or later.
       - Avoid deleting PVCs or terminating pods immediately after volume provisioning.

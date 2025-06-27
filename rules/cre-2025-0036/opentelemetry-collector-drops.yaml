@@ -3,22 +3,15 @@ rules:
     id: CRE-2025-0036
     severity: 3
     title: OpenTelemetry Collector drops data due to 413 Payload Too Large from exporter target
-    category: observability-problem
+    pillar: Application
+    category: configuration-error
     author: Prequel
     description:  |
       The OpenTelemetry Collector may drop telemetry data when an exporter backend responds with a 413 Payload Too Large error. This typically happens when large batches of metrics, logs, or traces exceed the maximum payload size accepted by the backend. By default, the collector drops these payloads unless retry behavior is explicitly enabled.
     cause: |
       The backend server (e.g., metrics platform, observability vendor) returned an HTTP 413 status, rejecting the payload as too large. The exporter component does not automatically retry unless `retry_on_failure` is enabled. As a result, the data is dropped permanently.
     tags:
-      - otel-collector
-      - exporter
-      - payload
-      - batch
-      - drop
-      - observability
-      - telemetry
-      - known-issue
-      - public
+      - invalid-payload
     mitigation: |
       - Enable `retry_on_failure` in the relevant exporter config to allow retry logic.
       - Reduce batch size via `sending_queue` settings or exporter-specific `timeout`/`flush_interval` configurations.

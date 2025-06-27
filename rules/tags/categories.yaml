@@ -3,192 +3,80 @@ metadata:
   id: xxtdmttg55Pg844dRw8Ti6
   gen: 1
 categories:
-  - name: api-problem
-    displayName: API Problems
-    description: Problems related to well-known external APIs
-  - name: message-queue-problem
-    displayName: Message Queue Problems
-    description: Problems related to message queues, like Kafka, RabbitMQ, NATS and others
-  - name: asynchronous-task-problem
-    displayName: Asynchronous Task Problems
-    description: Problems related to asynchronous tasks, like Celery, Sidekiq, and others
-  - name: database-problem
-    displayName: Database Problems
-    description: Problems related to databases, like MySQL, PostgreSQL, MongoDB, and others
-  - name: proxy-problems
-    displayName: Proxy Problems
-    description: Problems related to proxies, like NGINX, HAProxy, and others
-  - name: disaster-recovery-problems
-    displayName: Disaster Recovery Problems
-    description: Problems related to disaster recovery, like backup and restore, and failover
-  - name: memory-problem
-    displayName: Memory Problems
-    description: Problems related to memory, like out-of-memory crashes, memory leaks, and memory pressure
-  - name: scaling-problem
-    displayName: Scaling Problem
-    description: Problems related to scaling, like autoscaling, scale-up, and scale-down events
-  - name: noisy-neighbor-problem
-    displayName: Noisy Neighbor Problems
-    description: Problems related to noisy neighbors in shared infrastructure
-  - name: library-problem
-    displayName: Library Problems
-    description: Problems related to libraries
-  - name: cloud-provider-problem
-    displayName: Cloud Provider Problems
-    description: Problems related to cloud providers, like AWS, GCP, Azure, and others
-  - name: unhealthy-event
-    displayName: Unhealthy Kubernetes Events
-    description: Problems related to unhealthy events, like probe failures and others
-  - name: observability-problem
-    displayName: Observability Problems
-    description: Problems related to observability, like monitoring, logging, and tracing
-  - name: operator-problem
-    displayName: Operator Problems
-    description: Problems related to operators
-  - name: networking-problem
-    displayName: Networking Problems
-    description: Connectivity, DNS, or routing issues affecting system communication.
-  - name: runtime-problem
-    displayName: Runtime
-    description: Problems within runtime environments such as Python, Java, or Node.js.
-  - name: storage-problem
-    displayName: Storage
-    description: Disk, object storage, or volume-related issues that impact data availability.
-  - name: orm-problem
-    displayName: Orm
-    description: Object Relational Mapper issue that impacts data availability.
-  - name: cache-problem
-    displayName: Cache Problems
-    description: Cache related problems
-  - name: framework-problem
-    displayName: Framework Problems
-    description: Problems in frameworks such as Django
-  - name: distributed-messaging-connectivity
-    displayName: Distributed Messaging Connectivity Issues
-    description: Failures in distributed messaging systems where message brokers, consumers, or producers lose connectivity or coordination, leading to processing halts or data loss    
-  - name: workflow-orchestration-connectivity
-    displayName: Workflow Orchestration Connectivity
-    description: Connection failures between workflow orchestration components like Temporal workers and servers
-  - name: authorization-problem
-    displayName: Authorization Problems
-    description: Problems related to authorization
+  # --- Pillar: Application ---
+  - name: process-crash
+    pillar: Application
+    displayName: Process Crash
+    description: A process has terminated unexpectedly due to an unhandled exception, panic, or segmentation fault.
+  - name: task-processing-stall
+    pillar: Application
+    displayName: Task Processing Stall
+    description: A worker or task-based system stops processing new items from its queue, often without crashing.
+  - name: configuration-error
+    pillar: Application
+    displayName: Configuration Error
+    description: The system fails due to an invalid, missing, or improperly structured setting in its configuration.
+  - name: version-incompatibility
+    pillar: Application
+    displayName: Version Incompatibility
+    description: The system fails because two or more of its components have conflicting or unsupported versions.
+
+  # --- Pillar: Infrastructure ---
+  - name: resource-exhaustion-memory
+    pillar: Infrastructure
+    displayName: Memory Exhaustion
+    description: The system fails because it has run out of available memory (RAM), triggering OOM errors or high-watermark alarms.
+  - name: resource-exhaustion-disk
+    pillar: Infrastructure
+    displayName: Disk Exhaustion
+    description: A storage volume has no space left, preventing write operations, logging, or persistence.
+  - name: resource-exhaustion-cpu
+    pillar: Infrastructure
+    displayName: CPU Starvation
+    description: The system's performance degrades or fails due to one or more processes consuming all available CPU resources.
+  - name: resource-exhaustion-connections
+    pillar: Infrastructure
+    displayName: Connection Pool Exhaustion
+    description: The system cannot accept new connections because it has reached the maximum limit of concurrent connections or file handles.
+
+  # --- Pillar: Data ---
+  - name: data-corruption
+    pillar: Data
+    displayName: Data Corruption
+    description: Stored data has been damaged, is unreadable, or violates its expected format or schema.
+  - name: data-replication-failure
+    pillar: Data
+    displayName: Data Replication Failure
+    description: The process of copying data between nodes in a distributed system has failed, leading to state inconsistency.
+  - name: consensus-failure
+    pillar: Data
+    displayName: Consensus Failure
+    description: A distributed system has lost quorum or cannot agree on state, preventing new operations and causing leader election failures.
+  - name: persistence-failure
+    pillar: Data
+    displayName: Persistence Failure
+    description: The system fails to correctly save its state to durable storage, such as a failed database snapshot or transaction log write error.
+
+  # --- Pillar: Networking ---
+  - name: connectivity-dns-failure
+    pillar: Networking
+    displayName: DNS Resolution Failure
+    description: The system fails because it cannot resolve a hostname to an IP address.
+  - name: connectivity-refused
+    pillar: Networking
+    displayName: Connection Refused
+    description: A network connection attempt was actively rejected, often because no process was listening on the target port.
+  - name: connectivity-timeout
+    pillar: Networking
+    displayName: Connection Timeout
+    description: A network operation failed because a response was not received within a configured time limit.
+
+  # --- Pillar: Security ---
+  - name: authorization-violation
+    pillar: Security
+    displayName: Authorization Violation
+    description: An action is blocked because the client lacks the necessary permissions, credentials, or access rights.
   - name: insecure-configuration
+    pillar: Security
     displayName: Insecure Configuration
-    description: Problems related to insecure configuration
-  - name: message-queue-performance
-    displayName: Message Queue Performance
-    description: Problems related to message queue performance
-  - name: kubernetes-api-problems
-    displayName: Kubernetes API Problem
-    description: Problems related to the Kubernetes API
-  - name: web-server-problems
-    displayName: Web Server Problem
-    description: Problems related to web servers
-  - name: kubernetes-problem
-    displayName: Kubernetes Problems
-    description: Problems related to Kubernetes
-  - name: load-balancer-problems
-    displayName: Load Balancer Problems
-    description: Problems related to load balancers
-  - name: proxy-timeout-problem
-    displayName: Proxy Timeout Problems
-    description: Problems related to proxy timeouts
-  - name: web-server-problem
-    displayName: Web Server Problems
-    description: Problems related to web servers
-  - name: configuration-problem
-    displayName: Configuration Problem
-    description: Problems related to system or application configurations
-  - name: monitoring-problem
-    displayName: Monitoring Problem
-    description: Problems related to system or application monitoring
-  - name: noise-problem
-    displayName: Noise Problem
-    description: Problems related to unwanted or irrelevant logs and alerts
-  - name: service-mesh-problem
-    displayName: Service Mesh Problem
-    description: Problems related to monitoring within a service mesh architecture
-  - name: incompatibility-problem
-    displayName: Incompatibility Problem
-    description: Problems due to incompatible components or versions.
-  - name: instability-problem
-    displayName: Instability Problem
-    description: Issues causing system instability or crashes.
-  - name: service-mesh-problems
-    displayName: Service Mesh Problems
-    description: Problems specific to monitoring within a service mesh.
-  - name: logging-problem
-    displayName: Logging Problems
-    description: Issues related to logging mechanisms and processes.
-  - name: provisioning-problem
-    displayName: Provisioning Problems
-    description: Issues related to the provisioning of resources and infrastructure.
-  - name: stability-problem
-    displayName: Stability Problems
-    description: Issues that affect the stability and uptime of systems and services.
-  - name: task-management-problem
-    displayName: Task Management Problems
-    description: Issues related to the management and execution of tasks and workflows.
-  - name: ubuntu-desktop-problem
-    displayName: Ubuntu Desktop Problems
-    description: "Problems related to Ubuntu Desktop"
-  - name: hpc-database-problem
-    displayName: HPC Database Problems
-    description: Database issues specific to high-performance computing systems like SLURM
-  - name: in-memory-database-problem
-    displayName: In-Memory Database Problems
-    description: Problems specific to in-memory data stores (e.g. Redis, Memcached)
-  - name: postgres-ha
-    displayName: PostgreSQL High Availability
-    description: High-severity problems related to PostgreSQL in high-availability (HA) clusters, including replication, failover, WAL streaming, and HA controller outages.
-  - name: kubernetes-storage-problems
-    displayName: Kubernetes Storage Problems
-    description: Problems related to container storage in Kubernetes
-  - name: demo-problems
-    displayName: Demo Problems
-    description: This is a category for demos
-  - name: redpanda-high-availability
-    displayName: Redpanda High Availability
-    description: High-severity issues related to quorum, leader election, Raft consensus, and node isolation in Redpanda clusters
-  - name: distributed-worker-connectivity
-    displayName: Distributed Worker Connectivity Issues
-    description: Failures where a distributed systems worker fails to reach or stay connected to the orchestration backend (e.g., Temporal, Celery).
-
-  - name: redpanda-problems
-    displayName: Redpanda Problems
-    description: Problems related to Redpanda cluster failures, including node loss, quorum loss, and data availability impact.
-
-  - name: authorization-systems
-    displayName: Authorization Systems
-    description: |
-      Failures in systems that manage access control, identity, or permissions.
-      This includes tools like SpiceDB, OPA, or Auth0 where schema, policy, or
-      integration issues can block authentication or authorization flows.
-
-
-  - name: SpiceDB-datastore-failure
-    displayName: SpiceDB Datastore Failure
-    description: Failures in the datastore used by SpiceDB, which can lead to authentication or authorization issues.
-
-  - name: authorization-system-problem
-    displayName: Authorization System Problems
-    description: Problems related to authorization and permission systems like SpiceDB, OPA, and similar fine-grained access control systems
-  - name: database-corruption-problem
-    displayName: Database Corruption Problems
-    description: Problems related to database corruption, including missing tables, schema issues, and data integrity failures
-  - name: access-control-problem
-    displayName: Access Control Problems
-    description: Problems related to access control systems that prevent legitimate access due to system failures rather than policy violations
-  - name: temporal-problem
-    displayName: Temporal Server Failure
-    description: Temporal Server Failure Temporal Server Fails Persistence on Read-Only Database
-
-
-  - name: data-streaming-platforms
-    displayName: Data Streaming Platforms
-    description: |
-      Failures in distributed streaming data platforms used for real-time event processing.
-      This includes platforms like Redpanda, Apache Kafka, Pulsar, and compatible systems
-      where startup, configuration, or operational issues can disrupt data streaming pipelines
-      and impact downstream applications relying on event-driven architectures.
-
+    description: The system is configured in a way that exposes it to security risks, such as using weak ciphers or allowing untrusted hosts.

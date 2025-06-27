@@ -3,7 +3,8 @@ rules:
       id: CRE-2024-0008
       severity: 1
       title: RabbitMQ memory alarm
-      category: message-queue-problem
+      pillar: Infrastructure
+      category: resource-exhaustion-memory
       author: Prequel
       description: |
         A RabbitMQ node has entered the “memory alarm” state because the total memory used by the Erlang VM (plus allocated binaries, ETS tables,
@@ -22,9 +23,8 @@ rules:
         - Application components that rely on timely message delivery may experience delays or timeouts, degrading user-facing services.
       impactScore: 9
       tags: 
-        - known-problem
-        - rabbitmq
-        - public
+        - oom-error
+        - back-pressure
       mitigation: |
         - Inspect memory usage to identify queues or processes consuming RAM: 
              `rabbitmq-diagnostics memory_breakdown -n <node>`  

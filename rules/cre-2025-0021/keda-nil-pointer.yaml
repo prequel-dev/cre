@@ -3,7 +3,8 @@ rules:
       id: CRE-2024-0021
       severity: 1
       title: KEDA operator reconciler ScaledObject panic
-      category: operator-problem
+      pillar: Application
+      category: process-crash
       author: Prequel
       description: |
         KEDA allows for fine-grained autoscaling (including to/from zero) for event driven Kubernetes workloads. KEDA serves as a Kubernetes Metrics Server and allows users to define autoscaling rules using a dedicated Kubernetes custom resource definition.
@@ -13,10 +14,7 @@ rules:
         Until the ScaledObject is deleted or KEDA is upgraded, the KEDA operator will continue to crash when reconciling ScaledObjects.
       impactScore: 4
       tags:
-        - keda
-        - crash
-        - known-problem
-        - public
+        - bug
       mitigation: |
         - Upgrade to KEDA 2.16.1 or newer
         - Deleting the ScaledObjects on the failing cluster will also allow KEDA recovered

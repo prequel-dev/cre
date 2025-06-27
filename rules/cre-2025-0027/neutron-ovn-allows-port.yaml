@@ -3,20 +3,16 @@ rules:
     id: CRE-2025-0027
     severity: 3
     title: Neutron Open Virtual Network (OVN) and Virtual Interface (VIF) allows port binding to dead agents, causing VIF plug timeouts
-    category: networking-problem
+    pillar: Networking
+    category: connectivity-timeout
     author: Prequel
     description: |
       In OpenStack deployments using Neutron with the OVN ML2 driver, ports could be bound to agents that were not alive. This behavior led to virtual machines experiencing network interface plug timeouts during provisioning, as the port binding would not complete successfully.
     cause: | 
       The OVN mechanism driver did not verify the liveness of agents before binding ports. Consequently, ports could be bound to non-responsive agents, resulting in failures during the virtual interface (VIF) plug process.
     tags:
-      - neutron
-      - ovn
-      - timeout
-      - networking
-      - openstack
-      - known-issue
-      - public
+      - node-unresponsive
+      - bug
     mitigation: |
       - Upgrade Neutron to a version that includes the fix for this issue:
         - Master branch: commit `8a55f091925fd5e6742fb92783c524450843f5a0`\n  

@@ -3,7 +3,7 @@ rules:
       id: CRE-2024-0018
       severity: 2
       title: Neutron Open Virtual Network (OVN) high CPU usage
-      category: networking-problem
+      category: resource-exhaustion-cpu
       author: Prequel
       description: |
         OVN daemons (e.g., ovn-controller) are stuck in a tight poll loop, driving CPU to 100 %. Logs show “Dropped … due to excessive rate” or
@@ -13,10 +13,10 @@ rules:
         - Burst of logical-flow updates (security-groups, LB changes)  
         - Poll-loop bug in OVN ≤ 20.2.0
         - CPU contention with GPU workloads; no offload/D PDK
-      tags: 
-        - known-problem
-        - ovn
-        - public
+      tags:
+        - high-cpu-usage
+        - bug
+      pillar: Infrastructure
       mitigation: |
         Increase the OVN remote probe interval to 30 seconds:
         ```
