@@ -1,0 +1,18 @@
+2025-06-25T12:54:59.439135Z  GET /status/503
+2025-06-25T12:54:59.439135Z  HTTP/1.1 503 SERVICE UNAVAILABLE
+2025-06-25T12:54:59.439135Z  Server: gunicorn/19.9.0
+2025-06-25T12:54:59.439135Z  Connection: keep-alive
+2025-06-25T12:54:59.439135Z  Content-Type: text/html; charset=utf-8
+2025-06-25T12:54:59.439135Z  Access-Control-Allow-Origin: *
+2025-06-25T12:54:59.439135Z  Access-Control-Allow-Credentials: true
+2025-06-25T12:54:59.439135Z  Content-Length: 0
+2025-06-25T12:54:59.439135Z  info    access  connection complete  src.addr=10.244.0.50:53712 dst.addr=10.244.0.80:8000 status=503  bytes_sent=0 bytes_recv=0 duration="3ms"
+2025-06-25T12:55:02.717561Z  GET /status/401
+2025-06-25T12:55:02.717561Z  HTTP/1.1 401 UNAUTHORIZED
+2025-06-25T12:55:02.717561Z  Server: gunicorn/19.9.0
+2025-06-25T12:55:02.717561Z  Connection: keep-alive
+2025-06-25T12:55:02.717561Z  WWW-Authenticate: Basic realm="Fake Realm"
+2025-06-25T12:55:02.717561Z  Access-Control-Allow-Origin: *
+2025-06-25T12:55:02.717561Z  Access-Control-Allow-Credentials: true
+2025-06-25T12:55:02.717561Z  Content-Length: 0
+2025-06-25T12:55:02.717561Z  info    access  connection complete  src.addr=10.244.0.50:53714 dst.addr=10.244.0.80:8000 status=401  bytes_sent=0 bytes_recv=0 duration="2ms"
