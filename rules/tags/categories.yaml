@@ -191,4 +191,9 @@ categories:
       This includes platforms like Redpanda, Apache Kafka, Pulsar, and compatible systems
       where startup, configuration, or operational issues can disrupt data streaming pipelines
       and impact downstream applications relying on event-driven architectures.
-
+  - name: istio-ambient-troubleshooting
+    displayName: Istio Ambient Troubleshooting
+    description: |
+      Problems related to troubleshooting Istio’s Ambient service mesh mode,
+      including CNI sandbox creation failures, ztunnel connectivity issues,
+      traffic capture errors, and waypoint configuration problems.

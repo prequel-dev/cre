@@ -702,3 +702,6 @@ tags:
   - name: critical-infrastructure
     displayName: Critical Infrastructure
     description: Issues affecting mission-critical infrastructure components that require immediate attention to prevent widespread outages
+  - name: ambient
+    displayName: Ambient
+    description: Problems specific to Ambient-mode service-mesh failures
