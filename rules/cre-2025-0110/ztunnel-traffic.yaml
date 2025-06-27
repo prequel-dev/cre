@@ -1,0 +1,47 @@
+rules:
+- metadata:
+    kind: prequel
+    id: bR7xUvNyLdGQ2pTjWzYkEp
+    hash: Bas4rDdGBqCLTnmYpKoJc
+  cre:
+    id: CRE-2025-0110
+    severity: 1
+    title: "Ztunnel Traffic timeouts in Istio Ambient Mode"
+    category: "istio-ambient-troubleshooting"
+    author: Prequel
+    description: |
+      Detects when Istio Ambient-mode HBONE (mTLS) traffic is blocked or dropped—
+      resulting in Ztunnel logging timeouts such as `io error: deadline has elapsed`
+      or `connection timed out, maybe a NetworkPolicy is blocking HBONE port 15008`.
+    cause: |
+      - NetworkPolicy or firewall rules blocking outbound port 15008
+      - Misconfigured CNI or host-level iptables preventing HBONE tunnels
+      - Node-level network segmentation or security groups dropping traffic
+    impact: |
+      - Pod-to-pod calls via ambient mode hang until timeout
+      - Application requests fail silently or with long delays
+      - Service reliability degraded due to hidden networking issues
+    tags:
+      - istio
+      - ambient
+      - ztunnel
+    mitigation: |
+      **IMMEDIATE:**
+      - Inspect/allow egress on port 15008 in NetworkPolicies or firewalls
+      - Verify host iptables aren't dropping HBONE traffic
+      - From a ztunnel pod:  
+        `kubectl exec -n istio-system <ztunnel-pod> -- nc -vz <pod-ip> 15008`
+
+      **LONG-TERM:**
+      - Enforce HBONE port rules in CI/CD
+      - Monitor ztunnel logs for frequent timeouts & alert
+    references:
+      - https://github.com/istio/istio/wiki/Troubleshooting-Istio-Ambient#scenario-traffic-timeout-with-ztunnel
+  rule:
+    set:
+      window: 180s
+      event:
+        source: cre.log.ambient
+      match:
+      - regex: 'error +access +connection +complete +.*error="io error: deadline has elapsed"'
+      - regex: 'error +access +connection +complete +.*error="connection timed out, maybe a NetworkPolicy is blocking HBONE port 15008: deadline has elapsed"'
