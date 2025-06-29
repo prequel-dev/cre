@@ -1,0 +1,53 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: 9KdL2nQpR3sWyZzF4GxHkM
+      gen: 1
+    cre:
+      id: CRE-2025-0088
+      severity: 1
+      title: NATS JetStream Storage Exhaustion Detection
+      category: message-queue-problems
+      author: Community
+      description: |
+        Detects NATS JetStream storage exhaustion conditions when streams reach configured
+        storage limits (maximum bytes, maximum messages) causing message storage failures.
+        These patterns indicate insufficient stream storage capacity relative to message
+        production rate, leading to message rejection and potential data loss.
+      cause: |
+        JetStream streams configured with insufficient storage limits (max_bytes, max_msgs)
+        relative to message production rate and retention requirements. Messages exceed
+        configured stream storage capacity faster than they can be consumed or expired.
+      impact: |
+        Message storage failures, potential data loss, stream unavailability, producer
+        errors, degraded application performance, and inability to persist critical messages
+        in JetStream streams.
+      impactScore: 9
+      tags:
+        - nats
+        - jetstream
+        - storage-exhaustion
+        - message-storage-failure
+        - capacity-exceeded
+        - data-loss-risk
+      mitigation: |
+        Increase JetStream stream storage limits (max_bytes, max_msgs), implement stream
+        retention policies, scale consumer processing capacity, monitor stream storage
+        utilization, implement producer flow control, and configure appropriate discard
+        policies for stream overflow scenarios.
+      mitigationScore: 8
+      references:
+        - https://docs.nats.io/nats-concepts/jetstream/streams
+        - https://docs.nats.io/nats-concepts/jetstream/administration
+        - https://docs.nats.io/running-a-nats-service/nats_admin/jetstream_admin
+      applications:
+        - name: nats-server
+          version: ">=2.2.0"
+
+    rule:
+      set:
+        event:
+          source: cre.log.nats.jetstream
+        match:
+          - regex: '(?i)jetstream\s+failed\s+to\s+store.*maximum\s+bytes\s+exceeded'
+            count: 1%                                                                                               
