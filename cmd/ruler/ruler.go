@@ -47,6 +47,9 @@ func main() {
 	case "id":
 		ruler.RunId(cli.IdCmd.Num)
 	case "build":
-		ruler.RunBuild(cli.BuildCmd.InPath, cli.BuildCmd.OutPath, cli.BuildCmd.Version, cli.BuildCmd.Exclude)
+		if err := ruler.RunBuild(cli.BuildCmd.InPath, cli.BuildCmd.OutPath, cli.BuildCmd.Version, cli.BuildCmd.Exclude); err != nil {
+			fmt.Fprintf(os.Stderr, "Build failed: %v\n", err)
+			os.Exit(1)
+		}
 	}
 }

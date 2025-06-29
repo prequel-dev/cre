@@ -1,0 +1,83 @@
+rules:
+  - cre:
+      id: CRE-2025-0091
+      severity: 0
+      title: Redpanda Consumer Mass Disconnect → Coordinator Failure
+      category: distributed-messaging-connectivity
+      author: Prequel
+      description: |
+        Detects high-severity failure when mass consumer disconnections overwhelm Redpanda's group coordinator.
+        - Multiple consumers simultaneously leave consumer groups
+        - Coordinator becomes unresponsive (NodeNotReadyError)
+        - MemberIdRequiredError indicates coordinator state corruption
+        - Can lead to complete message processing halt
+        
+      cause: |
+        ROOT CAUSES:
+        - Mass consumer disconnection (100+ consumers killed simultaneously)
+        - Consumer group coordinator overwhelmed by concurrent LeaveGroup requests
+        - Redpanda coordinator node resource exhaustion during rebalance storm
+        - Network partition or container resource limits during high consumer churn
+        
+      impact: |
+        BUSINESS IMPACT:
+        - Complete halt of message processing for affected consumer groups
+        - New consumers cannot join groups (MemberIdRequiredError)
+        - Existing consumers stuck in rebalance loops
+        - Data pipeline downtime until coordinator recovery
+        - Potential message loss if consumers crash during processing
+        
+      impactScore: 10
+      tags:
+        - redpanda
+        - consumer-groups
+        - coordinator-failure
+        - mass-disconnect
+        - kafka-compatibility
+        - message-processing-halt
+        
+      mitigation: |
+        IMMEDIATE:
+        - Restart affected consumer applications in small batches
+        - Monitor Redpanda coordinator health: `rpk cluster info`
+        - Check for coordinator election: `rpk group describe <group-name>`
+        - Reduce consumer concurrency during recovery
+        
+        RECOVERY ACTIONS:
+        - Restart Redpanda if coordinator remains unresponsive
+        - Clear consumer group state: `rpk group delete <group-name>`
+        - Implement graceful consumer shutdown with staggered delays
+        - Monitor system resources during consumer scaling
+        
+        PREVENTION STRATEGIES:
+        - Implement circuit breaker pattern for consumer creation
+        - Add jitter to consumer startup/shutdown timing
+        - Monitor consumer group rebalance frequency
+        - Set appropriate session.timeout.ms and heartbeat.interval.ms
+        - Use consumer group instance IDs for better tracking
+        
+      mitigationScore: 7
+      references:
+        - https://github.com/redpanda-data/redpanda/issues/3643
+        - https://docs.redpanda.com/docs/manage/consumer-groups/
+        - https://kafka.apache.org/documentation/#consumerconfigs
+        - https://redpanda.com/blog/kafka-consumer-group-protocol
+        
+      applications:
+        - name: "redpanda"
+          version: ">=v23.3.0"
+          
+    metadata:
+      kind: prequel
+      id: 8j5PZrqoePydfvpJHTB3So
+      
+    rule:
+      sequence:
+        window: 120s
+        event:
+          source: cre.log.redpanda.consumer
+        order:
+          - regex: "Leaving consumer group.*crash-test-group"
+          - regex: "LeaveGroup request.*returned successfully"           
+          - regex: "(NodeNotReadyError|MemberIdRequiredError)"
+          

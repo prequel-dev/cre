@@ -1,0 +1,59 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: 43LNwPunkRCSovrjPyoxpukWVtnU
+      gen: 1
+    cre:
+      id: CRE-2025-0103
+      severity: 2
+      title: NATS Connection Failures and Network Partitions
+      category: message-queue-problem
+      tags:
+        - nats
+        - connectivity
+      author: Prequel
+      description: |
+        Detects NATS connection failures and network partitions that can impact message delivery and system reliability.
+      cause: |
+        - Network connectivity issues between NATS clients and servers
+        - NATS server crashes or restarts
+        - Network partitions causing client disconnections
+        - Connection timeouts due to network latency or server overload
+      impact: |
+        - Message delivery failures
+        - Service disruptions
+        - Increased latency
+        - System instability
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        1. Check NATS server health and logs
+        2. Verify network connectivity between clients and servers
+        3. Check for network partition events
+        4. Monitor system resources
+
+        RECOVERY:
+        1. Restore network connectivity if partitioned
+        2. Restart affected NATS clients
+        3. Verify message delivery resumes
+        4. Monitor reconnection attempts
+
+        PREVENTION:
+        1. Implement proper monitoring and alerting
+        2. Use redundant NATS servers
+        3. Configure appropriate timeouts and retry policies
+        4. Regular network health checks
+      references:
+        - https://docs.nats.io/running-a-nats-service/configuration
+        - https://docs.nats.io/running-a-nats-service/configuration/sys_accounts
+      applications:
+        - name: "nats"
+          version: ">=2.0.0"
+    rule:
+      sequence:
+        window: 30s
+        event:
+          source: cre.log.nats
+        order:
+          - regex: ".*ERROR connection failed: (nats: connection closed|NATS server unreachable.*)"
+            count: 5
+          - regex: ".*ERROR NATS client disconnected.*"

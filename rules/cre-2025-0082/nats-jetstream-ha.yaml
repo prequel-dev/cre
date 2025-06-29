@@ -1,0 +1,62 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: QsYzSA81AJSgnVqaQt4XGS
+      version: "0.1.0"
+    cre:
+      id: CRE-2025-0082
+      severity: 1
+      title: "NATS JetStream HA failures: monitor goroutine, consumer stalls and unsynced replicas"
+      category: "message-queue-problem"
+      author: Prequel
+      description: |
+        Detects high-availability failures in NATS JetStream clusters due to:
+        
+        1. **Monitor goroutine failure** — after node restarts, Raft group fails to elect a leader  
+        2. **Consumer deadlock** — using DeliverPolicy=LastPerSubject + AckPolicy=Explicit with low MaxAckPending  
+        3. **Unsynced replicas** — object store replication appears healthy but data is lost or inconsistent between nodes
+
+        These issues lead to invisible data loss, stalled consumers, or stream unavailability.
+      impact: |
+        - **Scenario 1**: Stream becomes unusable (publishes/read fail) due to no Raft leader  
+        - **Scenario 2**: Consumer stalls with `context deadline exceeded`, ACKs no longer move floor  
+        - **Scenario 3**: Object Store data loss occurs silently across restarts despite healthy status  
+        All scenarios disrupt reliability of JetStream-based systems and violate consistency expectations.
+      cause: |
+        - [Monitor failure]: JetStream monitor goroutine did not start after server restart  
+        - [Consumer stall]: ACK/sequence tracking inconsistency under `LastPerSubject + Explicit ACK + low MaxAckPending`  
+        - [Replica drift]: Raft replicas fall out of sync silently (especially during cold restart or recovery), leading to inconsistent object store contents
+      mitigation: |
+        - Always enable JetStream before ReadyForConnections  
+        - Use ProcessConfigString instead of on-the-fly JS enablement  
+        - Avoid MaxAckPending < 100 with DeliverPolicy=LastPerSubject  
+        - Run regular `nats stream-check --unsynced` checks  
+        - To recover object store:  
+          - Scale stream to replicas=1 and back  
+          - Or remove faulty replica via `nats stream cluster ... peer-remove`  
+        - Monitor for raftz and jsz inconsistencies in tooling
+      mitigationScore: 8
+      references:
+        - "https://github.com/nats-io/nats-server/issues/6890"
+        - "https://github.com/nats-io/nats-server/issues/6921"
+        - "https://github.com/nats-io/nats-server/issues/6929"
+      reports: 3
+      version: "0.1.0"
+      tags:
+        - nats
+        - jetstream
+        - raft
+        - ack-deadlock
+        - unsynced-replica
+      applications:
+        - name: nats-server
+          version: ">=2.11.3"
+    rule:
+      set:
+        event:
+          source: cre.log.nats
+        match:
+          - regex: "monitor goroutine not running|Fetch error: context deadline exceeded|UNSYNCED"
+        negate:
+          - "server shutdown"
+          - "shutting down"
