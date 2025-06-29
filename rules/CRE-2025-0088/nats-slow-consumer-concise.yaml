@@ -1,43 +1,53 @@
 rules:
-  - cre:
+  - metadata:
+      kind: prequel
+      id: 9KdL2nQpR3sWyZzF4GxHkM
+      gen: 1
+    cre:
       id: CRE-2025-0088
       severity: 1
-      title: NATS Producer Connection Churn
+      title: NATS JetStream Storage Exhaustion Detection
       category: message-queue-problems
       author: Community
       description: |
-        NATS producers rapidly connecting and disconnecting, indicating slow consumer 
-        backpressure or system overload preventing stable message delivery.
+        Detects NATS JetStream storage exhaustion conditions when streams reach configured
+        storage limits (maximum bytes, maximum messages) causing message storage failures.
+        These patterns indicate insufficient stream storage capacity relative to message
+        production rate, leading to message rejection and potential data loss.
       cause: |
-        Slow consumers unable to process messages at production rate, causing 
-        connection instability and message delivery failures.
+        JetStream streams configured with insufficient storage limits (max_bytes, max_msgs)
+        relative to message production rate and retention requirements. Messages exceed
+        configured stream storage capacity faster than they can be consumed or expired.
       impact: |
-        Message delivery interruptions and potential data loss as producers 
-        cannot maintain stable connections to NATS server.
-      impactScore: 7
+        Message storage failures, potential data loss, stream unavailability, producer
+        errors, degraded application performance, and inability to persist critical messages
+        in JetStream streams.
+      impactScore: 9
       tags:
         - nats
-        - slow-consumer
-        - connection-churn
-        - performance-degradation
+        - jetstream
+        - storage-exhaustion
+        - message-storage-failure
+        - capacity-exceeded
+        - data-loss-risk
       mitigation: |
-        Scale consumer applications and implement connection pooling with 
-        exponential backoff retry logic in producers.
-      mitigationScore: 6
+        Increase JetStream stream storage limits (max_bytes, max_msgs), implement stream
+        retention policies, scale consumer processing capacity, monitor stream storage
+        utilization, implement producer flow control, and configure appropriate discard
+        policies for stream overflow scenarios.
+      mitigationScore: 8
       references:
-        - https://docs.nats.io/nats-concepts/core-nats/slow-consumers
+        - https://docs.nats.io/nats-concepts/jetstream/streams
+        - https://docs.nats.io/nats-concepts/jetstream/administration
+        - https://docs.nats.io/running-a-nats-service/nats_admin/jetstream_admin
       applications:
         - name: nats-server
-          version: ">=2.9.0"
-    metadata:
-      kind: prequel
-      id: 8KdL9mNpQ2rVxYzE3FwGhJ
-      gen: 1
+          version: ">=2.2.0"
+
     rule:
       set:
-        window: 60s
         event:
-          source: cre.log.nats
+          source: cre.log.nats.jetstream
         match:
-          - regex: "Client connection closed: Client Closed"
-            count: 10
+          - regex: '(?i)jetstream\s+failed\s+to\s+store.*maximum\s+bytes\s+exceeded'
+            count: 1%                                                                                               
