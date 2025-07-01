@@ -345,6 +345,9 @@ tags:
   - name: nginx
     displayName: Nginx
     description: Problems related to Nginx, such as weak ciphers, configuration errors, or performance issues
+  - name: ingress-controller
+    displayName: Ingress Controller
+    description: Problems related to Kubernetes Ingress Controllers, such as SSL certificate validation failures, routing issues, or backend connectivity problems
   - name: tls
     displayName: TLS
     description: Problems related to TLS, such as weak ciphers, configuration errors, or performance issues
@@ -714,3 +717,15 @@ tags:
   - name: data-loss-risk
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
+  - name: ssl-certificate
+    displayName: SSL Certificate
+    description: Problems related to SSL/TLS certificate validation, expiration, trust chain issues, or handshake failures
+  - name: tls-handshake
+    displayName: TLS Handshake
+    description: Problems during TLS/SSL handshake process including cipher negotiation, protocol version mismatches, and connection establishment failures
+  - name: certificate-verification
+    displayName: Certificate Verification
+    description: Issues with SSL/TLS certificate verification including trust chain validation, certificate authority verification, and hostname matching
+  - name: service-unavailability
+    displayName: Service Unavailability
+    description: Problems where services become completely unavailable or unreachable, preventing normal operations
