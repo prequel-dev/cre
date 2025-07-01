@@ -191,4 +191,13 @@ categories:
       This includes platforms like Redpanda, Apache Kafka, Pulsar, and compatible systems
       where startup, configuration, or operational issues can disrupt data streaming pipelines
       and impact downstream applications relying on event-driven architectures.
+  - name: mongodb-resource-exhaustion
+    displayName: MongoDB Resource Exhaustion
+    description: MongoDB node becomes unresponsive due to memory or CPU exhaustion under high load
+  - name: performance-degradation
+    displayName: Performance Degradation
+    description: Problems where slow queries, timeouts, or degraded throughput occur under stress or resource limitations
+  - name: database-availability-problem
+    displayName: Database Availability Problems
+    description: Failures that cause MongoDB or similar systems to become unavailable due to crashes or overwhelming traffic
 

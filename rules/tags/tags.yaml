@@ -162,6 +162,9 @@ tags:
   - name: service
     displayName: Service
     description: Failures at the service or API layer of an application.
+  - name: cpu-memory-exhaustion
+    displayName: CPU/Memory Exhaustion
+    description: Scenarios where MongoDB becomes unresponsive or crashes due to overwhelming CPU or memory usage.
   - name: signature
     displayName: Signature
     description: Problems with signing or verifying cryptographic signatures.

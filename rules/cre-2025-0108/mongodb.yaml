@@ -1,0 +1,47 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: KQhfhAmpyqD9mUx1DGJoho
+      version: "0.1.0"
+    cre:
+      id: CRE-2025-0108
+      severity: 1
+      title: MongoDB client disconnects and socket exceptions under load
+      category: "Slow Query"
+      author: Prequel
+      description: |
+        - Under high client load or resource exhaustion (e.g., 1 CPU, 500MB RAM), MongoDB can begin to log a large number of socket disconnections and broken pipe errors.
+        - This results in frequent connection churn, interrupted operations, and possible failed writes.
+      cause: |
+        - Client connections are dropped because of resource exhaustion (e.g., memory pressure or CPU starvation).
+        - The MongoDB server cannot respond in time, causing broken pipes and socket disconnects.
+      impact: |
+        - Lost client operations.
+        - Potential data integrity issues if writes are interrupted.
+        - Increased latency due to reconnections.
+      tags:
+        - mongodb
+        - slow query
+        - high-load
+        - connection-failure
+      mitigation: |
+        - Add more CPU and memory resources.
+        - Introduce connection pooling and rate limiting on the client side.
+        - Optimize MongoDB queries and schema to reduce pressure.
+        - Monitor and alert on connection and socket exception patterns.
+      references:
+        - https://www.mongodb.com/docs/manual/reference/log-messages/
+      reports: 3
+      version: "0.1.0"
+      applications:
+        - name: "mongodb"
+          version: "8.0"
+    rule:
+      set:
+        event:
+          source: mongodb
+        match:
+          - regex: "Slow query"
+        negate:
+          - "shutting down"
+          - "server shutdown"
