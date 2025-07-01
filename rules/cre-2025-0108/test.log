@@ -1,0 +1,248 @@
+2025-07-01T05:00:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:00:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:00:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:00:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:00:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:00:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:00:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:00:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:01:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:01:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:01:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:01:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:01:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:01:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:01:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:01:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:01:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:01:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:01:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:01:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:01:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:01:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:01:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:01:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:02:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:02:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:02:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:02:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:02:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:02:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:02:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:02:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:02:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:02:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:02:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:02:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:02:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:02:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:02:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:02:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:03:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:03:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:03:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:03:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:03:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:03:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:03:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:03:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:03:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:03:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:03:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:03:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:03:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:03:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:03:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:03:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:04:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:04:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:04:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:04:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:04:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:04:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:04:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:04:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:04:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:04:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:04:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:04:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:04:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:04:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:04:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:04:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:05:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:05:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:05:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:05:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:05:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:05:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:05:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:05:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:05:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:05:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:05:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:05:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:05:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:05:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:05:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:05:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:06:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:06:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:06:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:06:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:06:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:06:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:06:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:06:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:06:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:06:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:06:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:06:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:06:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:06:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:06:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:06:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:07:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:07:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:07:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:07:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:07:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:07:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:07:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:07:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:07:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:07:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:07:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:07:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:07:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:07:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:07:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:07:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:08:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:08:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:08:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:08:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:08:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:08:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:08:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:08:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:08:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:08:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:08:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:08:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:08:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:08:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:08:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:08:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:09:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:09:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:09:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:09:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:09:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:09:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:09:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:09:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:09:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:09:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:09:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:09:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:09:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:09:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:09:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:09:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:10:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:10:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:10:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:10:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:10:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:10:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:10:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:10:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:10:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:10:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:10:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:10:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:10:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:10:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:10:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:10:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:11:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:11:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:11:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:11:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:11:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:11:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:11:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:11:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:11:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:11:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:11:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:11:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:11:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:11:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:11:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:11:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:12:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:12:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:12:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:12:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:12:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:12:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:12:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:12:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:12:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:12:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:12:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:12:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:12:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:12:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:12:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:12:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:13:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:13:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:13:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:13:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:13:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:13:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:13:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:13:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:13:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:13:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:13:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:13:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:13:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:13:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:13:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:13:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:14:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:14:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:14:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:14:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:14:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:14:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:14:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:14:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:14:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:14:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:14:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:14:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:14:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:14:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:14:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:14:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:15:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:15:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:15:18Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:15:18Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:15:18Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:15:18Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:15:18Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:15:18Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
+2025-07-01T05:15:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-abc123 to 1
+2025-07-01T05:15:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-def456 to 1
+2025-07-01T05:15:48Z Normal ScalingReplicaSet deployment/nginx-deployment Scaled up replica set nginx-deployment-ghi789 to 1
+2025-07-01T05:15:48Z Normal RollingUpdate deployment/nginx-deployment Scaled up replica set nginx-deployment-jkl012 to 1
+2025-07-01T05:15:48Z Warning PodDisruptionBudgetViolation deployment/nginx-deployment Pod disruption budget violation detected: maxUnavailable: 2 conflicts with minAvailable: 2
+2025-07-01T05:15:48Z Normal Killing pod/nginx-deployment-abc123 Stopping container nginx
+2025-07-01T05:15:48Z Normal Killing pod/nginx-deployment-def456 Stopping container nginx
+2025-07-01T05:15:48Z Warning Unhealthy pod/nginx-deployment-ghi789 Readiness probe failed: Get http://10.244.0.58:80/: dial tcp 10.244.0.58:80: connection refused
