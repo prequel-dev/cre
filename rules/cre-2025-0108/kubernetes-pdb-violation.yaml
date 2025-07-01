@@ -32,7 +32,7 @@ rules:
         - k8s
         - known-problem
         - misconfiguration
-        - operational-error
+        - operational error
         - high-availability
       mitigation: |
         **Immediate Actions:**
