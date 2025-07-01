@@ -33,10 +33,7 @@ rules:
         - known-problem
         - misconfiguration
         - operational-error
-        - public
         - high-availability
-        - cluster-operations
-        - service-disruption
       mitigation: |
         **Immediate Actions:**
         1. Pause the rolling update:
