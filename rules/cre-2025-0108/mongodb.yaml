@@ -7,7 +7,7 @@ rules:
       id: CRE-2025-0108
       severity: 1
       title: MongoDB client disconnects and socket exceptions under load
-      category: "Slow Query"
+      category: mongodb-resource-exhaustion
       author: Prequel
       description: |
         - Under high client load or resource exhaustion (e.g., 1 CPU, 500MB RAM), MongoDB can begin to log a large number of socket disconnections and broken pipe errors.
@@ -20,10 +20,7 @@ rules:
         - Potential data integrity issues if writes are interrupted.
         - Increased latency due to reconnections.
       tags:
-        - mongodb
-        - slow query
-        - high-load
-        - connection-failure
+        - cpu-memory-exhaustion
       mitigation: |
         - Add more CPU and memory resources.
         - Introduce connection pooling and rate limiting on the client side.
