@@ -729,3 +729,15 @@ tags:
   - name: service-unavailability
     displayName: Service Unavailability
     description: Problems where services become completely unavailable or unreachable, preventing normal operations
+  - name: ip-exhaustion
+    displayName: IP Exhaustion
+    description: Problems where IP address pools are depleted, preventing new network allocations
+  - name: eni-allocation
+    displayName: ENI Allocation
+    description: Problems with Elastic Network Interface allocation and management in AWS
+  - name: pod-scheduling
+    displayName: Pod Scheduling
+    description: Issues with Kubernetes pod scheduling due to resource constraints or networking problems
+  - name: cluster-scaling
+    displayName: Cluster Scaling
+    description: Problems related to Kubernetes cluster scaling operations and capacity management

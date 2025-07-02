@@ -1,0 +1,93 @@
+rules:
+  - cre:
+      id: CRE-2025-0121
+      severity: 0
+      title: AWS VPC CNI IP Address Exhaustion Crisis
+      category: networking-problem
+      author: Prequel
+      description: |
+        Critical AWS VPC CNI IP address exhaustion detected. This pattern indicates cascading failures
+        where subnet IP exhaustion leads to ENI allocation failures, pod scheduling failures, and
+        complete service unavailability. The failure sequence shows IP allocation errors, ENI attachment
+        failures, and resulting pod startup failures that affect cluster scalability and workload deployment.
+      cause: |
+        - Subnet IP address pool exhaustion in VPC
+        - Maximum ENI limit reached per EC2 instance
+        - Secondary IP allocation failures on existing ENIs
+        - VPC CNI plugin configuration errors
+        - Insufficient subnet CIDR block size for cluster scale
+        - ENI warm pool depletion during traffic spikes
+        - AWS API rate limiting on EC2 ENI operations
+        - Security group or NACL blocking ENI operations
+        - IAM permissions missing for ENI management
+        - Cross-AZ networking constraints affecting IP allocation
+      impact: |
+        - CRITICAL: Complete inability to schedule new pods
+        - Existing pods fail to restart or scale
+        - Service degradation due to reduced pod capacity
+        - Cluster autoscaling failures and node provisioning issues
+        - Application deployment failures and rollback complications
+        - Load balancer health check failures due to unreachable pods
+        - Cascading failures across microservices architecture
+        - Data plane connectivity loss between pods
+        - Revenue loss from service unavailability
+        - Compliance violations for high-availability requirements
+      impactScore: 10
+      tags:
+        - aws
+        - vpc-cni
+        - kubernetes
+        - networking
+        - ip-exhaustion
+        - eni-allocation
+        - pod-scheduling
+        - cluster-scaling
+        - high-availability
+        - service-unavailability
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Check available IPs in subnets: `aws ec2 describe-subnets --subnet-ids subnet-xxx`
+        - Verify ENI limits: `aws ec2 describe-network-interfaces --filters Name=attachment.instance-id,Values=i-xxx`
+        - Monitor VPC CNI logs: `kubectl logs -n kube-system -l app=aws-node`
+        - Check pod scheduling: `kubectl get pods --all-namespaces | grep Pending`
+        - Verify CNI configuration: `kubectl get configmap -n kube-system aws-node -o yaml`
+
+        RECOVERY STEPS:
+        1. Add additional subnets with larger CIDR blocks
+        2. Increase ENI warm pool size: `kubectl set env daemonset aws-node -n kube-system WARM_ENI_TARGET=2`
+        3. Enable prefix delegation: `kubectl set env daemonset aws-node -n kube-system ENABLE_PREFIX_DELEGATION=true`
+        4. Scale down non-critical workloads to free IPs
+        5. Restart VPC CNI daemonset: `kubectl rollout restart daemonset/aws-node -n kube-system`
+        6. Monitor IP allocation recovery: `kubectl get pods -n kube-system -l app=aws-node`
+
+        PREVENTION:
+        - Implement IP address monitoring and alerting
+        - Configure subnet auto-scaling with larger CIDR blocks
+        - Set up VPC CNI metrics monitoring in CloudWatch
+        - Implement pod density limits per node
+        - Use prefix delegation for improved IP efficiency
+        - Regular capacity planning for cluster growth
+        - Implement network policy optimization
+        - Set up automated subnet provisioning
+      references:
+        - https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html
+        - https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/troubleshooting.md
+        - https://aws.amazon.com/blogs/containers/amazon-vpc-cni-increases-pods-per-node-limits/
+        - https://docs.aws.amazon.com/eks/latest/userguide/cni-custom-network.html
+        - https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
+      applications:
+        - name: amazon-vpc-cni-k8s
+          version: ">= 1.7.0"
+        - name: kubernetes
+          version: ">= 1.18.0"
+      mitigationScore: 6
+    metadata:
+      gen: 1
+      id: 6E7meYDEvC5c6yub5dVgkW
+      kind: prequel
+    rule:
+      set:
+        event:
+          source: cre.log.aws-vpc-cni
+        match:
+          - regex: "failed to allocate a private IP address.*no available IP addresses|ENI allocation failed.*insufficient IP addresses|failed to assign private IP.*AddressLimitExceeded|pod.*failed.*no available IP|insufficient IP addresses in subnet|failed to create ENI.*AddressLimitExceeded|unable to provision ENI.*IP address limit|failed to allocate IP.*subnet has no available addresses|pod scheduling failed.*insufficient IP addresses|CNI failed to allocate IP.*no free addresses"
