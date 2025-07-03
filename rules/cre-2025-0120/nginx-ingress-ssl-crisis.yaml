@@ -1,0 +1,93 @@
+rules:
+  - cre:
+      id: CRE-2025-0120
+      severity: 0
+      title: NGINX Ingress Controller SSL Certificate Crisis
+      category: load-balancer-problems
+      author: Prequel
+      description: |
+        Critical NGINX Ingress Controller SSL certificate validation failure detected. This pattern indicates
+        cascading SSL failures where certificate verification errors lead to upstream connection failures
+        and service unavailability. The failure sequence shows SSL handshake failures, certificate verification
+        errors, and resulting HTTP error responses that affect client connectivity.
+      cause: |
+        - SSL certificate expiration without renewal
+        - Invalid or self-signed certificates in production
+        - Broken certificate chain or missing intermediate certificates
+        - Certificate authority (CA) bundle misconfiguration
+        - Certificate hostname mismatch (CN/SAN validation failure)
+        - Upstream services using untrusted or expired certificates
+        - SSL/TLS protocol version incompatibility
+        - Certificate revocation or CA compromise
+        - Misconfigured SSL verification settings
+        - Network time synchronization issues affecting certificate validity
+      impact: |
+        - CRITICAL: Complete service unavailability for SSL-enabled endpoints
+        - All HTTPS traffic fails with SSL handshake errors
+        - Client applications receive 502 Bad Gateway or 503 Service Unavailable responses
+        - Loss of secure communication channels and encrypted data transmission
+        - Potential security exposure if SSL verification is disabled as workaround
+        - Cascading failures across SSL-dependent microservices
+        - Browser security warnings and user trust degradation
+        - API integrations and automated systems fail due to SSL verification
+        - Revenue loss from e-commerce and secure transaction failures
+        - Compliance violations for systems requiring encrypted communication
+      impactScore: 10
+      tags:
+        - nginx
+        - ingress-controller
+        - ssl-certificate
+        - tls-handshake
+        - certificate-verification
+        - load-balancer
+        - kubernetes
+        - security
+        - high-availability
+        - service-unavailability
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Check SSL certificate expiration: `openssl x509 -in cert.pem -text -noout | grep -A2 Validity`
+        - Verify certificate chain: `openssl verify -CAfile ca-bundle.pem server.crt`
+        - Test SSL connectivity: `openssl s_client -connect hostname:443 -servername hostname`
+        - Check NGINX SSL configuration: `nginx -t && nginx -s reload`
+        - Monitor SSL handshake errors in real-time: `tail -f /var/log/nginx/error.log | grep SSL`
+
+        RECOVERY STEPS:
+        1. Replace expired/invalid certificates with valid ones
+        2. Update certificate chain with proper intermediate certificates
+        3. Verify CA bundle contains trusted root certificates
+        4. Restart NGINX Ingress Controller: `kubectl rollout restart deployment/nginx-ingress-controller`
+        5. Test SSL endpoints: `curl -v https://your-domain.com/health`
+        6. Monitor certificate auto-renewal processes
+
+        PREVENTION:
+        - Implement automated certificate monitoring and alerting
+        - Set up certificate auto-renewal with cert-manager or similar tools
+        - Configure certificate expiration alerts (30, 7, 1 days before expiry)
+        - Implement SSL health checks in monitoring systems
+        - Use certificate transparency monitoring for unauthorized certificates
+        - Regular SSL configuration audits and security scans
+        - Implement proper certificate lifecycle management
+        - Set up backup certificate authorities and failover mechanisms
+      references:
+        - https://kubernetes.github.io/ingress-nginx/user-guide/tls/
+        - https://nginx.org/en/docs/http/ngx_http_ssl_module.html
+        - https://cert-manager.io/docs/
+        - https://www.openssl.org/docs/man1.1.1/man1/verify.html
+        - https://kubernetes.io/docs/concepts/services-networking/ingress/#tls
+      applications:
+        - name: nginx-ingress-controller
+          version: ">= 1.0.0"
+        - name: nginx
+          version: ">= 1.15.0"
+      mitigationScore: 7
+    metadata:
+      gen: 1
+      id: L67VM4E8FeoKezgjWfo9gt
+      kind: prequel
+    rule:
+      set:
+        event:
+          source: cre.log.nginx
+        match:
+          - regex: "SSL.*certificate.*verify.*failed|SSL.*handshake.*failed|certificate.*verify.*error|upstream.*SSL.*certificate.*verify.*failed|SSL.*connect.*error|upstream.*ssl.*handshake|502.*Bad.*Gateway|503.*Service.*Unavailable|upstream.*timed.*out.*SSL"
