@@ -1,6 +1,6 @@
 rules:
 - cre:
-    id: CRE-2025-0020
+    id: CRE-2024-0020
     severity: 2
     title: Grafana alloy Loki fanout crash
     category: storage-problem
