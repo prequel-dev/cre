@@ -720,3 +720,6 @@ tags:
   - name: data-loss-risk
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
+  - name: database-problem
+    displayName: Database Problem
+    description: Failures to relate to database persistence, availability, or consistency
