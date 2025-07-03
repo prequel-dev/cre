@@ -11,35 +11,35 @@ rules:
         leading to complete cluster networking breakdown. The failure sequence shows ipamd errors,
         kubelet scheduling failures, and controller-level pod creation blocks that render clusters
         unable to deploy new workloads, scale existing services, or recover from node failures.
-        
+
         This represents one of the most severe Kubernetes infrastructure failures, often requiring
         immediate manual intervention including subnet expansion, secondary CIDR provisioning,
         or emergency workload termination to restore cluster functionality.
-      
+
       cause: |
         Primary subnet IP address pool exhaustion in AWS VPC combined with ENI warm pool depletion
         during traffic spikes or cluster scaling events. Root causes include undersized subnet CIDR
         blocks, inefficient VPC CNI warm pool configuration, custom networking misconfigurations,
         and hitting AWS service limits (AddressLimitExceeded, NetworkInterfaceLimitExceeded).
-        
+
         Secondary factors include cluster autoscaler thrashing, batch job IP consumption spikes,
         failed pod cleanup leaving IPs allocated, and insufficient capacity planning for workload
         growth patterns. The problem is exacerbated by VPC CNI's default warm pool behavior
         which reserves significant IP overhead per node.
-      
+
       impact: |
         CRITICAL: Complete inability to schedule new pods across affected nodes or entire cluster.
         Existing pods fail to restart after crashes or updates. Service autoscaling becomes
         impossible leading to cascading service degradation. Cluster autoscaler cannot provision
         new nodes due to IP exhaustion. Load balancer target registration fails for new pods.
-        
+
         Business impact includes revenue loss from service unavailability, SLA violations,
         compliance breaches for HA requirements, and potential data loss if stateful workloads
         cannot restart. Recovery typically requires 30-60 minutes of manual intervention including
         infrastructure changes, making this a tier-0 production emergency.
-      
+
       impactScore: 10
-      
+
       tags:
         - aws
         - eks
@@ -64,14 +64,14 @@ rules:
         - threshold-exceeded
         - infrastructure
         - public
-      
+
       mitigation: |
         IMMEDIATE EMERGENCY RESPONSE:
         - Identify affected subnets: `aws ec2 describe-subnets --filters "Name=vpc-id,Values=$(aws eks describe-cluster --name CLUSTER --query cluster.resourcesVpcConfig.vpcId --output text)" --query 'Subnets[*].[SubnetId,AvailableIpAddressCount,CidrBlock]' --output table`
         - Check ENI allocation status: `aws ec2 describe-network-interfaces --filters "Name=status,Values=in-use" --query 'length(NetworkInterfaces)'`
         - Scale down non-critical workloads immediately: `kubectl scale deployment NON_CRITICAL_APP --replicas=0`
         - Monitor VPC CNI daemon logs: `kubectl logs -n kube-system -l k8s-app=aws-node --follow`
-        
+
         RECOVERY ACTIONS (Execute in order):
         1. Associate secondary VPC CIDR: `aws ec2 associate-vpc-cidr-block --vpc-id VPC_ID --cidr-block 100.64.0.0/16`
         2. Create additional subnets with enhanced discovery tags:
@@ -84,7 +84,7 @@ rules:
         4. Optimize warm pool configuration: `kubectl set env daemonset aws-node -n kube-system WARM_IP_TARGET=3 MINIMUM_IP_TARGET=1 WARM_ENI_TARGET=1`
         5. Force VPC CNI restart to discover new subnets: `kubectl rollout restart daemonset/aws-node -n kube-system && kubectl rollout status daemonset/aws-node -n kube-system --timeout=300s`
         6. Verify recovery: `kubectl get pods --all-namespaces | grep Pending && kubectl get nodes -o wide`
-        
+
         PREVENTION AND MONITORING:
         - Implement subnet IP monitoring: CloudWatch alarm on `AvailableIpAddressCount < 50`
         - Enable Enhanced Subnet Discovery (VPC CNI v1.18.0+): `kubectl set env daemonset aws-node -n kube-system ENABLE_SUBNET_DISCOVERY=true`
@@ -94,7 +94,7 @@ rules:
         - Consider IPv6 adoption for long-term scalability: `kubectl set env daemonset aws-node -n kube-system ENABLE_IPv6=true`
         - Monitor warm pool efficiency: `kubectl get daemonset aws-node -n kube-system -o jsonpath='{.spec.template.spec.containers[0].env[?(@.name=="WARM_IP_TARGET")].value}'`
         - Set up automated secondary CIDR provisioning triggers
-      
+
       references:
         - https://neon.com/blog/aws-cni-lessons-from-a-production-outage
         - https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html
@@ -106,7 +106,7 @@ rules:
         - https://aws.amazon.com/blogs/containers/addressing-ipv4-address-exhaustion-in-amazon-eks-clusters-using-private-nat-gateways/
         - https://github.com/aws/amazon-vpc-cni-k8s/issues/2017
         - https://adevinta.com/techblog/how-we-avoided-an-outage-caused-by-running-out-of-ips-in-eks/
-      
+
       applications:
         - name: amazon-vpc-cni-k8s
           version: ">= 1.7.0"
@@ -114,14 +114,14 @@ rules:
           version: ">= 1.18.0"
         - name: aws-eks
           version: ">= 1.18.0"
-      
+
       mitigationScore: 4
-    
+
     metadata:
       gen: 1
       id: 7K8nwYCDvF6d9xvs2gWjM5
       kind: prequel
-    
+
     rule:
       set:
         event:
