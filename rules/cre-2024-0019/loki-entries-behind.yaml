@@ -1,6 +1,6 @@
 rules:
 - cre:
-    id: CRE-2025-0019
+    id: CRE-2024-0019
     severity: 3
     title: Alloy entries too far behind
     category: storage-problem

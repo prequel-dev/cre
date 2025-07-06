@@ -12,7 +12,6 @@ rules:
       tags:
         - "slurm"
         - "slurmdbd"
-        - "database-problem"
         - "mysql"
         - "high-availability"
       author: "Prequel"

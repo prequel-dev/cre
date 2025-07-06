@@ -7,7 +7,7 @@ rules:
       id: CRE-2025-0088
       severity: 1
       title: NATS JetStream Storage Exhaustion Detection
-      category: message-queue-problems
+      category: message-queue-problem
       author: Community
       description: |
         Detects NATS JetStream storage exhaustion conditions when streams reach configured
@@ -50,4 +50,5 @@ rules:
           source: cre.log.nats.jetstream
         match:
           - regex: '(?i)jetstream\s+failed\s+to\s+store.*maximum\s+bytes\s+exceeded'
-            count: 1%                                                                                               
+            count: 1
+     
