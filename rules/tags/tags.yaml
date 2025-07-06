@@ -723,17 +723,17 @@ tags:
   - name: envoy-proxy
     displayName: Envoy Proxy
     description: Problems related to the configuration, operation, or performance of the Envoy proxy.
-  - name: load-balancer
+  - name: envoy-load-balancer
     displayName: Load Balancer
     description: Issues concerning traffic distribution, health checking, and connection management across backend services.
-  - name: upstream-errors
-    displayName: Upstream Errors
+  - name: envoy-upstream-errors
+    displayName: Envoy Upstream Errors
     description: Failures occurring when a proxy or gateway cannot get a valid response from a backend or upstream service.
-  - name: service-unavailable
-    displayName: Service Unavailable
+  - name: envoy-service-unavailable
+    displayName: Envoy Service Unavailable
     description: Indicates a server is temporarily unable to handle a request, often due to overload or maintenance (HTTP 503).
-  - name: gateway-timeout
-    displayName: Gateway Timeout
+  - name: envoy-gateway-timeout
+    displayName: Envoy Gateway Timeout
     description: Errors where a server acting as a gateway did not receive a timely response from an upstream server it needed to access (HTTP 504).
   - name: microservices
     displayName: Microservices
