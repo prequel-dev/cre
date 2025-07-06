@@ -1,0 +1,47 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: DQbJmYTnPqvL6HdX2Xs7Wh
+    cre:
+      id: CRE-2025-0093
+      severity: 0
+      title: MongoDB Crash Loop Due to WiredTiger Metadata Corruption
+      category: database-problems
+      author: Community
+      description: |
+        Detects MongoDB failures where the server enters a crash loop due to corrupted WiredTiger metadata.
+        This prevents startup and often requires manual repair or restoration from backups.
+      cause: |
+        WiredTiger metadata corruption caused by unclean shutdowns, disk failures, or filesystem issues. 
+        MongoDB is unable to initialize its storage engine due to invalid or unreadable metadata.
+      impact: |
+        Database remains unavailable due to repeated startup failures. 
+        Services relying on MongoDB experience outages and potential data loss.
+        Errors referencing WiredTiger metadata corruption are observed in the logs.
+      impactScore: 10
+      tags:
+        - mongodb
+        - wiredtiger
+        - metadata
+        - corruption
+        - crash-loop
+        - startup-failure
+      mitigation: |
+        Prevent unclean shutdowns, monitor disk and filesystem health, run regular backups.
+        If corruption occurs, attempt recovery with mongod --repair, or restore from a known good backup.
+      mitigationScore: 9
+      references:
+        - https://www.mongodb.com/docs/manual/administration/repair/
+        - https://jira.mongodb.org/browse/SERVER-37978
+        - https://www.mongodb.com/community/forums/t/wiredtiger-initialize-failure-database-not-starting/113829
+      applications:
+        - name: mongod
+          version: ">=4.2"
+
+    rule:
+      set:
+        event:
+          source: cre.log.mongodb
+        match:
+          - regex: '(?i)WiredTiger.*metadata.*corrupt'
+            count: 1

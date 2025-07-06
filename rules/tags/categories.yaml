@@ -198,3 +198,8 @@ categories:
       including CNI sandbox creation failures, ztunnel connectivity issues,
       traffic capture errors, and waypoint configuration problems.
 
+  - name: mongodb-startup-failure
+    displayName: MongoDB Startup Failure
+    description: |
+      Failures that prevent MongoDB from starting successfully due to corrupted metadata, invalid configurations,
+      or unrecoverable internal errors (e.g., WiredTiger metadata corruption). These failures often require manual repair or backup restoration.
