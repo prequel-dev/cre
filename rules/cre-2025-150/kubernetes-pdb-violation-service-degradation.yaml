@@ -1,0 +1,71 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: KWmAAtU3ZRSFDSCdSjRkmo
+      version: "0.1.0"
+    cre:
+      id: CRE-2025-0150
+      severity: 1
+      title: Kubernetes Pod Disruption Budget Violation with Service Degradation
+      category: kubernetes-availability
+      author: Prequel
+      description: |
+        - Pod Disruption Budget (PDB) violations occur when the number of healthy pods falls below the minAvailable threshold during cluster operations.
+        - This can happen during rolling updates, node drains, cluster autoscaling, or maintenance operations.
+        - Results in service degradation, SLA breaches, and potential cascading failures across dependent services.
+        - PDB constraints are bypassed or ignored by kubelet, compromising cluster stability guarantees.
+      cause: |
+        - Deployment rolling update strategy conflicts with PDB minAvailable requirements
+        - Node drains or cluster autoscaling events trigger simultaneous pod evictions
+        - Resource pressure forces pod relocations beyond PDB limits
+        - Kubelet bypasses PDB constraints during node maintenance
+        - Insufficient cluster resources prevent scale-up to maintain minimum availability
+        - API server connectivity issues prevent proper PDB status queries
+      impact: |
+        - Service availability drops below guaranteed minimum (e.g., 87.3% vs 99.9% SLA)
+        - Workload degradation to critically low capacity (16% in observed case)
+        - Cascading failures in dependent services (api-gateway errors)
+        - Extended recovery time due to resource constraints
+        - Multiple PDB violations across cluster affecting overall stability
+        - Potential service outages during maintenance windows
+      tags:
+        - pdb-violation
+        - service-degradation
+        - kubernetes
+        - availability
+        - sla-breach
+        - cluster-stability
+      mitigation: |
+        - Pause rolling updates immediately when PDB violations detected
+        - Adjust deployment maxUnavailable to respect PDB requirements
+        - Monitor cluster resource capacity before maintenance operations
+        - Implement PDB violation alerts and automated rollback triggers
+        - Use pod anti-affinity to spread critical workloads across nodes
+        - Configure cluster autoscaler to respect PDB constraints
+        - Set up progressive delivery (canary/blue-green) for critical services
+        - Monitor API server connectivity and PDB status query timeouts
+      references:
+        - https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+        - https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
+        - https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+        - https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/
+      reports: 1
+      version: "0.1.0"
+      applications:
+        - name: "kubernetes"
+          version: ">=1.25.0"
+    rule:
+      set:
+        window: 5m
+        event:
+          source: cre.log.kubernetes
+        match:
+          - regex: "PDB_BYPASS_DETECTED.*constraint violated"
+          - regex: "WORKLOAD_DEGRADATION.*service.*degraded to.*capacity"
+          - regex: "SLA_BREACH.*uptime dropped.*below.*threshold"
+          - regex: "PDB violation persists.*allows.*disruptions.*currently.*disrupted"
+          - regex: "Cluster stability compromised.*critical services degraded"
+          - regex: "Scale-up failed.*insufficient cluster resources"
+        negate:
+          - "scheduled maintenance"
+          - "graceful shutdown"

@@ -735,3 +735,22 @@ tags:
   - name: election
     displayName: Replica Set Election
     description: Events related to stepping up/down a MongoDB primary node, often due to failures or heartbeat loss
+
+  - name: pdb-violation
+    displayName: PDB Violation
+    description: Pod Disruption Budget constraint violations in Kubernetes clusters
+  - name: service-degradation
+    displayName: Service Degradation
+    description: Reduction in service availability or performance below acceptable thresholds
+  - name: kubernetes
+    displayName: Kubernetes
+    description: Container orchestration platform events and issues
+  - name: availability
+    displayName: Availability
+    description: Service uptime and accessibility issues
+  - name: sla-breach
+    displayName: SLA Breach
+    description: Service Level Agreement violations and threshold breaches
+  - name: cluster-stability
+    displayName: Cluster Stability
+    description: Issues affecting overall Kubernetes cluster stability and reliability

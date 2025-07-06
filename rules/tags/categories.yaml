@@ -204,3 +204,11 @@ categories:
       Failures that compromise the correctness, consistency, or durability of data in MongoDB.
       This includes silent write loss during rollbacks, replication inconsistencies,
       unacknowledged data drops, and issues affecting data reliability across replica sets.
+
+  - name: kubernetes-availability
+    displayName: Kubernetes Availability
+    description: |
+      Failures that compromise the availability, uptime, or accessibility of services
+      running on Kubernetes clusters. This includes Pod Disruption Budget violations,
+      service degradation, rolling update failures, and issues affecting cluster stability
+      and workload availability guarantees.
