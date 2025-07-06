@@ -735,6 +735,3 @@ tags:
   - name: critical-failure
     displayName: Critical Failure
     description: Failures that cause immediate service termination or data loss
-  - name: database-availability
-    displayName: Database Availability
-    description: Problems that impact database availability and uptime
