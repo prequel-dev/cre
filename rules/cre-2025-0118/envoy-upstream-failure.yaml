@@ -22,10 +22,10 @@ rules:
       impactScore: 7
       tags:
         - envoy-proxy
-        - load-balancer
-        - upstream-errors
-        - service-unavailable
-        - gateway-timeout
+        - envoy-load-balancer
+        - envoy-upstream-errors
+        - envoy-service-unavailable
+        - envoy-gateway-timeout
         - microservices
       mitigation: |
         **Immediate response:**
