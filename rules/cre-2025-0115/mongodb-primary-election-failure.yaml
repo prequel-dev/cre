@@ -7,7 +7,7 @@ rules:
       id: CRE-2025-0108
       severity: 1
       title: "MongoDB Replica Set Primary Election Failure"
-      category: "mongodb-ha"
+      category: "database-problem"
       author: Prequel
       description: |
         Detects high-severity MongoDB replica set primary election failures that result in no primary node being available,
