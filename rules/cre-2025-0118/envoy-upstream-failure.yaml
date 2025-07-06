@@ -26,7 +26,6 @@ rules:
         - envoy-upstream-errors
         - envoy-service-unavailable
         - envoy-gateway-timeout
-        - microservices
       mitigation: |
         **Immediate response:**
         - **Check Envoy Admin Stats**: Access the Envoy admin interface (e.g., `http://localhost:9901/stats`) to get detailed statistics about the health of your clusters.
