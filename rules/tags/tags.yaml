@@ -735,6 +735,3 @@ tags:
   - name: envoy-gateway-timeout
     displayName: Envoy Gateway Timeout
     description: Errors where a server acting as a gateway did not receive a timely response from an upstream server it needed to access (HTTP 504).
-  - name: microservices
-    displayName: Microservices
-    description: Problems related to the communication, discovery, and reliability of services within a microservices architecture.
