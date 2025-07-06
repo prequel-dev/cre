@@ -25,16 +25,11 @@ rules:
         - System resource constraints (CPU, memory, disk) causing node failures
         - Firewall or security group rules blocking inter-node communication
       tags:
-        - mongodb
-        - replica-set
-        - primary-election
-        - availability
-        - database
         - ha
         - quorum
-        - heartbeat
-        - network-partition
-        - election-timeout
+        - leader-election
+        - network
+        - timeout
         - crash
         - data-loss
       mitigation: |
