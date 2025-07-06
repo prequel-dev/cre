@@ -52,7 +52,7 @@ rules:
         - https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/circuit_breaking#arch-overview-circuit-break
       applications:
         - name: envoy
-          version: "<= 1.34.1"
+          version: "1.34.1"
       mitigationScore: 7
     metadata:
       gen: 1
