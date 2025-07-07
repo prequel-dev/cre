@@ -30,7 +30,6 @@ rules:
       tags:
          - ip-exhaustion
          - aws-cni-networking
-         - kubernetes-networking
          - service-unavailable
          - network-unavailable
          - scheduling-failure
