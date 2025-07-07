@@ -1,0 +1,31 @@
+2025-06-10 02:41:14,359 - INFO - Starting consumer crash simulation with 100 consumers
+2025-06-10 02:41:14,359 - WARNING - Heartbeat thread did not fully terminate during close
+2025-06-10 02:41:14,359 - INFO - Leaving consumer group (crash-test-group-1).
+2025-06-10 02:41:14,360 - INFO - LeaveGroup request for group crash-test-group-1 returned successfully
+2025-06-10 02:41:14,361 - INFO - Closing connection [IPv6 ('::1', 9092, 0, 0)]
+2025-06-10 02:41:14,364 - WARNING - Heartbeat thread did not fully terminate during close
+2025-06-10 02:41:14,364 - WARNING - Heartbeat thread did not fully terminate during close
+2025-06-10 02:41:14,364 - INFO - Leaving consumer group (crash-test-group-2).
+2025-06-10 02:41:14,364 - INFO - Leaving consumer group (crash-test-group-1).
+2025-06-10 02:41:14,364 - INFO - Leaving consumer group (crash-test-group-3).
+2025-06-10 02:41:14,365 - INFO - LeaveGroup request for group crash-test-group-2 returned successfully
+2025-06-10 02:41:14,366 - INFO - Closing connection [IPv6 ('::1', 9092, 0, 0)]
+2025-06-10 02:41:14,366 - INFO - Closing connection [IPv6 ('::1', 9092, 0, 0)]
+2025-06-10 02:41:14,394 - WARNING - Heartbeat thread did not fully terminate during close
+2025-06-10 02:41:14,394 - INFO - Leaving consumer group (crash-test-group-2).
+2025-06-10 02:41:14,395 - INFO - Leaving consumer group (crash-test-group-4).
+2025-06-10 02:41:14,395 - INFO - Leaving consumer group (crash-test-group-4).
+2025-06-10 02:41:14,396 - INFO - LeaveGroup request for group crash-test-group-2 returned successfully
+2025-06-10 02:41:14,397 - INFO - Closing connection [IPv6 ('::1', 9092, 0, 0)]
+2025-06-10 02:41:14,398 - INFO - Closing connection [IPv6 ('::1', 9092, 0, 0)]
+2025-06-10 02:41:14,427 - WARNING - Heartbeat thread did not fully terminate during close
+2025-06-10 02:41:14,427 - INFO - Leaving consumer group (crash-test-group-2).
+2025-06-10 02:41:14,427 - INFO - Leaving consumer group (crash-test-group-3).
+2025-06-10 02:41:14,429 - INFO - Closing connection [IPv6 ('::1', 9092, 0, 0)]
+2025-06-10 02:41:14,429 - INFO - Closing connection [IPv6 ('::1', 9092, 0, 0)]
+2025-06-10 02:42:08,212 - ERROR - Failed to join group crash-test-group-1: [Error 79] MemberIdRequiredError
+2025-06-10 02:42:08,260 - ERROR - Failed to join group crash-test-group-1: NodeNotReadyError: coordinator-0
+2025-06-10 02:42:08,261 - ERROR - Failed to join group crash-test-group-1: [Error 79] MemberIdRequiredError
+2025-06-10 02:42:09,100 - ERROR - Failed to join group crash-test-group-2: NodeNotReadyError: coordinator-0
+2025-06-10 02:42:09,150 - ERROR - Failed to join group crash-test-group-3: [Error 79] MemberIdRequiredError
+2025-06-10 02:42:09,200 - ERROR - Failed to join group crash-test-group-4: NodeNotReadyError: coordinator-0

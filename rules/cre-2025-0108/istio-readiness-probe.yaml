@@ -1,0 +1,51 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: bN5vRoUyAeVQ1mKjXsTfLp
+      hash: YhT9rLeNPeXrVbkYpLqCv
+    cre:
+      id: CRE-2025-0108
+      severity: 1
+      title: "Ambient mode readiness probe failures"
+      category: "istio-ambient-troubleshooting"
+      author: Prequel
+      description: |
+        In Ambient mode, Istio applies a SNAT rule so that kubelet probe traffic
+        appears from 169.254.7.127 and is bypassed by the data-plane.  If you see
+        **Readiness probe failed** events begin only after enabling Ambient, it
+        almost always means that SNAT/bypass isn't working in your CNI or
+        networking environment.
+      cause: |
+        - The host SNAT rule for kubelet (169.254.7.127) is missing or being overwritten.
+        - A CNI (e.g. Cilium with bpf.masquerade=true, Calico <3.29 with bpfEnabled)
+          is rewriting probe traffic unexpectedly.
+        - A network policy or security group is blocking traffic from kubelet.
+      impact: |
+        - Pods never become Ready (stuck in CrashLoopBackOff or Pending).
+        - Services relying on readiness will not receive traffic, causing outages.
+      mitigation: |
+        IMMEDIATE:
+        - Inspect host iptables: `iptables -t nat -L ISTIO_REDIRECT` shows the SNAT rule.
+        - On each node, confirm kubelet source SNAT: `iptables -t nat -L OUTPUT`.
+        - Check your CNI docs for ambient prerequisites (Cilium/Calico, AWS SGs).
+        RECOVERY:
+        - Adjust your CNI so it does not masquerade kubelet source IP.
+        - Remove conflicting NetworkPolicy blocking port 15021/8080 on probes.
+      tags:
+        - istio
+        - ambient
+        - cni
+      references:
+        - https://github.com/istio/istio/wiki/Troubleshooting-Istio-Ambient#scenario-readiness-probes-fail-with-ztunnel
+      applications:
+        - name: istio-ambient
+          version: ">=1.26.0"
+    rule:
+      set:
+        window: 300s
+        event:
+          source: cre.log.ambient
+        match:
+          - regex: "Readiness probe failed:"
+            count: 4
+          - regex: "Back-off restarting failed container"

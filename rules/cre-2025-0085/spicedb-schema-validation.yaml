@@ -1,0 +1,85 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: 7KnM8pRqV3xFyWzA9GkLhN
+    cre:
+      id: CRE-2025-0085
+      severity: 1
+      title: "SpiceDB Schema Validation Failures Block Authorization Updates"
+      category: "authorization-problem"
+      author: Community
+      description: |
+        Detects SpiceDB schema validation failures that prevent authorization 
+        logic updates and deployments. These failures occur when invalid schema 
+        definitions are submitted, including syntax errors, circular dependencies, 
+        type conflicts, or malformed permission expressions, blocking critical 
+        authorization system updates.
+      cause: |
+        - Invalid schema syntax in authorization definitions
+        - Circular dependencies between permissions and relations
+        - References to undefined relations or non-existent types
+        - Malformed permission expressions with invalid operators
+        - Type conflicts or duplicate relation definitions
+        - Schema migration conflicts with existing data structures
+        - Missing required schema elements during updates
+        - Invalid caveat usage or expression syntax
+      impact: |
+        - Deployment failures blocking new features and authorization logic
+        - Unable to update permission models or authorization rules
+        - Rollback required, delaying critical security updates
+        - Development team blocked from implementing access control changes
+        - Inconsistent authorization state if partial updates succeed
+        - CI/CD pipeline failures affecting release schedules
+        - Manual intervention required to fix schema definitions
+      tags:
+        - spicedb
+        - authorization
+        - configuration
+        - validation
+        - crash
+        - startup-failure
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Identify and fix the specific schema validation error
+        - Review the error message to understand the validation failure
+        - Check for syntax errors, typos, or missing definitions
+        
+        DEBUGGING:
+        - Use SpiceDB schema validation tools to test definitions locally
+        - Verify all referenced relations and types are properly defined
+        - Check for circular dependencies in permission expressions
+        - Validate permission expression syntax and operators
+        
+        RECOVERY:
+        - Fix the schema definition based on validation error messages
+        - Test schema changes in development environment first
+        - Use schema diffing tools to understand changes
+        - Apply corrected schema definition to SpiceDB
+        
+        PREVENTION:
+        - Implement schema validation in CI/CD pipelines before deployment
+        - Use schema linting tools to catch errors early
+        - Maintain schema versioning and change documentation
+        - Create automated tests for schema definitions
+        - Use gradual rollout strategies for schema changes
+      applications:
+        - name: spicedb
+          version: ">=1.44.0"
+      impactScore: 8
+      mitigationScore: 7
+      reports: 1
+    rule:
+      set:
+        window: 2m
+        event:
+          source: cre.log.spicedb
+        match:
+          - regex: 'schema validation (failed|error)'
+            count: 2
+          - regex: 'invalid schema definition'
+          - regex: 'circular dependency detected'
+          - regex: 'undefined relation.*in permission'
+          - regex: 'duplicate relation.*already defined'
+        negate:
+          - "schema validation successful"
+          - "test environment"

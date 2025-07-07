@@ -1,4 +1,3 @@
-
 rules:
   - metadata:
       kind: prequel
@@ -35,6 +34,7 @@ rules:
         - quorum-loss
         - data-availability
         - errors
+        - distributed-system
       mitigation: |
         - **Initial Triage & Isolation:**
           - Identify the specific node(s) reporting critical errors (e.g., I/O errors, shutdown messages) from Redpanda logs.

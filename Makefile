@@ -43,4 +43,8 @@ rules: ruler
 
 .PHONY: clean
 clean:
-	rm -rf bin/*
+	@rm -rf bin/*
+
+.PHONY: test
+test:
+	@go test ./...

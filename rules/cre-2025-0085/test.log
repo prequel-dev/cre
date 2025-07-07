@@ -1,0 +1,25 @@
+# SpiceDB Schema Validation Failures - Test Log for preq
+# Generated: Mon Jun  9 10:39:33 WAT 2025
+
+2025-06-09 10:39:56 [ERROR] schema validation failed: circular dependency detected between permissions
+2025-06-09 10:39:56 [ERROR] invalid schema definition: undefined relation 'nonexistent_viewer' in permission 'read'
+2025-06-09 10:39:56 [ERROR] schema validation error: duplicate relation 'owner' already defined in definition 'document'
+2025-06-09 10:39:56 [ERROR] Schema validation failed: Missing Relation Type in definition syntax
+2025-06-09 10:39:56 [ERROR] Schema validation failed: Missing Relation Type
+2025-06-09 10:39:56 [ERROR] invalid schema definition: {"level":"fatal","error":"rpc error: code = InvalidArgument desc = parse error in `schema`, line 4, column 19: Expected one of: [TokenTypeColon], found: TokenTypeSyntheticSemicolon","time":"2025-06-09T09:39:56Z","message":"failed to write schema"}
+2025-06-09 10:39:57 [ERROR] Schema validation failed: Undefined Relation Reference
+2025-06-09 10:39:57 [ERROR] invalid schema definition: {"level":"fatal","error":"rpc error: code = InvalidArgument desc = parse error in `schema`, line 5, column 20: Expected one of: [TokenTypeEquals], found: TokenTypeColon","time":"2025-06-09T09:39:57Z","message":"failed to write schema"}
+2025-06-09 10:39:57 [ERROR] Schema validation failed: Invalid Permission Expression
+2025-06-09 10:39:57 [ERROR] invalid schema definition: {"level":"fatal","error":"rpc error: code = InvalidArgument desc = parse error in `schema`, line 5, column 20: Expected one of: [TokenTypeEquals], found: TokenTypeColon","time":"2025-06-09T09:39:57Z","message":"failed to write schema"}
+2025-06-09 10:39:57 [ERROR] Schema validation failed: Direct Circular Reference
+2025-06-09 10:39:57 [ERROR] invalid schema definition: {"level":"fatal","error":"rpc error: code = InvalidArgument desc = parse error in `schema`, line 5, column 20: Expected one of: [TokenTypeEquals], found: TokenTypeColon","time":"2025-06-09T09:39:57Z","message":"failed to write schema"}
+2025-06-09 10:39:57 [ERROR] Schema validation failed: Invalid Type Reference
+2025-06-09 10:39:57 [ERROR] invalid schema definition: {"level":"fatal","error":"rpc error: code = InvalidArgument desc = parse error in `schema`, line 5, column 20: Expected one of: [TokenTypeEquals], found: TokenTypeColon","time":"2025-06-09T09:39:58Z","message":"failed to write schema"}
+2025-06-09 10:39:58 [ERROR] Schema validation failed: Malformed Syntax
+2025-06-09 10:39:58 [ERROR] invalid schema definition: {"level":"fatal","error":"rpc error: code = InvalidArgument desc = parse error in `schema`, line 1, column 1: Unexpected token at root level: TokenTypeIdentifier","time":"2025-06-09T09:39:58Z","message":"failed to write schema"}
+2025-06-09 10:39:58 [ERROR] Schema validation failed: Batch Error 1 - invalid schema definition
+2025-06-09 10:39:58 [ERROR] circular dependency detected in permission chain: read -> write -> admin -> read
+2025-06-09 10:39:59 [ERROR] Schema validation failed: Batch Error 2 - invalid schema definition
+2025-06-09 10:39:59 [ERROR] circular dependency detected in permission chain: read -> write -> admin -> read
+2025-06-09 10:40:00 [ERROR] Schema validation failed: Batch Error 3 - invalid schema definition
+2025-06-09 10:40:00 [ERROR] circular dependency detected in permission chain: read -> write -> admin -> read

@@ -1,0 +1,48 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: bM7pZdRxAeUQ3nVjYsZtWp
+      hash: UhT8rLdNVeYqTczXpKrFx
+    cre:
+      id: CRE-2025-0109
+      severity: 2
+      title: "Ambient HTTP status codes by Ztunnel"
+      category: "istio-ambient-troubleshooting"
+      author: Prequel
+      description: |
+        When Ambient mode is enabled, Ztunnel tunnels HTTP over HBONE
+        (HTTP CONNECT) and although it's a TCP proxy, it still tags its
+        "connection complete" log lines with the HTTP status code from
+        the upstream response (e.g. 503, 401). This CRE verifies that
+        non-2xx responses are correctly surfaced.
+      cause: |
+        - The application returned an HTTP error (503 Service Unavailable,
+          401 Unauthorized, etc.).
+        - Ztunnel records the status code in its TCP-level access log.
+      impact: |
+        - Operators can trace HTTP failures end-to-end through the mesh.
+        - If Ztunnel did not log the status, troubleshooting is far harder.
+      mitigation: |
+        IMMEDIATE:
+        - Inspect your HTTP service logs to confirm the 4xx/5xx.
+        - Run `kubectl -n istio-system logs <ztunnel-pod> -c istio-proxy`
+          and grep for `status=<code>`.
+        RECOVERY:
+        - Ensure your `meshConfig.defaultConfig.proxyStatsMatcher.inclusionRegexps`
+          includes `status` so status codes get logged.
+      tags:
+        - istio
+        - ambient
+        - ztunnel
+      references:
+        - https://github.com/istio/istio/wiki/Troubleshooting-Istio-Ambient#scenario-traffic-fails-with-http-status-
+      applications:
+        - name: ztunnel
+          version: ">=1.26.0"
+    rule:
+      set:
+        event:
+          source: cre.log.ambient
+        match:
+          - regex: "status=(?:4[0-9]{2}|5[0-9]{2})"
+        negate: []

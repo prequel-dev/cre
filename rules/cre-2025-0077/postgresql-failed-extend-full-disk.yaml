@@ -1,45 +1,45 @@
 rules:
-- cre:
-    id: CRE-2025-0077
-    severity: 1
-    title: PostgreSQL Fails to Extend File Due to Disk Full
-    category: database-problem
-    author: André Muta
-    description: |
-      PostgreSQL logs an error when it cannot extend a data file (table/index) because
-      the filesystem is out of disk space. This prevents writes requiring new allocation.
-    cause: |
-      The disk partition hosting PostgreSQL's data directory (PGDATA) or related tablespaces is full,
-      often due to data growth, table bloat, or insufficient initial disk allocation.
-    impact: |
-      Prevents new data writes or updates that require more disk space, leading to failed transactions.
-      May escalate to a database PANIC if critical system components are affected.
-    impactScore: 9
-    tags:
-      - postgresql
-      - disk-full
-      - write-failure
-      - public
-    mitigation: |
-      - **Verify Disk Space:** Check the disk space usage of the PostgreSQL data directory and tablespaces.
-      - **Free OS-Level Space:** Delete non-PostgreSQL files (old logs, temp files) from the full partition.
-      - **Free PostgreSQL Space:** If accessible, `TRUNCATE` unneeded tables, `DELETE` old data and `VACUUM`, or `DROP` unused objects. `VACUUM FULL` reclaims more space but needs some free space to run and locks tables.
-      - **Expand Storage:** Increase the disk volume size at the OS or cloud provider level.
-      - **Preventative Measures:** Implement disk space monitoring with alerts (e.g., >80%), schedule regular `VACUUM` operations, and perform capacity planning.
-    mitigationScore: 7
-    references:
-      - https://www.postgresql.org/docs/current/storage-file-layout.html
-      - https://www.postgresql.org/docs/current/routine-vacuuming.html
-    applications:
-      - name: postgresql
-        version: '>=9.6'
-  metadata:
-    kind: prequel
-    id: CCz3K8qTkJAhHVBDjaESMa
-    gen: 1
-  rule:
-    set:
-      event:
-        source: cre.log.postgresql
-      match:
-      - regex: 'ERROR:  could not extend file "[^"]+": (No space left on device|wrote only \d+ of \d+ bytes at block \d+)'
+  - cre:
+      id: CRE-2025-0077
+      severity: 1
+      title: PostgreSQL Fails to Extend File Due to Disk Full
+      category: database-problem
+      author: André Muta
+      description: |
+        PostgreSQL logs an error when it cannot extend a data file (table/index) because
+        the filesystem is out of disk space. This prevents writes requiring new allocation.
+      cause: |
+        The disk partition hosting PostgreSQL's data directory (PGDATA) or related tablespaces is full,
+        often due to data growth, table bloat, or insufficient initial disk allocation.
+      impact: |
+        Prevents new data writes or updates that require more disk space, leading to failed transactions.
+        May escalate to a database PANIC if critical system components are affected.
+      impactScore: 9
+      tags:
+        - postgresql
+        - disk-full
+        - write-failure
+        - public
+      mitigation: |
+        - **Verify Disk Space:** Check the disk space usage of the PostgreSQL data directory and tablespaces.
+        - **Free OS-Level Space:** Delete non-PostgreSQL files (old logs, temp files) from the full partition.
+        - **Free PostgreSQL Space:** If accessible, `TRUNCATE` unneeded tables, `DELETE` old data and `VACUUM`, or `DROP` unused objects. `VACUUM FULL` reclaims more space but needs some free space to run and locks tables.
+        - **Expand Storage:** Increase the disk volume size at the OS or cloud provider level.
+        - **Preventative Measures:** Implement disk space monitoring with alerts (e.g., >80%), schedule regular `VACUUM` operations, and perform capacity planning.
+      mitigationScore: 7
+      references:
+        - https://www.postgresql.org/docs/current/storage-file-layout.html
+        - https://www.postgresql.org/docs/current/routine-vacuuming.html
+      applications:
+        - name: postgresql
+          version: '>=9.6'
+    metadata:
+      kind: prequel
+      id: CCz3K8qTkJAhHVBDjaESMa
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.postgresql
+        match:
+        - regex: 'ERROR:  could not extend file "[^"]+": (No space left on device|wrote only \d+ of \d+ bytes at block \d+)'

@@ -3,7 +3,7 @@ rules:
       id: CRE-2025-0075
       severity: 0
       title: Nginx Upstream Failure Cascade Crisis
-      category: load-balancer-problem
+      category: load-balancer-problems
       author: Prequel
       description: |
         Detects critical Nginx upstream failure cascades that lead to complete service unavailability.
@@ -109,4 +109,6 @@ rules:
           source: cre.log.nginx
         order:
           - regex: "could not be resolved|Host not found|Name or service not known|no resolver defined to resolve|connect\\(\\) failed|Connection refused|Connection timed out|Connection reset by peer|No route to host|Network is unreachable|kevent\\(\\) reported that connect\\(\\) failed|no live upstreams|upstream server temporarily disabled|upstream timed out|upstream prematurely closed connection|upstream prematurely closed|SSL_do_handshake\\(\\) failed|SSL handshaking to upstream|SSL_connect\\(\\) failed|upstream sent too big header|upstream sent invalid header|upstream sent invalid chunked response|upstream sent no valid HTTP|upstream sent invalid response|recv\\(\\) failed|send\\(\\) failed|broken pipe|upstream: no port in upstream"
+            count: 30
           - regex: "502|503|504"
+            count: 30
