@@ -27,6 +27,7 @@ rules:
         - Load balancer health checks fail, removing healthy instances from service.
         - Cluster autoscaler cannot add nodes due to networking constraints.
         - Silent degradation of service reliability without clear alerting.
+      impactScore: 10
       tags:
          - ip-exhaustion
          - aws-cni-networking
@@ -42,6 +43,7 @@ rules:
         - Monitor kube-scheduler metrics for persistent scheduling failures.
         - Use secondary CIDR blocks for additional IP address space.
         - Implement network policies to optimize IP usage efficiency.
+      mitigationScore: 9
       references:
          - https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html
          - https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/troubleshooting.md
