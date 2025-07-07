@@ -726,9 +726,10 @@ tags:
   - name: service-degradation
     displayName: Service Degradation
     description: Reduction in service availability or performance below acceptable thresholds
-  - name: kubernetes
-    displayName: Kubernetes
-    description: Container orchestration platform events and issues
+  - name: kubernetes-cluster-issue
+    displayName: Kubernetes Cluster Issue
+    description: General issues related to the Kubernetes control plane, node health, or orchestration components that impact cluster operations.
+
   - name: availability
     displayName: Availability
     description: Service uptime and accessibility issues
