@@ -6,7 +6,7 @@ rules:
       id: CRE-2025-0093
       severity: 0
       title: MongoDB Crash Loop Due to WiredTiger Metadata Corruption
-      category: database-problems
+      category: mongodb-startup-failure
       author: Community
       description: |
         Detects MongoDB failures where the server enters a crash loop due to corrupted WiredTiger metadata.
