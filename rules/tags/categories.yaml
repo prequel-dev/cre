@@ -212,3 +212,7 @@ categories:
   - name: kubernetes-ingress-availability
     displayName: Kubernetes Ingress Availability
     description: Failures that impact the availability and reliability of Kubernetes ingress controllers, such as configuration errors, routing failures, or load balancer issues affecting external traffic access.
+
+  - name: envoy-dns-resolution
+    displayName: Envoy DNS Resolution Failures
+    description: DNS-related failures in Envoy proxy where upstream service domains cannot be resolved, resulting in routing issues and 503 Service Unavailable errors.

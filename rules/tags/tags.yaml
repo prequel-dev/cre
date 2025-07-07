@@ -773,3 +773,23 @@ tags:
   - name: availability-impact
     displayName: Availability Impact
     description: Issues that directly affect service availability and user access to applications.
+
+  - name: dns-resolution
+    displayName: DNS Resolution
+    description: Failures related to domain name resolution, typically caused by invalid, missing, or unresolvable DNS entries.
+
+  - name: upstream-failure
+    displayName: Upstream Failure
+    description: Issues in which Envoy fails to route traffic to configured upstream services, resulting in degraded service or outages.
+
+  - name: service-unavailable
+    displayName: Service Unavailable
+    description: Conditions where a service cannot fulfill requests, often resulting in HTTP 503 responses.
+
+  - name: envoy-proxy
+    displayName: Envoy Proxy
+    description: Rules and detections related to the behavior or failures of the Envoy proxy.
+
+  - name: cluster-health
+    displayName: Cluster Health
+    description: Issues impacting the operational health of service clusters within Envoy, often detected via health checks or resolution failures.
