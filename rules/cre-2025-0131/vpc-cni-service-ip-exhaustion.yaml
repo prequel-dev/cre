@@ -29,10 +29,10 @@ rules:
         - Silent degradation of service reliability without clear alerting.
       tags:
          - ip-exhaustion
-         - vpc-cni
+         - aws-cni-networking
          - kubernetes-networking
-         - service-disruption
-         - aws-eks
+         - service-unavailable
+         - network-unavailable
          - scheduling-failure
       mitigation: |
         - Monitor subnet IP utilization and set up alerts before exhaustion (recommend <80% threshold).
