@@ -720,7 +720,6 @@ tags:
   - name: data-loss-risk
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
- 
   - name: nginx-ingress
     displayName: NGINX Ingress
     description: Issues related to NGINX Ingress Controller configuration, routing, and traffic management.
@@ -736,7 +735,6 @@ tags:
   - name: invalid-system-config
     displayName: Invalid System Configuration
     description: Errors caused by malformed or invalid system or service configurations that prevent proper operation across one or more components.
-    
   - name: availability-impact
     displayName: Availability Impact
     description: Issues that directly affect service availability and user access to applications.
