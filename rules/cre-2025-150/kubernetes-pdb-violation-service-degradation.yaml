@@ -31,7 +31,7 @@ rules:
       tags:
         - pdb-violation
         - service-degradation
-        - kubernetes
+        - kubernetes-cluster-issue
         - availability
         - sla-breach
         - cluster-stability
