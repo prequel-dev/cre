@@ -735,3 +735,22 @@ tags:
   - name: election
     displayName: Replica Set Election
     description: Events related to stepping up/down a MongoDB primary node, often due to failures or heartbeat loss
+  
+  - name: vpc-cni
+    displayName: VPC CNI
+    description: Failures related to the AWS VPC CNI plugin, including ENI/IP allocation issues and network plugin crashes.
+  - name: ip-exhaustion
+    displayName: IP Exhaustion
+    description: Subnet or ENI IP address exhaustion causing pod scheduling and networking failures.
+
+  - name: service-unavailable
+    displayName: Service Unavailable
+    description: Conditions where services become unreachable due to underlying infrastructure or networking failures.
+
+  - name: scheduling-failure
+    displayName: Scheduling Failure
+    description: Kubernetes scheduler unable to place pods due to taints, network issues, or IP constraints.
+
+  - name: network-unavailable
+    displayName: Network Unavailable
+    description: Node-level or cluster-wide network readiness failures, often triggering pod sandbox errors.
