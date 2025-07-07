@@ -197,17 +197,6 @@ categories:
       Problems related to troubleshooting Istio's Ambient service mesh mode,
       including CNI sandbox creation failures, ztunnel connectivity issues,
       traffic capture errors, and waypoint configuration problems.
-  
-  - name: mongodb-data-integrity
-    displayName: MongoDB Data Integrity
-    description: |
-      Failures that compromise the correctness, consistency, or durability of data in MongoDB.
-      This includes silent write loss during rollbacks, replication inconsistencies,
-      unacknowledged data drops, and issues affecting data reliability across replica sets.
-
-  - name: kubernetes-network-integrity
-    displayName: Kubernetes Network Integrity
-    description: Failures that impact the networking reliability of Kubernetes clusters, such as CNI plugin issues, subnet misconfigurations, or pod-to-pod connectivity loss.
 
   - name: envoy-dns-resolution
     displayName: Envoy DNS Resolution Failures
