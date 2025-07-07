@@ -736,6 +736,7 @@ tags:
   - name: invalid-system-config
     displayName: Invalid System Configuration
     description: Errors caused by malformed or invalid system or service configurations that prevent proper operation across one or more components.
+    
   - name: availability-impact
     displayName: Availability Impact
     description: Issues that directly affect service availability and user access to applications.
