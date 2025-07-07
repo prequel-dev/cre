@@ -722,9 +722,10 @@ tags:
     description: Conditions that may lead to data loss if not addressed promptly
 
   
-  - name: vpc-cni
-    displayName: VPC CNI
-    description: Failures related to the AWS VPC CNI plugin, including ENI/IP allocation issues and network plugin crashes.
+  - name: aws-cni-networking
+    displayName: AWS CNI Networking
+    description: Issues related to the AWS VPC CNI plugin, such as ENI/IP exhaustion, misconfiguration, or plugin crashes affecting pod networking.
+
   - name: ip-exhaustion
     displayName: IP Exhaustion
     description: Subnet or ENI IP address exhaustion causing pod scheduling and networking failures.
