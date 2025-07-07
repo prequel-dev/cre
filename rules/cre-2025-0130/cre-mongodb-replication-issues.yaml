@@ -22,6 +22,7 @@ rules:
         - Permanent, silent data loss without client awareness.
         - Undetectable unless rollback logs or oplog diffs are actively monitored.
         - Affects transactional integrity and trust in persisted state.
+      impactScore: 10 
       tags:
          - silent-data-loss
          - rollback
@@ -33,6 +34,7 @@ rules:
         - Monitor rollback events and replica set elections.
         - Avoid deployments with unstable networking.
         - Alert on rollback metrics (`repl.rollback.total`) and `rs.status()` term mismatches.
+      mitigationScore: 6
       references:
          - https://www.mongodb.com/docs/manual/core/replica-set-rollbacks/ 
          - https://www.mongodb.com/docs/manual/reference/replica-states/ 
