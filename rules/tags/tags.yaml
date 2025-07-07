@@ -732,3 +732,6 @@ tags:
   - name: crash-loop
     displayName: Crash Loop
     description: Repeated failure to start or recover due to a persistent internal problem, such as corrupted state or misconfiguration.
+  - name: corruption
+    displayName: Corruption
+    description: Issues involving data corruption, including damaged files, invalid data structures, or inconsistencies caused by software or hardware faults.
