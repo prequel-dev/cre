@@ -30,7 +30,7 @@ rules:
          - reload-loop
          - annotation-validation
          - regex-error
-         - configuration-failure
+         - invalid-system-config
          - availability-impact
       mitigation: |
         - Immediately delete problematic ingress resources: `kubectl delete ingress <name> -n <namespace>`.
