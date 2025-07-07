@@ -720,22 +720,6 @@ tags:
   - name: data-loss-risk
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
-  - name: silent-data-loss
-    displayName: Silent Data Loss
-    description: Data is acknowledged as written by the application but is later discarded without warning due to rollback or internal failure
-  - name: rollback
-    displayName: Rollback Event
-    description: MongoDB replica set performed a rollback, typically after a rejoin from a network partition or sync failure
-  - name: replica-set
-    displayName: Replica Set Instability
-    description: Failures or transitions within a MongoDB replica set that affect primary elections, replication, or consistency
-  - name: network-partition
-    displayName: Network Partition
-    description: A node was isolated from the rest of the replica set, triggering election or rollback events
-  - name: election
-    displayName: Replica Set Election
-    description: Events related to stepping up/down a MongoDB primary node, often due to failures or heartbeat loss
-
   - name: pdb-violation
     displayName: PDB Violation
     description: Pod Disruption Budget constraint violations in Kubernetes clusters
