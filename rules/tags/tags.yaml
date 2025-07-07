@@ -720,6 +720,9 @@ tags:
   - name: data-loss-risk
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
+  - name: mongodb
+    displayName: MongoDB
+    description: Problems related to MongoDB database system
   - name: wiredtiger
     displayName: WiredTiger
     description: Issues related to MongoDB's default storage engine, WiredTiger, including corruption, crash loops, and initialization errors.
