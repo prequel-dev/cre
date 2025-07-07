@@ -27,8 +27,8 @@ rules:
         - Loss of traffic routing capability until DNS issues are resolved.
       tags:
          - dns-resolution
-         - upstream-failure
-         - service-unavailable
+         - upstream-routing-failure
+         - backend-unavailable
          - envoy-proxy
          - cluster-health
       mitigation: |
