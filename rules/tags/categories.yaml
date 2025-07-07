@@ -208,3 +208,7 @@ categories:
   - name: kubernetes-network-integrity
     displayName: Kubernetes Network Integrity
     description: Failures that impact the networking reliability of Kubernetes clusters, such as CNI plugin issues, subnet misconfigurations, or pod-to-pod connectivity loss.
+
+  - name: kubernetes-ingress-availability
+    displayName: Kubernetes Ingress Availability
+    description: Failures that impact the availability and reliability of Kubernetes ingress controllers, such as configuration errors, routing failures, or load balancer issues affecting external traffic access.

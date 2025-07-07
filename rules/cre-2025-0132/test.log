@@ -1,0 +1,73 @@
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:34.580411      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-1
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:34.580441      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:37.001861      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-1
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:37.001937      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.398791      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-1
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.399057      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.527973      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-2
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.527999      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.404129      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-2
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.404541      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.508294      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-3
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.508433      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.242361      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-3
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.242463      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.328092      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-4
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.328121      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.040691      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-4
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.040817      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.129060      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-5
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.129083      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.872529      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-5
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.872636      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.964449      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-6
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.964476      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:11:36.941835      11 controller.go:196] "Configuration changes detected, backend reload required"
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:11:36.998012      11 controller.go:216] "Backend successfully reloaded"
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:11:36.998137      11 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-8db958865-llgss", UID:"20f9dcdc-019e-49c7-9755-4fd21a0d1e88", APIVersion:"v1", ResourceVersion:"888", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:07.998490      11 controller.go:1113] Error obtaining Endpoints for Service "default/test-service": no object matching key "default/test-service" in local store
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:07.998665      11 controller.go:196] "Configuration changes detected, backend reload required"
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:08.035308      11 controller.go:216] "Backend successfully reloaded"
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:08.035905      11 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-8db958865-llgss", UID:"20f9dcdc-019e-49c7-9755-4fd21a0d1e88", APIVersion:"v1", ResourceVersion:"888", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:11.336087      11 controller.go:196] "Configuration changes detected, backend reload required"
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:11.377298      11 controller.go:216] "Backend successfully reloaded"
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:11.378729      11 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-8db958865-llgss", UID:"20f9dcdc-019e-49c7-9755-4fd21a0d1e88", APIVersion:"v1", ResourceVersion:"888", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:18.614985      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[invalid-regex-pattern
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:18.615135      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:18.616290      11 controller.go:196] "Configuration changes detected, backend reload required"
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:18.659115      11 controller.go:216] "Backend successfully reloaded"
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:18.659758      11 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-8db958865-llgss", UID:"20f9dcdc-019e-49c7-9755-4fd21a0d1e88", APIVersion:"v1", ResourceVersion:"888", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:34.494710      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[invalid-regex-pattern
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:34.495037      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:34.580411      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-1
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:34.580441      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:37.001861      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-1
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:37.001937      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.398791      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-1
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.399057      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.527973      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-2
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.527999      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.404129      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-2
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.404541      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.508294      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-3
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.508433      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.242361      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-3
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.242463      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.328092      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-4
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.328121      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.040691      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-4
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.040817      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.129060      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-5
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.129083      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.872529      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-5
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.872636      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.964449      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-6
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.964476      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:09.671938      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-6
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:09.672008      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:09.749105      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-7
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:09.749124      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:25.829100      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-7
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:25.829598      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:26.074546      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-8
+2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:26.074571      11 main.go:148] rewrite-targetis invalid, defaulting to empty

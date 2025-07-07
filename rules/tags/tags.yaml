@@ -754,3 +754,22 @@ tags:
   - name: network-unavailable
     displayName: Network Unavailable
     description: Node-level or cluster-wide network readiness failures, often triggering pod sandbox errors.
+
+  - name: nginx-ingress
+    displayName: NGINX Ingress
+    description: Issues related to NGINX Ingress Controller configuration, routing, and traffic management.
+  - name: reload-loop
+    displayName: Reload Loop
+    description: Infinite configuration reload cycles causing resource exhaustion and service disruption.
+  - name: annotation-validation
+    displayName: Annotation Validation
+    description: Kubernetes annotation validation failures that prevent proper resource configuration.
+  - name: regex-error
+    displayName: Regex Error
+    description: Invalid regular expression patterns in configuration causing parsing failures.
+  - name: configuration-failure
+    displayName: Configuration Failure
+    description: Malformed or invalid configuration preventing proper service operation.
+  - name: availability-impact
+    displayName: Availability Impact
+    description: Issues that directly affect service availability and user access to applications.

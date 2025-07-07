@@ -1,0 +1,67 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: 28RgRk3kYqJsoTr1yLZ7nV
+      version: "0.1.0"
+    cre:
+      id: CRE-2025-0132
+      severity: 1
+      title: NGINX Ingress Controller Reload Loop Due to Malformed Annotations
+      category: kubernetes-ingress-availability
+      author: Prequel
+      description: |
+        - Malformed ingress annotations (especially rewrite-target with invalid regex patterns) cause the NGINX Ingress Controller to enter an infinite reload loop.
+        - The controller repeatedly validates the same broken ingress resources, fails validation, and triggers configuration reloads.
+        - This leads to 100% CPU usage, liveness probe failures, 502 Bad Gateway errors, and complete loss of ingress traffic.
+        - The issue persists until the problematic ingress resources are corrected or removed.
+      cause: |
+        - Invalid regex patterns in nginx.ingress.kubernetes.io/rewrite-target annotations (e.g., "[[[[broken-regex-pattern").
+        - Malformed server-snippet or configuration-snippet annotations with invalid NGINX directives.
+        - Disabled or misconfigured admission webhook validation allowing invalid ingress resources.
+        - Continuous validation failures trigger repeated backend reloads without resolution.
+      impact: |
+        - Complete ingress traffic unavailability and 502 errors for all applications.
+        - High CPU usage and resource exhaustion on ingress controller pods.
+        - Liveness probe failures potentially causing pod restarts.
+        - Cascading failures affecting multiple services and applications.
+        - Degraded cluster performance due to constant configuration processing.
+      tags:
+         - nginx-ingress
+         - reload-loop
+         - annotation-validation
+         - regex-error
+         - configuration-failure
+         - availability-impact
+      mitigation: |
+        - Immediately delete problematic ingress resources: `kubectl delete ingress <name> -n <namespace>`.
+        - Restart ingress controller: `kubectl rollout restart deployment/ingress-nginx-controller -n ingress-nginx`.
+        - Enable admission webhook validation to prevent invalid ingress resources.
+        - Implement pre-deployment validation scripts for ingress YAML files.
+        - Use proper regex patterns in rewrite-target annotations (e.g., "/$1" instead of "[[[[").
+        - Monitor ingress controller logs for validation errors and reload frequency.
+        - Set up alerts for high reload counts and validation failure patterns.
+      references:
+         - https://github.com/kubernetes/ingress-nginx/issues/10124
+         - https://github.com/kubernetes/ingress-nginx/issues/9973
+         - https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/
+         - https://kubernetes.github.io/ingress-nginx/deploy/validating-webhook/
+         - https://kubernetes.github.io/ingress-nginx/troubleshooting/
+      reports: 2
+      version: "0.1.0"
+      applications:
+        - name: "nginx-ingress-controller"
+          version: "1.0+"
+        - name: "kubernetes"
+          version: "1.19+"
+    rule:
+      set:
+        window: 5m
+        event:
+             source: cre.log.ingress
+        match:
+          - regex: "(?i)validation error on ingress.*annotation.*rewrite-target contains invalid value"
+          - regex: "(?i)rewrite-targetis invalid, defaulting to empty"
+          - regex: "(?i)Backend successfully reloaded"
+        negate:
+          - "shutting down"
+          - "graceful shutdown"
