@@ -28,6 +28,7 @@ rules:
         - Extended recovery time due to resource constraints
         - Multiple PDB violations across cluster affecting overall stability
         - Potential service outages during maintenance windows
+      impactScore: 8
       tags:
         - pdb-violation
         - service-degradation
@@ -44,6 +45,7 @@ rules:
         - Configure cluster autoscaler to respect PDB constraints
         - Set up progressive delivery (canary/blue-green) for critical services
         - Monitor API server connectivity and PDB status query timeouts
+      mitigationScore: 7
       references:
         - https://kubernetes.io/docs/tasks/run-application/configure-pdb/
         - https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
