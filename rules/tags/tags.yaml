@@ -729,6 +729,3 @@ tags:
   - name: crash-loop
     displayName: Crash Loop
     description: Repeated failure to start or recover due to a persistent internal problem, such as corrupted state or misconfiguration.
-  - name: startup-failure
-    displayName: Startup Failure
-    description: Errors that prevent a service or process from starting successfully and entering a healthy running state.
