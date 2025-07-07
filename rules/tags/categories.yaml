@@ -165,3 +165,8 @@ categories:
   - name: access-control-problem
     displayName: Access Control Problems
     description: Problems related to access control systems that prevent legitimate access due to system failures rather than policy violations
+  - name: envoy-proxy-failures
+    displayName: Envoy Proxy Failures
+    description: |
+      Critical issues in Envoy proxy such as assertion crashes, listener misconfiguration,
+      or internal filter initialization errors, often causing outages or traffic disruption.

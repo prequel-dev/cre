@@ -620,3 +620,15 @@ tags:
     displayName: Logs
     description: Problems with log processing
 
+  - name: envoy
+    displayName: Envoy
+    description: Problems related to Envoy proxy, including crashes, misconfigurations, or assertion failures.
+  - name: assertion
+    displayName: Assertion
+    description: Assertion failures indicating internal consistency checks or invariants violated at runtime.  
+  - name: crash-loop
+    displayName: Crash Loop
+    description: Repeated process restarts due to persistent failures causing operational impact.
+  - name: startup-failure
+    displayName: Startup Failure
+    description: Errors preventing service from starting or initializing properly.
