@@ -725,14 +725,12 @@ tags:
     displayName: DNS Resolution
     description: Failures related to domain name resolution, typically caused by invalid, missing, or unresolvable DNS entries.
 
-  - name: upstream-failure
-    displayName: Upstream Failure
-    description: Issues in which Envoy fails to route traffic to configured upstream services, resulting in degraded service or outages.
-
-  - name: service-unavailable
-    displayName: Service Unavailable
-    description: Conditions where a service cannot fulfill requests, often resulting in HTTP 503 responses.
-
+  - name: upstream-routing-failure
+    displayName: Upstream Routing Failure
+    description: Issues where Envoy fails to correctly route traffic to upstream services due to configuration errors, DNS failures, or network issues.
+  - name: backend-unavailable
+    displayName: Backend Unavailable
+    description: Conditions where a backend service is down, overloaded, or not responding, often resulting in HTTP 503 responses.
   - name: envoy-proxy
     displayName: Envoy Proxy
     description: Rules and detections related to the behavior or failures of the Envoy proxy.
