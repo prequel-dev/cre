@@ -208,3 +208,7 @@ categories:
   - name: kubernetes-network-integrity
     displayName: Kubernetes Network Integrity
     description: Failures that impact the networking reliability of Kubernetes clusters, such as CNI plugin issues, subnet misconfigurations, or pod-to-pod connectivity loss.
+
+  - name: envoy-dns-resolution
+    displayName: Envoy DNS Resolution Failures
+    description: DNS-related failures in Envoy proxy where upstream service domains cannot be resolved, resulting in routing issues and 503 Service Unavailable errors.
