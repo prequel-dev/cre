@@ -5,7 +5,7 @@ rules:
       version: "0.1.0"
     cre:
       id: CRE-2025-0133
-      severity: 1
+      severity: 0
       title: Envoy Upstream Cluster DNS Resolution Failures
       category: envoy-dns-resolution
       author: Prequel
@@ -25,6 +25,7 @@ rules:
         - All client requests receive HTTP 503 Service Unavailable responses.
         - Degraded user experience and potential service outages.
         - Loss of traffic routing capability until DNS issues are resolved.
+      impactScore: 10
       tags:
          - dns-resolution
          - upstream-routing-failure
@@ -38,6 +39,7 @@ rules:
         - Monitor Envoy cluster health and DNS resolution metrics.
         - Set up alerting for sustained "no healthy upstream" errors.
         - Use static IP addresses as backup when DNS is unreliable.
+      mitigationScore: 9
       references:
          - https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/cluster_manager
          - https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/health_checking
