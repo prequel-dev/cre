@@ -720,22 +720,7 @@ tags:
   - name: data-loss-risk
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
-  - name: silent-data-loss
-    displayName: Silent Data Loss
-    description: Data is acknowledged as written by the application but is later discarded without warning due to rollback or internal failure
-  - name: rollback
-    displayName: Rollback Event
-    description: MongoDB replica set performed a rollback, typically after a rejoin from a network partition or sync failure
-  - name: replica-set
-    displayName: Replica Set Instability
-    description: Failures or transitions within a MongoDB replica set that affect primary elections, replication, or consistency
-  - name: network-partition
-    displayName: Network Partition
-    description: A node was isolated from the rest of the replica set, triggering election or rollback events
-  - name: election
-    displayName: Replica Set Election
-    description: Events related to stepping up/down a MongoDB primary node, often due to failures or heartbeat loss
-  
+ 
   - name: vpc-cni
     displayName: VPC CNI
     description: Failures related to the AWS VPC CNI plugin, including ENI/IP allocation issues and network plugin crashes.
@@ -755,17 +740,6 @@ tags:
     displayName: Network Unavailable
     description: Node-level or cluster-wide network readiness failures, often triggering pod sandbox errors.
 
-  - name: nginx-ingress
-    displayName: NGINX Ingress
-    description: Issues related to NGINX Ingress Controller configuration, routing, and traffic management.
-  - name: reload-loop
-    displayName: Reload Loop
-    description: Infinite configuration reload cycles causing resource exhaustion and service disruption.
-  - name: annotation-validation
-    displayName: Annotation Validation
-    description: Kubernetes annotation validation failures that prevent proper resource configuration.
-  - name: regex-error
-    displayName: Regex Error
     description: Invalid regular expression patterns in configuration causing parsing failures.
   - name: configuration-failure
     displayName: Configuration Failure
