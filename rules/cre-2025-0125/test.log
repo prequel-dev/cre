@@ -1,0 +1,10 @@
+E0708 18:09:49.328642 1906352 evented.go:365] "Evented PLEG: Get cache" err="rpc error: code = DeadlineExceeded desc = context deadline exceeded" podID="9538385f-3f6g-606g-1165-656hfc564h58"
+panic: send on closed channel
+
+goroutine 451 [running]:
+k8s.io/cri-client/pkg.(*remoteRuntimeService).GetContainerEvents(0xc0004cdce0, {0x34abd70, 0x5038e40}, 0xc00045d6c0, 0x3158798)
+	k8s.io/cri-client/pkg/remote_runtime.go:848 +0x1b4
+k8s.io/kubernetes/pkg/kubelet/pleg.(*EventedPLEG).watchEventsChannel.func1()
+	k8s.io/kubernetes/pkg/kubelet/pleg/evented.go:199 +0x82
+created by k8s.io/kubernetes/pkg/kubelet/pleg.(*EventedPLEG).watchEventsChannel in goroutine 440
+	k8s.io/kubernetes/pkg/kubelet/pleg/evented.go:184 +0xae
