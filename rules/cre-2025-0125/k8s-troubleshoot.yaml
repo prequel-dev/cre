@@ -2,6 +2,7 @@ rules:
   - metadata:
       kind: prequel
       id: JY7gkVc9ZbGxWqENuRtLmZ
+      hash: Lp4Gh7Xy9Za1Qw2Er3TnMk
     cre:
       id: CRE-2025-0125
       severity: 1
