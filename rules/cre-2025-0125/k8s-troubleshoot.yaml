@@ -50,7 +50,3 @@ rules:
         match:
           - regex: 'Evented PLEG:.*DeadlineExceeded'
           - regex: 'panic: send on closed channel'
-        negate:
-          - regex: 'shutting down'
-          - regex: 'received SIGTERM'
-          - regex: 'node shutdown'
