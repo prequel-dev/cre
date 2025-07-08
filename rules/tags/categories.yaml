@@ -197,6 +197,3 @@ categories:
       Problems related to troubleshooting Istio's Ambient service mesh mode,
       including CNI sandbox creation failures, ztunnel connectivity issues,
       traffic capture errors, and waypoint configuration problems.
-  - name: configuration-problem
-    displayName: Configuration Problem
-    description: Problems related to system or application configurations
