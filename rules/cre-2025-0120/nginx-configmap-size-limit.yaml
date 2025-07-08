@@ -3,7 +3,7 @@ rules:
       id: CRE-2025-0120
       severity: 0
       title: NGINX Ingress ConfigMap Size Limit Exceeded
-      category: configuration-problems
+      category: configuration-problem
       author: Your Name
       description: |
         The NGINX Ingress Controller fails to load or update its configuration because the ConfigMap containing the nginx.conf exceeds Kubernetes' 1MB size limit. This prevents new Ingress resources from being applied and can cause routing failures for new services.
@@ -19,7 +19,6 @@ rules:
         - Potential downtime for applications relying on configuration updates
         - Manual intervention required to split or optimize configuration
       tags:
-        - cre-2025-012
         - nginx-ingress
         - configmap-limit
         - configuration-management
