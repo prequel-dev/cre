@@ -153,11 +153,9 @@ categories:
   - name: distributed-worker-connectivity
     displayName: Distributed Worker Connectivity Issues
     description: Failures where a distributed systems worker fails to reach or stay connected to the orchestration backend (e.g., Temporal, Celery).
-
   - name: redpanda-problems
     displayName: Redpanda Problems
     description: Problems related to Redpanda cluster failures, including node loss, quorum loss, and data availability impact.
-
   - name: authorization-systems
     displayName: Authorization Systems
     description: |
@@ -178,7 +176,6 @@ categories:
   - name: SpiceDB-datastore-failure
     displayName: SpiceDB Datastore Failure
     description: Failures in the datastore used by SpiceDB, which can lead to authentication or authorization issues.
-
   - name: authorization-system-problem
     displayName: Authorization System Problems
     description: Problems related to authorization and permission systems like SpiceDB, OPA, and similar fine-grained access control systems
@@ -188,11 +185,15 @@ categories:
   - name: access-control-problem
     displayName: Access Control Problems
     description: Problems related to access control systems that prevent legitimate access due to system failures rather than policy violations
+
+  - name: envoy-proxy-failures
+    displayName: Envoy Proxy Failures
+    description: |
+      Critical issues in Envoy proxy such as assertion crashes, listener misconfiguration,
+      or internal filter initialization errors, often causing outages or traffic disruption.
   - name: temporal-problem
     displayName: Temporal Server Failure
     description: Temporal Server Failure Temporal Server Fails Persistence on Read-Only Database
-
-
   - name: data-streaming-platforms
     displayName: Data Streaming Platforms
     description: |
@@ -201,10 +202,44 @@ categories:
       where startup, configuration, or operational issues can disrupt data streaming pipelines
       and impact downstream applications relying on event-driven architectures.
 
+  - name: vpc-cni-problems
+    displayName: VPC CNI Problems
+    description: Critical failures in AWS VPC Container Network Interface affecting pod networking and cluster operations
+
+  - name: ip-address-exhaustion
+    displayName: IP Address Exhaustion
+    description: Problems where IP address pools are depleted causing networking failures and service outages
+
+  - name: cluster-infrastructure-failure
+    displayName: Cluster Infrastructure Failure
+    description: Critical infrastructure failures that can paralyze entire Kubernetes clusters
+
+  - name: aws-service-limits
+    displayName: AWS Service Limits
+    description: Problems caused by hitting AWS service quotas and limits
+
+  - name: network-resource-exhaustion
+    displayName: Network Resource Exhaustion
+    description: Problems where network resources like IPs, ENIs, or subnets are exhausted
+
+  - name: pod-networking-failure
+    displayName: Pod Networking Failure
+    description: Critical failures in pod networking that prevent workload deployment
+
+  - name: cluster-scalability-problems
+    displayName: Cluster Scalability Problems
+    description: Problems that prevent clusters from scaling to meet demand
+
+  - name: business-critical-outages
+    displayName: Business Critical Outages
+    description: Outages that have direct business, revenue, or compliance impact
+
   - name: istio-ambient-troubleshooting
     displayName: Istio Ambient Troubleshooting
     description: |
       Problems related to troubleshooting Istio's Ambient service mesh mode,
       including CNI sandbox creation failures, ztunnel connectivity issues,
       traffic capture errors, and waypoint configuration problems.
-
+  - name: database-availability
+    displayName: Database Availability
+    description: Critical failures affecting database service availability, including crashes, OOM kills, and unplanned terminations that require immediate recovery

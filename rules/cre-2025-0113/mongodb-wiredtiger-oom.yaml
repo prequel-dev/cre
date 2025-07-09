@@ -1,0 +1,92 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: yK9mNpQr8vTzHJsEXwGcM
+      hash: NzVzMggWRMwReD2mivnlsL
+    cre:
+      id: CRE-2025-0113
+      severity: 0
+      title: "MongoDB WiredTiger Cache OOM Kill"
+      category: "database-availability"
+      author: Community
+      description: |
+        Detects MongoDB Out-Of-Memory (OOM) kill caused by WiredTiger cache
+        pressure. This occurs when the cache fills with dirty pages faster
+        than they can be evicted, causing uncontrolled memory growth until
+        the OS kills the process.
+      cause: |
+        - WiredTiger cache size too small for workload
+        - Write-heavy workload overwhelming eviction threads
+        - Insufficient system memory for configured cache size
+        - Eviction settings too conservative
+        - Large documents or indexes consuming cache rapidly
+        - Background operations (index builds, initial sync) adding pressure
+      impact: |
+        - Immediate MongoDB process termination (data loss possible)
+        - All client connections dropped instantly
+        - Potential data corruption if write was in progress
+        - Service outage until MongoDB restarts
+        - Possible replica set instability if primary affected
+        - Performance degradation leading up to OOM
+      tags:
+        - mongodb
+        - wiredtiger
+        - oom-kill
+        - memory-pressure
+        - cache-eviction
+        - critical-failure
+        - database-availability
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Check if MongoDB restarted: `systemctl status mongod`
+        - Verify data integrity: `db.runCommand({dbStats: 1})`
+        - Check replica set status: `rs.status()`
+        - Review memory configuration
+        
+        CACHE CONFIGURATION:
+        - Increase WiredTiger cache size (default: 50% of RAM - 1GB)
+        - Set explicit cache size: `--wiredTigerCacheSizeGB`
+        - Tune eviction targets:
+          * `wiredTigerEvictionTarget` (default: 80%)
+          * `wiredTigerEvictionTrigger` (default: 95%)
+        - Lower dirty eviction targets:
+          * `wiredTigerEvictionDirtyTarget` (default: 5%)
+          * `wiredTigerEvictionDirtyTrigger` (default: 20%)
+        
+        SYSTEM TUNING:
+        - Add more system RAM
+        - Set appropriate container memory limits
+        - Configure swap space as safety net
+        - Monitor memory usage continuously
+        
+        WORKLOAD OPTIMIZATION:
+        - Reduce document sizes
+        - Batch writes to reduce pressure
+        - Use write concern `{w:1, j:false}` for non-critical data
+        - Schedule index builds during low traffic
+      references:
+        - https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB
+        - https://www.mongodb.com/docs/manual/core/wiredtiger/#memory-use
+        - https://www.mongodb.com/docs/manual/administration/production-notes/#mongodb-and-system-oom-killer
+      applications:
+        - name: mongodb
+          version: ">=4.4.0"
+      impactScore: 10
+      mitigationScore: 8
+      reports: 1
+    rule:
+      sequence:
+        window: 300s
+        event:
+          source: cre.log.mongodb
+        order:
+          # Memory constraint warning
+          - regex: 'Memory available to mongo process is less than total system memory'
+          # High frequency eviction activity
+          - regex: '"c":"WTEVICT".*"session_name":"eviction-server".*row-store'
+            count: 10
+        negate:
+          # Exclude normal shutdown
+          - "shutdown command"
+          - "SIGTERM"
+          - "Shutting down"
