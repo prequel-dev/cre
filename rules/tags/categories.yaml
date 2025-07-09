@@ -179,6 +179,12 @@ categories:
   - name: access-control-problem
     displayName: Access Control Problems
     description: Problems related to access control systems that prevent legitimate access due to system failures rather than policy violations
+
+  - name: envoy-proxy-failures
+    displayName: Envoy Proxy Failures
+    description: |
+      Critical issues in Envoy proxy such as assertion crashes, listener misconfiguration,
+      or internal filter initialization errors, often causing outages or traffic disruption.
   - name: temporal-problem
     displayName: Temporal Server Failure
     description: Temporal Server Failure Temporal Server Fails Persistence on Read-Only Database
@@ -224,3 +230,13 @@ categories:
     displayName: Business Critical Outages
     description: Outages that have direct business, revenue, or compliance impact
 
+
+  - name: istio-ambient-troubleshooting
+    displayName: Istio Ambient Troubleshooting
+    description: |
+      Problems related to troubleshooting Istio's Ambient service mesh mode,
+      including CNI sandbox creation failures, ztunnel connectivity issues,
+      traffic capture errors, and waypoint configuration problems.
+  - name: database-availability
+    displayName: Database Availability
+    description: Critical failures affecting database service availability, including crashes, OOM kills, and unplanned terminations that require immediate recovery
