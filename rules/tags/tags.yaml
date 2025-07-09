@@ -732,3 +732,18 @@ tags:
   - name: nginx-ingress
     displayName: NGINX Ingress
     description: Problems related to NGINX Ingress Controller for Kubernetes
+  - name: mongodb
+    displayName: MongoDB
+    description: Problems related to MongoDB database system
+  - name: wiredtiger
+    displayName: WiredTiger
+    description: Problems related to MongoDB's WiredTiger storage engine
+  - name: oom-kill
+    displayName: OOM Kill
+    description: Problems where processes are terminated by the OS Out-Of-Memory killer
+  - name: cache-eviction
+    displayName: Cache Eviction
+    description: Problems related to cache eviction policies and performance
+  - name: critical-failure
+    displayName: Critical Failure
+    description: Failures that cause immediate service termination or data loss
