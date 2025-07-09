@@ -33,7 +33,7 @@ rules:
       references:
         - https://www.mongodb.com/docs/manual/administration/repair/
         - https://jira.mongodb.org/browse/SERVER-37978
-        - https://www.mongodb.com/community/forums/t/wiredtiger-initialize-failure-database-not-starting/113829
+        - https://www.mongodb.com/community/forums/t/failed-to-start-wiredtiger-after-system-upgrade/13088
       applications:
         - name: mongod
           version: ">=4.2"
