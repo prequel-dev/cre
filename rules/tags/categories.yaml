@@ -203,3 +203,6 @@ categories:
       Problems related to troubleshooting Istio's Ambient service mesh mode,
       including CNI sandbox creation failures, ztunnel connectivity issues,
       traffic capture errors, and waypoint configuration problems.
+  - name: database-availability
+    displayName: Database Availability
+    description: Critical failures affecting database service availability, including crashes, OOM kills, and unplanned terminations that require immediate recovery

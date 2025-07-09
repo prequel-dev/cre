@@ -643,10 +643,6 @@ tags:
   - name: crash-loop
     displayName: Crash Loop
     description: Repeated process restarts due to persistent failures causing operational impact.
-  - name: startup-failure
-    displayName: Startup Failure
-    description: Errors preventing service from starting or initializing properly.
-
   - name: redpanda-startup
     displayName: Redpanda Startup
     description: Problems related to Redpanda startup, such as configuration issues or missing state
@@ -734,3 +730,18 @@ tags:
   - name: data-loss-risk
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
+  - name: mongodb
+    displayName: MongoDB
+    description: Problems related to MongoDB database system
+  - name: wiredtiger
+    displayName: WiredTiger
+    description: Problems related to MongoDB's WiredTiger storage engine
+  - name: oom-kill
+    displayName: OOM Kill
+    description: Problems where processes are terminated by the OS Out-Of-Memory killer
+  - name: cache-eviction
+    displayName: Cache Eviction
+    description: Problems related to cache eviction policies and performance
+  - name: critical-failure
+    displayName: Critical Failure
+    description: Failures that cause immediate service termination or data loss
