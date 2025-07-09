@@ -730,6 +730,18 @@ tags:
   - name: data-loss-risk
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
+  - name: configmap-limit
+    displayName: ConfigMap Limit
+    description: Problems related to Kubernetes ConfigMap size limitations (1MB limit)
+  - name: configuration-management
+    displayName: Configuration Management
+    description: Problems related to managing and applying configuration changes in systems
+  - name: kubernetes-limits
+    displayName: Kubernetes Limits
+    description: Problems caused by Kubernetes resource limits and constraints
+  - name: nginx-ingress
+    displayName: NGINX Ingress
+    description: Problems related to NGINX Ingress Controller for Kubernetes
   - name: ip-exhaustion
     displayName: IP Exhaustion
     description: Problems where IP address pools are depleted, preventing new network allocations
