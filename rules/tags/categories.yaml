@@ -226,4 +226,6 @@ categories:
     displayName: Kubernetes Ingress Availability
     description: Failures that impact the availability and reliability of Kubernetes ingress controllers, such as configuration errors, routing failures, or load balancer issues affecting external traffic access.
 
-
+  - name: database-availability
+    displayName: Database Availability
+    description: Critical failures affecting database service availability, including crashes, OOM kills, and unplanned terminations that require immediate recovery
