@@ -801,3 +801,6 @@ tags:
   - name: critical-failure
     displayName: Critical Failure
     description: Failures that cause immediate service termination or data loss
+  - name: ingress-controller
+    displayName: Ingress Controller
+    description: Problems related to Kubernetes Ingress Controllers, such as SSL certificate validation failures, routing issues, or backend connectivity problems
