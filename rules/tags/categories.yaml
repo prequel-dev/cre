@@ -190,40 +190,30 @@ categories:
       This includes platforms like Redpanda, Apache Kafka, Pulsar, and compatible systems
       where startup, configuration, or operational issues can disrupt data streaming pipelines
       and impact downstream applications relying on event-driven architectures.
-
   - name: vpc-cni-problems
     displayName: VPC CNI Problems
     description: Critical failures in AWS VPC Container Network Interface affecting pod networking and cluster operations
-
   - name: ip-address-exhaustion
     displayName: IP Address Exhaustion
     description: Problems where IP address pools are depleted causing networking failures and service outages
-
   - name: cluster-infrastructure-failure
     displayName: Cluster Infrastructure Failure
     description: Critical infrastructure failures that can paralyze entire Kubernetes clusters
-
   - name: aws-service-limits
     displayName: AWS Service Limits
     description: Problems caused by hitting AWS service quotas and limits
-
   - name: network-resource-exhaustion
     displayName: Network Resource Exhaustion
     description: Problems where network resources like IPs, ENIs, or subnets are exhausted
-
   - name: pod-networking-failure
     displayName: Pod Networking Failure
     description: Critical failures in pod networking that prevent workload deployment
-
   - name: cluster-scalability-problems
     displayName: Cluster Scalability Problems
     description: Problems that prevent clusters from scaling to meet demand
-
   - name: business-critical-outages
     displayName: Business Critical Outages
     description: Outages that have direct business, revenue, or compliance impact
-
-
   - name: istio-ambient-troubleshooting
     displayName: Istio Ambient Troubleshooting
     description: |

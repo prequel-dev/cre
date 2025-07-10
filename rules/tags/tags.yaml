@@ -633,7 +633,6 @@ tags:
   - name: logs
     displayName: Logs
     description: Problems with log processing
-
   - name: envoy
     displayName: Envoy
     description: Problems related to Envoy proxy, including crashes, misconfigurations, or assertion failures.
