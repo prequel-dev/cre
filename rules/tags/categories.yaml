@@ -224,3 +224,7 @@ categories:
   - name: envoy-dns-resolution
     displayName: Envoy DNS Resolution Failures
     description: DNS-related failures in Envoy proxy where upstream service domains cannot be resolved, resulting in routing issues and 503 Service Unavailable errors.
+
+  - name: database-availability
+    displayName: Database Availability
+    description: Critical failures affecting database service availability, including crashes, OOM kills, and unplanned terminations that require immediate recovery
