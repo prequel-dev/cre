@@ -33,6 +33,7 @@ rules:
          - aws-cni-networking
          - service-unavailable
          - network-unavailable
+         - k8s-scheduling-failure
       mitigation: |
         - Monitor subnet IP utilization and set up alerts before exhaustion (recommend <80% threshold).
         - Use larger subnet CIDR blocks or additional subnets for cluster networking.
