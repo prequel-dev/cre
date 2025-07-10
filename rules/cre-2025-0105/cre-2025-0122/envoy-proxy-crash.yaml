@@ -1,0 +1,45 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: Xf7XtYhAqPrV2ZaC1Kj4Lm
+    cre:
+      id: CRE-2025-0105
+      severity: 0
+      title: Envoy Proxy Crash Due to Assertion Failure
+      category: envoy-proxy-failures
+      author: Prequel
+      description: |
+        Detects Envoy proxy crashes caused by assertion failures during startup or runtime.
+        Assertion crashes typically include "critical][assert]" and "critical][backtrace]" entries followed by process termination.
+      cause: |
+        Envoy aborts due to violated internal invariants, misconfigured listeners, invalid filter state,
+        or other unexpected runtime conditions.
+      impact: |
+        Envoy process crashes and traffic is disrupted. Assertion failures often indicate urgent, real-time production issues.
+      impactScore: 10
+      tags:
+        - envoy
+        - assertion
+        - crash-loop
+        - startup-failure
+        - proxy
+      mitigation: |
+        Validate with `envoy --mode validate -c config.yaml`, confirm resource definitions,
+        use stable Envoy versions, monitor crash loops.
+      mitigationScore: 9
+      references:
+        - https://github.com/envoyproxy/envoy/issues/9083
+        - https://github.com/envoyproxy/envoy/issues/22583
+      applications:
+        - name: envoy
+          version: ">=1.16"
+    rule:
+      set:
+        window: 1s
+        event:
+          source: cre.log
+        match:
+          - regex: '(?i)critical\]\[assert\]'
+            count: 1
+          - regex: '(?i)critical\]\[backtrace\]'
+            count: 1
