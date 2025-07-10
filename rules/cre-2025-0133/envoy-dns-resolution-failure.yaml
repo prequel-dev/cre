@@ -27,10 +27,10 @@ rules:
         - Loss of traffic routing capability until DNS issues are resolved.
       impactScore: 10
       tags:
-         - dns-resolution
+         - dns-resolution-failure
          - upstream-routing-failure
          - backend-unavailable
-         - envoy-proxy
+         - envoy-behavior
          - cluster-health
       mitigation: |
         - Verify DNS configuration and ensure upstream domain names are resolvable.
