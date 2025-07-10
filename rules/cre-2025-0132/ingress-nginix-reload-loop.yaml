@@ -27,7 +27,7 @@ rules:
         - Degraded cluster performance due to constant configuration processing.
       impactScore: 9 
       tags:
-         - nginx-ingress
+         - nginx-ingress-failure
          - reload-loop
          - annotation-validation
          - regex-error

@@ -730,9 +730,10 @@ tags:
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
 
-  - name: nginx-ingress
-    displayName: NGINX Ingress
+  - name: nginx-ingress-failure
+    displayName: NGINX Ingress Failure
     description: Issues related to NGINX Ingress Controller configuration, routing, and traffic management.
+
   - name: reload-loop
     displayName: Reload Loop
     description: Infinite configuration reload cycles causing resource exhaustion and service disruption.
