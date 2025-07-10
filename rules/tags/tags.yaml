@@ -730,8 +730,8 @@ tags:
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
 
-  - name: dns-resolution-failure
-    displayName: DNS Resolution Failure
+  - name: dns-lookup-issue
+    displayName: DNS Lookup Issue
     description: Failures related to domain name resolution, typically caused by invalid, missing, or unresolvable DNS entries.
 
   - name: upstream-routing-failure
@@ -740,8 +740,8 @@ tags:
   - name: backend-unavailable
     displayName: Backend Unavailable
     description: Conditions where a backend service is down, overloaded, or not responding, often resulting in HTTP 503 responses.
-  - name: envoy-behavior
-    displayName: Envoy Behavior
+  - name: envoy-traffic-failure
+    displayName: Envoy Traffic Failure
     description: Rules and detections related to the behavior or failures of the Envoy proxy.
 
 
