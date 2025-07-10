@@ -743,8 +743,8 @@ tags:
     displayName: Service Unavailable
     description: Conditions where services become unreachable due to underlying infrastructure or networking failures.
 
-  - name: scheduling-failure
-    displayName: Scheduling Failure
+  - name: k8s-scheduling-failure
+    displayName: K8s Scheduling Failure
     description: Kubernetes scheduler unable to place pods due to taints, network issues, or IP constraints.
 
   - name: network-unavailable
