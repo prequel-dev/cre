@@ -1,0 +1,5 @@
+# NGINX Ingress ConfigMap Size Limit Test Log
+# Generated at: 2025/07/08 06:49:07
+
+2025/07/08 06:49:07 [error] 1#1: *1 kubectl create configmap failed: error: failed to create configmap: ConfigMap "nginx-config-test" is invalid: []: Too long: must have at most 1048576 bytes
+2025/07/08 06:49:18 [error] 1#1: *331 kubectl get configmap failed: Error from server (NotFound): configmaps "nginx-config-test" not found

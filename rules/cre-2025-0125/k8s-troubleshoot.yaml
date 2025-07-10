@@ -1,0 +1,51 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: JY7gkVc9ZbGxWqENuRtLmZ
+      hash: Lp4Gh7Xy9Za1Qw2Er3TnMk
+    cre:
+      id: CRE-2025-0125
+      severity: 1
+      title: "Kubelet EventedPLEG Panic Causes NodeFailure"
+      category: "kubernetes-problem"
+      author: Prequel Community
+      description: |
+        Detects a critical kubelet panic in the EventedPLEG subsystem under rapid pod launch pressure. When triggered, the node's kubelet crashes, the node becomes NotReady and all resident pods are evicted resulting in a full node-level outage until manual intervention.
+      cause: |
+        - High pod creation rate on a constrained node
+        - EventedPLEG feature gate enabled (default in v1.33+)
+        - Concurrent CRI events exceeding kubelet's goroutine handling
+      impact: |
+        - Kubelet crash and NodeNotReady state
+        - All pods on the node evicted or orphaned
+        - Auto-recovery failure unless kubelet restarts cleanly
+      tags:
+        - kubernetes
+        - kubelet
+        - panic
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Restart kubelet on the affected node
+        - Distribute load across nodes
+        RECOVERY:
+        - Disable `EventedPLEG` via feature gate if persistent
+        - Monitor kubelet logs for panics related to evented.go
+        PREVENTION:
+        - Test EventedPLEG in staging before enabling in production
+        - Use pod admission control to slow pod floods on small nodes
+      references:
+        - https://github.com/kubernetes/kubernetes/issues/132266
+      applications:
+        - name: kubelet
+          version: ">=v1.30.0"
+      impactScore: 9
+      mitigationScore: 6
+      reports: 1
+    rule:
+      set:
+        window: 180s
+        event:
+          source: cre.log.kubernetes
+        match:
+          - regex: 'Evented PLEG:.*DeadlineExceeded'
+          - regex: 'panic: send on closed channel'
