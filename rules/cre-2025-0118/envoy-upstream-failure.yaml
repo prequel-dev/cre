@@ -63,5 +63,5 @@ rules:
         event:
           source: cre.log.envoy
         order:
-          - regex: "500|503|504"
+          - regex: '"response_code":(500|503|504)'
             count: 30
