@@ -749,7 +749,6 @@ tags:
     displayName: Availability Impact
     description: Issues that directly affect service availability and user access to applications.
 
-<<<<<<< HEAD
   - name: dns-resolution
     displayName: DNS Resolution
     description: Failures related to domain name resolution, typically caused by invalid, missing, or unresolvable DNS entries.
@@ -769,7 +768,6 @@ tags:
   - name: cluster-health
     displayName: Cluster Health
     description: Issues impacting the operational health of service clusters within Envoy, often detected via health checks or resolution failures.
-=======
   - name: configmap-limit
     displayName: ConfigMap Limit
     description: Problems related to Kubernetes ConfigMap size limitations (1MB limit)
@@ -843,4 +841,3 @@ tags:
     displayName: Critical Failure
     description: Failures that cause immediate service termination or data loss
 
->>>>>>> 4834524cb671bb306897d012772527106caecc76
