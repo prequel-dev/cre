@@ -162,6 +162,17 @@ categories:
       Failures in systems that manage access control, identity, or permissions.
       This includes tools like SpiceDB, OPA, or Auth0 where schema, policy, or
       integration issues can block authentication or authorization flows.
+
+  - name: mongodb-resource-exhaustion
+    displayName: MongoDB Resource Exhaustion
+    description: MongoDB node becomes unresponsive due to memory or CPU exhaustion under high load
+  - name: performance-degradation
+    displayName: Performance Degradation
+    description: Problems where slow queries, timeouts, or degraded throughput occur under stress or resource limitations
+  - name: database-availability-problem
+    displayName: Database Availability Problems
+    description: Failures that cause MongoDB or similar systems to become unavailable due to crashes or overwhelming traffic
+
   - name: SpiceDB-datastore-failure
     displayName: SpiceDB Datastore Failure
     description: Failures in the datastore used by SpiceDB, which can lead to authentication or authorization issues.
