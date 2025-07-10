@@ -735,8 +735,8 @@ tags:
     displayName: AWS CNI Networking
     description: Issues related to the AWS VPC CNI plugin, such as ENI/IP exhaustion, misconfiguration, or plugin crashes affecting pod networking.
 
-  - name: ip-exhaustion
-    displayName: IP Exhaustion
+  - name: ip-address-exhaustion
+    displayName: IP Address Exhaustion
     description: Subnet or ENI IP address exhaustion causing pod scheduling and networking failures.
 
   - name: service-unavailable
