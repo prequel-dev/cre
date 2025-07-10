@@ -1,0 +1,59 @@
+rules:
+  - cre:
+      id: CRE-2025-0120
+      severity: 0
+      title: NGINX Ingress ConfigMap Size Limit Exceeded
+      category: configuration-problem
+      author: Your Name
+      description: |
+        The NGINX Ingress Controller fails to load or update its configuration because the ConfigMap containing the nginx.conf exceeds Kubernetes' 1MB size limit. This prevents new Ingress resources from being applied and can cause routing failures for new services.
+      cause: |
+        - Accumulation of server blocks from many Ingress resources over time
+        - Complex annotations and custom configurations adding overhead
+        - Large number of domains, paths, or middleware configurations
+        - Kubernetes ConfigMap hard limit of 1048576 bytes (1MB)
+      impact: |
+        - New Ingress resources cannot be applied or updated
+        - Configuration changes are rejected, leaving stale routing rules
+        - New services become unreachable despite valid Ingress definitions
+        - Potential downtime for applications relying on configuration updates
+        - Manual intervention required to split or optimize configuration
+      tags:
+        - nginx-ingress
+        - configmap-limit
+        - configuration-management
+        - kubernetes-limits
+      mitigation: |
+        Immediate:
+        - Split large configurations across multiple ConfigMaps
+        - Remove unused Ingress resources and their generated server blocks
+        - Optimize repeated configurations using snippets or templates
+        
+        Long-term:
+        - Implement configuration sharding based on namespaces or labels
+        - Use [ingress-nginx configuration snippets](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#configuration-snippet) to reduce duplication
+        - Consider using separate ingress controllers for different application tiers
+        - Monitor ConfigMap size proactively with alerts at 80% threshold
+        - Implement automated cleanup of orphaned configurations
+      references:
+        - https://github.com/kubernetes/kubernetes/issues/19781
+        - https://kubernetes.github.io/ingress-nginx/troubleshooting/#configmap-size-limit
+        - https://kubernetes.io/docs/concepts/configuration/configmap/#motivation
+      applications:
+        - name: "ingress-nginx"
+          version: "1.x"
+        - name: "kubernetes"
+          version: "1.19+"
+    metadata:
+      kind: prequel
+      id: UseRulerToGenerateThis
+      generation: 1
+    rule:
+      set:
+        window: 30s
+        event:
+          source: cre.log.nginx
+        match:
+          - regex: "ConfigMap.*is invalid.*Too long.*must have at most 1048576 bytes"
+          - regex: "failed to create configmap.*Too long.*must have at most"
+          - regex: "Error from server.*NotFound.*configmaps.*nginx-config"

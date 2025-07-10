@@ -1,0 +1,47 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: kL4vRf5JnZh8Xy3WpQsVd2
+    cre:
+      id: CRE-2025-0104
+      severity: 2
+      title: "Istio Ambient traffic fails with timed out waiting for workload from xds"
+      category: "istio-ambient-troubleshooting"
+      author: Prequel
+      description: |
+        Ztunnel must fetch pod workload info from Istiod over XDS before tunneling.
+        If it doesn't receive a response within ~5s, it rejects the connection with:
+        `timed out waiting for workload … from xds`. Intermittent XDS delays may
+        indicate Istiod overload or misconfiguration (e.g. PILOT_DEBOUNCE_AFTER).
+      cause: |
+        - Istiod is under heavy CPU/memory pressure and slow to respond.
+        - Network policies or CNI are blocking port 15012 (XDS) between ztunnel and Istiod.
+        - PILOT_DEBOUNCE_AFTER or other Envoy debouncing has been increased.
+      impact: |
+        - Connections through ztunnel intermittently fail with timeout errors.
+        - Applications may observe dropped requests or circuit‐breaker trips.
+      mitigation: |
+        IMMEDIATE:
+        - Check Istiod pod resource usage: `kubectl -n istio-system top pods istiod-xxx`
+        - Inspect ztunnel logs for repeated XDS timeouts.
+        - Ensure port 15012 TCP is open between all nodes and istiod.
+        RECOVERY:
+        - Scale up Istiod deployment or increase resources.
+        - Review meshConfig.PILOT_DEBOUNCE_* and revert experimental changes.
+      tags:
+        - istio
+        - ambient
+        - ztunnel
+      references:
+        - https://github.com/istio/istio/wiki/Troubleshooting-Istio-Ambient#scenario-traffic-fails-with-timed-out-waiting-for-workload-from-xds
+      applications:
+        - name: istio-ambient
+          version: ">=1.26.0"
+    rule:
+      set:
+        event:
+          source: cre.log.ambient
+        match:
+          - regex: "timed out waiting for workload .* from xds"
+        negate:
+          - regex: "connection complete"
