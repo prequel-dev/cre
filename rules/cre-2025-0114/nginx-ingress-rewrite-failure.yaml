@@ -1,0 +1,65 @@
+rules:
+  - cre:
+      id: CRE-2025-0114
+      severity: 1
+      title: Nginx Ingress Controller rewritten URI has a zero length
+      category: load-balancer-problems
+      author: Prequel
+      description: |
+        Detects rewrite error which leads to service unavailability.
+        Wrong rewrite causes responses with HTTP code 500 or 400.
+
+        This CRE detects empty rewrite.
+      cause: |
+        - Wrong rewrite rule applied
+        - Rewrite ends up empty
+      impact: |
+        - Requests are not processed properly.
+        - Nginx responds with 500 or 400 status codes
+      mitigation: |
+        - Check if ingress rule not missing `/` for example:
+          ```kind: Ingress
+              metadata:
+                annotations:
+                  ...
+                  nginx.ingress.kubernetes.io/rewrite-target: $2
+                  ...
+                        - path: /path1(/|$)(.*)
+          ```
+          Accessing path **/path1/** will cause empty rewrite (HTTP code 500), and **/path1/path2** ends up with **path2** path (without **/** at the beginning - causing HTTP code 400).
+          With following rule:
+          ```kind: Ingress
+              metadata:
+                annotations:
+                  ...
+                  nginx.ingress.kubernetes.io/rewrite-target: /$2
+                  ...
+                        - path: /path1(/|$)(.*)
+          ```
+          At least one **/** is always added at the beginning of rewrite output.
+      tags:
+        - nginx
+        - reverse-proxy
+        - service-outage
+        - ingress-controller
+        - nginx-ingress
+        - load-balancer
+        - kubernetes
+      references:
+        - https://kubernetes.github.io/ingress-nginx/examples/rewrite/
+        - https://nginx.org/en/docs/http/ngx_http_rewrite_module.html
+      applications:
+        - name: nginx-ingress-controller
+          version: ">= 1.0.0"
+        - name: nginx
+          version: ">= 1.0.0"
+    metadata:
+      gen: 1
+      kind: prequel
+      id: RCQ4yszDedq2NYaDMcTsWz
+    rule:
+      set:
+        event:
+          source: cre.log.nginx
+        match:
+          - regex: "(\\d)+ the rewritten URI has a zero length"
