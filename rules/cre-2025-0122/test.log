@@ -1,0 +1,9 @@
+2025-07-07 12:00:00.000 critical][assert] assert failure: scopes_.empty(): external/envoy/source/common/stats/thread_local_store.cc:21
+2025-07-07 12:00:00.001 critical][backtrace] Caught Aborted, suspect faulting address 0x53900000013
+2025-07-07 12:00:00.002 critical][backtrace] Backtrace object</lib/x86_64-linux-gnu/libc.so.6> thr<0> (use tools/stack_decode.py)
+2025-07-07 12:00:00.003 critical][backtrace] thr<0> #0 0x7f7a90374428
+2025-07-07 12:00:00.004 critical][backtrace] thr<0> #1 0x7f7a90376029
+2025-07-07 12:00:00.005 critical][backtrace] thr<0> obj</usr/local/bin/envoy>
+2025-07-07 12:00:00.006 error Epoch 0 exited with error: signal: aborted
+2025-07-07 12:00:00.007 warning Envoy sidecar failed to restart
+2025-07-07 12:00:00.008 info envoy exited with status 134
