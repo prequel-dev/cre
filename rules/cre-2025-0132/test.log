@@ -1,73 +1,117 @@
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:34.580411      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-1
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:34.580441      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:37.001861      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-1
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:37.001937      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.398791      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-1
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.399057      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.527973      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-2
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.527999      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.404129      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-2
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.404541      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.508294      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-3
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.508433      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.242361      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-3
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.242463      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.328092      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-4
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.328121      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.040691      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-4
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.040817      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.129060      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-5
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.129083      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.872529      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-5
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.872636      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.964449      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-6
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.964476      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:11:36.941835      11 controller.go:196] "Configuration changes detected, backend reload required"
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:11:36.998012      11 controller.go:216] "Backend successfully reloaded"
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:11:36.998137      11 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-8db958865-llgss", UID:"20f9dcdc-019e-49c7-9755-4fd21a0d1e88", APIVersion:"v1", ResourceVersion:"888", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:07.998490      11 controller.go:1113] Error obtaining Endpoints for Service "default/test-service": no object matching key "default/test-service" in local store
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:07.998665      11 controller.go:196] "Configuration changes detected, backend reload required"
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:08.035308      11 controller.go:216] "Backend successfully reloaded"
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:08.035905      11 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-8db958865-llgss", UID:"20f9dcdc-019e-49c7-9755-4fd21a0d1e88", APIVersion:"v1", ResourceVersion:"888", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:11.336087      11 controller.go:196] "Configuration changes detected, backend reload required"
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:11.377298      11 controller.go:216] "Backend successfully reloaded"
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:11.378729      11 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-8db958865-llgss", UID:"20f9dcdc-019e-49c7-9755-4fd21a0d1e88", APIVersion:"v1", ResourceVersion:"888", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:18.614985      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[invalid-regex-pattern
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:18.615135      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:18.616290      11 controller.go:196] "Configuration changes detected, backend reload required"
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:18.659115      11 controller.go:216] "Backend successfully reloaded"
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: I0707 01:12:18.659758      11 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-8db958865-llgss", UID:"20f9dcdc-019e-49c7-9755-4fd21a0d1e88", APIVersion:"v1", ResourceVersion:"888", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:34.494710      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[invalid-regex-pattern
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:34.495037      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:34.580411      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-1
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:34.580441      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:37.001861      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-1
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:37.001937      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.398791      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-1
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.399057      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.527973      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-2
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:12:50.527999      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.404129      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-2
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.404541      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.508294      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-3
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:06.508433      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.242361      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-3
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.242463      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.328092      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-4
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:22.328121      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.040691      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-4
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.040817      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.129060      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-5
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:38.129083      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.872529      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-5
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.872636      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.964449      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-6
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:13:53.964476      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:09.671938      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-6
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:09.672008      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:09.749105      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-7
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:09.749124      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:25.829100      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-7
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:25.829598      11 main.go:148] rewrite-targetis invalid, defaulting to empty
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:26.074546      11 validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value [[[[broken-regex-8
-2025-07-01T16:34:43.755610378Z INGRESS_ERROR: W0707 01:14:26.074571      11 main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:44.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:34:45.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:34:49.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:34:51.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:34:56.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:34:58.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:00.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:35:01.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:35:05.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:07.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:12.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:14.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:16.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:35:17.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:35:21.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:23.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:28.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:30.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:35.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:37.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:39.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:35:40.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:35:44.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:46.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:48.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:35:49.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:35:53.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:55.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:58.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:35:59.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:36:02.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:36:04.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:36:07.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:36:08.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:36:11.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:36:13.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:35:26.755610378Z INGRESS_ERROR: 	+			# In case of errors try the next upstream server before returning an error
+2025-07-01T16:35:27.755610378Z INGRESS_ERROR: 	+			proxy_next_upstream                     error timeout;
+2025-07-01T16:35:46.755610378Z INGRESS_ERROR: 	+		# this is required to avoid error if nginx is being monitored
+2025-07-01T16:37:11.755610378Z INGRESS_ERROR: 	+	error_log  /var/log/nginx/error.log notice;
+2025-07-01T16:37:35.755610378Z INGRESS_RELOAD: controller.go:223] "Backend successfully reloaded"
+2025-07-01T16:37:37.755610378Z INGRESS_RELOAD: event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-885968fc-ljmz6", UID:"68f834b7-e8b8-44f1-b685-10d46f68250b", APIVersion:"v1", ResourceVersion:"687", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+2025-07-01T16:37:39.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:37:41.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:37:43.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:37:45.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:37:50.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:37:52.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:37:57.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:37:59.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:38:01.755610378Z INGRESS_RELOAD: controller.go:203] "Configuration changes detected, backend reload required"
+2025-07-01T16:38:02.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:38:06.755610378Z INGRESS_RELOAD: nginx.go:735] "NGINX configuration change" diff=<
+2025-07-01T16:40:09.755610378Z INGRESS_ERROR: 	+			# In case of errors try the next upstream server before returning an error
+2025-07-01T16:40:10.755610378Z INGRESS_ERROR: 	+			proxy_next_upstream                     error timeout;
+2025-07-01T16:40:29.755610378Z INGRESS_RELOAD: controller.go:223] "Backend successfully reloaded"
+2025-07-01T16:40:30.755610378Z INGRESS_RELOAD: event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-885968fc-ljmz6", UID:"68f834b7-e8b8-44f1-b685-10d46f68250b", APIVersion:"v1", ResourceVersion:"687", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+2025-07-01T16:40:32.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:40:33.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:40:37.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:40:39.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:40:48.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:40:50.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:40:53.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:40:55.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:40:57.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:40:58.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:41:02.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:04.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:09.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:11.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:13.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:41:14.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:41:18.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:20.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:25.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:27.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:29.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:41:30.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:41:34.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:36.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:41.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:43.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:48.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:50.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:52.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:41:53.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:41:57.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:41:59.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:01.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:42:02.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:42:06.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:08.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:11.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:42:12.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:42:15.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:17.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:20.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:42:21.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:42:24.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:26.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:29.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:42:30.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:42:33.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:35.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:37.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:42:39.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:42:42.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:44.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:46.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:42:47.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:42:51.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:53.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:42:55.755610378Z INGRESS_ERROR: validators.go:243] validation error on ingress default/test-ingress-1: annotation rewrite-target contains invalid value /invalid[[[regex
+2025-07-01T16:42:56.755610378Z INGRESS_ERROR: main.go:148] rewrite-targetis invalid, defaulting to empty
+2025-07-01T16:43:00.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
+2025-07-01T16:43:02.755610378Z INGRESS_ERROR: controller.go:1245] Error loading custom default certificate, falling back to generated default:
