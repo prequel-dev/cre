@@ -729,6 +729,23 @@ tags:
   - name: data-loss-risk
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
+
+  - name: silent-data-loss
+    displayName: Silent Data Loss
+    description: Data is acknowledged as written by the application but is later discarded without warning due to rollback or internal failure
+  - name: rollback
+    displayName: Rollback Event
+    description: MongoDB replica set performed a rollback, typically after a rejoin from a network partition or sync failure
+  - name: replica-set
+    displayName: Replica Set Instability
+    description: Failures or transitions within a MongoDB replica set that affect primary elections, replication, or consistency
+  - name: network-partition
+    displayName: Network Partition
+    description: A node was isolated from the rest of the replica set, triggering election or rollback events
+  - name: election
+    displayName: Replica Set Election
+    description: Events related to stepping up/down a MongoDB primary node, often due to failures or heartbeat loss
+
   - name: envoy-proxy
     displayName: Envoy Proxy
     description: Problems related to the configuration, operation, or performance of the Envoy proxy.
@@ -746,6 +763,7 @@ tags:
     description: Errors where a server acting as a gateway did not receive a timely response from an upstream server it needed to access (HTTP 504).
 
   
+
   - name: configmap-limit
     displayName: ConfigMap Limit
     description: Problems related to Kubernetes ConfigMap size limitations (1MB limit)
@@ -818,6 +836,8 @@ tags:
   - name: critical-failure
     displayName: Critical Failure
     description: Failures that cause immediate service termination or data loss
+
   - name: ingress-controller
     displayName: Ingress Controller
     description: Problems related to Kubernetes Ingress Controllers, such as SSL certificate validation failures, routing issues, or backend connectivity problems
+
