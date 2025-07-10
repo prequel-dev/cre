@@ -621,6 +621,9 @@ tags:
   - name: database-corruption
     displayName: Database Corruption
     description: Problems where database tables, schemas, or data become corrupted, leading to missing relations or inaccessible data
+  - name: database-availability
+    displayName: Database Availability
+    description: Problems affecting database service availability, including connection failures, service interruptions, and availability issues that prevent database access
   - name: permission-failure
     displayName: Permission Failure
     description: Problems where authorization checks fail due to system issues rather than legitimate access denials
