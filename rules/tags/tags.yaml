@@ -729,6 +729,29 @@ tags:
   - name: data-loss-risk
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
+
+  - name: aws-cni-networking
+    displayName: AWS CNI Networking
+    description: Issues related to the AWS VPC CNI plugin, such as ENI/IP exhaustion, misconfiguration, or plugin crashes affecting pod networking.
+
+  - name: aws-vpc-ip-failure
+    displayName: AWS VPC IP Failure
+    description: Subnet or ENI IP address exhaustion in AWS VPC CNI, causing pod scheduling and networking failures.
+
+
+  - name: service-unavailable
+    displayName: Service Unavailable
+    description: Conditions where services become unreachable due to underlying infrastructure or networking failures.
+
+  - name: k8s-scheduling-failure
+    displayName: K8s Scheduling Failure
+    description: Kubernetes scheduler unable to place pods due to taints, network issues, or IP constraints.
+
+  - name: network-unavailable
+    displayName: Network Unavailable
+    description: Node-level or cluster-wide network readiness failures, often triggering pod sandbox errors.
+
+
   - name: envoy-proxy
     displayName: Envoy Proxy
     description: Problems related to the configuration, operation, or performance of the Envoy proxy.
@@ -746,6 +769,7 @@ tags:
     description: Errors where a server acting as a gateway did not receive a timely response from an upstream server it needed to access (HTTP 504).
 
   
+
   - name: configmap-limit
     displayName: ConfigMap Limit
     description: Problems related to Kubernetes ConfigMap size limitations (1MB limit)
@@ -818,6 +842,8 @@ tags:
   - name: critical-failure
     displayName: Critical Failure
     description: Failures that cause immediate service termination or data loss
+
   - name: ingress-controller
     displayName: Ingress Controller
     description: Problems related to Kubernetes Ingress Controllers, such as SSL certificate validation failures, routing issues, or backend connectivity problems
+
