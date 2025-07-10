@@ -1,0 +1,13 @@
+2025-07-06 18:34:21.262 [INF] Starting mongod
+2025-07-06 18:34:21.264 [INF] db version v4.4.26
+2025-07-06 18:34:21.264 [INF] git version: 971c204888dd1b6d1072442a3f958e3e52a5d2d0
+2025-07-06 18:34:21.265 [INF] build environment: Ubuntu 20.04
+2025-07-06 18:34:21.265 [INF] Using storage engine: WiredTiger
+2025-07-06 18:34:21.265 [INF] WiredTiger message: [1674512923:123456][1:0x7f8b4e7d0700], file:WiredTiger.wt, WT_SESSION.open_cursor: __wt_btree_open, 508: WiredTiger metadata file is corrupt
+2025-07-06 18:34:21.266 [ERR] WiredTiger metadata file is corrupt
+2025-07-06 18:34:21.266 [ERR] WiredTiger: [WT_SESSION] Failed to open WiredTiger metadata
+2025-07-06 18:34:21.266 [ERR] WiredTiger failed to initialize due to metadata corruption
+2025-07-06 18:34:21.267 [ERR] MongoDB encountered fatal error during startup
+2025-07-06 18:34:21.267 [ERR] MongoDB crash loop due to WiredTiger metadata corruption
+2025-07-06 18:34:21.268 [INF] For more information, see: https://www.mongodb.com/docs/manual/administration/repair/
+2025-07-06 18:34:21.268 [INF] Attempting automatic shutdown due to unrecoverable error
