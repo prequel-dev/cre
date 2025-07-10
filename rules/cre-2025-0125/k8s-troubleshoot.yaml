@@ -6,12 +6,11 @@ rules:
     cre:
       id: CRE-2025-0125
       severity: 1
-      title: "Kubelet Panic from Evented PLEG Under Load"
+      title: "Kubelet EventedPLEG Panic Causes NodeFailure"
       category: "kubernetes-problem"
       author: Prequel Community
       description: |
-        Detects a known panic in Kubernetes kubelet caused by EventedPLEG under heavy pod pressure.
-        This issue triggers when rapid pod creation leads to a race condition that attempts to write to a closed channel.
+        Detects a critical kubelet panic in the EventedPLEG subsystem under rapid pod launch pressure. When triggered, the node's kubelet crashes, the node becomes NotReady and all resident pods are evicted resulting in a full node-level outage until manual intervention.
       cause: |
         - High pod creation rate on a constrained node
         - EventedPLEG feature gate enabled (default in v1.33+)
