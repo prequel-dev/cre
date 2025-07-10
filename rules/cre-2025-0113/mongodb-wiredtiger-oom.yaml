@@ -35,7 +35,6 @@ rules:
         - memory-pressure
         - cache-eviction
         - critical-failure
-        - database-availability
       mitigation: |
         IMMEDIATE ACTIONS:
         - Check if MongoDB restarted: `systemctl status mongod`
