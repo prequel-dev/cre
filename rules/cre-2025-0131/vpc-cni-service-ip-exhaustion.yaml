@@ -29,7 +29,7 @@ rules:
         - Silent degradation of service reliability without clear alerting.
       impactScore: 10
       tags:
-         - ip-exhaustion
+         - ip-address-exhaustion
          - aws-cni-networking
          - service-unavailable
          - network-unavailable
