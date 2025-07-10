@@ -1,0 +1,236 @@
+2025-07-06T19:22:36.895092Z [ERROR] pdb-monitor: PDB web-app-pdb: healthy pods (1) below minAvailable (2)
+2025-07-06T19:22:36.966695Z [CRITICAL] pdb-monitor: PDB_BYPASS_DETECTED: web-app-pdb constraint violated - minAvailable=2, currentHealthy=1
+2025-07-06T19:22:37.034692Z [ALERT] pdb-monitor: WORKLOAD_DEGRADATION: service web-app degraded to 16% capacity (1/6 replicas)
+2025-07-06T19:22:37.105540Z [ALERT] pdb-monitor: SLA_BREACH: web-app uptime dropped to 87.3% (below 99.9% threshold)
+2025-07-06T19:22:37.175942Z [ERROR] pdb-monitor: Cascading failure: api-gateway showing increased error rate due to web-app degradation
+2025-07-06T19:22:37.247262Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:22:37.316101Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:22:37.386725Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:22:37.456145Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:22:37.527292Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:22:37.598117Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:22:37.670446Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:22:37.740195Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:22:37.811396Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:22:37.880425Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:22:37.950708Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:22:44.190005Z [ERROR] pdb-monitor: PDB web-app-pdb: healthy pods (1) below minAvailable (2)
+2025-07-06T19:22:44.260870Z [CRITICAL] pdb-monitor: PDB_BYPASS_DETECTED: web-app-pdb constraint violated - minAvailable=2, currentHealthy=1
+2025-07-06T19:22:44.329284Z [ALERT] pdb-monitor: WORKLOAD_DEGRADATION: service web-app degraded to 16% capacity (1/6 replicas)
+2025-07-06T19:22:44.399273Z [ALERT] pdb-monitor: SLA_BREACH: web-app uptime dropped to 87.3% (below 99.9% threshold)
+2025-07-06T19:22:44.467839Z [ERROR] pdb-monitor: Cascading failure: api-gateway showing increased error rate due to web-app degradation
+2025-07-06T19:22:44.545174Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:22:44.619239Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:22:44.699155Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:22:44.769635Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:22:44.838268Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:22:44.909001Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:22:44.979375Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:22:45.048875Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:22:45.117806Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:22:45.187972Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:22:45.257205Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:22:45.327413Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:22:51.641273Z [ERROR] pdb-monitor: PDB web-app-pdb: healthy pods (1) below minAvailable (2)
+2025-07-06T19:22:51.711536Z [CRITICAL] pdb-monitor: PDB_BYPASS_DETECTED: web-app-pdb constraint violated - minAvailable=2, currentHealthy=1
+2025-07-06T19:22:51.781596Z [ALERT] pdb-monitor: WORKLOAD_DEGRADATION: service web-app degraded to 16% capacity (1/6 replicas)
+2025-07-06T19:22:51.858941Z [ALERT] pdb-monitor: SLA_BREACH: web-app uptime dropped to 87.3% (below 99.9% threshold)
+2025-07-06T19:22:51.928578Z [ERROR] pdb-monitor: Cascading failure: api-gateway showing increased error rate due to web-app degradation
+2025-07-06T19:22:52.000915Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:22:52.071732Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:22:52.144301Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:22:52.217147Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:22:52.288774Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:22:52.358334Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:22:52.430631Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:22:52.500369Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:22:52.572636Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:22:52.644191Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:22:52.720062Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:22:52.791086Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:22:52.864206Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:22:59.170915Z [ERROR] pdb-monitor: PDB web-app-pdb: healthy pods (1) below minAvailable (2)
+2025-07-06T19:22:59.242407Z [CRITICAL] pdb-monitor: PDB_BYPASS_DETECTED: web-app-pdb constraint violated - minAvailable=2, currentHealthy=1
+2025-07-06T19:22:59.312563Z [ALERT] pdb-monitor: WORKLOAD_DEGRADATION: service web-app degraded to 16% capacity (1/6 replicas)
+2025-07-06T19:22:59.417542Z [ALERT] pdb-monitor: SLA_BREACH: web-app uptime dropped to 87.3% (below 99.9% threshold)
+2025-07-06T19:22:59.486871Z [ERROR] pdb-monitor: Cascading failure: api-gateway showing increased error rate due to web-app degradation
+2025-07-06T19:22:59.558976Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:22:59.631197Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:22:59.700369Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:22:59.774654Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:22:59.844099Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:22:59.914749Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:22:59.984943Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:00.064844Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:00.157952Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:00.235577Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:00.311688Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:00.399727Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:00.472503Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:00.546160Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:06.919158Z [ERROR] pdb-monitor: PDB web-app-pdb: healthy pods (1) below minAvailable (2)
+2025-07-06T19:23:06.989911Z [CRITICAL] pdb-monitor: PDB_BYPASS_DETECTED: web-app-pdb constraint violated - minAvailable=2, currentHealthy=1
+2025-07-06T19:23:07.060015Z [ALERT] pdb-monitor: WORKLOAD_DEGRADATION: service web-app degraded to 16% capacity (1/6 replicas)
+2025-07-06T19:23:07.132772Z [ALERT] pdb-monitor: SLA_BREACH: web-app uptime dropped to 87.3% (below 99.9% threshold)
+2025-07-06T19:23:07.205303Z [ERROR] pdb-monitor: Cascading failure: api-gateway showing increased error rate due to web-app degradation
+2025-07-06T19:23:07.278878Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:07.350822Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:07.424927Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:07.496880Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:07.568437Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:07.638614Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:07.711753Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:07.782069Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:07.853528Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:07.924144Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:07.996828Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:08.066676Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:08.138396Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:08.208592Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:08.281058Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:14.590880Z [ERROR] pdb-monitor: PDB web-app-pdb: healthy pods (1) below minAvailable (2)
+2025-07-06T19:23:14.662425Z [CRITICAL] pdb-monitor: PDB_BYPASS_DETECTED: web-app-pdb constraint violated - minAvailable=2, currentHealthy=1
+2025-07-06T19:23:14.732465Z [ALERT] pdb-monitor: WORKLOAD_DEGRADATION: service web-app degraded to 16% capacity (1/6 replicas)
+2025-07-06T19:23:14.805290Z [ALERT] pdb-monitor: SLA_BREACH: web-app uptime dropped to 87.3% (below 99.9% threshold)
+2025-07-06T19:23:14.874990Z [ERROR] pdb-monitor: Cascading failure: api-gateway showing increased error rate due to web-app degradation
+2025-07-06T19:23:14.944940Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:15.025333Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:15.094987Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:15.166492Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:15.239820Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:15.310262Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:15.381355Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:15.451496Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:15.523801Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:15.593636Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:15.666526Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:15.738415Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:15.812781Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:15.885374Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:16.009222Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:16.095791Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:22.362373Z [ERROR] pdb-monitor: PDB web-app-pdb: healthy pods (1) below minAvailable (2)
+2025-07-06T19:23:22.432181Z [CRITICAL] pdb-monitor: PDB_BYPASS_DETECTED: web-app-pdb constraint violated - minAvailable=2, currentHealthy=1
+2025-07-06T19:23:22.500681Z [ALERT] pdb-monitor: WORKLOAD_DEGRADATION: service web-app degraded to 16% capacity (1/6 replicas)
+2025-07-06T19:23:22.571052Z [ALERT] pdb-monitor: SLA_BREACH: web-app uptime dropped to 87.3% (below 99.9% threshold)
+2025-07-06T19:23:22.641455Z [ERROR] pdb-monitor: Cascading failure: api-gateway showing increased error rate due to web-app degradation
+2025-07-06T19:23:22.714396Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:22.784386Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:22.857054Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:22.927335Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:23.000097Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:23.070598Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:23.146357Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:23.216084Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:23.288120Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:23.358437Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:23.429734Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:23.541041Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:23.613094Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:23.685262Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:23.755012Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:23.824301Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:23.897113Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:30.185618Z [ERROR] pdb-monitor: PDB web-app-pdb: healthy pods (1) below minAvailable (2)
+2025-07-06T19:23:30.254997Z [CRITICAL] pdb-monitor: PDB_BYPASS_DETECTED: web-app-pdb constraint violated - minAvailable=2, currentHealthy=1
+2025-07-06T19:23:30.323837Z [ALERT] pdb-monitor: WORKLOAD_DEGRADATION: service web-app degraded to 16% capacity (1/6 replicas)
+2025-07-06T19:23:30.395844Z [ALERT] pdb-monitor: SLA_BREACH: web-app uptime dropped to 87.3% (below 99.9% threshold)
+2025-07-06T19:23:30.465110Z [ERROR] pdb-monitor: Cascading failure: api-gateway showing increased error rate due to web-app degradation
+2025-07-06T19:23:30.537617Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:30.607745Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:30.678466Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:30.751358Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:30.821634Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:30.894093Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:30.967180Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:31.071547Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:31.144385Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:31.217718Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:31.297060Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:31.368862Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:31.440015Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:31.517670Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:31.589383Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:31.658228Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:31.736990Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:31.808987Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:31.883377Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:38.155187Z [ERROR] pdb-monitor: PDB web-app-pdb: healthy pods (1) below minAvailable (2)
+2025-07-06T19:23:38.226332Z [CRITICAL] pdb-monitor: PDB_BYPASS_DETECTED: web-app-pdb constraint violated - minAvailable=2, currentHealthy=1
+2025-07-06T19:23:38.296167Z [ALERT] pdb-monitor: WORKLOAD_DEGRADATION: service web-app degraded to 16% capacity (1/6 replicas)
+2025-07-06T19:23:38.401556Z [ALERT] pdb-monitor: SLA_BREACH: web-app uptime dropped to 87.3% (below 99.9% threshold)
+2025-07-06T19:23:38.471449Z [ERROR] pdb-monitor: Cascading failure: api-gateway showing increased error rate due to web-app degradation
+2025-07-06T19:23:38.544074Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:38.616903Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:38.687328Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:38.759510Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:38.833154Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:38.903324Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:38.976087Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:39.046083Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:39.120076Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:39.194375Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:39.270247Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:39.344421Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:39.418346Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:39.490366Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:39.599855Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:39.670295Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:39.744557Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:39.823789Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:39.895199Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:39.966738Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:46.239629Z [ERROR] pdb-monitor: PDB web-app-pdb: healthy pods (1) below minAvailable (2)
+2025-07-06T19:23:46.310473Z [CRITICAL] pdb-monitor: PDB_BYPASS_DETECTED: web-app-pdb constraint violated - minAvailable=2, currentHealthy=1
+2025-07-06T19:23:46.380778Z [ALERT] pdb-monitor: WORKLOAD_DEGRADATION: service web-app degraded to 16% capacity (1/6 replicas)
+2025-07-06T19:23:46.459819Z [ALERT] pdb-monitor: SLA_BREACH: web-app uptime dropped to 87.3% (below 99.9% threshold)
+2025-07-06T19:23:46.529465Z [ERROR] pdb-monitor: Cascading failure: api-gateway showing increased error rate due to web-app degradation
+2025-07-06T19:23:46.602417Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:46.679952Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:46.751418Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:46.820977Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:46.943747Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:47.019465Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:47.089775Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:47.161901Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:47.232251Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:47.310705Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:47.380961Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:47.454343Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:47.524811Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:47.597115Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:47.669727Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:47.754900Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:23:47.827481Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:23:47.902164Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:23:47.988166Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:23:48.066095Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:23:48.135388Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:23:59.504624Z [ERROR] pdb-monitor: PDB web-app-pdb: healthy pods (1) below minAvailable (2)
+2025-07-06T19:23:59.576438Z [CRITICAL] pdb-monitor: PDB_BYPASS_DETECTED: web-app-pdb constraint violated - minAvailable=2, currentHealthy=1
+2025-07-06T19:23:59.644817Z [ALERT] pdb-monitor: WORKLOAD_DEGRADATION: service web-app degraded to 16% capacity (1/6 replicas)
+2025-07-06T19:23:59.722344Z [ALERT] pdb-monitor: SLA_BREACH: web-app uptime dropped to 87.3% (below 99.9% threshold)
+2025-07-06T19:23:59.795597Z [ERROR] pdb-monitor: Cascading failure: api-gateway showing increased error rate due to web-app degradation
+2025-07-06T19:23:59.864780Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:23:59.939425Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:24:00.021150Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:24:00.131441Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:24:00.204193Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:24:00.276255Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:24:00.369868Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:24:00.439922Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:24:00.513138Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:24:00.585247Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:24:00.654790Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:24:00.732329Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:24:00.803856Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:24:00.876349Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:24:00.946836Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:24:01.076403Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
+2025-07-06T19:24:01.159966Z [ALERT] pdb-monitor: Multiple PDB violations detected across cluster
+2025-07-06T19:24:01.232387Z [ERROR] pdb-monitor: PDB policy enforcement failed: kubelet bypassed constraints
+2025-07-06T19:24:01.306772Z [CRITICAL] pdb-monitor: Cluster stability compromised: 3 of 5 critical services degraded
+2025-07-06T19:24:01.380335Z [ERROR] pdb-monitor: Scale-up failed: insufficient cluster resources
+2025-07-06T19:24:01.450564Z [ALERT] pdb-monitor: Incident escalation: SRE team notified
+2025-07-06T19:24:01.530919Z [CRITICAL] pdb-monitor: PDB violation persists: web-app-pdb allows 2 disruptions, currently 5 disrupted
+2025-07-06T19:24:01.606279Z [ERROR] pdb-monitor: Failed to query PDB status: connection timeout to API server
