@@ -1,0 +1,67 @@
+rules:
+  - cre:
+      id: CRE-2025-0118
+      severity: 1
+      title: Envoy proxy unable to connect to upstream services
+      category: envoy-upstream-failures
+      author: Prequel
+      description: |
+        This rule detects when Envoy proxy is experiencing consistent failures connecting to upstream services, resulting in HTTP 503 (Service Unavailable) or 504 (Gateway Timeout) errors. These errors are typically accompanied by "UH" (upstream service unhealthy) or "UT" (upstream request timeout) response flags in Envoy access logs, indicating backend service connectivity issues that require immediate attention.
+      cause: |
+        Common causes include:
+        - **Upstream service failures/unavailability**: Backend services may be down, crashed, or experiencing critical errors
+        - **Resource exhaustion**: Upstream services are overload and cannot accept new connections
+        - **Circuit breaker activation**: Envoy has detected excessive failures and is preventing new connections to protect system stability
+        - **Health check misconfigurations**: Incorrectly configured health checks are marking healthy services as unavailable
+        - **Upstream Connection Timeout**: Envoy is unable to establish a connection to the upstream service within the configured timeout period. This can be caused by network issues or a slow-starting upstream service.
+      impact: |
+        - **HIGH CHANCE**: Complete or intermittent service outages affecting clients/applications.
+        - **Client application errors**: clients/applications receive 503 or 504 errors, resulting in degraded user experience
+        - **Cascading failures**: Services dependent on the failing upstream may begin experiencing failures
+        - **Business impact**: Potential revenue loss and decreased user satisfaction  and trust for critical applications
+      impactScore: 7
+      tags:
+        - envoy-proxy
+        - envoy-load-balancer
+        - envoy-upstream-errors
+        - envoy-service-unavailable
+        - envoy-gateway-timeout
+      mitigation: |
+        **Immediate response:**
+        - **Check Envoy Admin Stats**: Access the Envoy admin interface (e.g., `http://localhost:9901/stats`) to get detailed statistics about the health of your clusters.
+        - **Inspect Envoy Logs**: Analyze the Envoy logs for patterns in the 503 and 504 errors. Look for the response flags `UH` and `UT`.
+        - **Check Upstream Service Health**: Directly inspect the health of the upstream services that are failing. Check their logs and resource utilization (CPU, memory, etc.).
+        - **Review recent changes**: Check for recent deployments or configuration changes that may have caused the issue
+
+        **Resolution steps:**
+        1. **Restart or scale upstream services**: If services are down or overloaded, restart them or increase capacity
+        2. **Review Envoy configuration**: Examine `envoy.yaml` for proper cluster definitions, timeouts, circuit breaker settings, and health checks
+        3. **Verify network connectivity**: Ensure DNS resolution and network paths between Envoy and upstream services are functioning
+        4. **Reset circuit breakers**: If tripped, wait for automatic reset or manually clear them as appropriate
+
+        **Prevention measures:**
+        - **Implement comprehensive health checks**: Configure active health monitoring to detect service issues proactively
+        - **Optimize circuit breaker settings**: Balance failure detection sensitivity with system stability
+        - **Establish monitoring and alerting**: Set up alerts on key Envoy metrics (upstream_rq_5xx, upstream_cx_total) for early problem detection
+        - **Implement auto-scaling**: Configure automatic scaling for upstream services to handle load variations
+        - **Validate timeout configurations**: Ensure timeout values are appropriate for actual service response times
+      references:
+        - https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log/usage.html
+        - https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/cluster_manager
+        - https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/circuit_breaking#arch-overview-circuit-break
+      applications:
+        - name: envoy
+          version: "1.34.1"
+      mitigationScore: 7
+    metadata:
+      gen: 1
+      id: MFH9qot9D8xRzGSAAHnFNw
+      kind: prequel
+    rule:
+      sequence:
+        window: 60s
+        event:
+          source: cre.log.envoy
+        order:
+          - regex: '"response_code":(500|503|504)'
+            count: 30

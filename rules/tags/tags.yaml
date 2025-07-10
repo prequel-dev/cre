@@ -730,7 +730,6 @@ tags:
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
 
-  
   - name: aws-cni-networking
     displayName: AWS CNI Networking
     description: Issues related to the AWS VPC CNI plugin, such as ENI/IP exhaustion, misconfiguration, or plugin crashes affecting pod networking.
@@ -751,6 +750,25 @@ tags:
   - name: network-unavailable
     displayName: Network Unavailable
     description: Node-level or cluster-wide network readiness failures, often triggering pod sandbox errors.
+
+
+  - name: envoy-proxy
+    displayName: Envoy Proxy
+    description: Problems related to the configuration, operation, or performance of the Envoy proxy.
+  - name: envoy-load-balancer
+    displayName: Load Balancer
+    description: Issues concerning traffic distribution, health checking, and connection management across backend services.
+  - name: envoy-upstream-errors
+    displayName: Envoy Upstream Errors
+    description: Failures occurring when a proxy or gateway cannot get a valid response from a backend or upstream service.
+  - name: envoy-service-unavailable
+    displayName: Envoy Service Unavailable
+    description: Indicates a server is temporarily unable to handle a request, often due to overload or maintenance (HTTP 503).
+  - name: envoy-gateway-timeout
+    displayName: Envoy Gateway Timeout
+    description: Errors where a server acting as a gateway did not receive a timely response from an upstream server it needed to access (HTTP 504).
+
+  
 
   - name: configmap-limit
     displayName: ConfigMap Limit
@@ -824,4 +842,8 @@ tags:
   - name: critical-failure
     displayName: Critical Failure
     description: Failures that cause immediate service termination or data loss
+
+  - name: ingress-controller
+    displayName: Ingress Controller
+    description: Problems related to Kubernetes Ingress Controllers, such as SSL certificate validation failures, routing issues, or backend connectivity problems
 
