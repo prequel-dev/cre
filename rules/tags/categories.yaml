@@ -221,6 +221,14 @@ categories:
       including CNI sandbox creation failures, ztunnel connectivity issues,
       traffic capture errors, and waypoint configuration problems.
 
+
+  
+  - name: kubernetes-ingress-availability
+    displayName: Kubernetes Ingress Availability
+    description: Failures that impact the availability and reliability of Kubernetes ingress controllers, such as configuration errors, routing failures, or load balancer issues affecting external traffic access.
+
+
+
   - name: envoy-upstream-failures
     displayName: Envoy Upstream Failures
     description: Problems where Envoy fails to communicate with an upstream service. This includes connection timeouts, connection refused errors, upstream overflow and cases where no healthy upstream hosts are available. It also covers request timeouts and unexpected stream resets from the upstream service.
@@ -228,4 +236,5 @@ categories:
   - name: database-availability
     displayName: Database Availability
     description: Critical failures affecting database service availability, including crashes, OOM kills, and unplanned terminations that require immediate recovery
+
 
