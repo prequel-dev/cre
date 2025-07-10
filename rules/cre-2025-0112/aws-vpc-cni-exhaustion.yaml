@@ -1,6 +1,6 @@
 rules:
   - cre:
-      id: CRE-2025-0111
+      id: CRE-2025-0112
       severity: 0
       title: AWS VPC CNI Node IP Pool Depletion Crisis
       category: vpc-cni-problems
