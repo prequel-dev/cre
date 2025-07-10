@@ -1,0 +1,66 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: 5UD1RZxGC5LJQnVmAkV11B
+      gen: 1
+    cre:
+      id: CRE-2025-0108
+      severity: 1
+      title: "MongoDB Replica Set Primary Election Failure"
+      category: "database-problem"
+      author: Prequel
+      description: |
+        Detects high-severity MongoDB replica set primary election failures that result in no primary node being available,
+        causing complete service unavailability. This rule targets catastrophic conditions that break replica set consensus:
+          - Primary node failures followed by election timeouts where no secondary can become primary
+          - Network partitions isolating replica set members and preventing quorum formation
+          - Heartbeat failures and connectivity issues leading to election failures
+          - Replica set state transitions indicating election problems
+      cause: |
+        - Primary node crashes or becomes unreachable due to hardware/network issues
+        - Network partitions isolate replica set members, preventing quorum formation
+        - Insufficient voting members available to elect a new primary (split-brain scenarios)
+        - Election timeout settings too aggressive for network conditions
+        - MongoDB configuration issues affecting election processes
+        - System resource constraints (CPU, memory, disk) causing node failures
+        - Firewall or security group rules blocking inter-node communication
+      tags:
+        - ha
+        - quorum
+        - leader-election
+        - network
+        - timeout
+        - crash
+        - data-loss
+      mitigation: |
+        PREVENTION:
+          - Monitor replica set member health and network connectivity
+          - Set appropriate election timeout values for network conditions
+          - Ensure sufficient replica set members for quorum formation
+          - Monitor resource usage (CPU, memory, disk) on all nodes
+        RESPONSE:
+          - Check replica set status: rs.status()
+          - Restart failed replica set members
+          - Reconnect isolated network segments
+          - Force replica set reconfiguration if needed
+          - Consider adding additional replica set members
+      references:
+        - https://docs.mongodb.com/manual/core/replica-set-elections/
+        - https://docs.mongodb.com/manual/tutorial/troubleshoot-replica-sets/
+        - https://docs.mongodb.com/manual/core/replica-set-high-availability/
+      applications:
+        - name: mongodb
+      impact: |
+        - Complete write unavailability (no primary node)
+        - Potential read issues depending on read preference settings
+        - Application downtime and service disruption
+        - Risk of data inconsistency in split-brain scenarios
+      impactScore: 10
+      mitigationScore: 7
+      reports: 1
+    rule:
+      set:
+        event:
+          source: cre.log.mongodb
+        match:
+          - regex: "No primary exists currently|PrimarySteppedDown: No primary exists currently|Failed to refresh query analysis configurations.*No primary exists currently|Starting an election, since we have seen no PRIMARY in election timeout period|election timeout period|Election timeout|ShutdownInProgress|In the process of shutting down|received an invalid response|heartbeat.*timeout|heartbeat.*failed|network.*partition|connection.*refused|connection.*timeout|HostUnreachable|Replica set state transition.*SECONDARY|Member is in new state.*SECONDARY|stepping up to primary|stepping down from primary"
