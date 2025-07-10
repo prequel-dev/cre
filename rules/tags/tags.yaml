@@ -633,6 +633,15 @@ tags:
   - name: logs
     displayName: Logs
     description: Problems with log processing
+  - name: envoy
+    displayName: Envoy
+    description: Problems related to Envoy proxy, including crashes, misconfigurations, or assertion failures.
+  - name: assertion
+    displayName: Assertion
+    description: Assertion failures indicating internal consistency checks or invariants violated at runtime.  
+  - name: crash-loop
+    displayName: Crash Loop
+    description: Repeated process restarts due to persistent failures causing operational impact.
   - name: redpanda-startup
     displayName: Redpanda Startup
     description: Problems related to Redpanda startup, such as configuration issues or missing state
@@ -720,40 +729,6 @@ tags:
   - name: data-loss-risk
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
-  - name: silent-data-loss
-    displayName: Silent Data Loss
-    description: Data is acknowledged as written by the application but is later discarded without warning due to rollback or internal failure
-  - name: rollback
-    displayName: Rollback Event
-    description: MongoDB replica set performed a rollback, typically after a rejoin from a network partition or sync failure
-  - name: replica-set
-    displayName: Replica Set Instability
-    description: Failures or transitions within a MongoDB replica set that affect primary elections, replication, or consistency
-  - name: network-partition
-    displayName: Network Partition
-    description: A node was isolated from the rest of the replica set, triggering election or rollback events
-  - name: election
-    displayName: Replica Set Election
-    description: Events related to stepping up/down a MongoDB primary node, often due to failures or heartbeat loss
-  
-  - name: vpc-cni
-    displayName: VPC CNI
-    description: Failures related to the AWS VPC CNI plugin, including ENI/IP allocation issues and network plugin crashes.
-  - name: ip-exhaustion
-    displayName: IP Exhaustion
-    description: Subnet or ENI IP address exhaustion causing pod scheduling and networking failures.
-
-  - name: service-unavailable
-    displayName: Service Unavailable
-    description: Conditions where services become unreachable due to underlying infrastructure or networking failures.
-
-  - name: scheduling-failure
-    displayName: Scheduling Failure
-    description: Kubernetes scheduler unable to place pods due to taints, network issues, or IP constraints.
-
-  - name: network-unavailable
-    displayName: Network Unavailable
-    description: Node-level or cluster-wide network readiness failures, often triggering pod sandbox errors.
 
   - name: nginx-ingress
     displayName: NGINX Ingress
@@ -767,13 +742,14 @@ tags:
   - name: regex-error
     displayName: Regex Error
     description: Invalid regular expression patterns in configuration causing parsing failures.
-  - name: configuration-failure
-    displayName: Configuration Failure
-    description: Malformed or invalid configuration preventing proper service operation.
+  - name: invalid-system-config
+    displayName: Invalid System Configuration
+    description: Errors caused by malformed or invalid system or service configurations that prevent proper operation across one or more components.
   - name: availability-impact
     displayName: Availability Impact
     description: Issues that directly affect service availability and user access to applications.
 
+<<<<<<< HEAD
   - name: dns-resolution
     displayName: DNS Resolution
     description: Failures related to domain name resolution, typically caused by invalid, missing, or unresolvable DNS entries.
@@ -793,3 +769,78 @@ tags:
   - name: cluster-health
     displayName: Cluster Health
     description: Issues impacting the operational health of service clusters within Envoy, often detected via health checks or resolution failures.
+=======
+  - name: configmap-limit
+    displayName: ConfigMap Limit
+    description: Problems related to Kubernetes ConfigMap size limitations (1MB limit)
+  - name: configuration-management
+    displayName: Configuration Management
+    description: Problems related to managing and applying configuration changes in systems
+  - name: kubernetes-limits
+    displayName: Kubernetes Limits
+    description: Problems caused by Kubernetes resource limits and constraints
+  - name: nginx-ingress
+    displayName: NGINX Ingress
+    description: Problems related to NGINX Ingress Controller for Kubernetes
+  - name: ip-exhaustion
+    displayName: IP Exhaustion
+    description: Problems where IP address pools are depleted, preventing new network allocations
+  - name: eni-allocation
+    displayName: ENI Allocation
+    description: Problems related to Elastic Network Interface allocation and attachment failures
+  - name: subnet-exhaustion
+    displayName: Subnet Exhaustion
+    description: Problems where VPC subnets run out of available IP addresses
+  - name: pod-scheduling-failure
+    displayName: Pod Scheduling Failure
+    description: Problems where Kubernetes pods cannot be scheduled due to resource constraints
+  - name: cluster-paralysis
+    displayName: Cluster Paralysis
+    description: Critical failures that render entire clusters unable to schedule new workloads
+  - name: aws-api-limits
+    displayName: AWS API Limits
+    description: Problems caused by hitting AWS service limits like AddressLimitExceeded or NetworkInterfaceLimitExceeded
+  - name: warm-pool-depletion
+    displayName: Warm Pool Depletion
+    description: Problems where CNI warm IP pools are exhausted during traffic spikes
+  - name: prefix-delegation
+    displayName: Prefix Delegation
+    description: Problems or solutions related to AWS VPC CNI prefix delegation feature
+  - name: secondary-cidr
+    displayName: Secondary CIDR
+    description: Problems or solutions involving secondary VPC CIDR blocks
+  - name: enhanced-subnet-discovery
+    displayName: Enhanced Subnet Discovery
+    description: Features related to automatic subnet discovery in AWS VPC CNI
+  - name: cluster-autoscaling-failure
+    displayName: Cluster Autoscaling Failure
+    description: Problems where cluster autoscaling fails due to infrastructure constraints
+  - name: service-unavailability
+    displayName: Service Unavailability
+    description: Critical problems causing complete service outages
+  - name: revenue-impact
+    displayName: Revenue Impact
+    description: Problems that directly impact business revenue through service disruption
+  - name: compliance-violation
+    displayName: Compliance Violation
+    description: Problems that cause violations of SLA, compliance, or regulatory requirements
+  - name: capacity-planning
+    displayName: Capacity Planning
+    description: Problems related to insufficient capacity planning or resource forecasting
+  - name: mongodb
+    displayName: MongoDB
+    description: Problems related to MongoDB database system
+  - name: wiredtiger
+    displayName: WiredTiger
+    description: Problems related to MongoDB's WiredTiger storage engine
+  - name: oom-kill
+    displayName: OOM Kill
+    description: Problems where processes are terminated by the OS Out-Of-Memory killer
+  - name: cache-eviction
+    displayName: Cache Eviction
+    description: Problems related to cache eviction policies and performance
+  - name: critical-failure
+    displayName: Critical Failure
+    description: Failures that cause immediate service termination or data loss
+
+>>>>>>> 4834524cb671bb306897d012772527106caecc76

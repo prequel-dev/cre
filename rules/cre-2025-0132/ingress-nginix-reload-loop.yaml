@@ -25,12 +25,13 @@ rules:
         - Liveness probe failures potentially causing pod restarts.
         - Cascading failures affecting multiple services and applications.
         - Degraded cluster performance due to constant configuration processing.
+      impactScore: 9 
       tags:
          - nginx-ingress
          - reload-loop
          - annotation-validation
          - regex-error
-         - configuration-failure
+         - invalid-system-config
          - availability-impact
       mitigation: |
         - Immediately delete problematic ingress resources: `kubectl delete ingress <name> -n <namespace>`.
@@ -40,6 +41,7 @@ rules:
         - Use proper regex patterns in rewrite-target annotations (e.g., "/$1" instead of "[[[[").
         - Monitor ingress controller logs for validation errors and reload frequency.
         - Set up alerts for high reload counts and validation failure patterns.
+      mitigationScore: 7
       references:
          - https://github.com/kubernetes/ingress-nginx/issues/10124
          - https://github.com/kubernetes/ingress-nginx/issues/9973
