@@ -4,7 +4,7 @@ rules:
       id: KQhfhAmpyqD9mUx1DGJoho
       version: "0.1.0"
     cre:
-      id: CRE-2025-0108
+      id: CRE-2025-0115
       severity: 1
       title: MongoDB client disconnects and socket exceptions under load
       category: mongodb-resource-exhaustion
