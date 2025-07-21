@@ -729,6 +729,23 @@ tags:
   - name: data-loss-risk
     displayName: Data Loss Risk
     description: Conditions that may lead to data loss if not addressed promptly
+
+  - name: dns-lookup-issue
+    displayName: DNS Lookup Issue
+    description: Failures related to domain name resolution, typically caused by invalid, missing, or unresolvable DNS entries.
+  - name: upstream-routing-failure
+    displayName: Upstream Routing Failure
+    description: Issues where Envoy fails to correctly route traffic to upstream services due to configuration errors, DNS failures, or network issues.
+  - name: backend-unavailable
+    displayName: Backend Unavailable
+    description: Conditions where a backend service is down, overloaded, or not responding, often resulting in HTTP 503 responses.
+  - name: envoy-traffic-failure
+    displayName: Envoy Traffic Failure
+    description: Rules and detections related to the behavior or failures of the Envoy proxy.
+  - name: cluster-health
+    displayName: Cluster Health
+    description: Issues impacting the operational health of service clusters within Envoy, often detected via health checks or resolution failures.
+
   - name: envoy-proxy
     displayName: Envoy Proxy
     description: Problems related to the configuration, operation, or performance of the Envoy proxy.
@@ -745,7 +762,6 @@ tags:
     displayName: Envoy Gateway Timeout
     description: Errors where a server acting as a gateway did not receive a timely response from an upstream server it needed to access (HTTP 504).
 
-  
   - name: configmap-limit
     displayName: ConfigMap Limit
     description: Problems related to Kubernetes ConfigMap size limitations (1MB limit)

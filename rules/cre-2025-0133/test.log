@@ -1,0 +1,42 @@
+# Envoy DNS Failure Test Log - 2025-07-07T02:39:14.321919Z
+# CRE-2025-0133 - Envoy Upstream Cluster DNS Resolution Failures
+# Test Scenario: DNS resolution failure for nonexistent.internal.fake domain
+# Expected: 503 Service Unavailable with "no healthy upstream" error
+
+2025-07-07T02:39:38.544008Z [REQUEST-1] HTTP 503 (0.017028s) - no healthy upstream
+2025-07-07T02:39:41.146242Z [REQUEST-2] HTTP 503 (0.007923s) - no healthy upstream
+2025-07-07T02:39:43.540307Z [REQUEST-3] HTTP 503 (0.002918s) - no healthy upstream
+2025-07-07T02:39:45.900283Z [REQUEST-4] HTTP 503 (0.002543s) - no healthy upstream
+2025-07-07T02:39:48.246678Z [REQUEST-5] HTTP 503 (0.002874s) - no healthy upstream
+2025-07-07T02:39:50.634076Z [REQUEST-6] HTTP 503 (0.005484s) - no healthy upstream
+2025-07-07T02:39:52.993553Z [REQUEST-7] HTTP 503 (0.003746s) - no healthy upstream
+2025-07-07T02:39:55.415530Z [REQUEST-8] HTTP 503 (0.005581s) - no healthy upstream
+2025-07-07T02:39:57.767410Z [REQUEST-9] HTTP 503 (0.002128s) - no healthy upstream
+2025-07-07T02:40:00.116768Z [REQUEST-10] HTTP 503 (0.006748s) - no healthy upstream
+2025-07-07T02:40:02.552443Z [REQUEST-11] HTTP 503 (0.003053s) - no healthy upstream
+2025-07-07T02:40:04.912721Z [REQUEST-12] HTTP 503 (0.002605s) - no healthy upstream
+2025-07-07T02:40:07.312548Z [REQUEST-13] HTTP 503 (0.003712s) - no healthy upstream
+2025-07-07T02:40:09.665524Z [REQUEST-14] HTTP 503 (0.002871s) - no healthy upstream
+2025-07-07T02:40:12.028495Z [REQUEST-15] HTTP 503 (0.002945s) - no healthy upstream
+
+# =============================================================================
+# CRE-2025-0133 Detection Pattern Analysis
+# =============================================================================
+# Rule Pattern: "DNS resolution failed|no healthy upstream|Domain name not found"
+# Detection Window: 60 seconds
+# Minimum Threshold: 10 occurrences
+
+# DNS Resolution Attempts Found:
+# DNS Failures:
+2025-07-07T02:39:31.556922Z [ENVOY] [2025-07-07 02:39:19.934][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:198] dns resolution without records for nonexistent.internal.fake c-ares status 0x0004: "Domain name not found"
+2025-07-07T02:39:31.600238Z [ENVOY] [2025-07-07 02:39:19.934][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:327] dns resolution for nonexistent.internal.fake completed with status 0x0000: "cares_norecords:Domain name not found"
+2025-07-07T02:39:34.413748Z [ENVOY] [2025-07-07 02:39:22.946][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:198] dns resolution without records for nonexistent.internal.fake c-ares status 0x0004: "Domain name not found"
+2025-07-07T02:39:34.459704Z [ENVOY] [2025-07-07 02:39:22.946][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:327] dns resolution for nonexistent.internal.fake completed with status 0x0000: "cares_norecords:Domain name not found"
+2025-07-07T02:39:35.764201Z [ENVOY] [2025-07-07 02:39:25.956][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:198] dns resolution without records for nonexistent.internal.fake c-ares status 0x0004: "Domain name not found"
+
+# DNS Resolution Attempts:
+2025-07-07T02:39:29.858018Z [ENVOY] [2025-07-07 02:39:19.905][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:442] dns resolution for nonexistent.internal.fake started
+2025-07-07T02:39:31.600238Z [ENVOY] [2025-07-07 02:39:19.934][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:327] dns resolution for nonexistent.internal.fake completed with status 0x0000: "cares_norecords:Domain name not found"
+2025-07-07T02:39:34.367462Z [ENVOY] [2025-07-07 02:39:22.937][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:442] dns resolution for nonexistent.internal.fake started
+2025-07-07T02:39:34.459704Z [ENVOY] [2025-07-07 02:39:22.946][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:327] dns resolution for nonexistent.internal.fake completed with status 0x0000: "cares_norecords:Domain name not found"
+2025-07-07T02:39:35.721141Z [ENVOY] [2025-07-07 02:39:25.950][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:442] dns resolution for nonexistent.internal.fake started
