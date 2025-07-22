@@ -220,6 +220,11 @@ categories:
       Problems related to troubleshooting Istio's Ambient service mesh mode,
       including CNI sandbox creation failures, ztunnel connectivity issues,
       traffic capture errors, and waypoint configuration problems.
+
+  - name: envoy-upstream-failures
+    displayName: Envoy Upstream Failures
+    description: Problems where Envoy fails to communicate with an upstream service. This includes connection timeouts, connection refused errors, upstream overflow and cases where no healthy upstream hosts are available. It also covers request timeouts and unexpected stream resets from the upstream service.
+  
   - name: database-availability
     displayName: Database Availability
     description: Critical failures affecting database service availability, including crashes, OOM kills, and unplanned terminations that require immediate recovery

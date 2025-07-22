@@ -1,0 +1,5 @@
+92.168.49.1 - - [07/Jul/2025:01:15:52 +0000] "GET / HTTP/1.1" 200 66 "-" "curl/8.5.0" 71 0.000 [default-hello-app-8080] [] 10.244.0.6:8080 66 0.001 200 4b254afb61be221e34a85b47c0ba9f39
+2025/07/07 01:15:58 [error] 4251#4251: *27725 the rewritten URI has a zero length, client: 192.168.49.1, server: demo.dev, request: "GET /something HTTP/1.1", host: "demo.dev"
+192.168.49.1 - - [07/Jul/2025:01:15:58 +0000] "GET /something HTTP/1.1" 500 170 "-" "curl/8.5.0" 80 0.000 [default-hello-app-8080] [] - - - - b5008e1c98555a22a4e5d97ebe167337
+2025/07/07 01:19:30 [error] 4245#4245: *32856 the rewritten URI has a zero length, client: 192.168.49.1, server: demo.dev, request: "GET /something HTTP/1.1", host: "demo.dev"
+192.168.49.1 - - [07/Jul/2025:01:19:30 +0000] "GET /something HTTP/1.1" 500 170 "-" "curl/8.5.0" 80 0.000 [default-hello-app-8080] [] - - - - 4a84239daa3fa6db3b3278709cc2369f
