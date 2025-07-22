@@ -1,0 +1,112 @@
+# AWS VPC CNI IP Exhaustion - Enhanced Test Logs
+# Real production patterns mixed with comprehensive failure scenarios
+
+# Initial IP exhaustion errors
+2025/07/03 16:26:09 [ERROR] aws-node-daemonset-1751540169: ipamd.go:1234 failed to allocate ENI: AddressLimitExceeded: The maximum number of addresses has been reached.
+2025/07/03 16:26:09 [ERROR] aws-node-daemonset-1751540169: ipamd.go:1235 no available IP addresses in subnet vpc-0a8016fa4ee8c7e83
+2025/07/03 16:26:09 [WARN] aws-node-daemonset-1751540169: ipamd.go:1236 insufficient IP addresses available for new pods
+2025/07/03 16:26:09 [ERROR] kubelet: event.go:294 FailedScheduling: 0/2 nodes are available: 2 Insufficient IP addresses in subnet
+2025/07/03 16:26:09 [ERROR] aws-node: cni.go:123 failed to assign an IP address to container: no available IP addresses in subnet
+2025/07/03 16:26:09 [ERROR] aws-node: eni.go:234 failed to allocate ENI for pod ip-consumer-456: NetworkInterfaceLimitExceeded
+
+# Kubernetes events showing scheduling failures
+2025/07/03 16:26:15 [WARNING] kubelet: event.go:294 FailedCreatePodSandBox: Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "abc123": networkPlugin cni failed to set up pod "ip-consumer-789" network: add cmd: failed to assign an IP address to container
+2025/07/03 16:26:20 [ERROR] kubelet: event.go:294 FailedScheduling: 0/2 nodes are available: 2 node(s) had untolerated taint {node.kubernetes.io/not-ready: }, 2 Insufficient IP addresses in subnet subnet-0x1234567890abcdef0
+2025/07/03 16:26:25 [WARNING] kubelet: event.go:294 FailedCreatePodSandBox: Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "def456": networkPlugin cni failed to set up pod "web-app-deployment-5c7d8f9b4-xyz12" network: add cmd: failed to assign an IP address to container
+
+# CNI daemon detailed errors
+2025/07/03 16:26:30 [ERROR] aws-node-daemonset-1751540200: awsutils.go:456 failed to allocate ENI: AddressLimitExceeded: The maximum number of addresses has been reached. (Service: AmazonEC2; Status Code: 400; Error Code: AddressLimitExceeded; Request ID: ab12cd34-ef56-7890-abcd-ef1234567890)
+2025/07/03 16:26:35 [ERROR] aws-node-daemonset-1751540205: ipamd.go:891 Unable to allocate IP address: no available IP addresses in subnet subnet-0x1234567890abcdef0
+2025/07/03 16:26:40 [WARN] aws-node-daemonset-1751540210: ipamd.go:1145 IP allocation failed: insufficient IP addresses available for new pods, current available: 0, required: 5
+2025/07/03 16:26:45 [ERROR] aws-node-daemonset-1751540215: awsutils.go:789 CreateNetworkInterface failed: NetworkInterfaceLimitExceeded: The maximum number of network interfaces has been reached. (Service: AmazonEC2; Status Code: 400; Error Code: NetworkInterfaceLimitExceeded; Request ID: 12ab34cd-56ef-7890-abcd-ef1234567890)
+
+# Pod creation failures with different error patterns
+2025/07/03 16:26:50 [ERROR] aws-node: cni.go:156 failed to assign an IP address to container: error allocating ENI: AddressLimitExceeded
+2025/07/03 16:26:55 [ERROR] aws-node: cni.go:178 failed to setup network for sandbox "ghi789": no available IP addresses in subnet vpc-0a8016fa4ee8c7e83
+2025/07/03 16:27:00 [ERROR] aws-node: eni.go:267 failed to allocate ENI for pod database-replica-6d8f9c2b1-abc45: NetworkInterfaceLimitExceeded: Instance has reached maximum ENI limit
+2025/07/03 16:27:05 [WARN] aws-node: ipamd.go:1234 IP pool exhausted: insufficient IP addresses available for new pods, available: 0, warm target: 5
+
+# Different instance types hitting limits
+2025/07/03 16:27:10 [ERROR] aws-node-daemonset-1751540230: awsutils.go:456 t3.medium instance reached maximum ENI limit: 3 ENIs, 18 IP addresses allocated
+2025/07/03 16:27:15 [ERROR] aws-node-daemonset-1751540235: awsutils.go:456 m5.large instance reached maximum ENI limit: 3 ENIs, 30 IP addresses allocated
+2025/07/03 16:27:20 [ERROR] aws-node-daemonset-1751540240: awsutils.go:456 c5.xlarge instance reached maximum ENI limit: 4 ENIs, 60 IP addresses allocated
+
+# Subnet-specific exhaustion patterns
+2025/07/03 16:27:25 [ERROR] aws-node-daemonset-1751540245: ipamd.go:1235 no available IP addresses in subnet subnet-0x1234567890abcdef0 (us-west-2a)
+2025/07/03 16:27:30 [ERROR] aws-node-daemonset-1751540250: ipamd.go:1235 no available IP addresses in subnet subnet-0x9876543210fedcba0 (us-west-2b)
+2025/07/03 16:27:35 [WARN] aws-node-daemonset-1751540255: ipamd.go:1236 insufficient IP addresses available for new pods in subnet subnet-0xabcdef1234567890 (us-west-2c)
+
+# IPAM (IP Address Management) specific errors
+2025/07/03 16:27:40 [ERROR] aws-node-daemonset-1751540260: ipamd.go:445 IPAM failed to allocate IP: no available IP addresses in warm pool
+2025/07/03 16:27:45 [ERROR] aws-node-daemonset-1751540265: ipamd.go:567 IPAM exhausted: failed to allocate IP for pod api-server-7b9c5d2e8-def67
+2025/07/03 16:27:50 [WARN] aws-node-daemonset-1751540270: ipamd.go:1145 IPAM warm pool empty: unable to maintain minimum IP target, available: 0, target: 10
+
+# Container runtime errors
+2025/07/03 16:27:55 [ERROR] containerd: cni.go:234 failed to setup network for sandbox "jkl012": networkPlugin cni failed to set up pod "worker-queue-8f4c6d9e2-ghi78" network: add cmd: failed to assign an IP address to container
+2025/07/03 16:28:00 [ERROR] containerd: cni.go:245 CNI network setup failed: rpc error: code = Unknown desc = failed to setup network for sandbox "mno345": add cmd: failed to assign an IP address to container
+
+# Kubelet node status errors
+2025/07/03 16:28:05 [ERROR] kubelet: event.go:294 NodeNotReady: Node ip-192-168-1-100.us-west-2.compute.internal is not ready: NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+2025/07/03 16:28:10 [WARN] kubelet: event.go:294 NodeHasDiskPressure: Node ip-192-168-1-100.us-west-2.compute.internal has disk pressure: ImageGCFailed message:failed to garbage collect required amount of images. Wanted to free 1234567890 bytes, but freed 987654321 bytes
+
+# Pod scheduling with specific failure reasons
+2025/07/03 16:28:15 [ERROR] scheduler: event.go:294 FailedScheduling: 0/3 nodes are available: 1 node(s) had untolerated taint {node.kubernetes.io/not-ready: }, 2 Insufficient IP addresses in subnet
+2025/07/03 16:28:20 [ERROR] scheduler: event.go:294 FailedScheduling: 0/3 nodes are available: 3 node(s) had untolerated taint {node.kubernetes.io/network-unavailable: }, 1 Insufficient IP addresses in subnet subnet-0x1234567890abcdef0
+2025/07/03 16:28:25 [WARNING] scheduler: event.go:294 FailedScheduling: 0/3 nodes are available: 1 node(s) had untolerated taint {node.kubernetes.io/memory-pressure: }, 2 Insufficient IP addresses in subnet
+
+# AWS API throttling during IP exhaustion
+2025/07/03 16:28:30 [ERROR] aws-node-daemonset-1751540310: awsutils.go:456 API throttling detected: RequestLimitExceeded: Request limit exceeded for EC2 DescribeNetworkInterfaces operation
+2025/07/03 16:28:35 [ERROR] aws-node-daemonset-1751540315: awsutils.go:567 API throttling detected: Throttling: Rate exceeded for EC2 CreateNetworkInterface operation
+2025/07/03 16:28:40 [WARN] aws-node-daemonset-1751540320: awsutils.go:678 API throttling detected: RequestLimitExceeded: Request limit exceeded for EC2 AttachNetworkInterface operation
+
+# Multi-AZ failure patterns
+2025/07/03 16:28:45 [ERROR] aws-node-daemonset-1751540325: ipamd.go:1235 no available IP addresses in subnet subnet-0x1111111111111111 (us-west-2a): 0 available IPs
+2025/07/03 16:28:50 [ERROR] aws-node-daemonset-1751540330: ipamd.go:1235 no available IP addresses in subnet subnet-0x2222222222222222 (us-west-2b): 0 available IPs  
+2025/07/03 16:28:55 [ERROR] aws-node-daemonset-1751540335: ipamd.go:1235 no available IP addresses in subnet subnet-0x3333333333333333 (us-west-2c): 0 available IPs
+
+# CNI plugin version and compatibility errors
+2025/07/03 16:29:00 [ERROR] aws-node-daemonset-1751540340: main.go:123 CNI plugin version v1.18.1 compatibility issue: failed to assign an IP address to container
+2025/07/03 16:29:05 [WARN] aws-node-daemonset-1751540345: main.go:134 CNI plugin configuration issue: WARM_IP_TARGET=1 may cause IP exhaustion in high-density workloads
+
+# Namespace-specific pod failures
+2025/07/03 16:29:10 [ERROR] kubelet: event.go:294 FailedCreatePodSandBox: Failed to create pod sandbox for "frontend-app-5d7f8b9c2-pqr90" in namespace "production": failed to assign an IP address to container
+2025/07/03 16:29:15 [ERROR] kubelet: event.go:294 FailedCreatePodSandBox: Failed to create pod sandbox for "backend-service-8c4d9e6f1-stu23" in namespace "production": no available IP addresses in subnet
+2025/07/03 16:29:20 [ERROR] kubelet: event.go:294 FailedCreatePodSandBox: Failed to create pod sandbox for "database-connection-pool-6f2a8b5c9-vwx56" in namespace "database": NetworkInterfaceLimitExceeded
+
+# Custom networking and security group errors
+2025/07/03 16:29:25 [ERROR] aws-node-daemonset-1751540365: ipamd.go:1456 Custom networking enabled: failed to allocate ENI with security group sg-0123456789abcdef0
+2025/07/03 16:29:30 [ERROR] aws-node-daemonset-1751540370: ipamd.go:1567 Security group per pod: failed to allocate ENI with security group sg-0987654321fedcba0: NetworkInterfaceLimitExceeded
+
+# ENI attachment failures
+2025/07/03 16:29:35 [ERROR] aws-node-daemonset-1751540375: awsutils.go:789 ENI attachment failed: AttachNetworkInterface failed: NetworkInterfaceLimitExceeded: The maximum number of network interfaces has been reached for instance i-0123456789abcdef0
+2025/07/03 16:29:40 [ERROR] aws-node-daemonset-1751540380: awsutils.go:890 ENI attachment failed: AttachNetworkInterface failed: InvalidNetworkInterfaceID.NotFound: The network interface 'eni-0123456789abcdef0' does not exist
+
+# DNS and service discovery issues due to CNI failures
+2025/07/03 16:29:45 [ERROR] coredns: plugin.go:123 DNS resolution failed for service "api-gateway.production.svc.cluster.local": no IP assigned to pod
+2025/07/03 16:29:50 [WARN] coredns: plugin.go:134 DNS resolution degraded: multiple pods in ContainerCreating state due to IP exhaustion
+
+# Application-specific failures
+2025/07/03 16:29:55 [ERROR] nginx-ingress: controller.go:456 Ingress controller endpoint update failed: pods not ready due to IP allocation failures
+2025/07/03 16:30:00 [ERROR] prometheus: scrape.go:234 Metrics scraping failed: target pods unavailable due to CNI IP exhaustion
+2025/07/03 16:30:05 [WARN] grafana: datasource.go:123 Dashboard update failed: unable to reach prometheus due to pod networking issues
+
+# Load balancer and service mesh impacts
+2025/07/03 16:30:10 [ERROR] aws-load-balancer-controller: controller.go:567 Target group health check failed: pods not ready due to IP allocation failures
+2025/07/03 16:30:15 [ERROR] istio-proxy: envoy.go:789 Sidecar injection failed: pod creation failed due to CNI IP exhaustion
+2025/07/03 16:30:20 [WARN] linkerd: proxy.go:456 Service mesh connectivity degraded: multiple pods in ContainerCreating state
+
+# Recovery and cleanup patterns
+2025/07/03 16:30:25 [INFO] aws-node-daemonset-1751540425: cleanup.go:123 Attempting IP cleanup: releasing unused IP addresses from warm pool
+2025/07/03 16:30:30 [INFO] aws-node-daemonset-1751540430: cleanup.go:234 IP cleanup completed: released 5 unused IP addresses
+2025/07/03 16:30:35 [INFO] aws-node-daemonset-1751540435: ipamd.go:1789 IP allocation resumed: 5 IP addresses available for new pods
+2025/07/03 16:30:40 [INFO] kubelet: event.go:294 SuccessfulScheduling: Successfully assigned default/ip-consumer-new-abc123 to node ip-192-168-1-100.us-west-2.compute.internal
+
+# Edge cases and rare failure patterns
+2025/07/03 16:30:45 [ERROR] aws-node-daemonset-1751540445: ipamd.go:1234 Race condition detected: IP allocation conflict during concurrent pod creation
+2025/07/03 16:30:50 [ERROR] aws-node-daemonset-1751540450: awsutils.go:456 Transient failure: failed to allocate ENI due to temporary AWS API unavailability
+2025/07/03 16:30:55 [WARN] aws-node-daemonset-1751540455: ipamd.go:1567 Memory pressure detected: IP allocation cache clearing to free memory
+
+# Final exhaustion summary
+2025/07/03 16:31:00 [CRITICAL] aws-node-daemonset-1751540460: ipamd.go:1234 CLUSTER IP EXHAUSTION: All subnets depleted across multiple availability zones
+2025/07/03 16:31:05 [CRITICAL] kubelet: event.go:294 CLUSTER DEGRADED: 45 pods pending due to IP exhaustion across 3 nodes
+2025/07/03 16:31:10 [CRITICAL] scheduler: event.go:294 SCHEDULING BLOCKED: No nodes available with sufficient IP addresses for new workloads

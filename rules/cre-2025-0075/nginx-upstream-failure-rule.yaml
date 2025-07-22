@@ -3,7 +3,7 @@ rules:
       id: CRE-2025-0075
       severity: 0
       title: Nginx Upstream Failure Cascade Crisis
-      category: load-balancer-problem
+      category: load-balancer-problems
       author: Prequel
       description: |
         Detects critical Nginx upstream failure cascades that lead to complete service unavailability.

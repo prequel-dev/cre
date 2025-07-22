@@ -1,0 +1,53 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: bK4nZmLxPdTQ8vHjsYUxVb
+      hash: QrT5yGdKWeXrTbnYpLsHcN
+    cre:
+      id: CRE-2025-0106
+      severity: 1
+      title: "Ambient CNI Sandbox Creation Failure"
+      category: "istio-ambient-troubleshooting"
+      author: Prequel
+      description: |
+        Detects when the Istio CNI plugin fails to set up a pod's network sandbox
+        in Ambient mode. Two common root causes are:
+        
+        1. **No ztunnel connection** (CNI cannot contact the node-level ztunnel agent).  
+      cause: |
+        - ztunnel DaemonSet is unscheduled or unhealthy on the node
+        - CNI plugin cannot dial the ztunnel Unix socket `/var/run/istio-cni/cni.sock`
+      impact: |
+        - Pods stuck in ContainerCreating or Pending
+        - Workloads cannot start, leading to application downtime
+      mitigation: |
+        IMMEDIATE:
+        - Verify ztunnel DaemonSet health: `kubectl -n istio-system get pods -l app=ztunnel`
+        - Inspect ztunnel logs for connectivity errors: 
+          `kubectl -n istio-system logs <ztunnel-pod>`
+
+        RECOVERY:
+        - Patch ztunnel to run on all nodes:
+          `kubectl -n istio-system patch daemonset ztunnel --patch '{"spec":{"template":{"spec":{"nodeSelector":{}}}}}'`
+        - Delete and recreate the affected pods
+        
+        PREVENTION:
+        - Monitor Istio CNI and ztunnel agent metrics
+        - Alert on repeated CNI plugin failures in control-plane logs
+      tags:
+        - istio
+        - cni
+        - ambient
+      references:
+        - https://github.com/istio/istio/wiki/Troubleshooting-Istio-Ambient#scenario-pod-fails-to-run-with-failed-to-create-pod-sandbox
+      applications:
+        - name: istio-cni
+          version: ">=1.26.0"
+    rule:
+      set:
+        window: 60s
+        event:
+          source: cre.log.ambient
+        match:
+          - regex: "FailedCreatePodSandBox"
+          - regex: "no ztunnel connection"
