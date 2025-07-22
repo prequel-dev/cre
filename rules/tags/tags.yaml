@@ -639,9 +639,6 @@ tags:
   - name: assertion
     displayName: Assertion
     description: Assertion failures indicating internal consistency checks or invariants violated at runtime.  
-  - name: crash-loop
-    displayName: Crash Loop
-    description: Repeated process restarts due to persistent failures causing operational impact.
   - name: redpanda-startup
     displayName: Redpanda Startup
     description: Problems related to Redpanda startup, such as configuration issues or missing state
