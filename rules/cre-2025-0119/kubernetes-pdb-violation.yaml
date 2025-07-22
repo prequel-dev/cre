@@ -1,0 +1,101 @@
+rules:
+  - cre:
+      id: CRE-2025-0108
+      severity: 1
+      title: "Kubernetes Pod Disruption Budget (PDB) Violation During Rolling Updates"
+      category: kubernetes-problem
+      author: Community
+      description: |
+        During rolling updates, when a deployment's maxUnavailable setting conflicts with 
+        a Pod Disruption Budget's minAvailable requirement, it can cause service outages 
+        by terminating too many pods simultaneously, violating the availability guarantees.
+        This can also occur during node drains, cluster autoscaling, or maintenance operations.
+      cause: |
+        - Deployment's rolling update strategy sets maxUnavailable higher than PDB allows
+        - PDB requires minAvailable pods but rolling update violates this constraint
+        - Concurrent pod terminations exceed the allowed disruption threshold
+        - Deployment configuration conflicts with PDB policy
+        - Node drains or cluster autoscaling events trigger multiple simultaneous pod evictions
+        - Resource pressure or node failures force pod relocations
+        - Maintenance operations affecting multiple nodes simultaneously
+      impact: |
+        - Service availability drops below guaranteed minimum
+        - Potential service outages during rolling updates
+        - Load balancer health checks may fail
+        - Cascading failures in dependent services
+        - Degraded application performance
+        - Extended recovery time due to pod rescheduling constraints
+        - Potential deadlock in deployment rollouts
+        - Service Level Objective (SLO) violations
+      impactScore: 8
+      tags:
+        - k8s
+        - known-problem
+        - misconfiguration
+        - operational error
+        - high-availability
+      mitigation: |
+        **Immediate Actions:**
+        1. Pause the rolling update:
+           ```
+           kubectl rollout pause deployment/<deployment-name>
+           ```
+        2. Verify PDB and deployment settings:
+           ```
+           kubectl get pdb
+           kubectl get deployment <deployment-name> -o yaml
+           ```
+        3. Adjust maxUnavailable to respect PDB:
+           ```
+           kubectl patch deployment/<deployment-name> -p '{"spec":{"strategy":{"rollingUpdate":{"maxUnavailable":"1"}}}}'
+           ```
+        4. Check node conditions and drain status:
+           ```
+           kubectl get nodes
+           kubectl get pods -o wide
+           ```
+
+        **Long-term fixes:**
+        - Ensure deployment's maxUnavailable setting respects PDB requirements
+        - Implement pre-deployment validation checks
+        - Use progressive delivery (canary/blue-green) for critical services
+        - Monitor PDB violations through metrics/alerts
+        - Configure cluster autoscaler to respect PDBs
+        - Implement node maintenance windows
+        - Use pod anti-affinity to spread critical workloads
+        - Set up automated rollback triggers on PDB violations
+      mitigationScore: 7
+      references:
+        - https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+        - https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
+        - https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+        - https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/
+      applications:
+        - name: kubernetes
+          version: ">=1.25.0"
+    metadata:
+      kind: prequel
+      id: 6XwKpQmNzRvTyLsHdBgFcA
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.kubernetes
+        window: 5m
+        match:
+          - regex: "Warning\\s+PodDisruptionBudgetViolation.+Pod disruption budget violation detected: maxUnavailable: \\d+ conflicts with minAvailable: \\d+"
+          - regex: "Normal\\s+Killing\\s+pod/.+\\s+Stopping container"
+          - regex: "Warning\\s+Unhealthy\\s+pod/.+\\s+Readiness probe failed"
+          - regex: "Warning\\s+FailedScheduling.+cannot enforce pod-disruption-budget.+"
+          - regex: "Warning\\s+EvictionWarning.+evicting pod.+disruption budget denied"
+          - regex: "Warning\\s+NodeDrainPDBViolation.+cannot drain node.+PDB violation"
+      sequence:
+        window: 10m
+        event:
+          source: cre.log.kubernetes
+        order:
+          - regex: "Normal\\s+ScalingReplicaSet.+Scaled up replica set.+"
+          - regex: "Warning\\s+PodDisruptionBudgetViolation.+"
+            count: 3
+          - regex: "Warning\\s+Unhealthy\\s+pod/.+\\s+Readiness probe failed"
+            count: 2
