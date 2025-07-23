@@ -821,6 +821,15 @@ tags:
   - name: critical-failure
     displayName: Critical Failure
     description: Failures that cause immediate service termination or data loss
+  - name: ssl-certificate
+    displayName: SSL Certificate
+    description: Problems related to SSL/TLS certificate validation, expiration, trust chain issues, or handshake failures
+  - name: tls-handshake
+    displayName: TLS Handshake
+    description: Problems during TLS/SSL handshake process including cipher negotiation, protocol version mismatches, and connection establishment failures
+  - name: certificate-verification
+    displayName: Certificate Verification
+    description: Issues with SSL/TLS certificate verification including trust chain validation, certificate authority verification, and hostname matching
   - name: pod-scheduling
     displayName: Pod Scheduling
     description: Issues with Kubernetes pod scheduling due to resource constraints or networking problems
