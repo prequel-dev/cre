@@ -1,7 +1,7 @@
 rules:
 - cre:
     id: CRE-2025-0054
-    severity: 2
+    severity: 3
     title: NGINX upstream connection timeout
     category: proxy-timeout-problem
     author: Prequel

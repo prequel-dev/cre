@@ -2,13 +2,13 @@ rules:
   - cre:
       id: CRE-2024-0007
       severity: 0
-      title: RabbitMQ Mnesia overloaded recovering persistent queues
+      title: RabbitMQ Mnesia overloaded
       category: message-queue-problem
       author: Prequel
       description: |
-        The RabbitMQ cluster is processing a large number of persistent mirrored queues at boot. The underlying Erlang process, Mnesia, is overloaded (`** WARNING ** Mnesia is overloaded`).
+        The underlying Erlang process, Mnesia, is overloaded (`** WARNING ** Mnesia is overloaded`). 
       cause: |
-        There are so many that the underlying Erlang process, Mnesia, is reporting that it is overloaded while recoving these queues on boot. 
+        One way this can happen is when a RabbitMQ cluster is processing a large number of persistent mirrored queues at boot. There are so many queues that the underlying Erlang process, Mnesia, reports that it is overloaded while recovering these queues. 
       impact: |
         RabbitMQ is unable to process any new messages, which can lead to outages in consumers and producers.
       impactScore: 9
