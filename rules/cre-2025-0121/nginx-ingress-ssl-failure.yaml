@@ -1,6 +1,6 @@
 rules:
   - cre:
-      id: CRE-2025-0120
+      id: CRE-2025-0121
       severity: 0
       title: NGINX Ingress Controller SSL Certificate Failure
       category: load-balancer-problems
