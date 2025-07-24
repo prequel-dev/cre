@@ -1,6 +1,6 @@
 rules:
   - cre:
-      id: CRE-2025-0108
+      id: CRE-2025-0119
       severity: 1
       title: "Kubernetes Pod Disruption Budget (PDB) Violation During Rolling Updates"
       category: kubernetes-problem
