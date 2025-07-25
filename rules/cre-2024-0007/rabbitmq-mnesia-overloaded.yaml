@@ -31,7 +31,7 @@ rules:
     metadata:
       kind: prequel
       id: 5UD1RZxGC5LJQnVpAkV11A
-      gen: 1
+      gen: 2
     rule:
       sequence:
         window: 30s
