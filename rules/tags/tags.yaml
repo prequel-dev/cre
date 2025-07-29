@@ -645,9 +645,6 @@ tags:
   - name: assertion
     displayName: Assertion
     description: Assertion failures indicating internal consistency checks or invariants violated at runtime.  
-  - name: crash-loop
-    displayName: Crash Loop
-    description: Repeated process restarts due to persistent failures causing operational impact.
   - name: redpanda-startup
     displayName: Redpanda Startup
     description: Problems related to Redpanda startup, such as configuration issues or missing state
@@ -814,7 +811,16 @@ tags:
     description: Problems related to MongoDB database system
   - name: wiredtiger
     displayName: WiredTiger
-    description: Problems related to MongoDB's WiredTiger storage engine
+    description: Issues related to MongoDB's default storage engine, WiredTiger, including corruption, crash loops, and initialization errors.
+  - name: metadata
+    displayName: Metadata
+    description: Failures caused by corrupted or unreadable metadata files used by the application to track state.
+  - name: crash-loop
+    displayName: Crash Loop
+    description: Repeated failure to start or recover due to a persistent internal problem, such as corrupted state or misconfiguration.
+  - name: corruption
+    displayName: Corruption
+    description: Issues involving data corruption, including damaged files, invalid data structures, or inconsistencies caused by software or hardware faults.
   - name: oom-kill
     displayName: OOM Kill
     description: Problems where processes are terminated by the OS Out-Of-Memory killer

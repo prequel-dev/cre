@@ -239,4 +239,8 @@ categories:
   - name: database-availability
     displayName: Database Availability
     description: Critical failures affecting database service availability, including crashes, OOM kills, and unplanned terminations that require immediate recovery
-
+  - name: mongodb-startup-failure
+    displayName: MongoDB Startup Failure
+    description: |
+      Failures that prevent MongoDB from starting successfully due to corrupted metadata, invalid configurations,
+      or unrecoverable internal errors (e.g., WiredTiger metadata corruption). These failures often require manual repair or backup restoration.
