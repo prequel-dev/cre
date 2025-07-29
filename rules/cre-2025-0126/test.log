@@ -1,0 +1,1629 @@
+2025-07-06T12:37:05Z INFO     CONTROL    ***** SERVER RESTARTED *****
+2025-07-06T12:37:05Z INFO     NETWORK    Initialized wire specification
+2025-07-06T12:37:05Z INFO     CONTROL    Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2025-07-06T12:37:05Z INFO     NETWORK    Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set tcpFastOpenServer, tcpFastOpenClient, and tcpFastOpenQueueSize.
+2025-07-06T12:37:05Z INFO     REPL       Successfully registered PrimaryOnlyService
+2025-07-06T12:37:05Z INFO     REPL       Successfully registered PrimaryOnlyService
+2025-07-06T12:37:05Z INFO     CONTROL    Multi threading initialized
+2025-07-06T12:37:05Z INFO     TENANT_M   Starting TenantMigrationAccessBlockerRegistry
+2025-07-06T12:37:05Z INFO     CONTROL    MongoDB starting
+2025-07-06T12:37:05Z INFO     CONTROL    Build Info
+2025-07-06T12:37:05Z INFO     CONTROL    Operating System
+2025-07-06T12:37:05Z INFO     CONTROL    Options set by command line
+2025-07-06T12:37:05Z INFO     STORAGE    Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+2025-07-06T12:37:05Z INFO     STORAGE    Opening WiredTiger
+2025-07-06T12:37:06Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:06Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:06Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:06Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:06Z INFO     STORAGE    WiredTiger opened
+2025-07-06T12:37:06Z INFO     RECOVERY   WiredTiger recoveryTimestamp
+2025-07-06T12:37:06Z WARNING  CONTROL    Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+2025-07-06T12:37:06Z WARNING  CONTROL    vm.max_map_count is too low
+2025-07-06T12:37:06Z INFO     REPL       current featureCompatibilityVersion value
+2025-07-06T12:37:06Z INFO     STORAGE    Clearing temp directory
+2025-07-06T12:37:06Z INFO     CONTROL    Flow Control is enabled on this deployment
+2025-07-06T12:37:06Z INFO     FTDC       Initializing full-time diagnostic data capture
+2025-07-06T12:37:06Z INFO     REPL       Starting the TopologyVersionObserver
+2025-07-06T12:37:06Z INFO     REPL       Started TopologyVersionObserver
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:06Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:06Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:06Z INFO     REPL       Starting up replica set aware services
+2025-07-06T12:37:06Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:06Z INFO     REPL       Attempting to create internal replication collections
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:06Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:06Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:06Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:06Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:06Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:06Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:06Z INFO     REPL       Attempting to load local voted for document
+2025-07-06T12:37:06Z INFO     REPL       Did not find local initialized voted for document at startup
+2025-07-06T12:37:06Z INFO     REPL       Searching for local Rollback ID document
+2025-07-06T12:37:06Z INFO     REPL       Did not find local Rollback ID document at startup. Creating one
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:06Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:06Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:06Z INFO     REPL       Initialized the rollback ID
+2025-07-06T12:37:06Z INFO     REPL       Did not find local replica set configuration document at startup: {'code': 47, 'codeName': 'NoMatchingDocument', 'errmsg': 'Did not find replica set configuration document in local.system.replset'}
+2025-07-06T12:37:06Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:06Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:06Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:06Z INFO     STORAGE    Timestamp monitor starting
+2025-07-06T12:37:06Z INFO     QUERY      Starting Change Stream Expired Pre-images Remover thread
+2025-07-06T12:37:06Z INFO     CONTROL    Failed to refresh session cache, will try again at the next refresh interval: NotYetInitialized: Replication has not yet been configured
+2025-07-06T12:37:06Z INFO     CONTROL    Sessions collection is not set up; waiting until next sessions reap interval: NamespaceNotFound: config.system.sessions does not exist
+2025-07-06T12:37:06Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:06Z INFO     NETWORK    Listening on
+2025-07-06T12:37:06Z INFO     NETWORK    Listening on
+2025-07-06T12:37:06Z INFO     NETWORK    Waiting for connections
+2025-07-06T12:37:06Z INFO     CONTROL    mongod startup complete
+2025-07-06T12:37:06Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:07Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:07Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:07Z INFO     NETWORK    client metadata
+2025-07-06T12:37:07Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:07Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:07Z INFO     NETWORK    client metadata
+2025-07-06T12:37:07Z INFO     NETWORK    client metadata
+2025-07-06T12:37:07Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:07Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:07Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:07Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:07Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:07Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:07Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:08Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:08Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:08Z INFO     NETWORK    client metadata
+2025-07-06T12:37:08Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:08Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:08Z INFO     NETWORK    client metadata
+2025-07-06T12:37:08Z INFO     NETWORK    client metadata
+2025-07-06T12:37:08Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:08Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:08Z INFO     NETWORK    client metadata
+2025-07-06T12:37:08Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:08Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:08Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:08Z INFO     REPL       replSetInitiate admin command received from client
+2025-07-06T12:37:08Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:08Z INFO     STORAGE    createCollection
+2025-07-06T12:37:08Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:08Z INFO     REPL       Setting featureCompatibilityVersion
+2025-07-06T12:37:08Z INFO     REPL       current featureCompatibilityVersion value
+2025-07-06T12:37:08Z INFO     NETWORK    Updated wire specification
+2025-07-06T12:37:08Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:08Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:08Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:08Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:08Z INFO     NETWORK    isSelf could not connect via connectSocketOnly: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': "couldn't connect to server mongodb1:27017, connection attempt failed: SocketException: Error connecting to mongodb1:27017 (172.20.0.2:27017) :: caused by :: syncConnect connect error :: caused by :: Connection refused"}
+2025-07-06T12:37:08Z ERROR    REPL       replSetInitiate error while validating config: {'code': 74, 'codeName': 'NodeNotFound', 'errmsg': 'No host described in new configuration with {version: 1, term: 0} for replica set rs0 maps to this node'}
+2025-07-06T12:37:08Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:08Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:08Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:08Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:08Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:09Z INFO     CONTROL    Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2025-07-06T12:37:09Z INFO     NETWORK    Initialized wire specification
+2025-07-06T12:37:09Z INFO     NETWORK    Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set tcpFastOpenServer, tcpFastOpenClient, and tcpFastOpenQueueSize.
+2025-07-06T12:37:09Z INFO     REPL       Successfully registered PrimaryOnlyService
+2025-07-06T12:37:09Z INFO     REPL       Successfully registered PrimaryOnlyService
+2025-07-06T12:37:09Z INFO     CONTROL    Multi threading initialized
+2025-07-06T12:37:09Z INFO     TENANT_M   Starting TenantMigrationAccessBlockerRegistry
+2025-07-06T12:37:09Z INFO     CONTROL    MongoDB starting
+2025-07-06T12:37:09Z INFO     CONTROL    Build Info
+2025-07-06T12:37:09Z INFO     CONTROL    Operating System
+2025-07-06T12:37:09Z INFO     CONTROL    Options set by command line
+2025-07-06T12:37:09Z WARNING  STORAGE    Detected unclean shutdown - Lock file is not empty
+2025-07-06T12:37:09Z INFO     STORAGE    Storage engine to use detected by data files
+2025-07-06T12:37:09Z WARNING  STORAGE    Recovering data from the last clean checkpoint.
+2025-07-06T12:37:09Z INFO     STORAGE    Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+2025-07-06T12:37:09Z INFO     STORAGE    Opening WiredTiger
+2025-07-06T12:37:10Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:10Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:10Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:10Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:10Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:10Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:10Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:10Z INFO     WTCHKPT    WiredTiger message
+2025-07-06T12:37:11Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:11Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:11Z INFO     STORAGE    WiredTiger opened
+2025-07-06T12:37:11Z INFO     RECOVERY   WiredTiger recoveryTimestamp
+2025-07-06T12:37:11Z WARNING  CONTROL    Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+2025-07-06T12:37:11Z WARNING  CONTROL    vm.max_map_count is too low
+2025-07-06T12:37:11Z INFO     REPL       current featureCompatibilityVersion value
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Dropping unknown ident
+2025-07-06T12:37:11Z INFO     STORAGE    Clearing temp directory
+2025-07-06T12:37:11Z INFO     CONTROL    Flow Control is enabled on this deployment
+2025-07-06T12:37:11Z INFO     FTDC       Initializing full-time diagnostic data capture
+2025-07-06T12:37:11Z INFO     REPL       Starting the TopologyVersionObserver
+2025-07-06T12:37:11Z INFO     REPL       Started TopologyVersionObserver
+2025-07-06T12:37:11Z INFO     STORAGE    createCollection
+2025-07-06T12:37:11Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:11Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:11Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:11Z INFO     REPL       Starting up replica set aware services
+2025-07-06T12:37:11Z INFO     REPL       Attempting to create internal replication collections
+2025-07-06T12:37:11Z INFO     STORAGE    createCollection
+2025-07-06T12:37:11Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:11Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:11Z INFO     STORAGE    createCollection
+2025-07-06T12:37:11Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:11Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:11Z INFO     STORAGE    createCollection
+2025-07-06T12:37:11Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:11Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:11Z INFO     REPL       Attempting to load local voted for document
+2025-07-06T12:37:11Z INFO     REPL       Did not find local initialized voted for document at startup
+2025-07-06T12:37:11Z INFO     REPL       Searching for local Rollback ID document
+2025-07-06T12:37:11Z INFO     REPL       Did not find local Rollback ID document at startup. Creating one
+2025-07-06T12:37:11Z INFO     STORAGE    createCollection
+2025-07-06T12:37:11Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:11Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:11Z INFO     REPL       Initialized the rollback ID
+2025-07-06T12:37:11Z INFO     REPL       Did not find local replica set configuration document at startup: {'code': 47, 'codeName': 'NoMatchingDocument', 'errmsg': 'Did not find replica set configuration document in local.system.replset'}
+2025-07-06T12:37:11Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:11Z INFO     STORAGE    createCollection
+2025-07-06T12:37:11Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:11Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:11Z INFO     STORAGE    Timestamp monitor starting
+2025-07-06T12:37:11Z INFO     QUERY      Starting Change Stream Expired Pre-images Remover thread
+2025-07-06T12:37:11Z INFO     CONTROL    Failed to refresh session cache, will try again at the next refresh interval: NotYetInitialized: Replication has not yet been configured
+2025-07-06T12:37:11Z INFO     CONTROL    Sessions collection is not set up; waiting until next sessions reap interval: NamespaceNotFound: config.system.sessions does not exist
+2025-07-06T12:37:11Z INFO     NETWORK    Listening on
+2025-07-06T12:37:11Z INFO     NETWORK    Listening on
+2025-07-06T12:37:11Z INFO     NETWORK    Waiting for connections
+2025-07-06T12:37:11Z INFO     CONTROL    mongod startup complete
+2025-07-06T12:37:11Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:11Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:12Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:12Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:13Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:13Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:14Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:14Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:15Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:15Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:16Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:16Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:17Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:18Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:18Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:19Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:20Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:20Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:21Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:21Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:21Z INFO     NETWORK    client metadata
+2025-07-06T12:37:22Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:22Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:22Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:22Z INFO     NETWORK    client metadata
+2025-07-06T12:37:22Z INFO     NETWORK    client metadata
+2025-07-06T12:37:22Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:22Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:22Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:22Z INFO     NETWORK    client metadata
+2025-07-06T12:37:22Z INFO     NETWORK    client metadata
+2025-07-06T12:37:22Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:22Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:22Z INFO     REPL       replSetInitiate admin command received from client
+2025-07-06T12:37:22Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:22Z INFO     STORAGE    createCollection
+2025-07-06T12:37:22Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:22Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:22Z INFO     REPL       Setting featureCompatibilityVersion
+2025-07-06T12:37:22Z INFO     REPL       current featureCompatibilityVersion value
+2025-07-06T12:37:22Z INFO     NETWORK    Updated wire specification
+2025-07-06T12:37:22Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:22Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:22Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:22Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:22Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:22Z INFO     REPL       replSetInitiate config object parses ok
+2025-07-06T12:37:22Z INFO     REPL       Scheduling remote command request
+2025-07-06T12:37:22Z INFO     REPL       Scheduling remote command request
+2025-07-06T12:37:22Z INFO     CONNPOOL   Connecting
+2025-07-06T12:37:22Z INFO     CONNPOOL   Connecting
+2025-07-06T12:37:22Z INFO     REPL       Oplog size is being rounded to nearest 256-byte-aligned size
+2025-07-06T12:37:22Z INFO     REPL       Creating replication oplog
+2025-07-06T12:37:22Z INFO     STORAGE    createCollection
+2025-07-06T12:37:22Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:22Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:22Z INFO     NETWORK    client metadata
+2025-07-06T12:37:22Z INFO     NETWORK    client metadata
+2025-07-06T12:37:22Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:22Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:22Z INFO     STORAGE    The size storer reports that the collection contains
+2025-07-06T12:37:22Z INFO     STORAGE    WiredTiger record store oplog processing finished
+2025-07-06T12:37:22Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:22Z INFO     WTCHKPT    WiredTiger message
+2025-07-06T12:37:22Z INFO     STORAGE    createCollection
+2025-07-06T12:37:22Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:22Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:22Z INFO     WTCHKPT    WiredTiger message
+2025-07-06T12:37:22Z INFO     REPL       Taking a stable checkpoint for replSetInitiate
+2025-07-06T12:37:22Z INFO     REPL       Updating commit point for initiate
+2025-07-06T12:37:22Z INFO     STORAGE    Triggering the first stable checkpoint
+2025-07-06T12:37:22Z INFO     WTCHKPT    WiredTiger message
+2025-07-06T12:37:22Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:22Z INFO     SHARDING   Updating implicit default writeConcern majority
+2025-07-06T12:37:22Z INFO     REPL       New replica set config in use
+2025-07-06T12:37:22Z INFO     REPL       Found self in config
+2025-07-06T12:37:22Z INFO     REPL       Replica set state transition
+2025-07-06T12:37:22Z INFO     WTCHKPT    WiredTiger message
+2025-07-06T12:37:22Z INFO     REPL       Starting replication storage threads
+2025-07-06T12:37:22Z INFO     REPL       Member is in new state
+2025-07-06T12:37:22Z INFO     REPL       Member is in new state
+2025-07-06T12:37:22Z INFO     REPL       No initial sync required. Attempting to begin steady replication
+2025-07-06T12:37:22Z INFO     REPL       Replica set state transition
+2025-07-06T12:37:22Z INFO     STORAGE    createCollection
+2025-07-06T12:37:22Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:22Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:22Z INFO     REPL       Starting replication fetcher thread
+2025-07-06T12:37:22Z INFO     REPL       Starting replication applier thread
+2025-07-06T12:37:22Z INFO     REPL       Starting replication reporter thread
+2025-07-06T12:37:22Z INFO     REPL       Starting oplog application
+2025-07-06T12:37:22Z INFO     REPL       Waiting for pings from other members before syncing
+2025-07-06T12:37:22Z INFO     COMMAND    Slow query
+2025-07-06T12:37:22Z INFO     REPL       Replica set state transition
+2025-07-06T12:37:22Z INFO     REPL       Resetting sync source to empty
+2025-07-06T12:37:22Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:22Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:22Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:22Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:22Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:22Z INFO     REPL       Member is in new state
+2025-07-06T12:37:22Z INFO     REPL       Member is in new state
+2025-07-06T12:37:22Z INFO     REPL       Cannot select sync source because it is not readable
+2025-07-06T12:37:22Z INFO     REPL       Cannot select sync source because it is not readable
+2025-07-06T12:37:22Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:22Z INFO     REPL       Cannot select sync source because it is not readable
+2025-07-06T12:37:22Z INFO     REPL       Cannot select sync source because it is not readable
+2025-07-06T12:37:23Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:23Z INFO     NETWORK    client metadata
+2025-07-06T12:37:23Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:23Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:23Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:23Z INFO     NETWORK    client metadata
+2025-07-06T12:37:23Z INFO     NETWORK    client metadata
+2025-07-06T12:37:23Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:23Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:23Z WARNING  COMMAND    The collStats command is deprecated. For more information, see https://dochub.mongodb.org/core/collStats-deprecated
+2025-07-06T12:37:23Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:23Z INFO     NETWORK    client metadata
+2025-07-06T12:37:23Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:23Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:23Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:23Z INFO     NETWORK    client metadata
+2025-07-06T12:37:23Z INFO     NETWORK    client metadata
+2025-07-06T12:37:23Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:23Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:23Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:23Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:23Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:23Z INFO     NETWORK    client metadata
+2025-07-06T12:37:23Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:23Z INFO     REPL       Member is in new state
+2025-07-06T12:37:23Z INFO     REPL       Member is in new state
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     -          Failed to refresh key cache: KeyNotFound: No keys found after refresh
+2025-07-06T12:37:24Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:24Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:25Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:25Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:25Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:25Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:25Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:26Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     -          Failed to refresh key cache: KeyNotFound: No keys found after refresh
+2025-07-06T12:37:27Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:27Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:28Z INFO     -          Interrupted operation as its client disconnected
+2025-07-06T12:37:28Z WARNING  QUERY      getMore command executor error: {'code': 279, 'codeName': 'ClientDisconnect', 'errmsg': 'operation was interrupted'}
+2025-07-06T12:37:28Z INFO     EXECUTOR   Error sending response to client. Ending connection from remote: {'code': 9001, 'codeName': 'SocketException', 'errmsg': 'futurize :: caused by :: Broken pipe'}
+2025-07-06T12:37:28Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:28Z INFO     -          Interrupted operation as its client disconnected
+2025-07-06T12:37:28Z WARNING  QUERY      getMore command executor error: {'code': 279, 'codeName': 'ClientDisconnect', 'errmsg': 'operation was interrupted'}
+2025-07-06T12:37:28Z INFO     EXECUTOR   Error sending response to client. Ending connection from remote: {'code': 9001, 'codeName': 'SocketException', 'errmsg': 'futurize :: caused by :: Broken pipe'}
+2025-07-06T12:37:28Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:28Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:28Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:28Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:28Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:28Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:29Z INFO     -          Failed to refresh key cache: KeyNotFound: No keys found after refresh
+2025-07-06T12:37:29Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:29Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:29Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:29Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:29Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:30Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:31Z INFO     SHARDING   Failed to refresh query analysis configurations, will try again at the next interval: PrimarySteppedDown: No primary exists currently
+2025-07-06T12:37:31Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:31Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:31Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:31Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:31Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:32Z INFO     -          Failed to refresh key cache: KeyNotFound: No keys found after refresh
+2025-07-06T12:37:32Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:32Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:32Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:32Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:32Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     ELECTION   Starting an election, since we've seen no PRIMARY in election timeout period
+2025-07-06T12:37:33Z INFO     ELECTION   Conducting a dry run election to see if we could be elected
+2025-07-06T12:37:33Z INFO     REPL       Scheduling remote command request
+2025-07-06T12:37:33Z INFO     REPL       Scheduling remote command request
+2025-07-06T12:37:33Z INFO     ELECTION   VoteRequester processResponse
+2025-07-06T12:37:33Z INFO     ELECTION   Dry election run succeeded, running for election
+2025-07-06T12:37:33Z INFO     REPL       Updating term
+2025-07-06T12:37:33Z INFO     ELECTION   Storing last vote document in local storage for my election
+2025-07-06T12:37:33Z INFO     REPL       Scheduling remote command request
+2025-07-06T12:37:33Z INFO     REPL       Scheduling remote command request
+2025-07-06T12:37:33Z INFO     ELECTION   VoteRequester processResponse
+2025-07-06T12:37:33Z INFO     ELECTION   Election succeeded, assuming primary role
+2025-07-06T12:37:33Z INFO     REPL       Replica set state transition
+2025-07-06T12:37:33Z INFO     REPL       Resetting sync source to empty
+2025-07-06T12:37:33Z INFO     REPL       Entering primary catch-up mode
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Caught up to the latest optime known via heartbeats after becoming primary
+2025-07-06T12:37:33Z INFO     REPL       Exited primary catch-up mode
+2025-07-06T12:37:33Z INFO     REPL       Stopping replication producer
+2025-07-06T12:37:33Z INFO     REPL       Oplog buffer has been drained
+2025-07-06T12:37:33Z INFO     REPL       Starting to kill user operations
+2025-07-06T12:37:33Z INFO     REPL       Stopped killing user operations
+2025-07-06T12:37:33Z INFO     REPL       State transition ops metrics
+2025-07-06T12:37:33Z INFO     REPL       Increment the config term via reconfig
+2025-07-06T12:37:33Z INFO     REPL       Replication config state is Steady, starting reconfig
+2025-07-06T12:37:33Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:33Z INFO     REPL       Was able to quickly find new index in config. Skipping full checks.
+2025-07-06T12:37:33Z INFO     REPL       replSetReconfig config object parses ok
+2025-07-06T12:37:33Z INFO     REPL       Persisting new config to disk
+2025-07-06T12:37:33Z INFO     REPL       Persisted new config to disk
+2025-07-06T12:37:33Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:33Z INFO     REPL       New replica set config in use
+2025-07-06T12:37:33Z INFO     REPL       Found self in config
+2025-07-06T12:37:33Z INFO     REPL       Starting to transition to primary.
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:33Z INFO     NETWORK    client metadata
+2025-07-06T12:37:33Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for create
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for createIndexes
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for create
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Logging transition to primary to oplog on stepup
+2025-07-06T12:37:33Z INFO     STORAGE    IndexBuildsCoordinator::onStepUp - this node is stepping up to primary
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for create
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     STORAGE    Finished performing asynchronous step-up checks on index builds
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for create
+2025-07-06T12:37:33Z INFO     REPL       Transition to primary complete; database writes are now permitted
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for create
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for create
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for createIndexes
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for create
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for createIndexes
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for create
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for createIndexes
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:33Z INFO     NETWORK    client metadata
+2025-07-06T12:37:33Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:33Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:33Z INFO     NETWORK    client metadata
+2025-07-06T12:37:33Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:33Z INFO     NETWORK    client metadata
+2025-07-06T12:37:33Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:33Z INFO     REPL       Advancing committed opTime to a new term
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for create
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for createIndexes
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for create
+2025-07-06T12:37:33Z INFO     REPL       Wrote oplog entry for createIndexes
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     COMMAND    Slow query
+2025-07-06T12:37:33Z INFO     REPL       Rebuilding PrimaryOnlyService due to stepUp
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     COMMAND    Slow query
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:34Z INFO     REPL       Wrote oplog entry for create
+2025-07-06T12:37:34Z INFO     REPL       Wrote oplog entry for createIndexes
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Rebuilding PrimaryOnlyService due to stepUp
+2025-07-06T12:37:34Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:37Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:37Z INFO     NETWORK    client metadata
+2025-07-06T12:37:37Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:37Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:37Z INFO     NETWORK    client metadata
+2025-07-06T12:37:37Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:51Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:01Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:01Z INFO     NETWORK    client metadata
+2025-07-06T12:38:01Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:01Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:01Z INFO     NETWORK    client metadata
+2025-07-06T12:38:01Z INFO     NETWORK    client metadata
+2025-07-06T12:38:01Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:01Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:01Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:01Z INFO     NETWORK    client metadata
+2025-07-06T12:38:01Z INFO     NETWORK    client metadata
+2025-07-06T12:38:01Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:01Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:01Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:01Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:01Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:01Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:01Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:01Z INFO     CONTROL    Received signal: Terminated
+2025-07-06T12:38:01Z INFO     CONTROL    Signal was sent by kill(2)
+2025-07-06T12:38:01Z INFO     CONTROL    will terminate after current cmd ends
+2025-07-06T12:38:01Z INFO     REPL       Stepping down the ReplicationCoordinator for shutdown
+2025-07-06T12:38:01Z INFO     REPL       Starting to kill user operations
+2025-07-06T12:38:01Z INFO     REPL       Stopped killing user operations
+2025-07-06T12:38:01Z INFO     REPL       State transition ops metrics
+2025-07-06T12:38:01Z INFO     COMMAND    Yielding locks for prepared transactions.
+2025-07-06T12:38:01Z INFO     COMMAND    Invalidating sessions for stepdown.
+2025-07-06T12:38:01Z INFO     REPL       Replica set state transition
+2025-07-06T12:38:01Z INFO     REPL       Interrupting PrimaryOnlyService due to stepDown
+2025-07-06T12:38:01Z INFO     REPL       Interrupting PrimaryOnlyService due to stepDown
+2025-07-06T12:38:01Z INFO     REPL       Handing off election
+2025-07-06T12:38:01Z INFO     REPL       Attempting to enter quiesce mode
+2025-07-06T12:38:01Z INFO     REPL       Entering quiesce mode for shutdown
+2025-07-06T12:38:01Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:01Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:01Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:38:01Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:01Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:01Z INFO     REPL       Updating term
+2025-07-06T12:38:01Z INFO     REPL       Restarting heartbeats after learning of a new primary
+2025-07-06T12:38:01Z INFO     REPL       Stopped TopologyVersionObserver
+2025-07-06T12:38:01Z INFO     REPL       Member is in new state
+2025-07-06T12:38:01Z INFO     -          Interrupted operation as its client disconnected
+2025-07-06T12:38:01Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:01Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:01Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:38:01Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:01Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:01Z WARNING  QUERY      getMore command executor error: {'code': 279, 'codeName': 'ClientDisconnect', 'errmsg': 'operation was interrupted'}
+2025-07-06T12:38:01Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:01Z INFO     REPL       Scheduling heartbeat to fetch a newer config
+2025-07-06T12:38:01Z INFO     REPL       Setting new configuration state
+2025-07-06T12:38:01Z INFO     REPL       Setting new configuration state
+2025-07-06T12:38:01Z INFO     REPL       New replica set config in use
+2025-07-06T12:38:01Z INFO     REPL       Found self in config
+2025-07-06T12:38:01Z INFO     REPL       Cannot select sync source because it is too far behind
+2025-07-06T12:38:01Z INFO     REPL       Sync source candidate chosen
+2025-07-06T12:38:01Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:01Z INFO     REPL       Changed sync source
+2025-07-06T12:38:01Z INFO     REPL       Advancing committed opTime to a new term
+2025-07-06T12:38:03Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:11Z INFO     CONNPOOL   Connecting
+2025-07-06T12:37:05Z INFO     CONTROL    Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2025-07-06T12:37:05Z INFO     NETWORK    Initialized wire specification
+2025-07-06T12:37:05Z INFO     NETWORK    Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set tcpFastOpenServer, tcpFastOpenClient, and tcpFastOpenQueueSize.
+2025-07-06T12:37:05Z INFO     REPL       Successfully registered PrimaryOnlyService
+2025-07-06T12:37:05Z INFO     REPL       Successfully registered PrimaryOnlyService
+2025-07-06T12:37:05Z INFO     CONTROL    Multi threading initialized
+2025-07-06T12:37:05Z INFO     TENANT_M   Starting TenantMigrationAccessBlockerRegistry
+2025-07-06T12:37:05Z INFO     CONTROL    MongoDB starting
+2025-07-06T12:37:05Z INFO     CONTROL    Build Info
+2025-07-06T12:37:05Z INFO     CONTROL    Operating System
+2025-07-06T12:37:05Z INFO     CONTROL    Options set by command line
+2025-07-06T12:37:05Z INFO     STORAGE    Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+2025-07-06T12:37:05Z INFO     STORAGE    Opening WiredTiger
+2025-07-06T12:37:06Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:06Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:06Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:06Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:06Z INFO     STORAGE    WiredTiger opened
+2025-07-06T12:37:06Z INFO     RECOVERY   WiredTiger recoveryTimestamp
+2025-07-06T12:37:06Z WARNING  CONTROL    Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+2025-07-06T12:37:06Z WARNING  CONTROL    vm.max_map_count is too low
+2025-07-06T12:37:06Z INFO     REPL       current featureCompatibilityVersion value
+2025-07-06T12:37:06Z INFO     STORAGE    Clearing temp directory
+2025-07-06T12:37:06Z INFO     CONTROL    Flow Control is enabled on this deployment
+2025-07-06T12:37:06Z INFO     FTDC       Initializing full-time diagnostic data capture
+2025-07-06T12:37:06Z INFO     REPL       Starting the TopologyVersionObserver
+2025-07-06T12:37:06Z INFO     REPL       Started TopologyVersionObserver
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:06Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:06Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:06Z INFO     REPL       Starting up replica set aware services
+2025-07-06T12:37:06Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:06Z INFO     REPL       Attempting to create internal replication collections
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:06Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:06Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:06Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:06Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:06Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:07Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:07Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:07Z INFO     REPL       Attempting to load local voted for document
+2025-07-06T12:37:07Z INFO     REPL       Did not find local initialized voted for document at startup
+2025-07-06T12:37:07Z INFO     REPL       Searching for local Rollback ID document
+2025-07-06T12:37:07Z INFO     REPL       Did not find local Rollback ID document at startup. Creating one
+2025-07-06T12:37:07Z INFO     STORAGE    createCollection
+2025-07-06T12:37:07Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:07Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:07Z INFO     REPL       Initialized the rollback ID
+2025-07-06T12:37:07Z INFO     REPL       Did not find local replica set configuration document at startup: {'code': 47, 'codeName': 'NoMatchingDocument', 'errmsg': 'Did not find replica set configuration document in local.system.replset'}
+2025-07-06T12:37:07Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:07Z INFO     STORAGE    createCollection
+2025-07-06T12:37:07Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:07Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:07Z INFO     STORAGE    Timestamp monitor starting
+2025-07-06T12:37:07Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:07Z INFO     QUERY      Starting Change Stream Expired Pre-images Remover thread
+2025-07-06T12:37:07Z INFO     CONTROL    Failed to refresh session cache, will try again at the next refresh interval: NotYetInitialized: Replication has not yet been configured
+2025-07-06T12:37:07Z INFO     CONTROL    Sessions collection is not set up; waiting until next sessions reap interval: NamespaceNotFound: config.system.sessions does not exist
+2025-07-06T12:37:07Z INFO     NETWORK    Listening on
+2025-07-06T12:37:07Z INFO     NETWORK    Listening on
+2025-07-06T12:37:07Z INFO     NETWORK    Waiting for connections
+2025-07-06T12:37:07Z INFO     CONTROL    mongod startup complete
+2025-07-06T12:37:07Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:07Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:08Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:08Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:08Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:08Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:08Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:09Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:09Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:10Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:10Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:11Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:12Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:12Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:13Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:13Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:14Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:15Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:15Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:16Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:17Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:17Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:18Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:19Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:19Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:20Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:21Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:22Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:22Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:22Z INFO     NETWORK    client metadata
+2025-07-06T12:37:22Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:22Z INFO     REPL       Scheduling heartbeat to fetch a new config since we are not a member of our current config
+2025-07-06T12:37:22Z INFO     CONNPOOL   Connecting
+2025-07-06T12:37:22Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:22Z INFO     REPL       Updating term
+2025-07-06T12:37:22Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:22Z INFO     STORAGE    createCollection
+2025-07-06T12:37:22Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:22Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:22Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:22Z INFO     SHARDING   Updating implicit default writeConcern majority
+2025-07-06T12:37:22Z INFO     REPL       New replica set config in use
+2025-07-06T12:37:22Z INFO     REPL       Found self in config
+2025-07-06T12:37:22Z INFO     REPL       Replica set state transition
+2025-07-06T12:37:22Z INFO     REPL       Starting replication storage threads
+2025-07-06T12:37:22Z INFO     CONNPOOL   Connecting
+2025-07-06T12:37:22Z INFO     REPL       Member is in new state
+2025-07-06T12:37:22Z INFO     REPL       Initial sync required. Attempting to start initial sync...
+2025-07-06T12:37:22Z INFO     STORAGE    createCollection
+2025-07-06T12:37:22Z INFO     REPL       Member is in new state
+2025-07-06T12:37:22Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:22Z INFO     NETWORK    client metadata
+2025-07-06T12:37:22Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:22Z INFO     REPL       Member is in new state
+2025-07-06T12:37:22Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:22Z INFO     REPL       Initial sync started
+2025-07-06T12:37:22Z INFO     INITSYNC   Starting initial sync attempt
+2025-07-06T12:37:22Z INFO     REPL       Wrote oplog entry for drop
+2025-07-06T12:37:22Z INFO     STORAGE    Finishing collection drop
+2025-07-06T12:37:22Z INFO     STORAGE    Deferring table drop for collection
+2025-07-06T12:37:22Z INFO     STORAGE    createCollection
+2025-07-06T12:37:22Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:22Z INFO     REPL       Cannot select sync source because it is not readable
+2025-07-06T12:37:22Z INFO     REPL       Sync source candidate chosen
+2025-07-06T12:37:22Z INFO     INITSYNC   Initial syncer oplog truncation finished
+2025-07-06T12:37:22Z INFO     REPL       Creating replication oplog
+2025-07-06T12:37:22Z INFO     STORAGE    createCollection
+2025-07-06T12:37:22Z INFO     STORAGE    The size storer reports that the collection contains
+2025-07-06T12:37:22Z INFO     STORAGE    WiredTiger record store oplog processing finished
+2025-07-06T12:37:22Z INFO     WTCHKPT    WiredTiger message
+2025-07-06T12:37:23Z WARNING  REPL       Failed to get last stable recovery timestamp due to lock acquire timeout. Note this is expected if shutdown is in progress.
+2025-07-06T12:37:23Z INFO     STORAGE    About to abort all index builders running
+2025-07-06T12:37:23Z INFO     REPL       dropReplicatedDatabases - dropping databases
+2025-07-06T12:37:23Z INFO     REPL       dropReplicatedDatabases - dropped databases
+2025-07-06T12:37:23Z INFO     STORAGE    createCollection
+2025-07-06T12:37:23Z INFO     STORAGE    Removing drop-pending idents with drop timestamps before timestamp
+2025-07-06T12:37:23Z INFO     STORAGE    Completing drop for ident
+2025-07-06T12:37:23Z INFO     INDEX      Index build: starting
+2025-07-06T12:37:23Z INFO     REPL       current featureCompatibilityVersion value
+2025-07-06T12:37:23Z INFO     NETWORK    Updated wire specification
+2025-07-06T12:37:23Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:23Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:23Z INFO     STORAGE    The ident was successfully dropped
+2025-07-06T12:37:23Z INFO     COMMAND    Index build: inserted keys from external sorter into index
+2025-07-06T12:37:23Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:23Z INFO     INITSYNC   Finished cloning data. Beginning oplog replay
+2025-07-06T12:37:23Z INFO     INITSYNC   No need to apply operations
+2025-07-06T12:37:23Z INFO     NETWORK    DBClientConnection failed to receive message: HostUnreachable: futurize :: caused by :: Connection closed by peer
+2025-07-06T12:37:23Z INFO     NETWORK    Trying to reconnect
+2025-07-06T12:37:23Z INFO     NETWORK    Reconnect attempt failed: 
+2025-07-06T12:37:23Z INFO     -          caught exception in destructor
+2025-07-06T12:37:23Z INFO     INITSYNC   Finished fetching oplog during initial sync
+2025-07-06T12:37:23Z INFO     INITSYNC   Initial sync attempt finishing up
+2025-07-06T12:37:23Z INFO     INITSYNC   Initial sync status and statistics
+2025-07-06T12:37:23Z INFO     REPL       Wrote oplog entry for drop
+2025-07-06T12:37:23Z INFO     STORAGE    Finishing collection drop
+2025-07-06T12:37:23Z INFO     STORAGE    Deferring table drop for collection
+2025-07-06T12:37:23Z INFO     TENANT_M   Clearing serverless operation lock registry on shutdown
+2025-07-06T12:37:23Z INFO     STORAGE    createCollection
+2025-07-06T12:37:23Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:23Z INFO     NETWORK    client metadata
+2025-07-06T12:37:23Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:23Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:23Z INFO     INITSYNC   Initial sync done
+2025-07-06T12:37:23Z INFO     CONTROL    Initializing cluster server parameters from disk
+2025-07-06T12:37:23Z INFO     REPL       Replica set state transition
+2025-07-06T12:37:23Z INFO     REPL       Starting replication fetcher thread
+2025-07-06T12:37:23Z INFO     REPL       Starting replication applier thread
+2025-07-06T12:37:23Z INFO     REPL       Starting replication reporter thread
+2025-07-06T12:37:23Z INFO     REPL       Starting oplog application
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source because it is not readable
+2025-07-06T12:37:23Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source because it is not readable
+2025-07-06T12:37:23Z INFO     REPL       Could not find member to sync from
+2025-07-06T12:37:23Z INFO     REPL       Replica set state transition
+2025-07-06T12:37:23Z INFO     REPL       Resetting sync source to empty
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source because it is not readable
+2025-07-06T12:37:23Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source because it is not readable
+2025-07-06T12:37:23Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:23Z INFO     REPL       Member is in new state
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:24Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:25Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:25Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:25Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:25Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:25Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:26Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     SHARDING   Failed to refresh query analysis configurations, will try again at the next interval: PrimarySteppedDown: No primary exists currently
+2025-07-06T12:37:27Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:27Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:28Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:28Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:28Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:28Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:28Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:29Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:29Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:29Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:29Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:29Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:30Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:31Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:31Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:31Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:31Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:31Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:32Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:32Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:32Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:32Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:32Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     ELECTION   Responding to vote request
+2025-07-06T12:37:33Z INFO     REPL       Updating term
+2025-07-06T12:37:33Z INFO     ELECTION   Responding to vote request
+2025-07-06T12:37:33Z INFO     REPL       Restarting heartbeats after learning of a new primary
+2025-07-06T12:37:33Z INFO     REPL       Member is in new state
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Scheduling heartbeat to fetch a newer config
+2025-07-06T12:37:33Z INFO     CONNPOOL   Connecting
+2025-07-06T12:37:33Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:33Z INFO     REPL       Scheduling heartbeat to fetch a newer config
+2025-07-06T12:37:33Z INFO     CONNPOOL   Connecting
+2025-07-06T12:37:33Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:33Z INFO     REPL       New replica set config in use
+2025-07-06T12:37:33Z INFO     REPL       Found self in config
+2025-07-06T12:37:33Z INFO     REPL       Restarting heartbeats after learning of a new primary
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Sync source candidate chosen
+2025-07-06T12:37:33Z INFO     REPL       Changed sync source
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     REPL       Advancing committed opTime to a new term
+2025-07-06T12:37:33Z INFO     STORAGE    Triggering the first stable checkpoint
+2025-07-06T12:37:33Z INFO     WTCHKPT    WiredTiger message
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     -          Failed to refresh key cache: KeyNotFound: No keys found after refresh
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     STORAGE    createCollection
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     STORAGE    Removing drop-pending idents with drop timestamps before timestamp
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     STORAGE    Completing drop for ident
+2025-07-06T12:37:34Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:34Z INFO     STORAGE    The ident was successfully dropped
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     STORAGE    createCollection
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     STORAGE    createCollection
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     STORAGE    createCollection
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:37Z INFO     CONNPOOL   Connecting
+2025-07-06T12:37:51Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:51Z INFO     NETWORK    client metadata
+2025-07-06T12:37:53Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:53Z INFO     NETWORK    Acquired connection for remote operation and completed writing to wire
+2025-07-06T12:38:01Z INFO     COMMAND    Received replSetStepUp request
+2025-07-06T12:38:01Z INFO     ELECTION   Starting an election due to step up request
+2025-07-06T12:38:01Z INFO     ELECTION   Skipping dry run and running for election
+2025-07-06T12:38:01Z INFO     REPL       Updating term
+2025-07-06T12:38:01Z INFO     REPL       Waiting for in-progress election to complete before finishing stepup
+2025-07-06T12:38:01Z INFO     ELECTION   Storing last vote document in local storage for my election
+2025-07-06T12:38:01Z INFO     REPL       Scheduling remote command request
+2025-07-06T12:38:01Z INFO     REPL       Scheduling remote command request
+2025-07-06T12:38:01Z INFO     ELECTION   VoteRequester processResponse: {'code': 91, 'codeName': 'ShutdownInProgress', 'errmsg': 'In the process of shutting down', 'remainingQuiesceTimeMillis': 0}: received an invalid response
+2025-07-06T12:38:01Z INFO     ELECTION   VoteRequester processResponse
+2025-07-06T12:38:01Z INFO     ELECTION   Election succeeded, assuming primary role
+2025-07-06T12:38:01Z INFO     REPL       Replica set state transition
+2025-07-06T12:38:01Z INFO     REPL       Resetting sync source to empty
+2025-07-06T12:38:01Z INFO     REPL       Entering primary catch-up mode
+2025-07-06T12:38:01Z INFO     REPL       Member is in new state
+2025-07-06T12:38:01Z INFO     REPL       Caught up to the latest optime known via heartbeats after becoming primary
+2025-07-06T12:38:01Z INFO     REPL       Exited primary catch-up mode
+2025-07-06T12:38:01Z INFO     REPL       Stopping replication producer
+2025-07-06T12:38:01Z INFO     REPL       Replication producer stopped after oplog fetcher finished returning a batch from our sync source. Abandoning this batch of oplog entries and re-evaluating our sync source
+2025-07-06T12:38:01Z INFO     REPL       Oplog buffer has been drained
+2025-07-06T12:38:01Z INFO     REPL       Oplog buffer has been drained
+2025-07-06T12:38:01Z INFO     REPL       Starting to kill user operations
+2025-07-06T12:38:01Z INFO     REPL       Stopped killing user operations
+2025-07-06T12:38:01Z INFO     REPL       State transition ops metrics
+2025-07-06T12:38:01Z INFO     REPL       Increment the config term via reconfig
+2025-07-06T12:38:01Z INFO     REPL       Replication config state is Steady, starting reconfig
+2025-07-06T12:38:01Z INFO     REPL       Setting new configuration state
+2025-07-06T12:38:01Z INFO     REPL       Was able to quickly find new index in config. Skipping full checks.
+2025-07-06T12:38:01Z INFO     REPL       replSetReconfig config object parses ok
+2025-07-06T12:38:01Z INFO     REPL       Persisting new config to disk
+2025-07-06T12:38:01Z INFO     REPL       Persisted new config to disk
+2025-07-06T12:38:01Z INFO     REPL       Setting new configuration state
+2025-07-06T12:38:01Z INFO     REPL       New replica set config in use
+2025-07-06T12:38:01Z INFO     REPL       Found self in config
+2025-07-06T12:38:01Z INFO     REPL       Starting to transition to primary.
+2025-07-06T12:38:01Z INFO     REPL       Logging transition to primary to oplog on stepup
+2025-07-06T12:38:01Z INFO     STORAGE    IndexBuildsCoordinator::onStepUp - this node is stepping up to primary
+2025-07-06T12:38:01Z INFO     STORAGE    Finished performing asynchronous step-up checks on index builds
+2025-07-06T12:38:01Z INFO     REPL       Transition to primary complete; database writes are now permitted
+2025-07-06T12:38:01Z INFO     REPL       Applier already left draining state, exiting.
+2025-07-06T12:38:01Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:01Z INFO     NETWORK    client metadata
+2025-07-06T12:38:01Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:01Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:01Z INFO     NETWORK    client metadata
+2025-07-06T12:38:01Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:01Z INFO     REPL       Advancing committed opTime to a new term
+2025-07-06T12:38:01Z INFO     REPL       Rebuilding PrimaryOnlyService due to stepUp
+2025-07-06T12:38:01Z INFO     REPL       Rebuilding PrimaryOnlyService due to stepUp
+2025-07-06T12:38:03Z INFO     REPL       SyncSourceFeedback error sending update: {'code': 119, 'codeName': 'InvalidSyncSource', 'errmsg': 'Sync source was cleared. Was mongodb1:27017'}
+2025-07-06T12:38:05Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:05Z INFO     NETWORK    client metadata
+2025-07-06T12:38:07Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:07Z INFO     NETWORK    client metadata
+2025-07-06T12:38:07Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:07Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:11Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:11Z INFO     NETWORK    client metadata
+2025-07-06T12:38:11Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:11Z INFO     -          Interrupted operation as its client disconnected
+2025-07-06T12:38:11Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:11Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:11Z INFO     ACCESS     Failed to authenticate: AuthenticationAbandoned: Authentication session abandoned, client has likely disconnected
+2025-07-06T12:38:11Z INFO     ACCESS     Failed to authenticate: AuthenticationAbandoned: Authentication session abandoned, client has likely disconnected
+2025-07-06T12:38:11Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:11Z INFO     ACCESS     Failed to authenticate: AuthenticationAbandoned: Authentication session abandoned, client has likely disconnected
+2025-07-06T12:38:11Z WARNING  QUERY      getMore command executor error: {'code': 279, 'codeName': 'ClientDisconnect', 'errmsg': 'operation was interrupted'}
+2025-07-06T12:38:11Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:11Z INFO     ACCESS     Failed to authenticate: AuthenticationAbandoned: Authentication session abandoned, client has likely disconnected
+2025-07-06T12:38:11Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:13Z WARNING  NETWORK    Failed to check socket connectivity: {'code': 9001, 'codeName': 'SocketException', 'errmsg': "Couldn't peek from underlying socket"}
+2025-07-06T12:38:13Z INFO     CONNPOOL   Dropping unhealthy pooled connection
+2025-07-06T12:38:13Z WARNING  NETWORK    Failed to check socket connectivity: {'code': 9001, 'codeName': 'SocketException', 'errmsg': "Couldn't peek from underlying socket"}
+2025-07-06T12:38:13Z INFO     CONNPOOL   Dropping unhealthy pooled connection
+2025-07-06T12:38:13Z WARNING  NETWORK    Failed to check socket connectivity: {'code': 9001, 'codeName': 'SocketException', 'errmsg': "Couldn't peek from underlying socket"}
+2025-07-06T12:38:13Z INFO     CONNPOOL   Dropping unhealthy pooled connection
+2025-07-06T12:38:13Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:13Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:13Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:13Z INFO     REPL       Member is now in state DOWN
+2025-07-06T12:38:13Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:15Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:15Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:15Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:15Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:16Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:17Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:17Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:17Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:17Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:18Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:19Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:19Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:19Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:19Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:20Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:21Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:21Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:21Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:21Z INFO     NETWORK    client metadata
+2025-07-06T12:38:21Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:21Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:21Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:21Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:21Z INFO     NETWORK    client metadata
+2025-07-06T12:38:21Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:22Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:23Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:23Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:23Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:23Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:24Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:25Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:25Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:25Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:25Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:26Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:27Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:27Z INFO     NETWORK    Acquired connection for remote operation and completed writing to wire
+2025-07-06T12:38:27Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:27Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:27Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:28Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:28Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:28Z INFO     NETWORK    client metadata
+2025-07-06T12:38:28Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:28Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:28Z INFO     NETWORK    client metadata
+2025-07-06T12:38:28Z INFO     NETWORK    client metadata
+2025-07-06T12:38:28Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:28Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:28Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:28Z INFO     NETWORK    client metadata
+2025-07-06T12:38:28Z INFO     NETWORK    client metadata
+2025-07-06T12:38:28Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:28Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:28Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:29Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:29Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:29Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:29Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:29Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:29Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:29Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:29Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:30Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:31Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:31Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:31Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:31Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:32Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:33Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:33Z INFO     WTCHKPT    WiredTiger message
+2025-07-06T12:38:33Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:33Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:33Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:34Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:35Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:35Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:35Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:35Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:36Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:37Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:37Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:37Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:37Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:38Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:38Z INFO     REPL       Member is now in state DOWN
+2025-07-06T12:38:38Z INFO     REPL       Can't see a majority of the set, relinquishing primary
+2025-07-06T12:38:38Z INFO     REPL       Stepping down from primary in response to heartbeat
+2025-07-06T12:38:38Z INFO     REPL       Starting to kill user operations
+2025-07-06T12:38:38Z INFO     REPL       Stopped killing user operations
+2025-07-06T12:38:38Z INFO     REPL       State transition ops metrics
+2025-07-06T12:38:38Z INFO     COMMAND    Yielding locks for prepared transactions.
+2025-07-06T12:38:38Z INFO     COMMAND    Invalidating sessions for stepdown.
+2025-07-06T12:38:38Z INFO     REPL       Replica set state transition
+2025-07-06T12:38:38Z INFO     REPL       Interrupting PrimaryOnlyService due to stepDown
+2025-07-06T12:38:38Z INFO     REPL       Interrupting PrimaryOnlyService due to stepDown
+2025-07-06T12:38:38Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:38Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:38Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:38:38Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:38Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:39Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:39Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:39Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:39Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:38:39Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:39Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:39Z INFO     CONNPOOL   Ending connection due to bad connection status: CallbackCanceled: onInvoke :: caused by :: Callback was canceled
+2025-07-06T12:38:39Z INFO     CONNPOOL   Ending connection due to bad connection status: CallbackCanceled: onInvoke :: caused by :: Callback was canceled
+2025-07-06T12:38:39Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:39Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:39Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:39Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:40Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:40Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:40Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:40Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:40Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:40Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:40Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:38:40Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:40Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:40Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:40Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:40Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:40Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:40Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:41Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:41Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:41Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:41Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:41Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:41Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:41Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:41Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:41Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:41Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:38:41Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:41Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:41Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:41Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:41Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:41Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:41Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:42Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:42Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:42Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:42Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:42Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:42Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:42Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:38:42Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:42Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:42Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:42Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:42Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:42Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:42Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:42Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:42Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:42Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:43Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:43Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:43Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:43Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:43Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:43Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:43Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:38:43Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:43Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:43Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:43Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:43Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:43Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:43Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:43Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:43Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:43Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:44Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:44Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:44Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:44Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:44Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:44Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:44Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:38:44Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:44Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:44Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:44Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:44Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:44Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:44Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:44Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:44Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:44Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:45Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:45Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:45Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:45Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:45Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:45Z INFO     NETWORK    client metadata
+2025-07-06T12:38:45Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:45Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:45Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:38:45Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:45Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:45Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:45Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:45Z INFO     NETWORK    client metadata
+2025-07-06T12:38:45Z INFO     NETWORK    client metadata
+2025-07-06T12:38:45Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:45Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:45Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:45Z INFO     NETWORK    client metadata
+2025-07-06T12:38:45Z INFO     CONNPOOL   Dropping all pooled connections: HostUnreachable: Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later
+2025-07-06T12:38:45Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:45Z INFO     NETWORK    client metadata
+2025-07-06T12:38:45Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:45Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb3:27017 :: caused by :: Could not find address for mongodb3:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:45Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:45Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:45Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:45Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:45Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:45Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:45Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:45Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:38:45Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
+2025-07-06T12:37:05Z INFO     CONTROL    Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2025-07-06T12:37:05Z INFO     NETWORK    Initialized wire specification
+2025-07-06T12:37:05Z INFO     NETWORK    Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set tcpFastOpenServer, tcpFastOpenClient, and tcpFastOpenQueueSize.
+2025-07-06T12:37:05Z INFO     REPL       Successfully registered PrimaryOnlyService
+2025-07-06T12:37:05Z INFO     REPL       Successfully registered PrimaryOnlyService
+2025-07-06T12:37:05Z INFO     CONTROL    Multi threading initialized
+2025-07-06T12:37:05Z INFO     TENANT_M   Starting TenantMigrationAccessBlockerRegistry
+2025-07-06T12:37:05Z INFO     CONTROL    MongoDB starting
+2025-07-06T12:37:05Z INFO     CONTROL    Build Info
+2025-07-06T12:37:05Z INFO     CONTROL    Operating System
+2025-07-06T12:37:05Z INFO     CONTROL    Options set by command line
+2025-07-06T12:37:05Z INFO     STORAGE    Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+2025-07-06T12:37:05Z INFO     STORAGE    Opening WiredTiger
+2025-07-06T12:37:06Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:06Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:06Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:06Z INFO     WTRECOV    WiredTiger message
+2025-07-06T12:37:06Z INFO     STORAGE    WiredTiger opened
+2025-07-06T12:37:06Z INFO     RECOVERY   WiredTiger recoveryTimestamp
+2025-07-06T12:37:06Z WARNING  CONTROL    Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+2025-07-06T12:37:06Z WARNING  CONTROL    vm.max_map_count is too low
+2025-07-06T12:37:06Z INFO     REPL       current featureCompatibilityVersion value
+2025-07-06T12:37:06Z INFO     STORAGE    Clearing temp directory
+2025-07-06T12:37:06Z INFO     CONTROL    Flow Control is enabled on this deployment
+2025-07-06T12:37:06Z INFO     FTDC       Initializing full-time diagnostic data capture
+2025-07-06T12:37:06Z INFO     REPL       Starting the TopologyVersionObserver
+2025-07-06T12:37:06Z INFO     REPL       Started TopologyVersionObserver
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:06Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:06Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:06Z INFO     REPL       Starting up replica set aware services
+2025-07-06T12:37:06Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:06Z INFO     REPL       Attempting to create internal replication collections
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:06Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:06Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:06Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:06Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:06Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:06Z INFO     STORAGE    createCollection
+2025-07-06T12:37:07Z WARNING  REPL       Rollback ID is not initialized yet
+2025-07-06T12:37:07Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:07Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:07Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:07Z INFO     REPL       Attempting to load local voted for document
+2025-07-06T12:37:07Z INFO     REPL       Did not find local initialized voted for document at startup
+2025-07-06T12:37:07Z INFO     REPL       Searching for local Rollback ID document
+2025-07-06T12:37:07Z INFO     REPL       Did not find local Rollback ID document at startup. Creating one
+2025-07-06T12:37:07Z INFO     STORAGE    createCollection
+2025-07-06T12:37:07Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:07Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:07Z INFO     REPL       Initialized the rollback ID
+2025-07-06T12:37:07Z INFO     REPL       Did not find local replica set configuration document at startup: {'code': 47, 'codeName': 'NoMatchingDocument', 'errmsg': 'Did not find replica set configuration document in local.system.replset'}
+2025-07-06T12:37:07Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:07Z INFO     STORAGE    createCollection
+2025-07-06T12:37:07Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:07Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:07Z INFO     STORAGE    Timestamp monitor starting
+2025-07-06T12:37:07Z INFO     QUERY      Starting Change Stream Expired Pre-images Remover thread
+2025-07-06T12:37:07Z INFO     CONTROL    Failed to refresh session cache, will try again at the next refresh interval: NotYetInitialized: Replication has not yet been configured
+2025-07-06T12:37:07Z INFO     CONTROL    Sessions collection is not set up; waiting until next sessions reap interval: NamespaceNotFound: config.system.sessions does not exist
+2025-07-06T12:37:07Z INFO     NETWORK    Listening on
+2025-07-06T12:37:07Z INFO     NETWORK    Listening on
+2025-07-06T12:37:07Z INFO     NETWORK    Waiting for connections
+2025-07-06T12:37:07Z INFO     CONTROL    mongod startup complete
+2025-07-06T12:37:07Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:07Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:08Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:08Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:08Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:08Z INFO     NETWORK    Connection ended
+2025-07-06T12:37:08Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:09Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:09Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:10Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:10Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:11Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:12Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:12Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:13Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:13Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:14Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:15Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:15Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:16Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:17Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:17Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:18Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:19Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:19Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:20Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:21Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:22Z WARNING  QUERY      Aggregate command executor error: {'code': 26, 'codeName': 'NamespaceNotFound', 'errmsg': 'Unable to retrieve storageStats in $collStats stage :: caused by :: Collection [local.oplog.rs] not found.'}
+2025-07-06T12:37:22Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:22Z INFO     NETWORK    client metadata
+2025-07-06T12:37:22Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:22Z INFO     REPL       Scheduling heartbeat to fetch a new config since we are not a member of our current config
+2025-07-06T12:37:22Z INFO     CONNPOOL   Connecting
+2025-07-06T12:37:22Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:22Z INFO     REPL       Updating term
+2025-07-06T12:37:22Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:22Z INFO     STORAGE    createCollection
+2025-07-06T12:37:22Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:22Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:22Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:22Z INFO     NETWORK    client metadata
+2025-07-06T12:37:22Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:22Z INFO     REPL       Scheduling heartbeat to fetch a new config since we are not a member of our current config
+2025-07-06T12:37:22Z INFO     CONNPOOL   Connecting
+2025-07-06T12:37:22Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:22Z INFO     SHARDING   Updating implicit default writeConcern majority
+2025-07-06T12:37:22Z INFO     REPL       New replica set config in use
+2025-07-06T12:37:22Z INFO     REPL       Found self in config
+2025-07-06T12:37:22Z INFO     REPL       Replica set state transition
+2025-07-06T12:37:22Z INFO     REPL       Starting replication storage threads
+2025-07-06T12:37:22Z INFO     REPL       Member is in new state
+2025-07-06T12:37:22Z INFO     REPL       Member is in new state
+2025-07-06T12:37:22Z INFO     REPL       Initial sync required. Attempting to start initial sync...
+2025-07-06T12:37:22Z INFO     STORAGE    createCollection
+2025-07-06T12:37:22Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:22Z INFO     REPL       Initial sync started
+2025-07-06T12:37:22Z INFO     INITSYNC   Starting initial sync attempt
+2025-07-06T12:37:22Z INFO     REPL       Wrote oplog entry for drop
+2025-07-06T12:37:22Z INFO     STORAGE    Finishing collection drop
+2025-07-06T12:37:22Z INFO     STORAGE    Deferring table drop for collection
+2025-07-06T12:37:22Z INFO     STORAGE    createCollection
+2025-07-06T12:37:22Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:22Z INFO     REPL       Cannot select sync source because it is not readable
+2025-07-06T12:37:22Z INFO     REPL       Sync source candidate chosen
+2025-07-06T12:37:22Z INFO     INITSYNC   Initial syncer oplog truncation finished
+2025-07-06T12:37:22Z INFO     REPL       Creating replication oplog
+2025-07-06T12:37:22Z INFO     STORAGE    createCollection
+2025-07-06T12:37:22Z INFO     STORAGE    The size storer reports that the collection contains
+2025-07-06T12:37:22Z INFO     STORAGE    WiredTiger record store oplog processing finished
+2025-07-06T12:37:22Z INFO     WTCHKPT    WiredTiger message
+2025-07-06T12:37:23Z WARNING  REPL       Failed to get last stable recovery timestamp due to lock acquire timeout. Note this is expected if shutdown is in progress.
+2025-07-06T12:37:23Z INFO     STORAGE    About to abort all index builders running
+2025-07-06T12:37:23Z INFO     REPL       dropReplicatedDatabases - dropping databases
+2025-07-06T12:37:23Z INFO     REPL       dropReplicatedDatabases - dropped databases
+2025-07-06T12:37:23Z INFO     STORAGE    createCollection
+2025-07-06T12:37:23Z INFO     STORAGE    Removing drop-pending idents with drop timestamps before timestamp
+2025-07-06T12:37:23Z INFO     STORAGE    Completing drop for ident
+2025-07-06T12:37:23Z INFO     INDEX      Index build: starting
+2025-07-06T12:37:23Z INFO     REPL       current featureCompatibilityVersion value
+2025-07-06T12:37:23Z INFO     NETWORK    Updated wire specification
+2025-07-06T12:37:23Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:23Z INFO     EXECUTOR   Skip closing connection for connection
+2025-07-06T12:37:23Z INFO     STORAGE    The ident was successfully dropped
+2025-07-06T12:37:23Z INFO     COMMAND    Index build: inserted keys from external sorter into index
+2025-07-06T12:37:23Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:23Z INFO     INITSYNC   Finished cloning data. Beginning oplog replay
+2025-07-06T12:37:23Z INFO     INITSYNC   No need to apply operations
+2025-07-06T12:37:23Z INFO     NETWORK    DBClientConnection failed to receive message: HostUnreachable: futurize :: caused by :: Connection closed by peer
+2025-07-06T12:37:23Z INFO     NETWORK    Trying to reconnect
+2025-07-06T12:37:23Z INFO     NETWORK    Reconnect attempt failed: 
+2025-07-06T12:37:23Z INFO     -          caught exception in destructor
+2025-07-06T12:37:23Z INFO     INITSYNC   Finished fetching oplog during initial sync
+2025-07-06T12:37:23Z INFO     INITSYNC   Initial sync attempt finishing up
+2025-07-06T12:37:23Z INFO     INITSYNC   Initial sync status and statistics
+2025-07-06T12:37:23Z INFO     REPL       Wrote oplog entry for drop
+2025-07-06T12:37:23Z INFO     STORAGE    Finishing collection drop
+2025-07-06T12:37:23Z INFO     STORAGE    Deferring table drop for collection
+2025-07-06T12:37:23Z INFO     TENANT_M   Clearing serverless operation lock registry on shutdown
+2025-07-06T12:37:23Z INFO     STORAGE    createCollection
+2025-07-06T12:37:23Z INFO     CONNPOOL   Connecting
+2025-07-06T12:37:23Z INFO     REPL       Added oplog entry for create to transaction
+2025-07-06T12:37:23Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:23Z INFO     INITSYNC   Initial sync done
+2025-07-06T12:37:23Z INFO     CONTROL    Initializing cluster server parameters from disk
+2025-07-06T12:37:23Z INFO     REPL       Replica set state transition
+2025-07-06T12:37:23Z INFO     REPL       Starting replication fetcher thread
+2025-07-06T12:37:23Z INFO     REPL       Starting replication applier thread
+2025-07-06T12:37:23Z INFO     REPL       Starting replication reporter thread
+2025-07-06T12:37:23Z INFO     REPL       Starting oplog application
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source because it is not readable
+2025-07-06T12:37:23Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source because it is not readable
+2025-07-06T12:37:23Z INFO     REPL       Could not find member to sync from
+2025-07-06T12:37:23Z INFO     REPL       Replica set state transition
+2025-07-06T12:37:23Z INFO     REPL       Resetting sync source to empty
+2025-07-06T12:37:23Z INFO     REPL       Member is in new state
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:23Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:24Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:24Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:25Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:25Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:25Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:25Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:25Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:26Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:26Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     SHARDING   Failed to refresh query analysis configurations, will try again at the next interval: PrimarySteppedDown: No primary exists currently
+2025-07-06T12:37:27Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:27Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:27Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:28Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:28Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:28Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:28Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:28Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:29Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:29Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:29Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:29Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:29Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:30Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:30Z INFO     -          Failed to refresh key cache: ReadConcernMajorityNotAvailableYet: Read concern majority reads are currently not possible.
+2025-07-06T12:37:31Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:31Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:31Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:31Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:31Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:32Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:32Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:32Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:32Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:32Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     ELECTION   Responding to vote request
+2025-07-06T12:37:33Z INFO     REPL       Updating term
+2025-07-06T12:37:33Z INFO     ELECTION   Responding to vote request
+2025-07-06T12:37:33Z INFO     REPL       Restarting heartbeats after learning of a new primary
+2025-07-06T12:37:33Z INFO     REPL       Member is in new state
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Scheduling heartbeat to fetch a newer config
+2025-07-06T12:37:33Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:33Z INFO     REPL       Setting new configuration state
+2025-07-06T12:37:33Z INFO     REPL       New replica set config in use
+2025-07-06T12:37:33Z INFO     REPL       Found self in config
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     NETWORK    Connection accepted
+2025-07-06T12:37:33Z INFO     NETWORK    client metadata
+2025-07-06T12:37:33Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:37:33Z INFO     REPL       Sync source candidate chosen
+2025-07-06T12:37:33Z INFO     REPL       Changed sync source
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     REPL       Advancing committed opTime to a new term
+2025-07-06T12:37:33Z INFO     STORAGE    Triggering the first stable checkpoint
+2025-07-06T12:37:33Z INFO     WTCHKPT    WiredTiger message
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:33Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:33Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:33Z INFO     STORAGE    createCollection
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     STORAGE    createCollection
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     STORAGE    createCollection
+2025-07-06T12:37:34Z INFO     STORAGE    Removing drop-pending idents with drop timestamps before timestamp
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     STORAGE    Completing drop for ident
+2025-07-06T12:37:34Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:34Z INFO     STORAGE    The ident was successfully dropped
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Processing DDL command oplog entry in OplogBatcher
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     STORAGE    createCollection
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:34Z INFO     REPL       Applying DDL command oplog entry
+2025-07-06T12:37:34Z INFO     INDEX      Index build: done building
+2025-07-06T12:37:37Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:01Z INFO     REPL       Updating term
+2025-07-06T12:38:01Z INFO     ELECTION   Responding to vote request
+2025-07-06T12:38:01Z INFO     REPL       Restarting heartbeats after learning of a new primary
+2025-07-06T12:38:01Z INFO     REPL       Member is in new state
+2025-07-06T12:38:01Z INFO     REPL       Member is in new state
+2025-07-06T12:38:01Z INFO     REPL       Scheduling heartbeat to fetch a newer config
+2025-07-06T12:38:01Z INFO     REPL       Setting new configuration state
+2025-07-06T12:38:01Z INFO     REPL       Setting new configuration state
+2025-07-06T12:38:01Z INFO     REPL       New replica set config in use
+2025-07-06T12:38:01Z INFO     REPL       Found self in config
+2025-07-06T12:38:01Z INFO     REPL       Restarting heartbeats after learning of a new primary
+2025-07-06T12:38:01Z INFO     REPL       Advancing committed opTime to a new term
+2025-07-06T12:38:03Z INFO     NETWORK    Connection accepted
+2025-07-06T12:38:03Z INFO     NETWORK    client metadata
+2025-07-06T12:38:05Z INFO     NETWORK    Received first command on ingress connection since session start or auth handshake
+2025-07-06T12:38:05Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:07Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:11Z INFO     REPL       Recreating cursor for oplog fetcher due to error: HostUnreachable: Error while getting the next batch in the oplog fetcher :: caused by :: recv failed while exhausting cursor :: caused by :: futurize :: caused by :: Connection closed by peer
+2025-07-06T12:38:11Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:11Z INFO     ACCESS     Failed to authenticate: AuthenticationAbandoned: Authentication session abandoned, client has likely disconnected
+2025-07-06T12:38:11Z INFO     NETWORK    Connection ended
+2025-07-06T12:38:11Z INFO     ACCESS     Failed to authenticate: AuthenticationAbandoned: Authentication session abandoned, client has likely disconnected
+2025-07-06T12:38:11Z INFO     NETWORK    Trying to reconnect
+2025-07-06T12:38:11Z INFO     NETWORK    Reconnect attempt failed: 
+2025-07-06T12:38:11Z INFO     NETWORK    DBClientCursor::init call() failed
+2025-07-06T12:38:11Z INFO     REPL       Error returned from oplog query (no more query restarts left): SocketException: Error while getting the next batch in the oplog fetcher :: caused by :: socket exception [CONNECT_ERROR] server [couldn't connect to server mongodb1:27017, connection attempt failed: SocketException: Error connecting to mongodb1:27017 (172.20.0.2:27017) :: caused by :: syncConnect connect error :: caused by :: Connection refused]
+2025-07-06T12:38:11Z WARNING  REPL       Oplog fetcher stopped querying remote oplog with error: SocketException: Error while getting the next batch in the oplog fetcher :: caused by :: socket exception [CONNECT_ERROR] server [couldn't connect to server mongodb1:27017, connection attempt failed: SocketException: Error connecting to mongodb1:27017 (172.20.0.2:27017) :: caused by :: syncConnect connect error :: caused by :: Connection refused]
+2025-07-06T12:38:11Z INFO     REPL       Clearing sync source to choose a new one
+2025-07-06T12:38:11Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:11Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:11Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:38:11Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:11Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:11Z INFO     REPL       Could not find member to sync from
+2025-07-06T12:38:11Z WARNING  NETWORK    Failed to check socket connectivity: {'code': 9001, 'codeName': 'SocketException', 'errmsg': "Couldn't peek from underlying socket"}
+2025-07-06T12:38:11Z INFO     CONNPOOL   Dropping unhealthy pooled connection
+2025-07-06T12:38:11Z WARNING  NETWORK    Failed to check socket connectivity: {'code': 9001, 'codeName': 'SocketException', 'errmsg': "Couldn't peek from underlying socket"}
+2025-07-06T12:38:11Z INFO     CONNPOOL   Dropping unhealthy pooled connection
+2025-07-06T12:38:11Z INFO     CONNPOOL   Connecting
+2025-07-06T12:38:11Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 (172.20.0.2:27017) :: caused by :: onInvoke :: caused by :: Connection refused'}
+2025-07-06T12:38:11Z INFO     REPL       Member is now in state DOWN
+2025-07-06T12:38:12Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:12Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:12Z INFO     REPL       Failed to select a sync source on the first attempt. Starting second attempt
+2025-07-06T12:38:12Z INFO     REPL       Cannot select sync source because it is not up
+2025-07-06T12:38:12Z INFO     REPL       Cannot select sync source which is not ahead of me
+2025-07-06T12:38:12Z INFO     REPL_HB    Heartbeat failed after max retries: {'code': 6, 'codeName': 'HostUnreachable', 'errmsg': 'Error connecting to mongodb1:27017 :: caused by :: Could not find address for mongodb1:27017: SocketException: onInvoke :: caused by :: Host not found (non-authoritative), try again later'}
