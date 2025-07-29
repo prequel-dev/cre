@@ -833,3 +833,9 @@ tags:
   - name: certificate-verification
     displayName: Certificate Verification
     description: Issues with SSL/TLS certificate verification including trust chain validation, certificate authority verification, and hostname matching
+  - name: pod-scheduling
+    displayName: Pod Scheduling
+    description: Issues with Kubernetes pod scheduling due to resource constraints or networking problems
+  - name: cluster-scaling
+    displayName: Cluster Scaling
+    description: Problems related to Kubernetes cluster scaling operations and capacity management

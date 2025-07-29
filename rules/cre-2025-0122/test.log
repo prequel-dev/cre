@@ -1,0 +1,21 @@
+2025/07/02 08:29:03 [ERROR] aws-node-daemonset-xyz: ipamd.go:1234 failed to allocate ENI: AddressLimitExceeded: The maximum number of addresses has been reached.
+2025/07/02 08:29:03 [ERROR] aws-node-daemonset-xyz: ipamd.go:1235 no available IP addresses in subnet 
+2025/07/02 08:29:03 [WARN] aws-node-daemonset-xyz: ipamd.go:1236 insufficient IP addresses available for new pods
+2025/07/02 08:29:03 [ERROR] kubelet: event.go:294 FailedScheduling: 0/3 nodes are available: 3 Insufficient IP addresses in subnet 
+2025/07/02 08:29:03 [ERROR] kubelet: event.go:295 FailedScheduling: pod "test-app-deployment-abc123-xyz" failed to fit in any node
+2025/07/02 08:29:03 [ERROR] scheduler: scheduler.go:456 Failed to schedule pod test-app/test-pod-789: Insufficient IP
+2025/07/02 08:29:03 [ERROR] aws-node: cni.go:123 failed to assign an IP address to container: no available IP addresses in subnet 
+2025/07/02 08:29:03 [ERROR] aws-node: eni.go:234 failed to allocate ENI for pod test-pod-456: NetworkInterfaceLimitExceeded
+2025/07/02 08:29:03 [ERROR] aws-node: ipam.go:345 IPAM: failed to get IP address from datastore: no available IP addresses
+2025/07/02 08:29:03 [ERROR] aws-node: ec2.go:567 EC2 API error: AddressLimitExceeded - The maximum number of addresses has been reached
+2025/07/02 08:29:03 [ERROR] aws-node: ec2.go:568 EC2 API error: NetworkInterfaceLimitExceeded - The maximum number of network interfaces has been reached
+2025/07/02 08:29:03 [ERROR] aws-node: vpc.go:789 VPC CNI error: insufficient IP addresses in subnet  for pod allocation
+2025/07/02 08:29:03 [ERROR] cluster-autoscaler: scale_up.go:123 failed to scale up: nodes cannot accommodate new pods due to IP exhaustion in VPC 
+2025/07/02 08:29:03 [ERROR] karpenter: provisioner.go:234 failed to provision new node: insufficient IP addresses in subnet 
+2025/07/02 08:29:03 [ERROR] aws-load-balancer-controller: controller.go:345 failed to create target group: no available IP addresses
+2025/07/02 08:29:03 [ERROR] deployment-controller: deployment.go:456 Deployment "critical-app" failed: pods cannot be scheduled due to IP exhaustion
+2025/07/02 08:29:03 [ERROR] replicaset-controller: replicaset.go:567 ReplicaSet "web-app-rs" failed to create pods: Insufficient IP addresses
+2025/07/02 08:29:03 [ERROR] statefulset-controller: statefulset.go:678 StatefulSet "database" stuck: cannot allocate IP addresses for new pods
+2025/07/02 08:29:03 [ERROR] service-controller: service.go:789 Service "api-service" endpoints unavailable: pods failed to start due to IP exhaustion
+2025/07/02 08:29:03 [ERROR] ingress-controller: ingress.go:890 Ingress "web-ingress" backend unavailable: target pods cannot be scheduled
+2025/07/02 08:29:03 [ERROR] dns-controller: dns.go:901 DNS resolution failing: CoreDNS pods cannot be scheduled due to IP exhaustion
