@@ -1,6 +1,6 @@
 rules:
   - cre:
-      id: CRE-2025-0121
+      id: CRE-2025-0122
       severity: 0
       title: AWS VPC CNI IP Address Exhaustion Crisis
       category: networking-problem
