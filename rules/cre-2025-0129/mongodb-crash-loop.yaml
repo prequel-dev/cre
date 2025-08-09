@@ -3,7 +3,7 @@ rules:
       kind: prequel
       id: DQbJmYTnPqvL6HdX2Xs7Wh
     cre:
-      id: CRE-2025-0093
+      id: CRE-2025-0129
       severity: 0
       title: MongoDB Crash Loop Due to WiredTiger Metadata Corruption
       category: mongodb-startup-failure
