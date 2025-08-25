@@ -60,7 +60,7 @@ New contributors are encouraged to join the problem detection community add new 
 
 ## Rule Coverage
 
-### Tags & Category
+### Tags & Categories
 
 CREs are organized by tags and categories.
 
