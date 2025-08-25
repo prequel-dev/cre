@@ -60,58 +60,19 @@ New contributors are encouraged to join the problem detection community add new 
 
 ## Rule Coverage
 
-### Tags
+### Tags & Category
 
-* [Tags](rules/tags/tags.yaml)
-* [Categories](rules/tags/categories.yaml)
+CREs are organized by tags and categories.
+
+* [Tags](https://docs.prequel.dev/cres/public?view=tags)
+* [Categories](https://docs.prequel.dev/cres/public?view=categories)
 
 ### Technology Coverage
 
-The table below lists the technologies targeted by the existing CRE rules and the number of rules that describe each technology.
+CREs exist for both popular and obscure project. 
 
-<!-- BEGIN TECHNOLOGY TABLE -->
-| Technology | CRE Count | Documentation |
-|-----------|----------:|---------------|
-| [nginx](https://nginx.org/en/docs/) | 8 | https://nginx.org/en/docs/ |
-| [loki](https://grafana.com/docs/loki/latest/) | 6 | https://grafana.com/docs/loki/latest/ |
-| [otel-collector](https://opentelemetry.io/docs/collector/) | 4 | https://opentelemetry.io/docs/collector/ |
-| [kubernetes](https://kubernetes.io/docs/home/) | 4 | https://kubernetes.io/docs/home/ |
-| [aws](https://aws.amazon.com/) | 4 | https://aws.amazon.com/ |
-| [rabbitmq](https://www.rabbitmq.com/documentation.html) | 4 | https://www.rabbitmq.com/documentation.html |
-| [redis](https://redis.io/docs/) | 4 | https://redis.io/docs/ |
-| [grafana](https://grafana.com/docs/) | 4 | https://grafana.com/docs/ |
-| [ovn](https://www.ovn.org/docs/) | 3 | https://www.ovn.org/docs/ |
-| [datadog](https://docs.datadoghq.com/) | 3 | https://docs.datadoghq.com/ |
-| [neutron](https://docs.openstack.org/neutron/latest/) | 2 | https://docs.openstack.org/neutron/latest/ |
-| [openstack](https://docs.openstack.org/) | 2 | https://docs.openstack.org/ |
-| [keda](https://keda.sh/docs/) | 2 | https://keda.sh/docs/ |
-| [opentelemetry](https://opentelemetry.io/docs/) | 2 | https://opentelemetry.io/docs/ |
-| [postgres](https://www.postgresql.org/docs/) | 2 | https://www.postgresql.org/docs/ |
-| [dns](https://en.wikipedia.org/wiki/Domain_Name_System) | 2 | https://en.wikipedia.org/wiki/Domain_Name_System |
-| [memcached](https://memcached.org/) | 2 | https://memcached.org/ |
-| [prometheus](https://prometheus.io/docs/) | 2 | https://prometheus.io/docs/ |
-| [karpenter](https://karpenter.sh/docs/) | 2 | https://karpenter.sh/docs/ |
-| [cws](https://docs.datadoghq.com/cloud_workload_security/) | 1 | https://docs.datadoghq.com/cloud_workload_security/ |
-| [postgresql](https://www.postgresql.org/docs/) | 1 | https://www.postgresql.org/docs/ |
-| [nfs](https://wiki.linux-nfs.org/wiki/) | 1 | https://wiki.linux-nfs.org/wiki/ |
-| [nvidia](https://docs.nvidia.com/) | 1 | https://docs.nvidia.com/ |
-| [helm](https://helm.sh/docs/) | 1 | https://helm.sh/docs/ |
-| [temporal](https://docs.temporal.io/) | 1 | https://docs.temporal.io/ |
-| [slurm](https://slurm.schedmd.com/documentation.html) | 1 | https://slurm.schedmd.com/documentation.html |
-| [slurmdbd](https://slurm.schedmd.com/slurmdbd.html) | 1 | https://slurm.schedmd.com/slurmdbd.html |
-| [mysql](https://dev.mysql.com/doc/) | 1 | https://dev.mysql.com/doc/ |
-| [redis-cli](https://redis.io/docs/ui/cli/) | 1 | https://redis.io/docs/ui/cli/ |
-| [kubelet](https://kubernetes.io/docs/concepts/architecture/nodes/#kubelet) | 1 | https://kubernetes.io/docs/concepts/architecture/nodes/#kubelet |
-| [redis-py](https://redis-py.readthedocs.io/en/stable/) | 1 | https://redis-py.readthedocs.io/en/stable/ |
-| [spicedb](https://spicedb.dev/) | 1 | https://spicedb.dev/ |
-| [celery](https://docs.celeryq.dev/en/stable/) | 1 | https://docs.celeryq.dev/en/stable/ |
-| [kombu](https://docs.celeryq.dev/projects/kombu/en/stable/) | 1 | https://docs.celeryq.dev/projects/kombu/en/stable/ |
-| [vpc-cni](https://docs.aws.amazon.com/eks/latest/userguide/pod-networking.html) | 1 | https://docs.aws.amazon.com/eks/latest/userguide/pod-networking.html |
-| [csi](https://kubernetes-csi.github.io/docs/) | 1 | https://kubernetes-csi.github.io/docs/ |
-| [terraform](https://developer.hashicorp.com/terraform/docs) | 1 | https://developer.hashicorp.com/terraform/docs |
-| [ovsdb](https://docs.openvswitch.org/en/latest/ref/ovsdb/) | 1 | https://docs.openvswitch.org/en/latest/ref/ovsdb/ |
-| [eks](https://docs.aws.amazon.com/eks/) | 1 | https://docs.aws.amazon.com/eks/ |
-| [gke](https://cloud.google.com/kubernetes-engine/docs/) | 1 | https://cloud.google.com/kubernetes-engine/docs/ |
+* [CREs by Technology](https://docs.prequel.dev/cres/public?view=technologies)
+
 
 ## Join the community!
 
