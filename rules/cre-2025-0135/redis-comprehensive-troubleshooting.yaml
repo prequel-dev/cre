@@ -1,0 +1,149 @@
+rules:
+- cre:
+    id: CRE-2025-0135
+    severity: 0
+    title: Redis Comprehensive Troubleshooting - Multiple Common Issues Detection
+    category: in-memory-database-problem
+    author: Prequel
+    description: |
+      Comprehensive detection rule for multiple common Redis troubleshooting scenarios including:
+      1. Out-of-Memory (OOM) errors when maxmemory limit exceeded
+      2. Connection timeouts and connectivity issues
+      3. Authentication failures and permission denials
+      4. Invalid commands and argument errors
+      5. Background save (BGSAVE) conflicts and persistence issues
+      6. Slow query performance problems
+      7. Read-only replica write attempts
+      8. Disk persistence failures (MISCONF errors)
+      9. Client connection limits exceeded
+      10. Memory pressure and eviction warnings
+    cause: |
+      MULTIPLE ROOT CAUSES:
+      - Redis maxmemory limit reached with noeviction policy
+      - Network connectivity issues or server overload
+      - Authentication misconfiguration or credential issues
+      - Client code bugs with invalid Redis commands
+      - Overlapping backup operations or slow persistence
+      - Inefficient queries and data access patterns
+      - Write operations attempted on read-only replicas
+      - Disk space issues preventing RDB/AOF persistence
+      - Client connection pool exhaustion
+      - Memory pressure causing performance degradation
+    impact: |
+      BUSINESS IMPACT:
+      - CRITICAL: Complete inability to access cached data
+      - HIGH: Application performance degradation and timeouts
+      - MEDIUM: Backup and persistence operation failures
+      - LOW: Individual command failures with proper error handling
+      - Data consistency risks if error handling is inadequate
+      - Potential cascade failures in dependent services
+    impactScore: 10
+    tags:
+      - redis
+      - redis-cli
+      - redis-py
+      - out-of-memory
+      - connection
+      - authentication
+      - persistence
+      - performance
+      - readonly
+      - misconf
+      - acl
+      - public
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Check Redis server status: `redis-cli ping`
+        - Monitor memory usage: `redis-cli info memory`
+        - Review error logs for specific failure patterns
+        - Verify authentication and ACL configuration
+        - Check disk space and persistence settings
+        
+        RECOVERY STRATEGIES BY ISSUE TYPE:
+        
+        1. OOM ERRORS:
+           - Increase maxmemory limit: `CONFIG SET maxmemory 500mb`
+           - Change eviction policy: `CONFIG SET maxmemory-policy volatile-lru`
+           - Clear unnecessary keys or restart Redis
+        
+        2. CONNECTION ISSUES:
+           - Restart Redis service: `systemctl restart redis`
+           - Check firewall and network configuration
+           - Adjust client timeout settings
+        
+        3. AUTHENTICATION FAILURES:
+           - Verify credentials: `redis-cli -a password ping`
+           - Update ACL permissions: `ACL SETUSER username +@all`
+           - Rotate and update client credentials
+        
+        4. COMMAND ERRORS:
+           - Fix application code with correct Redis syntax
+           - Update Redis client libraries
+           - Check for renamed/disabled commands
+        
+        5. PERSISTENCE ISSUES:
+           - Wait for current BGSAVE to complete
+           - Free disk space for RDB/AOF files
+           - Optimize backup scheduling
+        
+        6. SLOW QUERIES:
+           - Optimize data structures and access patterns
+           - Use SCAN instead of KEYS for iteration
+           - Monitor and tune slowlog settings
+        
+        7. READONLY ERRORS:
+           - Redirect writes to master Redis instance
+           - Check replication configuration
+           - Verify client connection routing
+        
+        PREVENTION:
+        - Implement comprehensive Redis monitoring
+        - Set up memory, performance, and error alerting
+        - Use Redis clustering for high availability
+        - Regular capacity planning and performance reviews
+        - Automate backup and persistence monitoring
+        - Implement proper error handling in applications
+      mitigationScore: 7
+      references:
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/troubleshooting/
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/latency/
+        - https://www.site24x7.com/learn/redis-troubleshooting-guide.html
+      applications:
+        - name: redis
+          version: "*"
+        - name: redis-cli  
+          version: "*"
+        - name: redis-py
+          version: "*"
+    metadata:
+      kind: prequel
+      id: HgYt8N4XKfLMPqRu9wSvZ7
+      gen: 1
+    rule:
+      set:
+        window: 300s
+        event:
+          source: cre.log.redis
+        match:
+          # Issue 1: Out-of-Memory (OOM) errors
+          - regex: "OOM command not allowed when used memory > 'maxmemory'"
+          # Issue 2: Connection timeout errors
+          - regex: "Connection timeout.*redis|Unable to connect to Redis|Could not connect to Redis|redis.*connection.*timeout"
+          # Issue 3: Authentication failures
+          - regex: "WRONGPASS invalid username-password pair|NOAUTH Authentication required|ERR invalid password"
+          # Issue 4: Invalid commands and arguments
+          - regex: "ERR unknown command|ERR wrong number of arguments|WRONGTYPE|ERR syntax error"
+          # Issue 5: Background save conflicts
+          - regex: "Background save already in progress|ERR Background save already in progress"
+          # Issue 6: Slow query performance
+          - regex: "Slow log.*microseconds|command.*took.*milliseconds"
+          # Issue 7: Read-only replica writes
+          - regex: "READONLY You can['']t write against a read only replica"
+          # Issue 8: Persistence failures (MISCONF)
+          - regex: "MISCONF Redis is configured to save RDB snapshots, but it's currently unable to persist to disk"
+          # Issue 9: Connection limits exceeded
+          - regex: "max number of clients reached|connection pool.*exhausted"
+          # Issue 10: ACL permission denied
+          - regex: "NOPERM User .* has no permissions to run the '.*' command"
