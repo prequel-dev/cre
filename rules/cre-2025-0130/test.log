@@ -1,0 +1,44 @@
+[2025-08-27 12:50:17,000] INFO [WebUI] Initializing Stable Diffusion WebUI
+Initializing Stable Diffusion WebUI
+[2025-08-27 12:50:17,000] INFO [ModelLoader] Loading checkpoints/v1-5-pruned.safetensors
+Loading checkpoints/v1-5-pruned.safetensors
+[2025-08-27 12:50:17,000] INFO [TorchCUDA] CUDA available: True
+CUDA available: True
+[2025-08-27 12:50:17,000] INFO [TorchCUDA] CUDA device count: 1
+CUDA device count: 1
+[2025-08-27 12:50:17,000] INFO [TorchCUDA] CUDA device: GeForce RTX 3060 (6GB)
+CUDA device: GeForce RTX 3060 (6GB)
+[2025-08-27 12:50:19,000] INFO [WebUI] Starting image generation: 1024x1024, batch_size=4
+Starting image generation: 1024x1024, batch_size=4
+[2025-08-27 12:50:19,000] INFO [ModelLoader] Loading model to CUDA device
+Loading model to CUDA device
+[2025-08-27 12:50:20,000] WARN [TorchCUDA] GPU memory usage: 5.8GB/6.0GB (97%)
+GPU memory usage: 5.8GB/6.0GB (97%)
+[2025-08-27 12:50:20,000] WARN [ModelLoader] High memory usage detected during model loading
+High memory usage detected during model loading
+[2025-08-27 12:50:21,000] ERROR [TorchCUDA] torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 512.00 MiB (GPU 0; 6.00 GiB total capacity; 5.63 GiB already allocated; 156.19 MiB free; 5.74 GiB reserved in total by PyTorch)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 512.00 MiB (GPU 0; 6.00 GiB total capacity; 5.63 GiB already allocated; 156.19 MiB free; 5.74 GiB reserved in total by PyTorch)
+[2025-08-27 12:50:21,000] CRITICAL [WebUI] Fatal error during image generation
+Fatal error during image generation
+[2025-08-27 12:50:21,000] ERROR [ModelLoader] Failed to allocate tensor on device
+Failed to allocate tensor on device
+[2025-08-27 12:50:21,000] ERROR [TorchCUDA] RuntimeError: CUDA out of memory
+RuntimeError: CUDA out of memory
+[2025-08-27 12:50:22,000] ERROR [WebUI] Generation process crashed
+Generation process crashed
+[2025-08-27 12:50:22,000] ERROR [WebUI] Gradio interface becoming unresponsive
+Gradio interface becoming unresponsive
+[2025-08-27 12:50:22,000] WARN [WebUI] Multiple failed generation attempts detected
+Multiple failed generation attempts detected
+[2025-08-27 12:50:22,000] ERROR [TorchCUDA] CUDA context may be corrupted
+CUDA context may be corrupted
+[2025-08-27 12:50:23,000] INFO [WebUI] Attempting to recover from OOM error
+Attempting to recover from OOM error
+[2025-08-27 12:50:23,000] WARN [TorchCUDA] Clearing CUDA cache
+Clearing CUDA cache
+[2025-08-27 12:50:23,000] ERROR [WebUI] Recovery failed - WebUI requires restart
+Recovery failed - WebUI requires restart
+[2025-08-27 12:50:24,000] ERROR [TorchCUDA] torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.25 GiB
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.25 GiB
+[2025-08-27 12:50:24,000] CRITICAL [WebUI] Complete service failure - manual intervention required
+Complete service failure - manual intervention required

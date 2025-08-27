@@ -845,3 +845,9 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
+  - name: cuda
+    displayName: CUDA
+    description: Problems related to NVIDIA CUDA GPU computing platform and memory management
+  - name: pytorch
+    displayName: PyTorch
+    description: Problems related to PyTorch deep learning framework and tensor operations
