@@ -1,0 +1,74 @@
+rules:
+- cre:
+    id: CRE-2025-0919
+    severity: 1
+    title: N8N Workflow Silent Data Loss During Execution
+    category: workflow-automation-problem
+    author: Claude Code Assistant
+    description: |
+      N8N workflow automation platform experiences critical silent data loss where items 
+      disappear between workflow nodes without generating error messages. This high-severity 
+      issue affects long-running workflows (60-115+ minutes) and can cause workflows to 
+      randomly cancel mid-execution, leading to incomplete processing and data integrity 
+      problems. Items silently vanish between nodes, with different item counts across 
+      the workflow pipeline, making the issue particularly dangerous for production systems 
+      that rely on complete data processing.
+    cause: |
+      * Workflow execution engine fails to properly track items between nodes in long-running workflows
+      * Memory management issues during extended workflow processing causing item references to be lost
+      * Race conditions in the worker queue system when handling multiple concurrent items
+      * Node-to-node data transfer mechanisms failing silently under certain load conditions
+      * Queue worker timeout or resource contention causing partial item processing without error reporting
+      * Database transaction issues where some items fail to persist between workflow stages
+    tags:
+      - n8n
+      - workflow-automation
+      - data-loss
+      - silent-failure
+      - production-critical
+      - data-integrity
+      - public
+    mitigation: |
+      - **Implement workflow item counting checks** - Add validation nodes between critical 
+        processing steps to verify item counts match expected values
+      - **Enable comprehensive execution logging** - Set N8N_LOG_LEVEL to debug and 
+        EXECUTIONS_DATA_SAVE_ON_SUCCESS to 'all' to capture detailed execution data
+      - **Add workflow timeout monitoring** - Monitor executions that cancel around 21-23 
+        minute mark and implement retry mechanisms for failed workflows
+      - **Implement data integrity validation** - Add checksum or validation steps at 
+        workflow start/end to detect silent data loss
+      - **Use error handling workflows** - Configure error workflows to capture and log 
+        execution failures, even when main workflow fails silently
+      - **Monitor execution metrics** - Set up alerting on workflow completion rates and 
+        item processing inconsistencies
+      - **Consider workflow segmentation** - Break long workflows into smaller, more 
+        manageable chunks to reduce exposure to the data loss issue
+    references:
+      - https://github.com/n8n-io/n8n/issues/14909
+      - https://docs.n8n.io/flow-logic/error-handling/
+      - https://community.n8n.io/t/workflow-randomly-cancels-mid-execution-without-error-data-items-silently-dropped-between-nodes/51141
+    applications:
+      - name: n8n
+        version: ">= 1.90.0"
+        processName: n8n
+        containerName: n8n
+    impact: |
+      Silent data loss in workflow automation can cause critical business processes to fail 
+      without detection, leading to incomplete data processing, missing business transactions, 
+      failed integrations, and potential compliance violations. The silent nature makes it 
+      extremely difficult to detect and troubleshoot, potentially causing weeks or months 
+      of data integrity issues before discovery.
+    impactScore: 9
+    mitigationScore: 7
+  metadata:
+    kind: prequel
+    id: N8nSilentDataLossDetection919
+    gen: 1
+  rule:
+    sequence:
+      window: 120s  
+      event:
+        source: cre.log.n8n
+      order:
+        - regex: "(cancelled mid-execution|execution terminated unexpectedly|workflow.*cancelled|Execution.*cancelled)"
+        - regex: "(silent data loss detected|data.*loss|itemsLost|dataIntegrityIssue.*true|Items processed inconsistently|Data integrity check failed)"
