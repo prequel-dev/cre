@@ -19,7 +19,7 @@ rules:
         - Hard crash; requests being processed may be dropped.
         - Repeated crashes if the segfault occurs deterministically at startup.
       tags:
-        - Kubernetes
+        - k8s
         - exit-code
         - segfault
         - native

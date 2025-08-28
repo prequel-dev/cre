@@ -19,7 +19,7 @@ rules:
         - Pod fails to start; controllers may enter CrashLoopBackOff.
         - Service remains unavailable until the image/command is fixed.
       tags:
-        - Kubernetes
+        - k8s
         - exit-code
         - command
         - entrypoint

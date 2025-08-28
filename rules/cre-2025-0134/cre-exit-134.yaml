@@ -19,7 +19,7 @@ rules:
         - Immediate termination of the container; possible loss of in-flight work.
         - Repeated crashes if the triggering condition is deterministic at startup.
       tags:
-        - Kubernetes
+        - k8s
         - exit-code
         - sigabrt
         - assertion

@@ -22,7 +22,7 @@ rules:
         - CrashLoopBackOff and reduced availability.
         - Potential loss of in-flight work not checkpointed to durable storage.
       tags:
-        - Kubernetes
+        - k8s
         - exit-code
         - out-of-memory
         - memory
