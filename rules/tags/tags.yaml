@@ -845,3 +845,24 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
+  - name: stable-diffusion
+    displayName: Stable Diffusion
+    description: Issues related to Stable Diffusion image generation models
+  - name: automatic1111
+    displayName: AUTOMATIC1111 WebUI
+    description: Problems specific to the AUTOMATIC1111 Stable Diffusion WebUI
+  - name: webui
+    displayName: Web UI
+    description: Issues with web user interface components
+  - name: batch-processing
+    displayName: Batch Processing
+    description: Problems occurring during batch job processing
+  - name: cuda
+    displayName: CUDA
+    description: NVIDIA CUDA GPU computation issues
+  - name: gpu
+    displayName: GPU
+    description: Graphics Processing Unit related problems
+  - name: pytorch
+    displayName: PyTorch
+    description: Issues related to PyTorch deep learning framework

@@ -1,0 +1,72 @@
+rules:
+  - cre:
+      id: CRE-2025-0140
+      severity: 1
+      title: Stable Diffusion WebUI CUDA Out of Memory during batch processing
+      category: memory-problem
+      author: Prequel
+      description: |
+        Stable Diffusion WebUI encounters a CUDA out of memory (OOM) error during batch image generation,
+        causing the entire generation pipeline to crash. This typically occurs when the batch size or image
+        dimensions exceed available VRAM capacity, particularly on consumer GPUs with limited memory.
+      cause: |
+        The root cause is attempting to allocate more VRAM than available for tensor operations during
+        the cross-attention computation phase. Common triggers include:
+        - Batch size set too high for available VRAM
+        - High resolution images (1024x1024 or larger) without optimization flags
+        - Multiple ControlNet or LoRA models loaded simultaneously
+        - Insufficient use of memory optimization options (--medvram, --lowvram)
+      impact: |
+        - Immediate termination of the generation pipeline
+        - Loss of all in-progress image generations in the batch
+        - Potential corruption of partially generated images
+        - API endpoints return error responses, breaking automation workflows
+        - System requires manual intervention to recover
+      impactScore: 8
+      mitigation: |
+        Immediate fixes:
+        1. Reduce batch size (set to 1-2 for consumer GPUs)
+        2. Enable memory optimization flags:
+           - Use --medvram for 6-8GB VRAM GPUs
+           - Use --lowvram for 4-6GB VRAM GPUs
+           - Use --no-half for CPU fallback
+        3. Reduce image dimensions to 512x512 or 768x768
+        4. Enable attention slicing with --xformers or --opt-split-attention
+        5. Clear VRAM before generation: torch.cuda.empty_cache()
+        
+        Long-term solutions:
+        - Implement dynamic batch size adjustment based on available VRAM
+        - Add pre-flight VRAM checks before starting generation
+        - Upgrade to GPU with more VRAM (16GB+ recommended)
+      mitigationScore: 3
+      tags:
+        - stable-diffusion
+        - cuda
+        - gpu
+        - memory-leak
+        - batch-processing
+        - pytorch
+        - webui
+        - automatic1111
+      references:
+        - https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Optimizations
+        - https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/8035
+        - https://pytorch.org/docs/stable/notes/cuda.html#memory-management
+      applications:
+        - name: stable-diffusion-webui
+          version: ">= 1.0.0"
+        - name: pytorch
+          version: ">= 2.0.0"
+    metadata:
+      kind: prequel
+      id: SEKbLKEnpyQo2mkKvFZYXo
+      gen: 1
+    rule:
+      set:
+        window: 10s
+        event:
+          source: cre.log.sdwebui
+        match:
+          - regex: 'CUDA out of memory\. Tried to allocate .* GiB'
+          - regex: 'torch\.cuda\.OutOfMemoryError: CUDA out of memory'
+          - value: 'Generation failed: Out of memory error'
