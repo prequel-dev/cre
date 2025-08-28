@@ -23,7 +23,7 @@ rules:
         - exit-code
         - command
         - entrypoint
-        - startup
+        - startup-failure
       mitigation: |
         - Verify the binary exists and is executable (`chmod +x`).
         - Use absolute paths or fix PATH; test with `docker run` locally.
