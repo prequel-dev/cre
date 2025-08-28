@@ -1,0 +1,36 @@
+2025-08-27 22:44:48,804 - INFO     - [modules.shared] - Loading config from: /home/user/stable-diffusion-webui/config.json
+2025-08-27 22:44:48,804 - INFO     - [modules.shared] - Command line args: Namespace(batch_size=8, medvram=False, lowvram=False)
+2025-08-27 22:44:48,804 - INFO     - [modules.sd_models] - Loading model from cache: v1-5-pruned-emaonly.safetensors
+2025-08-27 22:44:48,804 - INFO     - [modules.devices] - CUDA available: True, Device: cuda:0 (NVIDIA GeForce RTX 3090)
+2025-08-27 22:44:48,804 - INFO     - [modules.devices] - Total VRAM: 24576 MB, Available: 18432 MB
+2025-08-27 22:44:48,804 - INFO     - [modules.txt2img] - Starting batch generation: 8 images, 512x512, steps: 20
+2025-08-27 22:44:48,904 - WARNING  - [modules.devices] - High VRAM usage detected: 22528 MB / 24576 MB (91.7%)
+2025-08-27 22:44:48,905 - INFO     - [modules.processing] - Processing batch 1/8...
+2025-08-27 22:44:48,905 - WARNING  - [torch.cuda] - Allocated memory: 23.5 GB, Reserved: 24.0 GB
+2025-08-27 22:44:48,905 - INFO     - [modules.processing] - Processing batch 2/8...
+2025-08-27 22:44:48,905 - WARNING  - [modules.devices] - VRAM usage critical: 24064 MB / 24576 MB (97.9%)
+2025-08-27 22:44:49,005 - INFO     - [modules.processing] - Processing batch 3/8...
+2025-08-27 22:44:49,005 - ERROR    - [torch.cuda] - CUDA out of memory. Tried to allocate 2.00 GiB (GPU 0; 24.00 GiB total capacity; 22.50 GiB already allocated; 512.00 MiB free; 23.00 GiB reserved in total by PyTorch)
+2025-08-27 22:44:49,005 - ERROR    - [modules.processing] - RuntimeError: CUDA out of memory during cross-attention computation
+2025-08-27 22:44:49,005 - ERROR    - [modules.processing] - Traceback (most recent call last):
+2025-08-27 22:44:49,005 - ERROR    - [modules.processing] -   File "modules/processing.py", line 732, in process_images_inner
+2025-08-27 22:44:49,005 - ERROR    - [modules.processing] -     samples = sampler.sample(p, x, conditioning, unconditional_conditioning)
+2025-08-27 22:44:49,005 - ERROR    - [modules.processing] -   File "modules/sd_samplers_kdiffusion.py", line 234, in sample
+2025-08-27 22:44:49,005 - ERROR    - [modules.processing] -     samples = self.launch_sampling(steps, lambda: self.func)
+2025-08-27 22:44:49,005 - ERROR    - [modules.processing] - torch.cuda.OutOfMemoryError: CUDA out of memory
+2025-08-27 22:44:49,005 - CRITICAL - [modules.shared] - Generation failed: Out of memory error
+2025-08-27 22:44:49,005 - ERROR    - [modules.api.api] - API error: {'error': 'OutOfMemoryError', 'detail': 'CUDA out of memory. Try reducing batch size or image dimensions'}
+2025-08-27 22:44:49,005 - WARNING  - [modules.devices] - Attempting VRAM cleanup...
+2025-08-27 22:44:49,005 - INFO     - [torch.cuda] - Clearing cache and collecting garbage
+2025-08-27 22:44:49,005 - ERROR    - [modules.processing] - Batch processing interrupted at item 3 of 8
+2025-08-27 22:44:49,005 - ERROR    - [modules.ui] - Generation failed after processing 2 images
+2025-08-27 22:44:49,105 - INFO     - [modules.devices] - Attempting automatic recovery...
+2025-08-27 22:44:49,105 - INFO     - [torch.cuda] - torch.cuda.empty_cache() called
+2025-08-27 22:44:49,105 - INFO     - [modules.shared] - Reducing batch size from 8 to 4
+2025-08-27 22:44:49,105 - WARNING  - [modules.processing] - Restarting generation with reduced settings
+2025-08-27 22:44:49,105 - INFO     - [modules.devices] - VRAM after cleanup: 8192 MB available
+2025-08-27 22:44:49,105 - INFO     - [modules.devices] - CUDA available: False, Using CPU mode
+2025-08-27 22:44:49,105 - INFO     - [modules.processing] - Processing on CPU, no VRAM limitations
+2025-08-27 22:44:49,105 - WARNING  - [modules.shared] - High RAM usage: 28 GB / 32 GB
+2025-08-27 22:44:49,105 - INFO     - [modules.processing] - Successfully completed batch 8/8
+2025-08-27 22:44:49,106 - INFO     - [modules.txt2img] - Generation complete: 8 images generated
