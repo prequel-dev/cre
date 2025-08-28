@@ -2,11 +2,10 @@ rules:
   - metadata:
       kind: prequel
       id: KHtVUpTbZHaevdn4EABmQEe
-      generation: 1
     cre:
       id: CRE-2025-0139
       severity: 2
-      title: Container exited 139 — segmentation fault (SIGSEGV)
+      title: Container exited 139 due to segmentation fault (SIGSEGV)
       category: runtime-problem
       author: CRE Community
       description: |
@@ -33,7 +32,7 @@ rules:
         - "https://man7.org/linux/man-pages/man7/signal.7.html"
       applications:
         - name: kubernetes
-          version: "*"
+          version: ">=1.16"
       impactScore: 7
       mitigationScore: 2
       reports: 5

@@ -2,7 +2,6 @@ rules:
   - metadata:
       kind: prequel
       id: VuPxiuWkYodzUqupa7gh9N
-      generation: 1
     cre:
       id: CRE-2025-0137
       severity: 1
@@ -39,7 +38,7 @@ rules:
         - "https://kubernetes.io/docs/tasks/administer-cluster/out-of-resource/"
       applications:
         - name: kubernetes
-          version: "*"
+          version: ">=1.16"
       impactScore: 6
       mitigationScore: 2
       reports: 12

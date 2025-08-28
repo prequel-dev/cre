@@ -2,11 +2,10 @@ rules:
   - metadata:
       kind: prequel
       id: T8tPh6u4Bj7nXidQWbRvvj
-      generation: 1
     cre:
       id: CRE-2025-0134
       severity: 2
-      title: Container exited 134 — SIGABRT / assertion failure
+      title: Container exited 134 due to SIGABRT / assertion failure
       category: runtime-problem
       author: CRE Community
       description: |
@@ -33,7 +32,7 @@ rules:
         - "https://www.gnu.org/software/libc/manual/html_node/Aborting-a-Program.html"
       applications:
         - name: kubernetes
-          version: "*"
+          version: ">=1.16"
       impactScore: 6
       mitigationScore: 2
       reports: 4
