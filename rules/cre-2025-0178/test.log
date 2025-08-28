@@ -1,0 +1,36 @@
+2025-08-28T10:00:01.234Z [INFO] Starting n8n version 1.101.2
+2025-08-28T10:00:01.456Z [INFO] Initializing database connection
+2025-08-28T10:00:01.789Z [INFO] DB_TYPE=sqlite
+2025-08-28T10:00:02.012Z [INFO] DATABASE_TYPE: sqlite
+2025-08-28T10:00:02.234Z [INFO] Using SQLite as database backend
+2025-08-28T10:00:02.456Z [DEBUG] Loading database configuration
+2025-08-28T10:00:02.678Z [INFO] DB_SQLITE_POOL_SIZE=0
+2025-08-28T10:00:02.890Z [WARN] SQLite pool size is set to 0, using single connection mode
+2025-08-28T10:00:03.123Z [INFO] Database connection established
+2025-08-28T10:00:03.345Z [INFO] Running database migrations
+2025-08-28T10:00:03.567Z [INFO] Migration from version 1.100 to 1.101 starting
+2025-08-28T10:00:04.789Z [DEBUG] Executing migration scripts
+2025-08-28T10:00:05.012Z [INFO] Loading workflows from database
+2025-08-28T10:00:05.234Z [WARN] Found 5 active workflows
+2025-08-28T10:00:05.456Z [INFO] Starting workflow engine
+2025-08-28T10:00:05.678Z [INFO] n8n ready on http://localhost:5678
+2025-08-28T10:00:10.890Z [INFO] Workflow 'Daily Report Generator' triggered
+2025-08-28T10:00:11.123Z [DEBUG] Executing workflow wf_001
+2025-08-28T10:00:11.345Z [INFO] Workflow execution started
+2025-08-28T10:00:15.567Z [INFO] Workflow execution completed
+2025-08-28T10:00:15.789Z [DEBUG] Saving execution data to database
+2025-08-28T10:00:16.012Z [WARN] Database write operation delayed
+2025-08-28T10:00:20.234Z [INFO] User accessing workflow editor
+2025-08-28T10:00:20.456Z [DEBUG] Loading workflow list from database
+2025-08-28T10:00:20.678Z [ERROR] Unexpected database response
+2025-08-28T10:00:20.890Z [WARN] Workflow count mismatch: expected 5, found 0
+2025-08-28T10:00:21.123Z [ERROR] Unable to load workflows
+2025-08-28T10:00:21.345Z [INFO] Database query returned empty result
+2025-08-28T10:00:21.567Z [CRITICAL] All workflows appear to be missing
+2025-08-28T10:00:21.789Z [ERROR] Execution history table is empty
+2025-08-28T10:00:22.012Z [INFO] Attempting database integrity check
+2025-08-28T10:00:22.234Z [INFO] SQLite integrity check: ok
+2025-08-28T10:00:22.456Z [WARN] Database file exists but tables are empty
+2025-08-28T10:00:22.678Z [ERROR] Critical data loss detected
+2025-08-28T10:00:22.890Z [INFO] No WAL file found for recovery
+2025-08-28T10:00:23.123Z [CRITICAL] 48 hours of work has been lost

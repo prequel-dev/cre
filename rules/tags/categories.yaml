@@ -244,3 +244,12 @@ categories:
     description: |
       Failures that prevent MongoDB from starting successfully due to corrupted metadata, invalid configurations,
       or unrecoverable internal errors (e.g., WiredTiger metadata corruption). These failures often require manual repair or backup restoration.
+  - name: workflow-automation-problems
+    displayName: Workflow Automation Problems
+    description: Problems related to workflow automation platforms like n8n, Temporal, and others including data loss, execution failures, and configuration issues
+  - name: sqlite-problems
+    displayName: SQLite Problems
+    description: Problems specific to SQLite database including connection pooling issues, data persistence failures, and configuration errors
+  - name: data-loss-problems
+    displayName: Data Loss Problems
+    description: Critical problems that result in data loss or corruption, requiring immediate attention to prevent further damage
