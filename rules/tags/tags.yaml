@@ -881,3 +881,6 @@ tags:
   - name: database-reliability
     displayName: Database Reliability
     description: Problems affecting database system reliability and data consistency
+  - name: database-write-failure
+    displayName: Database Write Failure
+    description: Problems where database write operations fail or are not properly persisted

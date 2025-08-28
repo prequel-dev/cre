@@ -3,7 +3,7 @@ rules:
       id: CRE-2025-0178
       severity: 0
       title: n8n SQLite data loss due to incorrect pool size configuration
-      category: database-problems
+      category: database-problem
       author: mavrick
       description: |
         This rule detects when n8n is running with SQLite database and a pool size of 0, which can cause critical data loss including complete disappearance of workflows and execution history. The issue occurs because the default SQLite driver configuration (DB_SQLITE_POOL_SIZE=0) uses an unreliable single connection mode that can lead to database corruption or data not being properly persisted during concurrent operations.
