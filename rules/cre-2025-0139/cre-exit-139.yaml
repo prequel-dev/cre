@@ -1,0 +1,45 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: KHtVUpTbZHaevdn4EABmQEe
+      generation: 1
+    cre:
+      id: CRE-2025-0139
+      severity: 2
+      title: Container exited 139 — segmentation fault (SIGSEGV)
+      category: runtime-problem
+      author: CRE Community
+      description: |
+        Exit code 139 indicates SIGSEGV (invalid memory access) in native/runtime code.
+        Frequently caused by unsafe pointer operations, ABI/library mismatches, or native extensions.
+      cause: |
+        - Null dereference or out-of-bounds access in C/C++/Rust unsafe blocks.
+        - Incompatible glibc/musl or driver/library versions.
+        - Faulty JNI/ctypes/native extension code paths.
+      impact: |
+        - Hard crash; requests being processed may be dropped.
+        - Repeated crashes if the segfault occurs deterministically at startup.
+      tags:
+        - Kubernetes
+        - exit-code
+        - segfault
+        - native
+        - reliability
+      mitigation: |
+        - Enable core dumps and symbol files; capture stack traces.
+        - Pin compatible base image/libc; verify ABI expectations.
+        - Use ASAN/UBSAN builds; bisect recent native/library changes.
+      references:
+        - "https://man7.org/linux/man-pages/man7/signal.7.html"
+      applications:
+        - name: kubernetes
+          version: "*"
+      impactScore: 7
+      mitigationScore: 2
+      reports: 5
+    rule:
+      set:
+        event:
+          source: cre.log.k8s
+        match:
+          - regex: "^[^\\t]+\\t[^\\t/]+/[^\\t]+\\t[^\\t]+\\t[^\\t]*\\t139$"

@@ -1,0 +1,45 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: T8tPh6u4Bj7nXidQWbRvvj
+      generation: 1
+    cre:
+      id: CRE-2025-0134
+      severity: 2
+      title: Container exited 134 — SIGABRT / assertion failure
+      category: runtime-problem
+      author: CRE Community
+      description: |
+        Exit code 134 indicates the process aborted via SIGABRT, commonly due to failed assertions,
+        allocator checks (e.g., glibc detecting heap corruption), or explicit abort() calls.
+      cause: |
+        - assert(false) / std::abort() in C/C++.
+        - Memory allocator consistency errors (double free, corruption).
+        - Defensive abort on unrecoverable invariant violations.
+      impact: |
+        - Immediate termination of the container; possible loss of in-flight work.
+        - Repeated crashes if the triggering condition is deterministic at startup.
+      tags:
+        - Kubernetes
+        - exit-code
+        - sigabrt
+        - assertion
+        - native
+      mitigation: |
+        - Enable core dumps and symbols; capture backtraces.
+        - Run ASAN/UBSAN builds in staging to localize corruption.
+        - Pin and verify libc/libstdc++ versions; roll back recent native changes.
+      references:
+        - "https://www.gnu.org/software/libc/manual/html_node/Aborting-a-Program.html"
+      applications:
+        - name: kubernetes
+          version: "*"
+      impactScore: 6
+      mitigationScore: 2
+      reports: 4
+    rule:
+      set:
+        event:
+          source: cre.log.k8s
+        match:
+          - regex: "^[^\\t]+\\t[^\\t/]+/[^\\t]+\\t[^\\t]+\\t[^\\t]*\\t134$"
