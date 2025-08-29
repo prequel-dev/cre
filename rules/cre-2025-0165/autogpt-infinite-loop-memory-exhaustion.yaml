@@ -51,18 +51,9 @@ rules:
           version: ">= 0.3.0"
           
     rule:
-      sequence:
-        window: "60s"
+      set:
         event:
           source: cre.log.autogpt
-        order:
-          - regex: "THOUGHTS:.*(?:attempting|trying|executing).*action"
-          - regex: "COMMAND.*execute_.*"
-          - regex: "(?:Failed|Error|Unable to).*(?:execute|complete|perform)"
-          - regex: "THOUGHTS:.*(?:attempting|trying|executing).*action"
-          - regex: "COMMAND.*execute_.*"
-          - regex: "Memory usage:.*(?:[8-9][0-9]|100)%"
-        negate:
-          - value: "Task completed successfully"
-            anchor: 0
-            slide: "60s"
+        match:
+          - regex: "THOUGHTS:.*(?:attempting|trying|executing).*action|COMMAND.*execute_.*|(?:Failed|Error|Unable to).*(?:execute|complete|perform)|Memory usage:.*(?:[8-9][0-9]|100)%|AutoGPT entering infinite loop state|Loop detection:.*Same command attempted|Cost tracker:.*spent|Memory exhaustion imminent"
+            count: 1
