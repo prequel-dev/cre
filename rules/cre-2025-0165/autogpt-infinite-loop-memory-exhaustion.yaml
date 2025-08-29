@@ -1,0 +1,65 @@
+rules:
+  - cre:
+      id: CRE-2025-0165
+      severity: 0
+      title: "AutoGPT Infinite Loop Memory Exhaustion"
+      category: "runtime-problem"
+      author: Prequel
+      
+      description: |
+        AutoGPT enters an infinite loop during task execution, repeatedly attempting the same 
+        actions without memory of previous attempts. This leads to exponential memory consumption,
+        API cost overruns, and eventual system crash or resource exhaustion. The agent becomes
+        stuck in a recursive pattern, unable to progress or terminate gracefully.
+      cause: |
+        The failure occurs when AutoGPT's short-term memory buffer becomes full or corrupted,
+        causing the agent to lose track of previously attempted actions. Without awareness of
+        past attempts, it repeatedly executes the same commands, each iteration consuming more
+        memory and API calls. The chain-of-thought process compounds the issue as each retry
+        adds to the context without resolution.
+      impact: |
+        Critical production impact including:
+        - Exponential API cost increase (can exceed $100+ in minutes)
+        - Memory exhaustion leading to OOM crashes
+        - Complete task failure with no recovery
+        - Resource starvation affecting other services
+        - Potential data corruption from repeated failed operations
+      impactScore: 9
+      mitigation: |
+        Immediate: Kill the AutoGPT process to stop resource consumption.
+        Short-term: Implement loop detection with max retry limits.
+        Long-term: Add memory management, checkpointing, and circuit breakers.
+        Configure cost limits and monitoring alerts for API usage.
+        Implement timeout mechanisms for individual task chains.
+      mitigationScore: 6
+      tags:
+        - autogpt
+        - memory-exhaustion
+        - infinite-loop
+        - api-cost-overrun
+        - autonomous-agent
+        - oom
+        - production-critical
+      references:
+        - "https://github.com/Significant-Gravitas/AutoGPT/issues/1543"
+        - "https://jina.ai/news/auto-gpt-unmasked-hype-hard-truths-production-pitfalls/"
+      applications:
+        - name: "AutoGPT"
+          version: ">= 0.3.0"
+          
+    rule:
+      sequence:
+        window: "60s"
+        event:
+          source: cre.log.autogpt
+        order:
+          - regex: "THOUGHTS:.*(?:attempting|trying|executing).*action"
+          - regex: "COMMAND.*execute_.*"
+          - regex: "(?:Failed|Error|Unable to).*(?:execute|complete|perform)"
+          - regex: "THOUGHTS:.*(?:attempting|trying|executing).*action"
+          - regex: "COMMAND.*execute_.*"
+          - regex: "Memory usage:.*(?:[8-9][0-9]|100)%"
+        negate:
+          - value: "Task completed successfully"
+            anchor: 0
+            slide: "60s"
