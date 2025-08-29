@@ -1,0 +1,56 @@
+rules:
+  - metadata:
+      id: 6qHwZYugnnmUoB7FwVJdm7
+      kind: community
+    cre:
+      id: CRE-5Ud1RZxGC5LJQnVpAkV11A
+      severity: 1
+      title: AutoGPT Agent Infinite Loop Detection
+      category: agent-runtime-errors
+      author: CRE Community
+      description: |
+        AutoGPT agent has entered an infinite loop, repeatedly executing the same or similar tasks without making progress.
+      cause: |
+        This typically occurs when:
+        1. The agent's task lacks clear success criteria
+        2. The agent gets stuck in a recursive thought pattern
+        3. External state isn't being properly updated between iterations
+        4. The agent fails to recognize task completion
+      impact: |
+        - Wastes computational resources (CPU/memory)
+        - Prevents the agent from making progress on its task
+        - May lead to unexpected cloud costs if running in a cloud environment
+        - Can cause cascading failures in dependent systems
+      impactScore: 9
+      tags:
+        - autogpt
+        - agent-failure
+        - high-severity
+        - resource-utilization
+      mitigation: |
+        - Implement maximum iteration limits in the agent's execution loop
+        - Add progress tracking to detect repetitive behavior
+        - Improve task decomposition and success criteria
+        - Add circuit breakers to terminate unproductive executions
+        - Monitor for excessive resource usage patterns
+      mitigationScore: 8
+      references:
+        - https://docs.agpt.co/agent-failures#infinite-loops
+      applications:
+        - name: "autogpt"
+          version: ">=0.4.0"
+    rule:
+      sequence:
+        window: 5m
+        event:
+          source: application.log
+        order:
+          - regex: "Executing step \\d+ with command"
+          - regex: "Agent entering loop with same state"
+            count: 10
+            within: 2m
+        negate:
+          - value: "Task completed successfully"
+            window: 30s
+          - value: "Agent is making progress"
+            window: 1m

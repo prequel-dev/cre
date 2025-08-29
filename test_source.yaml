@@ -1,0 +1,5 @@
+sources:
+  - name: test_log
+    type: file
+    path: tests/autogpt-infinite-loop-test.log
+    format: text

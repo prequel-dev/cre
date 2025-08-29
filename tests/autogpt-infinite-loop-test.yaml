@@ -1,0 +1,16 @@
+name: AutoGPT Infinite Loop Detection Test
+description: Tests detection of AutoGPT agent getting stuck in an infinite loop
+
+rules:
+  - rules/cre-2025-0071/autogpt-infinite-loop-detection.yaml
+
+tests:
+  - name: Detect infinite loop pattern
+    input:
+      file: tests/autogpt-infinite-loop-test.log
+    expect:
+      - rule: autogpt-infinite-loop-detection
+        matches:
+          - message: "Agent entering loop with same state"
+        severity: high
+        count: 1

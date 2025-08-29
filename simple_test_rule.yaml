@@ -1,0 +1,27 @@
+rules:
+  - metadata:
+      id: test-rule-simple
+      kind: test
+    cre:
+      id: CRE111111111111
+      severity: 1
+      title: Simple Test Rule
+      category: test
+      author: Test
+      description: Simple test rule for debugging
+      cause: Test
+      impact: Test
+      impactScore: 1
+      tags: [test]
+      mitigation: Test
+      mitigationScore: 1
+      references: []
+      applications: []
+    rule:
+      sequence:
+        window: 1m
+        event:
+          source: application.log
+        order:
+          - value: "Executing step"
+        negate: []

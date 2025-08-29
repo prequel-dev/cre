@@ -1,0 +1,27 @@
+rules:
+  - metadata:
+      id: test-rule-1
+      kind: test
+    cre:
+      id: CRE111111111111
+      severity: 1
+      title: Test Rule
+      category: test
+      author: Test
+      description: Test rule
+      cause: Test
+      impact: Test
+      impactScore: 1
+      tags: [test]
+      mitigation: Test
+      mitigationScore: 1
+      references: []
+      applications: []
+    rule:
+      sequence:
+        window: 1m
+        event:
+          source: test
+        order:
+          - value: "Executing step"
+        negate: []
