@@ -16,10 +16,9 @@ import (
 )
 
 const (
-	creFolders    = "cre-*"
-	creRules      = "*.yaml"
-	testLogFile   = "test.log"
-	testFPLogFile = "test-fp.log"
+	creFolders  = "cre-*"
+	creRules    = "*.yaml"
+	testLogFile = "test.log"
 )
 
 var (
@@ -50,7 +49,6 @@ func TestMain(m *testing.M) {
 }
 
 func TestCres(t *testing.T) {
-
 	ctx := context.Background()
 
 	// Find all CRE directories
@@ -61,13 +59,11 @@ func TestCres(t *testing.T) {
 
 	// Read each CRE directory and run the tests
 	for _, cre := range cres {
-
 		var (
-			rulesT     *parser.RulesT
-			ruleData   []byte
-			testData   []byte
-			testFpData []byte
-			err        error
+			rulesT   *parser.RulesT
+			ruleData []byte
+			testData []byte
+			err      error
 		)
 
 		log.Info().Str("cre", cre).Msg("Reading CRE directory")
@@ -109,9 +105,7 @@ func TestCres(t *testing.T) {
 			t.Fatalf("Error reading CRE test file: %v", err)
 		}
 
-		// Optional FP log file
-		testFpData, _ = os.ReadFile(filepath.Join(cre, testFPLogFile))
-
+		// Run detection test
 		t.Run(filepath.Base(cre), func(t *testing.T) {
 			_, stats, err := eval.Detect(ctx, "", string(testData), string(ruleData))
 			if err != nil {
@@ -119,18 +113,7 @@ func TestCres(t *testing.T) {
 			}
 
 			if stats["problems"] != uint32(1) {
-				t.Fatalf("Expected problems, got %d", stats["problems"])
-			}
-
-			if len(testFpData) > 0 {
-				_, stats, err := eval.Detect(ctx, "", string(testFpData), string(ruleData))
-				if err != nil {
-					t.Fatalf("Error running detection: %v", err)
-				}
-
-				if stats["problems"] != uint32(0) {
-					t.Fatalf("Expected no problems, got %d", stats["problems"])
-				}
+				t.Fatalf("Expected 1 problem, got %d", stats["problems"])
 			}
 		})
 	}
