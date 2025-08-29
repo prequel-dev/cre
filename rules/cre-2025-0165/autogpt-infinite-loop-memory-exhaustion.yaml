@@ -1,5 +1,8 @@
 rules:
-  - cre:
+  - metadata:
+      kind: prequel
+      id: H8X4fLdRn9sZ2aVkYoUqMt
+    cre:
       id: CRE-2025-0165
       severity: 0
       title: "AutoGPT Infinite Loop Memory Exhaustion"
@@ -38,8 +41,8 @@ rules:
         - infinite-loop
         - api-cost-overrun
         - autonomous-agent
-        - oom
-        - production-critical
+        - out-of-memory
+        - crash
       references:
         - "https://github.com/Significant-Gravitas/AutoGPT/issues/1543"
         - "https://jina.ai/news/auto-gpt-unmasked-hype-hard-truths-production-pitfalls/"
