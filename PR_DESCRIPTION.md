@@ -5,6 +5,8 @@ This PR adds a new CRE rule to detect when an AutoGPT agent enters an infinite l
 
 ## Changes
 - Added new rule: `rules/cre-2025-0071/autogpt-infinite-loop-detection.yaml`
+  - Uses existing `asynchronous-task-problem` category for better compatibility
+  - Uses valid tags: `critical-failure`, `cpu-memory-exhaustion`, `performance`
 - Added test log file: `tests/autogpt-infinite-loop-test.log`
 - Added test YAML: `tests/autogpt-infinite-loop-test.yaml`
 
@@ -18,11 +20,3 @@ This PR adds a new CRE rule to detect when an AutoGPT agent enters an infinite l
 ## Impact
 Detects when AutoGPT agents get stuck in repetitive execution patterns, helping to prevent resource wastage and unexpected costs.
 
-## Related Issues
-- Fixes #[ISSUE_NUMBER]  <!-- If applicable -->
-
-## Checklist
-- [x] Rule follows CRE schema
-- [x] Test case provided
-- [x] Documentation complete
-- [x] Pre-commit checks pass

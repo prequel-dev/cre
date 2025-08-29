@@ -23,10 +23,9 @@ rules:
         - Can cause cascading failures in dependent systems
       impactScore: 9
       tags:
-        - autogpt
-        - agent-failure
-        - high-severity
-        - resource-utilization
+        - critical-failure
+        - cpu-memory-exhaustion
+        - performance
       mitigation: |
         - Implement maximum iteration limits in the agent's execution loop
         - Add progress tracking to detect repetitive behavior
@@ -41,16 +40,16 @@ rules:
           version: ">=0.4.0"
     rule:
       sequence:
-        window: 5m
         event:
-          source: application.log
+          source: cre.log.application
+        window: 5m
         order:
-          - regex: "Executing step \\d+ with command"
-          - regex: "Agent entering loop with same state"
-            count: 10
-            within: 2m
+          - regex: ".*\\[INFO\\] Executing step \\d+ with command: .*"
+          - regex: ".*\\[INFO\\] Agent entering loop with same state: .*"
+            count: 2
+            within: 5m
         negate:
-          - value: "Task completed successfully"
+          - regex: ".*Task completed successfully.*"
             window: 30s
-          - value: "Agent is making progress"
+          - regex: ".*Agent is making progress.*"
             window: 1m

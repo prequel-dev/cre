@@ -9,7 +9,7 @@ tests:
     input:
       file: tests/autogpt-infinite-loop-test.log
     expect:
-      - rule: autogpt-infinite-loop-detection
+      - rule: CRE-2025-0071
         matches:
           - message: "Agent entering loop with same state"
         severity: high
