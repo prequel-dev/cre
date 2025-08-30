@@ -147,6 +147,18 @@ tags:
   - name: redis-py
     displayName: Redis Py
     description: Errors with the `redis-py` client library in Python.
+  - name: queue-mode
+    displayName: Queue Mode
+    description: Problems related to queue-based execution modes in workflow automation platforms.
+  - name: authentication-failure
+    displayName: Authentication Failure
+    description: Failures in authentication mechanisms causing service access issues.
+  - name: instance-outage
+    displayName: Instance Outage
+    description: Complete service instance failures causing full unavailability.
+  - name: execution-loss
+    displayName: Execution Loss
+    description: Silent failures where task executions are dropped or lost without proper error handling.
   - name: retry
     displayName: Retry
     description: Logic or policy failures when retrying failed operations.
@@ -845,3 +857,24 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
+  - name: n8n
+    displayName: n8n
+    description: Problems related to n8n workflow automation platform
+  - name: workflow-automation
+    displayName: Workflow Automation
+    description: Problems related to workflow automation systems and platforms
+  - name: http-node
+    displayName: HTTP Node
+    description: Problems related to HTTP nodes in workflow automation systems
+  - name: retry-failure
+    displayName: Retry Failure
+    description: Problems where retry mechanisms fail to execute as configured
+  - name: silent-failure
+    displayName: Silent Failure
+    description: Problems that fail silently without proper error reporting or logging
+  - name: reliability
+    displayName: Reliability
+    description: Problems affecting system reliability and consistent operation
+  - name: enterprise
+    displayName: Enterprise
+    description: Problems affecting enterprise deployments and production environments
