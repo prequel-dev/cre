@@ -1,7 +1,7 @@
 rules:
 - cre:
     id: CRE-2025-0131
-    severity: 0
+    severity: 1
     title: n8n Redis Queue Authentication Failure
     category: workflow-automation-problems
     author: Dhaval
@@ -53,16 +53,9 @@ rules:
     gen: 1
   rule:
     sequence:
-      window: "60s"
+      window: 30s
       event:
         source: cre.log.n8n
-        origin: true
       order:
-        - field: message
-          regex: "(?:WRONGPASS|NOAUTH|Authentication required)"
-        - field: message
-          regex: "(?:Redis client|Bull|queue)"
-      negate:
-        - field: message
-          regex: "(?:successfully|connected|ready)"
-          window: "30s"
+        - regex: WRONGPASS
+        - regex: Redis
