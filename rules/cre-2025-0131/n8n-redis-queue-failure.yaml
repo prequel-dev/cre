@@ -17,7 +17,6 @@ rules:
       * Redis server authentication requirements changed without corresponding n8n updates
     tags:
       - n8n
-      - workflow-automation
       - redis
       - queue-mode
       - authentication-failure
@@ -25,9 +24,7 @@ rules:
       - execution-loss
       - data-loss
       - reliability
-      - production
       - enterprise
-      - scaling
     mitigation: |
       - **Verify Redis authentication** - Ensure Redis password matches QUEUE_BULL_REDIS_PASSWORD in n8n config
       - **Test Redis connectivity** - Use redis-cli to verify authentication before starting n8n
@@ -52,7 +49,7 @@ rules:
     mitigationScore: 7
   metadata:
     kind: prequel
-    id: MeSYLTdBeDi1kroH6QidFq
+    id: 8FcHTBsexHkVFT1TEqeUN6oozvYwraqGVJiSuCH9o1KC
     gen: 1
   rule:
     sequence:
