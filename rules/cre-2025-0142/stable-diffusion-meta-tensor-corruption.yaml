@@ -1,0 +1,43 @@
+rules:
+- cre:
+    id: CRE-2025-0142
+    severity: 1
+    title: Stable Diffusion Web UI Meta Tensor Corruption Leading to Complete Service Failure
+    category: ai-ml-framework-problem
+    author: Community
+    description: |
+      - Detects critical Stable Diffusion Web UI failures where meta tensor corruption prevents model loading.
+      - The error "NotImplementedError: Cannot copy out of meta tensor; no data!" indicates catastrophic failure.
+      - This represents a complete service failure that requires immediate intervention.
+    cause: |
+      - Corrupted or incomplete model checkpoint files (safetensors/ckpt)
+      - PyTorch tensor corruption during model loading
+      - Device mismatch between CPU and GPU tensors
+      - Memory corruption during tensor operations
+    tags:
+      - stable-diffusion
+      - pytorch
+      - tensor-corruption
+      - meta-tensor
+    mitigation: |
+      - Restart Stable Diffusion Web UI service to clear corrupted tensor states
+      - Re-download and verify model checkpoint files
+      - Check GPU memory and clear any corrupted tensor allocations
+    references:
+      - https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues
+    applications:
+      - name: stable-diffusion-webui
+    impact: complete service failure - no image generation possible
+    impactScore: 10
+    mitigationScore: 8
+    reports: 1
+  metadata:
+    kind: prequel
+    id: 5Dy2FDKmSQqWiPPCh8XyHz
+    gen: 2
+  rule:
+    set:
+      event:
+        source: cre.log.stable-diffusion-webui
+      match:
+        - regex: 'Cannot copy out of meta tensor; no data!'
