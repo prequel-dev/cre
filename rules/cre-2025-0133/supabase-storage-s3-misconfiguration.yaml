@@ -26,7 +26,6 @@ rules:
         - s3
         - aws
         - configuration
-        - credentials
         - api-key
         - self-hosted
         - infrastructure

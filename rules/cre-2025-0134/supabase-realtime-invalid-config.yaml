@@ -23,7 +23,6 @@ rules:
       tags:
         - supabase
         - realtime
-        - websocket
         - configuration
         - replication
         - connection

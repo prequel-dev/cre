@@ -24,7 +24,7 @@ rules:
         - supabase
         - rate-limiting
         - throttling
-        - kong
+        - proxy
         - performance
         - self-hosted
         - public

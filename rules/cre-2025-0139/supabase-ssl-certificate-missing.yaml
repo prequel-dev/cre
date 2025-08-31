@@ -28,7 +28,7 @@ rules:
         - certificate-verification
         - security
         - configuration
-        - kong
+        - proxy
         - self-hosted
         - ssl-certificate
         - public
