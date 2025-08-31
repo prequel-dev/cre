@@ -1,0 +1,19 @@
+2024-08-31 14:22:15,123 [INFO] AutoGPT: Starting task: analyze_market_data_for_investment_recommendations
+2024-08-31 14:22:16,445 [DEBUG] Task Manager: Creating subtask: fetch_stock_data
+2024-08-31 14:22:17,889 [INFO] AutoGPT: Executing task: fetch_stock_data
+2024-08-31 14:22:18,234 [ERROR] API Client: Rate limit exceeded, retrying in 60s
+2024-08-31 14:22:19,567 [INFO] AutoGPT: Task created: retry_fetch_stock_data
+2024-08-31 14:22:20,123 [INFO] AutoGPT: Starting task: retry_fetch_stock_data
+2024-08-31 14:22:21,445 [DEBUG] Task Manager: Creating subtask: fetch_stock_data
+2024-08-31 14:22:22,889 [INFO] AutoGPT: Executing task: fetch_stock_data
+2024-08-31 14:22:23,234 [ERROR] API Client: Rate limit exceeded, retrying in 60s
+2024-08-31 14:22:24,567 [INFO] AutoGPT: Task created: retry_fetch_stock_data_attempt_2
+2024-08-31 14:22:25,123 [INFO] AutoGPT: Starting task: retry_fetch_stock_data_attempt_2
+2024-08-31 14:22:26,445 [DEBUG] Task Manager: Creating subtask: fetch_stock_data
+2024-08-31 14:22:27,889 [INFO] AutoGPT: Executing task: fetch_stock_data
+2024-08-31 14:22:28,234 [ERROR] API Client: Rate limit exceeded, retrying in 60s
+2024-08-31 14:22:29,567 [INFO] AutoGPT: Task created: retry_fetch_stock_data_attempt_3
+2024-08-31 14:22:30,123 [WARNING] System Monitor: Memory usage 2847MB, approaching limit
+2024-08-31 14:22:31,445 [WARNING] System Monitor: CPU usage 89%, system overload detected
+2024-08-31 14:22:32,889 [ERROR] Resource Monitor: API calls 1247/hour, rate limit threshold exceeded
+2024-08-31 14:22:33,234 [CRITICAL] System: Resource exhaustion detected - AutoGPT consuming 94% CPU, 3.2GB RAM
