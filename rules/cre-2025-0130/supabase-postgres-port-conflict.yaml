@@ -1,0 +1,67 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: SB1PtGC5QLJQnVmAkV11A
+      gen: 1
+    cre:
+      id: CRE-2025-0130
+      severity: 1
+      title: "Supabase Self-Hosted: Postgres Container Fails to Start Due to Port Conflict"
+      category: "database-problem"
+      author: Prequel
+      description: |
+        Detects when Supabase self-hosted Postgres container fails to start because another service is already using port 5432.
+        This is a common issue during initial setup or when multiple Postgres instances are running on the same host.
+        The failure prevents the entire Supabase stack from starting properly.
+      cause: |
+        - Another Postgres instance is already running on port 5432
+        - Docker port mapping conflict with existing services
+        - System service (like postgres system package) is using the default Postgres port
+        - Previous Supabase containers were not properly cleaned up
+      tags:
+        - supabase
+        - postgres
+        - port-binding
+        - docker
+        - configuration
+        - startup-failure
+        - self-hosted
+        - container-crash
+        - public
+      mitigation: |
+        IMMEDIATE:
+          - Stop conflicting Postgres instance: `sudo systemctl stop postgresql` or `docker stop <postgres-container>`
+          - Change Supabase Postgres port in .env: `POSTGRES_PORT=5433`
+          - Use Docker port mapping: `-p 5433:5432` instead of `-p 5432:5432`
+        PREVENTION:
+          - Check for running services before starting Supabase: `sudo netstat -tlnp | grep :5432`
+          - Use non-standard ports for self-hosted deployments
+          - Implement proper cleanup procedures in deployment scripts
+      references:
+        - https://supabase.com/docs/guides/self-hosting
+        - https://docs.docker.com/config/containers/container-networking/
+      applications:
+        - name: postgres
+          containerName: supabase-db
+          version: "15.*"
+        - name: supabase
+          version: "*"
+      impact: |
+        - Complete Supabase stack startup failure
+        - Database service unavailable
+        - All dependent services (Auth, REST API, Realtime) cannot start
+        - Development environment blocked
+      impactScore: 9
+      mitigationScore: 3
+      reports: 15
+    rule:
+      set:
+        event:
+          source: cre.log.docker
+        match:
+          - regex: 'Error starting userland proxy: listen tcp.*:5432: bind: address already in use'
+          - regex: 'driver failed programming external connectivity.*port is already allocated'
+          - regex: 'Ports are not available: listen tcp.*:5432: bind: address already in use'
+          - value: "supabase-db"
+
+

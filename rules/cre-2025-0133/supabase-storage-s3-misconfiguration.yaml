@@ -1,0 +1,78 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: SB4St0r4g3S3M1sc0nf1g
+      gen: 1
+    cre:
+      id: CRE-2025-0133
+      severity: 2
+      title: "Supabase Self-Hosted: Storage Service Fails Due to S3 Misconfiguration"
+      category: "storage-problem"
+      author: Prequel
+      description: |
+        Detects when Supabase Storage service fails due to incorrect S3 configuration including invalid credentials,
+        non-existent buckets, or wrong S3 endpoint settings. This affects file upload/download operations and
+        prevents the storage API from functioning properly.
+      cause: |
+        - Invalid AWS access keys (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
+        - Non-existent or inaccessible S3 bucket
+        - Incorrect S3 region configuration
+        - Wrong S3 endpoint URL (for custom S3-compatible services)
+        - Insufficient S3 bucket permissions
+        - Network connectivity issues to S3 service
+      tags:
+        - supabase
+        - storage
+        - s3
+        - aws
+        - configuration
+        - credentials
+        - api-key
+        - self-hosted
+        - cloud-provider-problem
+        - public
+      mitigation: |
+        IMMEDIATE:
+          - Verify S3 credentials: Test with AWS CLI `aws s3 ls s3://your-bucket`
+          - Check bucket existence and permissions in AWS Console
+          - Validate S3 region matches configuration
+        CONFIGURATION:
+          - Update .env with correct S3 credentials:
+            ```
+            AWS_ACCESS_KEY_ID=valid_access_key
+            AWS_SECRET_ACCESS_KEY=valid_secret_key
+            AWS_DEFAULT_REGION=correct_region
+            S3_BUCKET=existing_bucket_name
+            ```
+          - Ensure S3 bucket policy allows storage service operations
+          - Test connectivity to S3 endpoint from container network
+        PREVENTION:
+          - Use IAM roles instead of access keys when possible
+          - Implement S3 configuration validation in deployment scripts
+          - Set up monitoring for S3 API call failures
+      references:
+        - https://supabase.com/docs/guides/storage/s3
+        - https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html
+      applications:
+        - name: storage-api
+          containerName: supabase-storage
+          version: "v1.*"
+      impact: |
+        - File upload/download operations fail
+        - Storage API returns authentication errors
+        - Users cannot access stored files
+        - Application features requiring file storage become unavailable
+      impactScore: 7
+      mitigationScore: 4
+      reports: 18
+    rule:
+      set:
+        event:
+          source: cre.log.storage
+        match:
+          - regex: 'AWS.*credentials.*invalid|S3.*authentication.*failed|AccessDenied.*S3'
+          - regex: 'NoSuchBucket.*does not exist|InvalidAccessKeyId|SignatureDoesNotMatch'
+          - regex: 'S3.*connection.*failed|unable to connect.*s3|InvalidBucketName'
+          - value: "storage"
+
+

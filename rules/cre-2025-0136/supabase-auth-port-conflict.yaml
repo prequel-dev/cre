@@ -1,0 +1,72 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: SB7Auth0P0rtC0nfl1ctErr
+      gen: 1
+    cre:
+      id: CRE-2025-0136
+      severity: 2
+      title: "Supabase Self-Hosted: Auth Service Fails Due to Port Binding Conflict"
+      category: "authentication"
+      author: Prequel
+      description: |
+        Detects when Supabase Auth service (GoTrue) fails to start because the configured port is already in use
+        by another service. This prevents user authentication, registration, and all auth-related operations
+        from functioning in the self-hosted Supabase deployment.
+      cause: |
+        - Another service is already using port 9999 (default auth port)
+        - System service bound to the auth port
+        - Previous auth container not properly cleaned up
+        - Docker port mapping conflicts
+        - Permission denied when trying to bind to privileged ports (< 1024)
+      tags:
+        - supabase
+        - authentication
+        - port-binding
+        - docker
+        - configuration
+        - startup-failure
+        - self-hosted
+        - gotrue
+        - public
+      mitigation: |
+        IMMEDIATE:
+          - Stop conflicting service on port 9999: `sudo lsof -ti:9999 | xargs kill`
+          - Change auth port in .env: `AUTH_PORT=9998`
+          - Restart auth service: `docker-compose restart auth`
+        VERIFICATION:
+          - Check port availability: `netstat -tlnp | grep :9999`
+          - Test auth endpoint: `curl http://localhost:9999/health`
+          - Verify no port binding errors in logs
+        PREVENTION:
+          - Use non-standard ports for self-hosted deployments
+          - Implement port availability checks in deployment scripts  
+          - Document port requirements and conflicts
+          - Use Docker host networking mode if needed
+      references:
+        - https://supabase.com/docs/guides/self-hosting/docker
+        - https://github.com/supabase/gotrue
+      applications:
+        - name: gotrue
+          containerName: supabase-auth
+          version: "v2.*"
+      impact: |
+        - Authentication service completely unavailable
+        - Users cannot sign in, register, or manage accounts
+        - Password reset and email verification fail
+        - All auth-dependent application features broken
+        - API returns authentication errors
+      impactScore: 8
+      mitigationScore: 3
+      reports: 15
+    rule:
+      set:
+        event:
+          source: cre.log.docker
+        match:
+          - regex: 'Error starting userland proxy.*:9999.*bind: address already in use'
+          - regex: 'port is already allocated.*9999|Ports are not available.*:9999'
+          - regex: 'failed programming external connectivity.*supabase-auth.*9999'
+          - value: "supabase-auth"
+
+

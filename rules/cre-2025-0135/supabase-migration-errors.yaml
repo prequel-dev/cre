@@ -1,0 +1,81 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: SB6M1gr4t10nSyntaxErr0r
+      gen: 1
+    cre:
+      id: CRE-2025-0135
+      severity: 2
+      title: "Supabase Self-Hosted: Database Migration Failures Due to SQL Syntax Errors"
+      category: "migration-failure"
+      author: Prequel
+      description: |
+        Detects when Supabase database migrations fail due to SQL syntax errors, invalid schema changes,
+        or constraint violations. Migration failures can leave the database in an inconsistent state and
+        prevent the application from starting or functioning properly.
+      cause: |
+        - SQL syntax errors in migration files
+        - Invalid data types or column definitions
+        - Foreign key references to non-existent tables
+        - Circular foreign key dependencies
+        - Missing semicolons or malformed SQL statements
+        - Attempts to create tables/columns that already exist
+        - Constraint violations or invalid schema modifications
+      tags:
+        - supabase
+        - postgres
+        - migration-failure
+        - sql
+        - schema-error
+        - database-problem
+        - syntax
+        - self-hosted
+        - configuration
+        - public
+      mitigation: |
+        IMMEDIATE:
+          - Check database logs for specific SQL error details
+          - Identify failing migration file and line number
+          - Stop database container to prevent further damage
+        RECOVERY:
+          - Fix SQL syntax errors in migration files
+          - Remove invalid migration files from migrations directory
+          - Restore database from backup if migrations corrupted data
+          - Manually run corrected migrations step by step
+        VALIDATION:
+          - Test migrations on development database first
+          - Use SQL linting tools to validate syntax
+          - Implement migration rollback procedures
+          - Add migration validation to CI/CD pipeline
+        PREVENTION:
+          - Use database migration tools with validation
+          - Create database backups before running migrations
+          - Implement proper foreign key constraint order
+          - Use transaction-wrapped migrations for atomicity
+      references:
+        - https://www.postgresql.org/docs/current/sql-syntax.html
+        - https://supabase.com/docs/guides/database/database-migrations
+      applications:
+        - name: postgres
+          containerName: supabase-db
+          version: "15.*"
+      impact: |
+        - Database becomes corrupted or inconsistent
+        - Application startup fails due to missing schema
+        - Data integrity compromised by failed constraints
+        - Development environment requires manual intervention
+        - Production deployment rollback may be required
+      impactScore: 7
+      mitigationScore: 6
+      reports: 20
+    rule:
+      set:
+        event:
+          source: cre.log.postgres
+        match:
+          - regex: 'syntax error at or near|ERROR.*invalid syntax|SQL.*parse error'
+          - regex: 'relation.*does not exist|column.*does not exist|invalid.*data.*type'
+          - regex: 'foreign key constraint.*fails|constraint.*violation|migration.*failed'
+          - value: "migration"
+
+

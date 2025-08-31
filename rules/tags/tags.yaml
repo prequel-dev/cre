@@ -845,3 +845,18 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
+  - name: supabase
+    displayName: Supabase
+    description: Problems related to Supabase self-hosted deployments and services
+  - name: gotrue
+    displayName: GoTrue
+    description: Problems related to Supabase's GoTrue authentication service
+  - name: realtime
+    displayName: Realtime
+    description: Problems related to Supabase's realtime service and WebSocket connections
+  - name: self-hosted
+    displayName: Self-Hosted
+    description: Problems specific to self-hosted deployments and infrastructure
+  - name: port-binding
+    displayName: Port Binding
+    description: Problems related to network port binding conflicts and failures

@@ -244,3 +244,13 @@ categories:
     description: |
       Failures that prevent MongoDB from starting successfully due to corrupted metadata, invalid configurations,
       or unrecoverable internal errors (e.g., WiredTiger metadata corruption). These failures often require manual repair or backup restoration.
+  - name: supabase-problem
+    displayName: Supabase Problems  
+    description: |
+      Problems specific to Supabase self-hosted deployments including authentication failures, database connectivity issues,
+      storage misconfigurations, realtime service crashes, and infrastructure-related failures that affect the entire Supabase stack.
+  - name: realtime-problem
+    displayName: Realtime Problems
+    description: |
+      Failures in real-time communication systems including WebSocket connection issues, real-time subscription failures,
+      and problems with live data streaming that affect user experience in interactive applications.
