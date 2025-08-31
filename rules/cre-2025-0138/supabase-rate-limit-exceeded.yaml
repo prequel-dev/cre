@@ -23,12 +23,10 @@ rules:
       tags:
         - supabase
         - rate-limiting
-        - api-problem
         - throttling
         - kong
         - performance
         - self-hosted
-        - ddos
         - public
       mitigation: |
         IMMEDIATE:

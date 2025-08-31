@@ -29,7 +29,7 @@ rules:
         - credentials
         - api-key
         - self-hosted
-        - cloud-provider-problem
+        - infrastructure
         - public
       mitigation: |
         IMMEDIATE:

@@ -27,8 +27,6 @@ rules:
         - migration-failure
         - sql
         - schema-error
-        - database-problem
-        - syntax
         - self-hosted
         - configuration
         - public
