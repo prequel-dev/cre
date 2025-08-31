@@ -25,7 +25,6 @@ rules:
         - supabase
         - postgres
         - migration-failure
-        - sql
         - schema-error
         - self-hosted
         - configuration
