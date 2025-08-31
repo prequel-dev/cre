@@ -98,6 +98,7 @@ tags:
     description: Failures involving the OVSDB (Open vSwitch Database) protocol or schema.
   - name: panic
     displayName: Panic
+    description: Application panics and unrecoverable runtime errors
   - name: autogpt
     displayName: AutoGPT
     description: Problems with AutoGPT autonomous agent framework
@@ -124,8 +125,7 @@ tags:
     description: Problems with LLM retry mechanisms
   - name: critical-failure
     displayName: Critical Failure
-    description: Critical system failures requiring immediate attention
-    description: Crashes due to unrecoverable errors, especially in Go or Rust applications.
+    description: Critical system failures requiring immediate attention, including crashes due to unrecoverable errors
   - name: password
     displayName: Password
     description: Problems with password policies, validation, or storage.
@@ -693,9 +693,6 @@ tags:
   - name: container-crash
     displayName: Container Crash
     description: Failures causing container crashes or unexpected terminations.
-  - name: memory-exhaustion
-    displayName: Memory Exhaustion
-    description: Failures due to running out of memory or excessive memory consumption.
   - name: configuration-failure
     displayName: Configuration Failure
     description: Problems caused by incorrect or invalid configuration settings.
@@ -708,9 +705,7 @@ tags:
   - name: permission-denied
     displayName: Permission Denied
     description: Failures caused by insufficient access rights or permission errors.
-  - name: sigkill
-    displayName: SIGKILL
-    description: Failures caused by processes being terminated with a SIGKILL signal.
+
   - name: jetstream
     displayName: JetStream
     description: NATS JetStream persistence & streaming subsystem issues.
@@ -854,9 +849,7 @@ tags:
   - name: cache-eviction
     displayName: Cache Eviction
     description: Problems related to cache eviction policies and performance
-  - name: critical-failure
-    displayName: Critical Failure
-    description: Failures that cause immediate service termination or data loss
+
   - name: ssl-certificate
     displayName: SSL Certificate
     description: Problems related to SSL/TLS certificate validation, expiration, trust chain issues, or handshake failures
