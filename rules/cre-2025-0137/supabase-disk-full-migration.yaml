@@ -69,11 +69,11 @@ rules:
       set:
         window: 5m
         event:
-          source: cre.log.postgres
+          source: cre.log.supabase
         match:
           - regex: 'No space left on device|disk full|insufficient disk space'
           - regex: 'could not.*write.*WAL|checkpoint.*failed.*disk full'
           - regex: 'ERROR.*disk full|could not extend file.*No space left'
-          - value: "postgres"
+          - value: "migration"
 
 

@@ -57,11 +57,11 @@ rules:
       set:
         window: 5m
         event:
-          source: cre.log.docker
+          source: cre.log.supabase
         match:
-          - regex: 'Error starting userland proxy: listen tcp.*:5432: bind: address already in use'
-          - regex: 'driver failed programming external connectivity.*port is already allocated'
-          - regex: 'Ports are not available: listen tcp.*:5432: bind: address already in use'
+          - regex: 'Error starting userland proxy.*5432.*bind.*address already in use'
+          - regex: 'Ports are not available.*5432.*bind.*address already in use'
+          - regex: 'driver failed programming external connectivity.*supabase-db'
           - value: "supabase-db"
 
 
