@@ -7,7 +7,7 @@ rules:
       id: CRE-2025-0162
       severity: 1
       title: "Stable Diffusion WebUI CUDA Out of Memory Crash"
-      category: "ml-inference-problems"
+      category: "memory-problem"
       author: Prequel Community
       description: |
         Detects critical CUDA out of memory errors in Stable Diffusion WebUI that cause image generation failures and application crashes. This occurs when GPU VRAM is exhausted during model loading or image generation, resulting in complete task failure and potential WebUI instability.
@@ -24,11 +24,11 @@ rules:
         - Potential GPU driver instability
         - Service unavailability for users
       tags:
-        - stable-diffusion
-        - cuda
-        - gpu
         - memory
-        - ml
+        - nvidia
+        - crash
+        - out-of-memory
+        - configuration
       mitigation: |
         IMMEDIATE ACTIONS:
         - Restart Stable Diffusion WebUI
