@@ -845,3 +845,16 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
+  - name: meta-tensor
+    displayName: Meta Tensor
+    description: Problems related to meta tensors in AI/ML frameworks such as PyTorch, TensorFlow, and Stable Diffusion
+  - name: pytorch
+    displayName: PyTorch
+    description: Problems related to PyTorch in AI/ML frameworks
+  - name: tensor-corruption
+    displayName: Tensor Corruption
+    description: Problems related to tensor corruption in AI/ML frameworks
+  - name: stable-diffusion
+    displayName: Stable Diffusion
+    description: Problems related to Stable Diffusion in AI/ML frameworks
+    
