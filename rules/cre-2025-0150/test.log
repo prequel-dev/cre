@@ -1,0 +1,100 @@
+2025-08-31T10:17:12Z [INFO] * Serving Flask app 'vulnerable_server'
+2025-08-31T10:17:12Z [INFO] * Debug mode: on
+2025-08-31T10:17:12Z [INFO] * Tip: There are .env files present. Install python-dotenv to use them.
+2025-08-31T10:17:12Z [WARNING] INFO:werkzeug:WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+2025-08-31T10:17:12Z [INFO] * Running on all addresses (0.0.0.0)
+2025-08-31T10:17:12Z [INFO] * Running on http://127.0.0.1:8000
+2025-08-31T10:17:12Z [INFO] * Running on http://172.18.0.7:8000
+2025-08-31T10:17:12Z [INFO] INFO:werkzeug:Press CTRL+C to quit
+2025-08-31T10:17:12Z [INFO] INFO:werkzeug: * Restarting with stat
+2025-08-31T10:17:12Z [INFO] * Tip: There are .env files present. Install python-dotenv to use them.
+2025-08-31T10:17:12Z [WARNING] WARNING:werkzeug: * Debugger is active!
+2025-08-31T10:17:12Z [INFO] INFO:werkzeug: * Debugger PIN: 312-761-273
+2025-08-31T10:17:12Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:17:12] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:17:17Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:17:17] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:17:22Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:17:22] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:17:27Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:17:27] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:17:32Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:17:32] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:17:37Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:17:37] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:17:42Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:17:42] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:17:47Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:17:47] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:17:52Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:17:52] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:17:57Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:17:57] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:18:02Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:18:02] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:18:07Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:18:07] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:18:08Z [INFO] INFO:werkzeug:172.18.0.1 - - [31/Aug/2025 10:18:08] "GET /health HTTP/1.1" 200 -
+2025-08-31T10:18:08Z [WARNING] WARNING:vulnerable_server:Recursive content detected - vulnerability trigger 1
+2025-08-31T10:18:08Z [WARNING] WARNING:vulnerable_server:Memory exhaustion keywords detected - vulnerability trigger 3
+2025-08-31T10:18:08Z [WARNING] WARNING:vulnerable_server:Prompt compression triggered - attempting to compress tokens
+2025-08-31T10:18:08Z [ERROR] ERROR:vulnerable_server:compress_prompt: prompt still exceeds budget (120,000 > 100,000)
+2025-08-31T10:18:08Z [ERROR] ERROR:vulnerable_server:LLM API call failed, retrying... (attempt 1/5)
+2025-08-31T10:18:08Z [WARNING] WARNING:vulnerable_server:Memory accumulation during retry cycle - current usage: 200MB
+2025-08-31T10:18:08Z [WARNING] WARNING:vulnerable_server:Allocated 209715200 bytes, total chunks: 1
+2025-08-31T10:18:08Z [ERROR] ERROR:vulnerable_server:LLM API call failed, retrying... (attempt 2/5)
+2025-08-31T10:18:08Z [WARNING] WARNING:vulnerable_server:Memory accumulation during retry cycle - current usage: 400MB
+2025-08-31T10:18:08Z [WARNING] WARNING:vulnerable_server:Allocated 209715200 bytes, total chunks: 2
+2025-08-31T10:18:08Z [ERROR] ERROR:vulnerable_server:LLM API call failed, retrying... (attempt 3/5)
+2025-08-31T10:18:08Z [WARNING] WARNING:vulnerable_server:Memory accumulation during retry cycle - current usage: 600MB
+2025-08-31T10:18:08Z [WARNING] WARNING:vulnerable_server:Allocated 209715200 bytes, total chunks: 3
+2025-08-31T10:18:08Z [ERROR] ERROR:vulnerable_server:LLM API call failed, retrying... (attempt 4/5)
+2025-08-31T10:18:08Z [WARNING] WARNING:vulnerable_server:Memory accumulation during retry cycle - current usage: 800MB
+2025-08-31T10:18:08Z [WARNING] WARNING:vulnerable_server:Allocated 209715200 bytes, total chunks: 4
+2025-08-31T10:18:12Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:18:12] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:18:12Z [ERROR] ERROR:vulnerable_server:LLM API call failed, retrying... (attempt 5/5)
+2025-08-31T10:18:12Z [WARNING] WARNING:vulnerable_server:Memory accumulation during retry cycle - current usage: 1000MB
+2025-08-31T10:18:12Z [WARNING] WARNING:vulnerable_server:Allocated 209715200 bytes, total chunks: 5
+2025-08-31T10:18:12Z [CRITICAL] CRITICAL:vulnerable_server:Memory usage exceeded threshold: 95%
+2025-08-31T10:18:12Z [CRITICAL] CRITICAL:vulnerable_server:OOM killer activated - terminating AutoGPT process
+2025-08-31T10:18:12Z [ERROR] ERROR:vulnerable_server:Process killed by signal 9 (SIGKILL)
+2025-08-31T10:18:12Z [INFO] * Tip: There are .env files present. Install python-dotenv to use them.
+2025-08-31T10:18:12Z [INFO] * Serving Flask app 'vulnerable_server'
+2025-08-31T10:18:12Z [INFO] * Debug mode: on
+2025-08-31T10:18:12Z [WARNING] INFO:werkzeug:WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+2025-08-31T10:18:12Z [INFO] * Running on all addresses (0.0.0.0)
+2025-08-31T10:18:12Z [INFO] * Running on http://127.0.0.1:8000
+2025-08-31T10:18:12Z [INFO] * Running on http://172.18.0.7:8000
+2025-08-31T10:18:12Z [INFO] INFO:werkzeug:Press CTRL+C to quit
+2025-08-31T10:18:12Z [INFO] INFO:werkzeug: * Restarting with stat
+2025-08-31T10:18:12Z [INFO] * Tip: There are .env files present. Install python-dotenv to use them.
+2025-08-31T10:18:12Z [WARNING] WARNING:werkzeug: * Debugger is active!
+2025-08-31T10:18:12Z [INFO] INFO:werkzeug: * Debugger PIN: 803-379-536
+2025-08-31T10:18:17Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:18:17] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:18:17Z [WARNING] WARNING:vulnerable_server:Recursive content detected - vulnerability trigger 1
+2025-08-31T10:18:17Z [WARNING] WARNING:vulnerable_server:Memory exhaustion keywords detected - vulnerability trigger 3
+2025-08-31T10:18:17Z [WARNING] WARNING:vulnerable_server:Prompt compression triggered - attempting to compress tokens
+2025-08-31T10:18:17Z [ERROR] ERROR:vulnerable_server:compress_prompt: prompt still exceeds budget (120,000 > 100,000)
+2025-08-31T10:18:17Z [ERROR] ERROR:vulnerable_server:LLM API call failed, retrying... (attempt 1/5)
+2025-08-31T10:18:17Z [WARNING] WARNING:vulnerable_server:Memory accumulation during retry cycle - current usage: 200MB
+2025-08-31T10:18:17Z [WARNING] WARNING:vulnerable_server:Allocated 209715200 bytes, total chunks: 1
+2025-08-31T10:18:17Z [ERROR] ERROR:vulnerable_server:LLM API call failed, retrying... (attempt 2/5)
+2025-08-31T10:18:17Z [WARNING] WARNING:vulnerable_server:Memory accumulation during retry cycle - current usage: 400MB
+2025-08-31T10:18:17Z [WARNING] WARNING:vulnerable_server:Allocated 209715200 bytes, total chunks: 2
+2025-08-31T10:18:22Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:18:22] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:18:22Z [ERROR] ERROR:vulnerable_server:LLM API call failed, retrying... (attempt 3/5)
+2025-08-31T10:18:22Z [WARNING] WARNING:vulnerable_server:Memory accumulation during retry cycle - current usage: 600MB
+2025-08-31T10:18:22Z [WARNING] WARNING:vulnerable_server:Allocated 209715200 bytes, total chunks: 3
+2025-08-31T10:18:22Z [ERROR] ERROR:vulnerable_server:LLM API call failed, retrying... (attempt 4/5)
+2025-08-31T10:18:22Z [WARNING] WARNING:vulnerable_server:Memory accumulation during retry cycle - current usage: 800MB
+2025-08-31T10:18:22Z [WARNING] WARNING:vulnerable_server:Allocated 209715200 bytes, total chunks: 4
+2025-08-31T10:18:25Z [INFO] INFO:werkzeug:172.18.0.1 - - [31/Aug/2025 10:18:25] "GET /health HTTP/1.1" 200 -
+2025-08-31T10:18:25Z [ERROR] ERROR:vulnerable_server:LLM API call failed, retrying... (attempt 5/5)
+2025-08-31T10:18:25Z [WARNING] WARNING:vulnerable_server:Memory accumulation during retry cycle - current usage: 1000MB
+2025-08-31T10:18:25Z [WARNING] WARNING:vulnerable_server:Allocated 209715200 bytes, total chunks: 5
+2025-08-31T10:18:25Z [CRITICAL] CRITICAL:vulnerable_server:Memory usage exceeded threshold: 95%
+2025-08-31T10:18:25Z [CRITICAL] CRITICAL:vulnerable_server:OOM killer activated - terminating AutoGPT process
+2025-08-31T10:18:25Z [ERROR] ERROR:vulnerable_server:Process killed by signal 9 (SIGKILL)
+2025-08-31T10:18:25Z [INFO] * Tip: There are .env files present. Install python-dotenv to use them.
+2025-08-31T10:18:25Z [INFO] * Serving Flask app 'vulnerable_server'
+2025-08-31T10:18:25Z [INFO] * Debug mode: on
+2025-08-31T10:18:25Z [WARNING] INFO:werkzeug:WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+2025-08-31T10:18:25Z [INFO] * Running on all addresses (0.0.0.0)
+2025-08-31T10:18:25Z [INFO] * Running on http://127.0.0.1:8000
+2025-08-31T10:18:25Z [INFO] * Running on http://172.18.0.7:8000
+2025-08-31T10:18:25Z [INFO] INFO:werkzeug:Press CTRL+C to quit
+2025-08-31T10:18:25Z [INFO] INFO:werkzeug: * Restarting with stat
+2025-08-31T10:18:25Z [INFO] * Tip: There are .env files present. Install python-dotenv to use them.
+2025-08-31T10:18:25Z [WARNING] WARNING:werkzeug: * Debugger is active!
+2025-08-31T10:18:25Z [INFO] INFO:werkzeug: * Debugger PIN: 142-012-072
+2025-08-31T10:18:32Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:18:32] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:18:37Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:18:37] "GET /metrics HTTP/1.1" 404 -
+2025-08-31T10:18:42Z [INFO] INFO:werkzeug:172.18.0.4 - - [31/Aug/2025 10:18:42] "GET /metrics HTTP/1.1" 404 -

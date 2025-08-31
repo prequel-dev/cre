@@ -98,6 +98,9 @@ categories:
     description: Problems related to web servers
   - name: configuration-problem
     displayName: Configuration Problem
+  - name: prompt-injection-memory-exhaustion
+    displayName: Prompt Injection Memory Exhaustion
+    description: Security vulnerabilities related to prompt injection attacks causing memory exhaustion and system failures
     description: Problems related to system or application configurations
   - name: monitoring-problem
     displayName: Monitoring Problem

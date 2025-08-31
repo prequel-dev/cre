@@ -98,6 +98,33 @@ tags:
     description: Failures involving the OVSDB (Open vSwitch Database) protocol or schema.
   - name: panic
     displayName: Panic
+  - name: autogpt
+    displayName: AutoGPT
+    description: Problems with AutoGPT autonomous agent framework
+  - name: prompt-injection
+    displayName: Prompt Injection
+    description: Security vulnerabilities related to prompt injection attacks
+  - name: memory-exhaustion
+    displayName: Memory Exhaustion
+    description: Problems with memory exhaustion and resource depletion
+  - name: sigkill
+    displayName: SIGKILL
+    description: Process termination by SIGKILL signal
+  - name: oom-killer
+    displayName: OOM Killer
+    description: Out of Memory killer termination
+  - name: recursive-tasks
+    displayName: Recursive Tasks
+    description: Problems with recursive task generation
+  - name: prompt-compression
+    displayName: Prompt Compression
+    description: Issues with prompt compression algorithms
+  - name: llm-retry
+    displayName: LLM Retry
+    description: Problems with LLM retry mechanisms
+  - name: critical-failure
+    displayName: Critical Failure
+    description: Critical system failures requiring immediate attention
     description: Crashes due to unrecoverable errors, especially in Go or Rust applications.
   - name: password
     displayName: Password
