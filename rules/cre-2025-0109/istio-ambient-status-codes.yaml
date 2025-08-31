@@ -39,6 +39,8 @@ rules:
       applications:
         - name: ztunnel
           version: ">=1.26.0"
+      impactScore: 8
+      mitigationScore: 7
     rule:
       set:
         event:

@@ -37,6 +37,8 @@ rules:
         - Monitor ztunnel logs for frequent timeouts & alert
       references:
         - https://github.com/istio/istio/wiki/Troubleshooting-Istio-Ambient#scenario-traffic-timeout-with-ztunnel
+      impactScore: 8
+      mitigationScore: 7
     rule:
       set:
         window: 180s

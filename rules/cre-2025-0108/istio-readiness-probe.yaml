@@ -40,6 +40,8 @@ rules:
       applications:
         - name: istio-ambient
           version: ">=1.26.0"
+      impactScore: 9
+      mitigationScore: 6
     rule:
       set:
         window: 300s
