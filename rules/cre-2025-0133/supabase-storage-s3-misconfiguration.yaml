@@ -67,6 +67,7 @@ rules:
       reports: 18
     rule:
       set:
+        window: 5m
         event:
           source: cre.log.storage
         match:

@@ -75,6 +75,7 @@ rules:
       reports: 10
     rule:
       set:
+        window: 5m
         event:
           source: cre.log.kong
         match:

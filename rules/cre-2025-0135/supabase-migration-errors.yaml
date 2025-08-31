@@ -70,6 +70,7 @@ rules:
       reports: 20
     rule:
       set:
+        window: 5m
         event:
           source: cre.log.postgres
         match:

@@ -67,6 +67,7 @@ rules:
       reports: 30
     rule:
       set:
+        window: 5m
         event:
           source: cre.log.supabase
         match:
