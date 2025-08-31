@@ -22,7 +22,6 @@ rules:
         - supabase
         - postgres
         - port-binding
-        - docker
         - configuration
         - startup-failure
         - self-hosted

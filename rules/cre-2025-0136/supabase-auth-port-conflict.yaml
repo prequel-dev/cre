@@ -23,7 +23,6 @@ rules:
         - supabase
         - authentication
         - port-binding
-        - docker
         - configuration
         - startup-failure
         - self-hosted
