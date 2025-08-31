@@ -1,7 +1,7 @@
 rules:
 - cre:
     id: CRE-2025-0919
-    severity: 1
+    severity: 0
     title: N8N Workflow Silent Data Loss During Execution
     category: workflow-automation-problem
     author: Claude Code Assistant
@@ -71,4 +71,4 @@ rules:
         source: cre.log.n8n
       order:
         - regex: "(cancelled mid-execution|execution terminated unexpectedly|workflow.*cancelled|Execution.*cancelled)"
-        - regex: "(silent data loss detected|data.*loss|itemsLost|dataIntegrityIssue.*true|Items processed inconsistently|Data integrity check failed)"
+        - regex: "(silent data loss detected|data.*loss|itemsLost|dataIntegrityIssue.*true|Items processed inconsistently|Data integrity check failed|Expected [0-9]+ items, found [0-9]+ items)"
