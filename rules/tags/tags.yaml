@@ -845,3 +845,24 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
+  - name: autogpt
+    displayName: AutoGPT
+    description: Problems related to AutoGPT autonomous AI agent framework
+  - name: infinite-loop
+    displayName: Infinite Loop
+    description: Problems where code enters infinite loops causing resource exhaustion or system hangs
+  - name: token-exhaustion
+    displayName: Token Exhaustion
+    description: Problems where LLM API token limits are exceeded causing service failures
+  - name: autonomous-agents
+    displayName: Autonomous Agents
+    description: Problems related to autonomous AI agents that chain LLM reasoning with real-world actions
+  - name: llm
+    displayName: LLM
+    description: Problems related to Large Language Models and their API integrations
+  - name: openai
+    displayName: OpenAI
+    description: Problems related to OpenAI API services including GPT models
+  - name: recursive-analysis
+    displayName: Recursive Analysis
+    description: Problems where systems enter recursive self-analysis loops leading to resource exhaustion

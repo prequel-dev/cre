@@ -21,11 +21,14 @@ rules:
       - autogpt
       - infinite-loop
       - token-exhaustion
-      - memory-leak
       - autonomous-agents
       - llm
       - openai
+      - recursive-analysis
       - critical-failure
+      - memory-exhaustion
+      - crash-loop
+      - rate-limiting
     mitigation: |
       - Implement loop detection to identify and break recursive self-analysis patterns
       - Add resource consumption thresholds (tokens, memory, API calls) with automatic shutdown
