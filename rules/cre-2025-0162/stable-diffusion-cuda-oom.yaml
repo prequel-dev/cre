@@ -1,0 +1,70 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: SD8xK2mN9pQzYvWr3aLfJ7
+      hash: XpQ9Lm4Zk8TnVb2Ry6HwGs
+    cre:
+      id: CRE-2025-0162
+      severity: 1
+      title: "Stable Diffusion WebUI CUDA Out of Memory Crash"
+      category: "ml-inference-problems"
+      author: Prequel Community
+      description: |
+        Detects critical CUDA out of memory errors in Stable Diffusion WebUI that cause image generation failures and application crashes. This occurs when GPU VRAM is exhausted during model loading or image generation, resulting in complete task failure and potential WebUI instability.
+      cause: |
+        - Insufficient GPU VRAM for requested image resolution or batch size
+        - Memory fragmentation preventing large contiguous allocations
+        - Model loading exceeding available VRAM capacity
+        - Concurrent GPU processes consuming memory
+        - High-resolution image generation without memory optimization flags
+      impact: |
+        - Complete image generation failure
+        - WebUI crash requiring restart
+        - Loss of in-progress generation work
+        - Potential GPU driver instability
+        - Service unavailability for users
+      tags:
+        - stable-diffusion
+        - cuda
+        - gpu
+        - memory
+        - ml
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Restart Stable Diffusion WebUI
+        - Clear GPU memory: nvidia-smi --gpu-reset
+        - Add memory optimization flags: --medvram or --lowvram
+        CONFIGURATION FIXES:
+        - For 4-6GB VRAM: Add --medvram to webui-user.bat
+        - For 2-4GB VRAM: Add --lowvram to webui-user.bat
+        - Enable xformers: --xformers for memory efficiency
+        - Add --always-batch-cond-uncond for batch processing
+        RUNTIME ADJUSTMENTS:
+        - Reduce image resolution (512x512 instead of 1024x1024)
+        - Decrease batch size to 1
+        - Lower batch count for multiple generations
+        - Set PYTORCH_CUDA_ALLOC_CONF=garbage_collection_threshold:0.9,max_split_size_mb:512
+        PREVENTION:
+        - Monitor GPU memory usage with nvidia-smi
+        - Implement gradual resolution scaling
+        - Use cloud services for high-resolution generation
+        - Upgrade to GPU with minimum 8GB VRAM
+      references:
+        - https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/12992
+        - https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/9770
+        - https://github.com/CompVis/stable-diffusion/issues/39
+      applications:
+        - name: stable-diffusion-webui
+          version: ">=1.0.0"
+      impactScore: 8
+      mitigationScore: 7
+      reports: 15
+    rule:
+      set:
+        window: 120s
+        event:
+          source: cre.log.stable-diffusion
+        match:
+          - regex: 'OutOfMemoryError.*CUDA out of memory'
+          - regex: 'CUDA out of memory.*Tried to allocate'
+          - regex: 'model failed to load.*OutOfMemoryError'
