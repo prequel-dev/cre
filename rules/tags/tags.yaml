@@ -213,6 +213,9 @@ tags:
   - name: api-key
     displayName: Api Key
     description: Problems related to API keys, such as missing, invalid, or expired credentials
+  - name: jwt
+    displayName: JWT
+    description: Problems related to JSON Web Tokens, such as invalid signatures, expired tokens, or malformed claims
   - name: async
     displayName: Async
     description: Problems related to asynchronous execution, such as hung tasks, race conditions, or callback errors
