@@ -1,6 +1,6 @@
 rules:
 - cre:
-    id: CRE-2025-0919
+    id: CRE-2025-0179
     severity: 0
     title: N8N Workflow Silent Data Loss During Execution
     category: workflow-automation-problem
