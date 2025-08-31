@@ -1,0 +1,28 @@
+2024-08-29 15:34:12.456 [INFO] n8n starting up on port 5678
+2024-08-29 15:34:13.789 [INFO] Database connection established to PostgreSQL
+2024-08-29 15:34:14.123 [INFO] Webhook listener initialized on /webhook/customer-leads
+2024-08-29 15:34:15.456 [INFO] Workflow "Lead Processing Pipeline" activated with webhook endpoint
+2024-08-29 15:45:23.234 [INFO] Incoming webhook request from IP 203.123.45.67
+2024-08-29 15:45:23.567 [ERROR] 500 Internal Server Error: Workflow could not be started! Webhook execution failed
+2024-08-29 15:45:23.568 [WARN] Request processing terminated, no execution log created
+2024-08-29 15:47:45.890 [INFO] Incoming webhook request from IP 198.51.100.42  
+2024-08-29 15:47:45.891 [ERROR] 500 Internal Server Error: Workflow could not be started! Database connection unavailable
+2024-08-29 15:47:45.892 [ERROR] Failed to create execution record for workflow ID wf_lead_12345
+2024-08-29 15:52:17.123 [INFO] Incoming webhook request from IP 172.16.0.88
+2024-08-29 15:52:17.456 [ERROR] Worker failed to find data for execution ID exec_789abc - execution context lost
+2024-08-29 15:52:17.457 [ERROR] Webhook processing abandoned, no retry mechanism available
+2024-08-29 15:58:33.678 [INFO] Health check endpoint /healthz accessed
+2024-08-29 15:58:33.679 [WARN] Database connection pool exhausted, 25/25 connections in use
+2024-08-29 16:05:12.234 [INFO] Incoming webhook request from IP 10.0.1.150
+2024-08-29 16:05:42.789 [ERROR] 504 Gateway Timeout: webhook request exceeded 30 second timeout limit
+2024-08-29 16:05:42.790 [ERROR] Upstream connection to n8n worker failed, request abandoned
+2024-08-29 16:12:55.345 [INFO] Incoming webhook request from IP 192.168.1.200
+2024-08-29 16:12:55.346 [ERROR] Connection refused: n8n service unavailable on port 5678
+2024-08-29 16:12:55.347 [ERROR] Service may be offline or restarting
+2024-08-29 16:18:22.567 [INFO] System attempting to restart n8n service
+2024-08-29 16:18:23.890 [INFO] n8n service restarted successfully  
+2024-08-29 16:18:24.123 [INFO] Webhook endpoints re-registered after restart
+2024-08-29 16:25:45.456 [INFO] Incoming webhook request from IP 203.123.45.67
+2024-08-29 16:25:45.789 [ERROR] 500 Internal Server Error: Workflow could not be started! Memory allocation failed
+2024-08-29 16:25:45.790 [ERROR] JavaScript heap out of memory during webhook processing
+2024-08-29 16:25:45.791 [CRITICAL] Webhook data permanently lost - no recovery possible
