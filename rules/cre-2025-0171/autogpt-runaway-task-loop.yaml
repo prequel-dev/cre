@@ -3,7 +3,7 @@ rules:
     id: CRE-2025-0171
     severity: 0
     title: AutoGPT Runaway Task Loop with Resource Exhaustion
-    category: ai-agent-problem
+    category: task-management-problem
     author: Claude Code Assistant
     description: |
       AutoGPT autonomous agent enters a runaway task execution loop, repeatedly attempting 
@@ -20,28 +20,17 @@ rules:
       * Context window overflow causing the agent to lose track of completed tasks
       * Improper error handling that treats retryable failures as new tasks
     tags:
-      - autogpt
-      - ai-agent
-      - runaway-loop
-      - resource-exhaustion
-      - task-scheduler
-      - infinite-recursion
-      - memory-leak
-      - api-quota-exhaustion
-      - prompt-handling
-      - llm-integration
-      - critical-failure
-      - system-unresponsive
-      - autonomous-agent
-      - task-management
-      - public
-      - crash-loop
-      - memory-exhaustion
-      - cpu-memory-exhaustion
-      - timeout
-      - retry
       - async
       - batch
+      - retry
+      - timeout
+      - memory-leak
+      - memory-exhaustion
+      - cpu-memory-exhaustion
+      - crash-loop
+      - oom-kill
+      - container-crash
+      - critical-failure
       - cascading-failure
       - service-unavailability
       - rate-limiting
@@ -54,8 +43,7 @@ rules:
       - infrastructure-failure
       - capacity-exceeded
       - revenue-impact
-      - oom-kill
-      - container-crash
+      - public
     mitigation: |
       IMMEDIATE ACTIONS:
       - **Kill AutoGPT process** - Terminate the runaway agent immediately to stop resource consumption
