@@ -244,3 +244,15 @@ categories:
     description: |
       Failures that prevent MongoDB from starting successfully due to corrupted metadata, invalid configurations,
       or unrecoverable internal errors (e.g., WiredTiger metadata corruption). These failures often require manual repair or backup restoration.
+  - name: baas-problem
+    displayName: Backend-as-a-Service Problems
+    description: Problems related to BaaS platforms like Supabase, Firebase, Appwrite, and similar services
+  - name: supabase-infrastructure-problem
+    displayName: Supabase Infrastructure Problems
+    description: Core infrastructure failures in Supabase deployments including container orchestration, networking, and service dependencies
+  - name: supabase-auth-problem
+    displayName: Supabase Authentication Problems
+    description: Authentication and JWT-related failures in Supabase that prevent user access or API functionality
+  - name: supabase-storage-problem
+    displayName: Supabase Storage Problems
+    description: Object storage failures and S3 compatibility issues affecting file upload, download, and management in Supabase

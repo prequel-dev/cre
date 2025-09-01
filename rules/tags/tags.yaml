@@ -845,3 +845,33 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
+  - name: supabase
+    displayName: Supabase
+    description: Problems related to Supabase Backend-as-a-Service platform
+  - name: supabase-auth
+    displayName: Supabase Auth
+    description: Authentication and authorization issues in Supabase
+  - name: supabase-db
+    displayName: Supabase Database
+    description: Database connectivity and query issues in Supabase
+  - name: supabase-storage
+    displayName: Supabase Storage
+    description: Object storage and file management issues in Supabase
+  - name: supabase-realtime
+    displayName: Supabase Realtime
+    description: Real-time subscription and websocket issues in Supabase
+  - name: supabase-api
+    displayName: Supabase API
+    description: REST API and auto-generated API issues in Supabase
+  - name: jwt-validation
+    displayName: JWT Validation
+    description: Problems with JSON Web Token validation and processing
+  - name: rls-policy
+    displayName: RLS Policy
+    description: Row Level Security policy failures and misconfigurations
+  - name: container-port-conflict
+    displayName: Container Port Conflict
+    description: Port binding conflicts in containerized environments
+  - name: sql-migration
+    displayName: SQL Migration
+    description: Database migration and schema evolution problems
