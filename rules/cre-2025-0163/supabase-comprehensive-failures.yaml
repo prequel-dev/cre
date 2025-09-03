@@ -1,0 +1,95 @@
+rules:
+- cre:
+    id: CRE-2025-0163
+    severity: 0
+    title: Supabase self-hosted deployment critical failures - comprehensive detection
+    category: baas-problem
+    tags: [supabase, supabase-auth, supabase-db, supabase-storage, supabase-realtime, supabase-api, postgres, container-port-conflict, jwt-validation, rate-limiting, ssl-certificate, disk-full, sql-migration, s3, timeout, misconfiguration]
+    author: prequel-dev/cre
+    description: |
+      Comprehensive detection of high-severity Supabase self-hosted deployment failures including:
+      - PostgreSQL container port binding conflicts preventing database startup
+      - Missing or invalid JWT secrets breaking authentication
+      - Database connection timeouts causing service degradation
+      - S3 storage misconfigurations blocking file operations
+      - Realtime service configuration errors preventing websocket connections
+      - SQL migration syntax failures corrupting database schema
+      - Auth service port conflicts and API rate limiting
+      - Critical infrastructure failures: disk space exhaustion and SSL certificate issues
+      
+      These failures can render entire Supabase deployments non-functional and require immediate attention.
+    cause: |
+      Multiple potential failure modes in Supabase self-hosted environments:
+      
+      Infrastructure Issues:
+      - Port 5432 (PostgreSQL) or 9999 (Auth) already bound by other processes
+      - Disk space exhaustion during migrations or operations
+      - SSL certificates expired, invalid, or missing
+      
+      Configuration Problems:
+      - Missing or invalid JWT_SECRET environment variable
+      - Incorrect S3 credentials or bucket configuration
+      - Database connection string misconfigurations
+      - Invalid websocket or realtime service settings
+      
+      Application-Level Failures:
+      - SQL syntax errors in migration files
+      - Database connection pool exhaustion
+      - API rate limits exceeded during peak usage
+      - TLS handshake failures due to certificate issues
+    impact: |
+      Complete service unavailability and critical system failures:
+      - Supabase services unable to start due to port conflicts
+      - Authentication system completely broken, blocking all user access
+      - Database operations failing with timeouts and connection errors
+      - File upload/download completely non-functional
+      - Real-time features (subscriptions, presence) unavailable
+      - API requests failing with 429, 500, or SSL errors
+      - Database schema deployment failures causing data corruption
+      - Security vulnerabilities from insecure connections
+      - Potential data loss from incomplete operations
+      - Business operations completely halted
+    mitigation: |
+      Immediate Response Actions:
+      1. Port Conflicts: Check `lsof -i :5432` and `lsof -i :9999`, stop conflicting services
+      2. JWT Secrets: Generate secure secret with `openssl rand -base64 64`
+      3. Database: Monitor connections with `SELECT count(*) FROM pg_stat_activity;`
+      4. Storage: Verify S3 credentials and bucket access with AWS CLI
+      5. SSL: Renew certificates and verify chain with `openssl verify`
+      6. Disk Space: Check `df -h`, clean up with `docker system prune -a`
+      7. Migrations: Test SQL syntax in development before applying
+      8. Rate Limits: Implement exponential backoff and request throttling
+      
+      Long-term Prevention:
+      - Set up monitoring and alerting for all critical components
+      - Implement automated certificate renewal
+      - Configure log rotation and disk space monitoring
+      - Use infrastructure as code for consistent deployments
+      - Establish proper testing pipelines for migrations
+    applications:
+      - name: supabase
+        version: ">= 0.1.0"
+      - name: postgresql
+        version: ">= 13.0"
+      - name: docker
+        version: ">= 20.10.0"
+      - name: gotrue
+        version: ">= 2.0.0"
+    references:
+      - "https://supabase.com/docs/guides/self-hosting/docker#troubleshooting"
+      - "https://github.com/supabase/supabase/discussions"
+      - "https://supabase.com/docs/guides/platform/performance"
+    scores:
+      cvss: "9.1"
+      cvss_severity: "CRITICAL"
+      cwe: "CWE-665"
+  metadata:
+    kind: prequel
+    id: G5stYEGyQoDEGGaCbZLKdT
+    gen: 1
+  rule:
+    set:
+      event:
+        source: cre.log.supabase
+      match:
+        - regex: '.*(Error: listen EADDRINUSE.*:(5432|9999)|bind: address already in use|port.*already allocated|JWT_SECRET.*not set|invalid.*jwt.*secret|JWT secret.*too short|connection.*timeout|could not connect.*database|timeout expired|S3.*AccessDenied|InvalidAccessKeyId|NoSuchBucket|Realtime.*failed to start|websocket.*connection.*refused|ERROR.*syntax error.*at or near|migration.*failed.*invalid.*SQL|relation.*does not exist|429.*Too Many Requests|Rate limit exceeded|No space left on device|SSL.*certificate.*expired|certificate verify failed|TLS.*handshake.*failed).*'

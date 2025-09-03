@@ -1,0 +1,32 @@
+# PostgreSQL Port Conflicts
+2025-08-31T10:15:23.456Z ERROR: listen EADDRINUSE: address already in use :::5432
+2025-08-31T10:15:25.789Z ERROR: docker: Error response from daemon: bind: address already in use
+
+# JWT Secret Issues  
+2025-08-31T10:20:15.123Z ERROR: JWT_SECRET environment variable not set
+2025-08-31T10:20:17.789Z ERROR: JWT secret is too short, minimum 32 characters required
+
+# Database Connection Timeouts
+2025-08-31T10:25:10.123Z ERROR: connection timeout after 30000ms
+2025-08-31T10:25:12.789Z ERROR: timeout expired (PostgreSQL connection)
+
+# S3 Storage Misconfigurations
+2025-08-31T10:30:05.123Z ERROR: S3 operation failed: AccessDenied: Access Denied
+2025-08-31T10:30:06.456Z FATAL: InvalidAccessKeyId: The AWS Access Key Id you provided does not exist
+
+# Realtime Service Errors
+2025-08-31T10:35:01.123Z ERROR: Realtime service failed to start: database connection invalid
+2025-08-31T10:35:02.456Z WARN: websocket connection refused on port 4000
+
+# SQL Migration Failures
+2025-08-31T10:40:01.123Z ERROR: syntax error at or near "CRATE" at character 1
+2025-08-31T10:40:03.789Z ERROR: relation "user_profiles" does not exist
+
+# API Rate Limiting
+2025-08-31T10:45:03.789Z WARN: 429 Too Many Requests: Rate limit exceeded for authentication
+2025-08-31T10:45:04.234Z ERROR: Rate limit exceeded for auth endpoint
+
+# Infrastructure Failures
+2025-08-31T10:50:01.123Z ERROR: write failed: No space left on device
+2025-08-31T10:50:03.789Z ERROR: SSL certificate expired: unable to get local issuer certificate
+2025-08-31T10:50:05.567Z ERROR: TLS handshake failed: certificate verification error
