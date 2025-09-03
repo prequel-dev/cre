@@ -253,3 +253,6 @@ categories:
   - name: data-loss-problems
     displayName: Data Loss Problems
     description: Critical problems that result in data loss or corruption, requiring immediate attention to prevent further damage
+  - name: workflow-automation-problem
+    displayName: Workflow Automation Problems
+    description: Problems related to workflow automation platforms including silent data loss, execution failures, and data integrity issues in workflow processing systems
