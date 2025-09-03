@@ -3,7 +3,7 @@ rules:
     id: CRE-2025-0131
     severity: 1
     title: n8n Redis Queue Authentication Failure
-    category: workflow-automation-problems
+    category: workflow-automation-problem
     author: Dhaval
     description: |
       n8n instances configured with EXECUTIONS_MODE=queue fail to connect to Redis due to authentication mismatches, causing complete instance outages. This leads to silent execution drops, workflow failures, and data loss in production environments where queue mode is used for scalability and reliability.
@@ -18,13 +18,9 @@ rules:
     tags:
       - n8n
       - redis
-      - queue-mode
-      - authentication-failure
-      - instance-outage
-      - execution-loss
-      - data-loss
-      - reliability
-      - enterprise
+      - silent-failure
+      - data-integrity
+      - production-critical
     mitigation: |
       - **Verify Redis authentication** - Ensure Redis password matches QUEUE_BULL_REDIS_PASSWORD in n8n config
       - **Test Redis connectivity** - Use redis-cli to verify authentication before starting n8n
