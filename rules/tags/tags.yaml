@@ -845,16 +845,39 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
-  - name: meta-tensor
-    displayName: Meta Tensor
-    description: Problems related to meta tensors in AI/ML frameworks such as PyTorch, TensorFlow, and Stable Diffusion
-  - name: pytorch
-    displayName: PyTorch
-    description: Problems related to PyTorch in AI/ML frameworks
-  - name: tensor-corruption
-    displayName: Tensor Corruption
-    description: Problems related to tensor corruption in AI/ML frameworks
-  - name: stable-diffusion
-    displayName: Stable Diffusion
-    description: Problems related to Stable Diffusion in AI/ML frameworks
-    
+  - name: autogpt
+    displayName: AutoGPT
+    description: Problems related to AutoGPT autonomous AI agent framework
+  - name: infinite-loop
+    displayName: Infinite Loop
+    description: Problems where code enters infinite loops causing resource exhaustion or system hangs
+  - name: token-exhaustion
+    displayName: Token Exhaustion
+    description: Problems where LLM API token limits are exceeded causing service failures
+  - name: autonomous-agents
+    displayName: Autonomous Agents
+    description: Problems related to autonomous AI agents that chain LLM reasoning with real-world actions
+  - name: llm
+    displayName: LLM
+    description: Problems related to Large Language Models and their API integrations
+  - name: openai
+    displayName: OpenAI
+    description: Problems related to OpenAI API services including GPT models
+  - name: recursive-analysis
+    displayName: Recursive Analysis
+    description: Problems where systems enter recursive self-analysis loops leading to resource exhaustion
+  - name: n8n
+    displayName: N8N
+    description: Problems related to n8n workflow automation platform
+  - name: workflow-automation
+    displayName: Workflow Automation
+    description: Problems related to workflow automation systems and platforms
+  - name: silent-failure
+    displayName: Silent Failure
+    description: Problems that occur without visible error messages or alerts, making detection extremely difficult
+  - name: production-critical
+    displayName: Production Critical
+    description: Issues that have severe impact on production systems and require immediate attention
+  - name: data-integrity
+    displayName: Data Integrity
+    description: Problems that affect the completeness, accuracy, or consistency of data
