@@ -15,10 +15,12 @@ rules:
       - Device mismatch between CPU and GPU tensors
       - Memory corruption during tensor operations
     tags:
-      - stable-diffusion
-      - pytorch
-      - tensor-corruption
-      - meta-tensor
+      - python
+      - crash
+      - memory
+      - corruption
+      - critical-failure
+      - data-integrity
     mitigation: |
       - Restart Stable Diffusion Web UI service to clear corrupted tensor states
       - Re-download and verify model checkpoint files
