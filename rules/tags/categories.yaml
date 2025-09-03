@@ -250,3 +250,6 @@ categories:
       Problems where applications enter infinite loops causing resource exhaustion, system hangs, or crashes.
       This includes recursive loops, circular dependencies, and runaway processes that consume CPU, memory,
       or API resources without termination conditions.
+  - name: workflow-automation-problem
+    displayName: Workflow Automation Problems
+    description: Problems related to workflow automation platforms including silent data loss, execution failures, and data integrity issues in workflow processing systems
