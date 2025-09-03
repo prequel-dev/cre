@@ -1,0 +1,12 @@
+2025-01-28T10:25:45Z ERROR   supabase-auth    failed to connect to database: dial tcp 172.20.0.2:5432: connect: connection refused
+2025-01-28T10:25:45Z ERROR   supabase-rest    database connection timeout: could not connect to server: Connection refused
+2025-01-28T10:25:46Z ERROR   supabase-storage connection to database failed: dial tcp db:5432: i/o timeout
+2025-01-28T10:25:46Z ERROR   supabase-realtime database health check failed: connection refused (ECONNREFUSED)
+2025-01-28T10:25:47Z ERROR   supabase-auth    pq: server closed the connection unexpectedly
+2025-01-28T10:25:47Z ERROR   supabase-rest    connection reset by peer while connecting to postgres
+2025-01-28T10:25:48Z ERROR   supabase-storage DATABASE_URL connection failed: timeout expired
+2025-01-28T10:25:48Z ERROR   supabase-realtime could not connect to database: timeout after 30000ms
+2025-01-28T10:25:49Z ERROR   supabase-auth    database connection lost: An I/O error occurred while sending to the backend
+2025-01-28T10:25:49Z ERROR   supabase-rest    connection to server at "db" (172.20.0.2), port 5432 failed: timeout expired
+
+

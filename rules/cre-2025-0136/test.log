@@ -1,0 +1,8 @@
+2025-01-28T10:45:18Z ERROR   docker          Error starting userland proxy: listen tcp 0.0.0.0:9999: bind: address already in use
+2025-01-28T10:45:18Z ERROR   docker          driver failed programming external connectivity on endpoint supabase-auth: Error starting userland proxy: listen tcp 0.0.0.0:9999: bind: address already in use
+2025-01-28T10:45:19Z ERROR   docker          Ports are not available: listen tcp 0.0.0.0:9999: bind: address already in use
+2025-01-28T10:45:19Z ERROR   docker          failed to create endpoint supabase-auth on network: port is already allocated
+2025-01-28T10:45:20Z ERROR   compose         Container supabase-auth  exited with code 125
+2025-01-28T10:45:20Z ERROR   docker          Error response from daemon: driver failed programming external connectivity on endpoint supabase-auth: Error starting userland proxy: listen tcp 0.0.0.0:9999: bind: address already in use
+
+

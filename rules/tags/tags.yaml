@@ -213,6 +213,9 @@ tags:
   - name: api-key
     displayName: Api Key
     description: Problems related to API keys, such as missing, invalid, or expired credentials
+  - name: jwt
+    displayName: JWT
+    description: Problems related to JSON Web Tokens, such as invalid signatures, expired tokens, or malformed claims
   - name: async
     displayName: Async
     description: Problems related to asynchronous execution, such as hung tasks, race conditions, or callback errors
@@ -845,6 +848,33 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
+  - name: supabase
+    displayName: Supabase
+    description: Problems related to Supabase self-hosted deployments and services
+  - name: gotrue
+    displayName: GoTrue
+    description: Problems related to Supabase's GoTrue authentication service
+  - name: realtime
+    displayName: Realtime
+    description: Problems related to Supabase's realtime service and WebSocket connections
+  - name: self-hosted
+    displayName: Self-Hosted
+    description: Problems specific to self-hosted deployments and infrastructure
+  - name: n8n
+    displayName: N8N
+    description: Problems related to n8n workflow automation platform
+  - name: workflow-automation
+    displayName: Workflow Automation
+    description: Problems related to workflow automation systems and platforms
+  - name: silent-failure
+    displayName: Silent Failure
+    description: Problems that occur without visible error messages or alerts, making detection extremely difficult
+  - name: production-critical
+    displayName: Production Critical
+    description: Issues that have severe impact on production systems and require immediate attention
+  - name: data-integrity
+    displayName: Data Integrity
+    description: Problems that affect the completeness, accuracy, or consistency of data
   - name: autogpt
     displayName: AutoGPT
     description: Problems related to AutoGPT autonomous AI agent framework
@@ -866,18 +896,3 @@ tags:
   - name: recursive-analysis
     displayName: Recursive Analysis
     description: Problems where systems enter recursive self-analysis loops leading to resource exhaustion
-  - name: n8n
-    displayName: N8N
-    description: Problems related to n8n workflow automation platform
-  - name: workflow-automation
-    displayName: Workflow Automation
-    description: Problems related to workflow automation systems and platforms
-  - name: silent-failure
-    displayName: Silent Failure
-    description: Problems that occur without visible error messages or alerts, making detection extremely difficult
-  - name: production-critical
-    displayName: Production Critical
-    description: Issues that have severe impact on production systems and require immediate attention
-  - name: data-integrity
-    displayName: Data Integrity
-    description: Problems that affect the completeness, accuracy, or consistency of data
