@@ -1,0 +1,10 @@
+Aug 27 18:30:29 n8n[1234]: INFO: Starting workflow execution exec_384574 for workflow workflow_9084
+Aug 27 18:35:29 n8n[1234]: DEBUG: Node processing started - HTTP Request node
+Aug 27 18:45:29 n8n[1234]: INFO: Processing 150 items through workflow pipeline
+Aug 27 18:53:29 n8n[1234]: DEBUG: Node completed with 142 items (expected 150)
+Aug 27 19:05:29 n8n[1234]: DEBUG: Transform node processing remaining items
+Aug 27 19:25:29 n8n[1234]: WARN: Execution exec_384574 cancelled mid-execution after 55 minutes
+Aug 27 19:25:44 n8n[1234]: ERROR: Data integrity check failed - Items processed inconsistently across nodes
+Aug 27 19:25:49 n8n[1234]: ERROR: Expected 150 items, found 127 items at completion
+Aug 27 19:26:15 n8n[1234]: CRITICAL: Massive data loss detected - Expected 500 items, found 75 items
+Aug 27 19:26:20 n8n[1234]: ERROR: Critical workflow failure detected - 85% data loss in processing pipeline
