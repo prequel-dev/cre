@@ -256,3 +256,12 @@ categories:
   - name: supabase-storage-problem
     displayName: Supabase Storage Problems
     description: Object storage failures and S3 compatibility issues affecting file upload, download, and management in Supabase
+  - name: infinite-loop-problem
+    displayName: Infinite Loop Problems
+    description: |
+      Problems where applications enter infinite loops causing resource exhaustion, system hangs, or crashes.
+      This includes recursive loops, circular dependencies, and runaway processes that consume CPU, memory,
+      or API resources without termination conditions.
+  - name: workflow-automation-problem
+    displayName: Workflow Automation Problems
+    description: Problems related to workflow automation platforms including silent data loss, execution failures, and data integrity issues in workflow processing systems
