@@ -884,15 +884,6 @@ tags:
   - name: database-write-failure
     displayName: Database Write Failure
     description: Problems where database write operations fail or are not properly persisted
-  - name: n8n
-    displayName: N8N
-    description: Problems related to n8n workflow automation platform
-  - name: workflow-automation
-    displayName: Workflow Automation
-    description: Problems related to workflow automation systems and platforms
-  - name: silent-failure
-    displayName: Silent Failure
-    description: Problems that occur without visible error messages or alerts, making detection extremely difficult
   - name: production-critical
     displayName: Production Critical
     description: Issues that have severe impact on production systems and require immediate attention
