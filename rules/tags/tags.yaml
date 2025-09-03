@@ -851,3 +851,18 @@ tags:
   - name: pytorch
     displayName: PyTorch
     description: Problems related to PyTorch deep learning framework and tensor operations
+  - name: n8n
+    displayName: N8N
+    description: Problems related to n8n workflow automation platform
+  - name: workflow-automation
+    displayName: Workflow Automation
+    description: Problems related to workflow automation systems and platforms
+  - name: silent-failure
+    displayName: Silent Failure
+    description: Problems that occur without visible error messages or alerts, making detection extremely difficult
+  - name: production-critical
+    displayName: Production Critical
+    description: Issues that have severe impact on production systems and require immediate attention
+  - name: data-integrity
+    displayName: Data Integrity
+    description: Problems that affect the completeness, accuracy, or consistency of data

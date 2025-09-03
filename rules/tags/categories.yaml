@@ -244,3 +244,6 @@ categories:
     description: |
       Failures that prevent MongoDB from starting successfully due to corrupted metadata, invalid configurations,
       or unrecoverable internal errors (e.g., WiredTiger metadata corruption). These failures often require manual repair or backup restoration.
+  - name: workflow-automation-problem
+    displayName: Workflow Automation Problems
+    description: Problems related to workflow automation platforms including silent data loss, execution failures, and data integrity issues in workflow processing systems
