@@ -1,0 +1,64 @@
+[
+  {
+    "cre": {
+      "id": "CRE-2025-0166",
+      "severity": 0,
+      "title": "AutoGPT Retry Loop Detection",
+      "category": "runtime-problem",
+      "tags": [
+        "known-anti-pattern",
+        "retry",
+        "timeout",
+        "performance",
+        "errors"
+      ],
+      "author": "Prequel",
+      "description": "AutoGPT repeatedly retries failed commands in a short loop, causing wasted API calls,\nincreased costs, and potential lock-ups. The agent fails to recognize retry exhaustion\nand keeps issuing the same action without a backoff or alternative strategy.\n",
+      "impact": "- Rapid increase in API usage and cost without useful results\n- Risk of exceeding API rate limits or being banned by providers\n- Task execution delays leading to degraded system performance\n- Potential chain reaction where retries pile up and block progress\n- Early signs of infinite loop behavior that can escalate to memory issues\n",
+      "impact_score": 7,
+      "cause": "When AutoGPT encounters transient failures (e.g., network timeouts or API errors),\nit retries commands without effective tracking or exponential backoff. Without\nrecognizing repeated failures, it enters a retry loop where the same command\nis executed multiple times with no progress.\n",
+      "mitigation": "Immediate: Kill the AutoGPT task when retry loops are detected.\nShort-term: Enforce maximum retry limits with exponential backoff.\nLong-term: Implement loop detection, smarter failure handling, and fallback strategies.\nConfigure monitoring to detect repeated failed commands and trigger alerts.\n",
+      "mitigation_score": 5,
+      "references": [
+        "https://github.com/Significant-Gravitas/AutoGPT/issues/1543",
+        "https://arxiv.org/abs/2306.12423"
+      ],
+      "applications": [
+        {
+          "name": "AutoGPT",
+          "version": "\u003e= 0.3.0"
+        }
+      ]
+    },
+    "hits": [
+      {
+        "timestamp": "2025-08-29T19:32:14.982+05:30",
+        "entry": "2025-08-29 14:02:14.982 [WARNING] Retrying command execution (attempt 2/5)..."
+      },
+      {
+        "timestamp": "2025-08-29T19:32:17.865+05:30",
+        "entry": "2025-08-29 14:02:17.865 [WARNING] Retrying command execution (attempt 3/5)..."
+      },
+      {
+        "timestamp": "2025-08-29T19:32:20.331+05:30",
+        "entry": "2025-08-29 14:02:20.331 [ERROR] Error: API rate limit exceeded"
+      },
+      {
+        "timestamp": "2025-08-29T19:32:20.548+05:30",
+        "entry": "2025-08-29 14:02:20.548 [WARNING] Retrying command execution (attempt 4/5)..."
+      },
+      {
+        "timestamp": "2025-08-29T19:32:23.145+05:30",
+        "entry": "2025-08-29 14:02:23.145 [WARNING] Retrying command execution (attempt 5/5)..."
+      },
+      {
+        "timestamp": "2025-08-29T19:32:26.103+05:30",
+        "entry": "2025-08-29 14:02:26.103 [WARNING] Agent state: STUCK - Repeated action detected"
+      }
+    ],
+    "id": "CRE-2025-0166",
+    "rule_hash": "3VQoQm8d2rEnFsum53VvFdxkkNsHtERxTpUzb3n4RMfT",
+    "rule_id": "oK3Fq7ZdLm2x8nVrT5hYcP",
+    "timestamp": "2025-08-29T19:32:14.982+05:30"
+  }
+]

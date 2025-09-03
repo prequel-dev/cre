@@ -1,0 +1,7 @@
+rule_manifest:
+  version: 0.1.31
+  os: windows
+  arch: amd64
+  exe: preq.exe
+  sig: preq.sig
+  hash: preq.sha256

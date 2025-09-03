@@ -1,0 +1,61 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: oK3Fq7ZdLm2x8nVrT5hYcP
+    cre:
+      id: CRE-2025-0166
+      severity: 0
+      title: "AutoGPT Retry Loop Detection"
+      category: "runtime-problem"
+      author: Prequel
+
+      description: |
+        AutoGPT repeatedly retries failed commands in a short loop, causing wasted API calls,
+        increased costs, and potential lock-ups. The agent fails to recognize retry exhaustion
+        and keeps issuing the same action without a backoff or alternative strategy.
+
+      cause: |
+        When AutoGPT encounters transient failures (e.g., network timeouts or API errors),
+        it retries commands without effective tracking or exponential backoff. Without
+        recognizing repeated failures, it enters a retry loop where the same command
+        is executed multiple times with no progress.
+
+      impact: |
+        - Rapid increase in API usage and cost without useful results
+        - Risk of exceeding API rate limits or being banned by providers
+        - Task execution delays leading to degraded system performance
+        - Potential chain reaction where retries pile up and block progress
+        - Early signs of infinite loop behavior that can escalate to memory issues
+
+      impactScore: 7
+
+      mitigation: |
+        Immediate: Kill the AutoGPT task when retry loops are detected.
+        Short-term: Enforce maximum retry limits with exponential backoff.
+        Long-term: Implement loop detection, smarter failure handling, and fallback strategies.
+        Configure monitoring to detect repeated failed commands and trigger alerts.
+
+      mitigationScore: 5
+
+      tags:
+        - known-anti-pattern
+        - retry
+        - timeout
+        - performance
+        - errors
+
+      references:
+        - "https://github.com/Significant-Gravitas/AutoGPT/issues/1543"
+        - "https://arxiv.org/abs/2306.12423"
+
+      applications:
+        - name: "AutoGPT"
+          version: ">= 0.3.0"
+
+    rule:
+      set:
+        event:
+          source: cre.log.autogpt
+        match:
+          - regex: "Retrying command execution|attempting to retry|Failed to.*retry|API rate limit exceeded|Maximum retries exceeded|Repeated action detected|Loop detection:.*Same command attempted"
+            count: 1
