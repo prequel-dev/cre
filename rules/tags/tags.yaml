@@ -845,6 +845,18 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
+  - name: autogpt
+    displayName: AutoGPT
+    description: Problems related to AutoGPT autonomous agent framework including task execution, memory management, and API interactions
+  - name: infinite-loop
+    displayName: Infinite Loop
+    description: Problems where processes or agents get stuck in repetitive loops without termination conditions
+  - name: api-cost-overrun
+    displayName: API Cost Overrun
+    description: Problems where excessive API calls lead to unexpected cost increases or budget exhaustion
+  - name: autonomous-agent
+    displayName: Autonomous Agent
+    description: Problems related to autonomous AI agents including LLM-based systems that chain reasoning with actions
   - name: n8n
     displayName: N8N
     description: Problems related to n8n workflow automation platform
