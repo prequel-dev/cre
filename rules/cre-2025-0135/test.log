@@ -1,0 +1,41 @@
+[2024-08-27 05:50:15,123] INFO [RedisTest] Issue 1: Out-of-Memory (OOM) errors
+OOM command not allowed when used memory > 'maxmemory'
+
+[2024-08-27 05:50:16,456] ERROR [RedisClient] Issue 2: Connection timeout errors
+Could not connect to Redis at 127.0.0.1:6379: Connection timeout
+Unable to connect to Redis server at localhost:6379
+Connection timeout connecting to redis server
+redis connection timeout, falling back to database
+
+[2024-08-27 05:50:17,789] ERROR [RedisAuth] Issue 3: Authentication failures
+WRONGPASS invalid username-password pair
+NOAUTH Authentication required
+ERR invalid password
+
+[2024-08-27 05:50:18,012] ERROR [RedisCmd] Issue 4: Invalid commands and arguments
+ERR unknown command 'INVALIDCOMMAND', with args beginning with:
+ERR wrong number of arguments for 'set' command
+WRONGTYPE Operation against a key holding the wrong kind of value
+ERR syntax error
+
+[2024-08-27 05:50:19,345] WARN [RedisPersistence] Issue 5: Background save conflicts
+Background save already in progress
+ERR Background save already in progress
+
+[2024-08-27 05:50:20,678] WARN [RedisPerf] Issue 6: Slow query performance
+Slow log entry command 'KEYS *' took 15000 microseconds
+command 'SORT large_list' took 45 milliseconds
+
+[2024-08-27 05:50:21,901] ERROR [RedisReplica] Issue 7: Read-only replica writes
+READONLY You can't write against a read only replica
+
+[2024-08-27 05:50:22,234] ERROR [RedisPersistence] Issue 8: Persistence failures (MISCONF)
+MISCONF Redis is configured to save RDB snapshots, but it's currently unable to persist to disk
+
+[2024-08-27 05:50:23,567] WARN [RedisConn] Issue 9: Connection limits exceeded
+max number of clients reached
+connection pool exhausted
+
+[2024-08-27 05:50:24,890] ERROR [RedisACL] Issue 10: ACL permission denied
+NOPERM User 'limited' has no permissions to run the 'SET' command
+NOPERM this user has no permissions to run the 'FLUSHALL' command

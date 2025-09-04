@@ -1,0 +1,92 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: Ws3YnPm6KbRfTq8XdLaGe5
+      hash: Vk7Nf4QsWmPr2BxLtHeYn9
+    cre:
+      id: CRE-2025-0178
+      severity: 0
+      title: "Redis Read-Only Replica Write Attempt Error"
+      category: "in-memory-database-problem"
+      author: Prequel Community
+      description: |
+        Detects attempts to perform write operations on Redis read-only replicas. This error indicates application misconfiguration where clients are incorrectly routing write commands to replica instances instead of the master.
+      cause: |
+        - Client connected to replica instead of master
+        - Load balancer incorrectly routing writes to replicas
+        - Failover not properly handled by application
+        - Misconfigured connection strings
+        - Redis Sentinel not properly directing traffic
+        - Application unaware of Redis topology changes
+      impact: |
+        - Write operations fail with READONLY errors
+        - Data inconsistency if retried on different nodes
+        - Application functionality degraded
+        - User transactions may fail
+        - Potential data loss if not properly handled
+      tags:
+        - redis
+        - readonly
+        - replica
+        - replication
+        - write-error
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Verify connection target: `redis-cli INFO replication`
+        - Check if connected to replica: `redis-cli INFO | grep role`
+        - Find master instance: `redis-cli INFO | grep master_host`
+        - List all replicas: `redis-cli --cluster nodes`
+        
+        RECOVERY:
+        - Redirect clients to master:
+          ```
+          # Update connection string to master
+          redis://master-host:6379
+          ```
+        - For Redis Sentinel setups:
+          ```
+          # Connect via Sentinel for automatic master discovery
+          sentinel://sentinel-host:26379/mymaster
+          ```
+        - Temporary replica promotion (if master failed):
+          `redis-cli REPLICAOF NO ONE`
+        
+        CLIENT CONFIGURATION:
+        - Configure read/write splitting:
+          ```
+          # Writes to master
+          master_client = Redis(host='master')
+          # Reads from replica
+          replica_client = Redis(host='replica')
+          ```
+        - Use Redis Cluster aware clients
+        - Implement retry logic with master discovery
+        
+        PREVENTION:
+        - Use Redis Sentinel for automatic failover
+        - Implement proper connection pooling
+        - Separate read and write connection pools
+        - Monitor topology changes
+        - Document Redis architecture clearly
+        - Regular failover testing
+      references:
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/replication/#read-only-replica
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/
+        - https://redis.io/commands/readonly/
+      applications:
+        - name: redis
+          version: ">=2.6.0"
+      impactScore: 5
+      mitigationScore: 9
+      reports: 89
+    rule:
+      set:
+        window: 120s
+        event:
+          source: cre.log.redis
+        match:
+          - regex: "READONLY You can't write against a read only replica"
+          - regex: "READONLY You cannot write against a read only replica"
+          - regex: "-READONLY.*write.*replica"
+          - regex: "ERR.*operation not permitted.*readonly"
+          - regex: "Cannot execute write command on readonly replica"

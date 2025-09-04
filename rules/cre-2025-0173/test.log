@@ -1,0 +1,10 @@
+[2024-01-15 11:00:01,123] ERROR [RedisClient] Connection timeout errors
+Connection timeout while connecting to redis server at 192.168.1.100:6379
+Unable to connect to Redis server
+Could not connect to Redis at localhost:6379: Connection refused
+redis connection timeout
+Timeout connecting to redis://cache.example.com:6379
+Failed to connect to Redis
+Redis is not reachable
+Connection pool exhausted for redis server
+Connection reset by peer while communicating with redis server

@@ -1,0 +1,8 @@
+2024-01-15 18:00:01.123 [CRITICAL] Bad file format reading the append only file: unexpected end of file
+2024-01-15 18:00:02.234 [ERROR] AOF file corrupted at position 1048576
+2024-01-15 18:00:03.345 [ERROR] Short read or OOM loading DB. Unrecoverable error, aborting now.
+2024-01-15 18:00:04.456 [ERROR] Error loading the AOF: Invalid argument
+2024-01-15 18:00:05.567 [ERROR] Invalid AOF file signature detected
+2024-01-15 18:00:06.678 [ERROR] Unexpected end of file reading AOF preamble
+2024-01-15 18:00:07.789 [WARN] AOF file may be truncated, attempting recovery
+2024-01-15 18:00:08.890 [ERROR] Wrong signature trying to load AOF file from disk
