@@ -1,6 +1,6 @@
 rules:
 - cre:
-    id: CRE-2025-0179
+    id: CRE-2025-0181
     severity: 0
     title: "Redis Maximum Client Connections Limit Exceeded"
     category: "in-memory-database-problem"
