@@ -23,7 +23,6 @@ rules:
     tags:
       - redis
       - out-of-memory
-      - oom
       - maxmemory
       - noeviction
     mitigation: |
