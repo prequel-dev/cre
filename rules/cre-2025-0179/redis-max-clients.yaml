@@ -1,0 +1,88 @@
+rules:
+- cre:
+    id: CRE-2025-0179
+    severity: 0
+    title: "Redis Maximum Client Connections Limit Exceeded"
+    category: "in-memory-database-problem"
+    author: Prequel Community
+    description: |
+      Detects when Redis reaches its maximum client connection limit, preventing new clients from connecting. This critical issue causes connection failures and service unavailability for new requests.
+    cause: |
+      - Connection pool leak in application
+      - Clients not properly closing connections
+      - Sudden traffic spike exceeding capacity
+      - maxclients setting too low for workload
+      - Slow clients holding connections
+      - Network issues preventing connection cleanup
+      - Application bugs creating excessive connections
+    impact: |
+      - New connection attempts fail immediately
+      - Application features become unavailable
+      - Service outages for new users
+      - Existing connections may timeout
+      - Cascading failures in microservices
+      - Complete Redis unavailability for new clients
+    impactScore: 10
+    tags:
+      - redis
+      - connection
+      - maxclients
+      - connection-pool
+      - limit
+    mitigation: |
+      IMMEDIATE ACTIONS:
+      - Check current connections: `redis-cli CLIENT LIST | wc -l`
+      - Review max clients limit: `redis-cli CONFIG GET maxclients`
+      - Identify connection sources: `redis-cli CLIENT LIST | awk '{print $2}' | cut -d= -f2 | sort | uniq -c`
+      - Monitor connection metrics: `redis-cli INFO clients`
+      
+      RECOVERY:
+      - Increase max clients limit:
+        `redis-cli CONFIG SET maxclients 50000`
+      - Kill idle connections:
+        ```
+        redis-cli CLIENT LIST | grep idle | awk '{print $2}' | cut -d= -f2 | xargs -I{} redis-cli CLIENT KILL ID {}
+        ```
+      - Kill old connections (>300 seconds):
+        `redis-cli CLIENT KILL TYPE normal SKIPME yes`
+      - Restart specific client applications
+      
+      CONNECTION ANALYSIS:
+      - Find connections per IP:
+        `redis-cli CLIENT LIST | grep addr= | sed 's/.*addr=//' | cut -d: -f1 | sort | uniq -c | sort -rn`
+      - Identify slow clients:
+        `redis-cli CLIENT LIST | grep -E "idle=[0-9]{4,}"`
+      
+      PREVENTION:
+      - Implement connection pooling with limits
+      - Set appropriate connection timeouts
+      - Monitor connection metrics continuously
+      - Use connection pool validation
+      - Regular connection pool recycling
+      - Implement circuit breakers
+      - Load testing to determine optimal maxclients
+    mitigationScore: 7
+    references:
+      - https://redis.io/commands/client-list/
+      - https://redis.io/commands/client-kill/
+      - https://redis.io/docs/latest/operate/oss_and_stack/reference/clients/
+    applications:
+      - name: redis
+        version: "*"
+    reports: 178
+  metadata:
+    kind: prequel
+    id: Np5KmXw8TfRbQs3YdLaVe7
+    gen: 1
+  rule:
+    set:
+      window: 120s
+      event:
+        source: cre.log.redis
+      match:
+        - regex: "max number of clients reached"
+        - regex: "ERR max number of clients reached"
+        - regex: "connection pool.*exhausted"
+        - regex: "Unable to connect.*max clients"
+        - regex: "Redis.*maximum.*connections.*reached"
+        - regex: "Client connection limit exceeded"

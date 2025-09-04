@@ -1,0 +1,72 @@
+rules:
+- cre:
+    id: CRE-2025-0136
+    severity: 0
+    title: "Redis Out-of-Memory Error - Maxmemory Limit Exceeded"
+    category: "in-memory-database-problem"
+    author: Prequel Community
+    description: |
+      Detects Redis out-of-memory errors when the maxmemory limit is reached and the configured eviction policy prevents new writes. This typically occurs when Redis is configured with 'noeviction' policy and memory usage exceeds the maxmemory setting, causing all write commands to fail.
+    cause: |
+      - Redis memory usage exceeded maxmemory configuration limit
+      - Eviction policy set to 'noeviction' preventing automatic key removal
+      - Application writing data faster than Redis can evict
+      - Memory leak in Lua scripts or client buffers
+      - Large keys consuming excessive memory
+    impact: |
+      - All write operations (SET, LPUSH, ZADD, etc.) fail immediately
+      - Application functionality depending on caching breaks
+      - Potential cascading failures in dependent services
+      - Read operations continue to work normally
+      - Database or backend services may experience increased load
+    impactScore: 10
+    tags:
+      - redis
+      - out-of-memory
+      - oom
+      - maxmemory
+      - noeviction
+    mitigation: |
+      IMMEDIATE ACTIONS:
+      - Check current memory usage: `redis-cli INFO memory | grep used_memory_human`
+      - Review maxmemory setting: `redis-cli CONFIG GET maxmemory`
+      - Check eviction policy: `redis-cli CONFIG GET maxmemory-policy`
+      
+      RECOVERY:
+      - Option 1: Increase maxmemory limit
+        `redis-cli CONFIG SET maxmemory 2gb`
+      - Option 2: Change eviction policy
+        `redis-cli CONFIG SET maxmemory-policy allkeys-lru`
+      - Option 3: Manually delete unnecessary keys
+        `redis-cli FLUSHDB` (WARNING: deletes all keys)
+      - Option 4: Identify and remove large keys
+        `redis-cli --bigkeys`
+      
+      PREVENTION:
+      - Set appropriate maxmemory limit based on available RAM
+      - Use eviction policies like allkeys-lru or volatile-lru
+      - Monitor memory usage with Redis INFO command
+      - Implement TTL on keys where appropriate
+      - Regular memory usage auditing and capacity planning
+    mitigationScore: 8
+    references:
+      - https://redis.io/docs/latest/operate/oss_and_stack/reference/eviction/
+      - https://redis.io/commands/config-set/
+      - https://redis.io/docs/latest/operate/oss_and_stack/management/troubleshooting/#out-of-memory
+    applications:
+      - name: redis
+        version: ">=2.0.0"
+    reports: 47
+  metadata:
+    kind: prequel
+    id: XpQ9mKvR3bNfLw8TjHaYz5
+    gen: 1
+  rule:
+    set:
+      window: 120s
+      event:
+        source: cre.log.redis
+      match:
+        - regex: "OOM command not allowed when used memory > 'maxmemory'"
+        - regex: "used_memory.*maxmemory.*OOM"
+        - regex: "-OOM.*command not allowed"

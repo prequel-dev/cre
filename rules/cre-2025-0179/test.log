@@ -1,0 +1,8 @@
+[2024-01-15 17:00:01,123] ERROR [RedisClient] Max clients limit exceeded
+ERR max number of clients reached
+max number of clients reached (10000)
+connection pool exhausted, cannot create new connection
+Unable to connect to Redis: max clients limit reached
+Redis server maximum connections reached, rejecting new clients
+Client connection limit exceeded for Redis instance
+Failed to acquire connection from pool: max number of clients reached

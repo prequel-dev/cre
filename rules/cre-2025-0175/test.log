@@ -1,0 +1,8 @@
+2024-01-15 13:00:01.123 [ERROR] Unable to connect to MASTER: connection refused
+2024-01-15 13:00:02.234 [ERROR] MASTER <-> REPLICA sync: timeout in receiving data from master
+2024-01-15 13:00:03.345 [WARN] Partial resynchronization not accepted: full resync required
+2024-01-15 13:00:04.456 [ERROR] SYNC failed: Cannot allocate memory for replication backlog
+2024-01-15 13:00:05.567 [ERROR] Full resync from master aborted: read error
+2024-01-15 13:00:06.678 [CRITICAL] Replication link broken: disconnected from master
+2024-01-15 13:00:07.789 [ERROR] Error condition on socket for SYNC: Connection reset by peer
+2024-01-15 13:00:08.890 [INFO] master_link_status:down master_link_down_since_seconds:45
