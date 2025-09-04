@@ -46,8 +46,8 @@ rules:
         - grafana
       references:
         - "https://grafana.com/docs/grafana-cloud/send-data/logs/troubleshoot/#line-too-long"
-      impactScore: 9
-      mitigationScore: 7
+      impactScore: 5
+      mitigationScore: 5
     rule:
       set: # Using 'set' for single event matching, as it's a single log line detection
         event:
