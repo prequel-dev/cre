@@ -1,0 +1,50 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: VuPxiuWkYodzUqupa7gh9N
+    cre:
+      id: CRE-2025-0137
+      severity: 1
+      title: Pod terminated with Exit Code 137 due to OOMKilled (memory limit exceeded)
+      category: memory-problem
+      author: CRE Community
+      description: |
+        The container exceeded its memory limit and was killed by the kernel OOM killer.
+        Kubernetes reports a terminated state with Reason=OOMKilled and exitCode=137.
+        This often manifests as CrashLoopBackOff under sustained memory pressure.
+      cause: |
+        - Memory limit too low relative to peak usage.
+        - Sudden traffic spikes causing allocation bursts.
+        - Memory leaks or fragmentation in long-running processes.
+        - Under-provisioned nodes or overly strict pod limits.
+      impact: |
+        - Request errors and latency spikes during restarts.
+        - CrashLoopBackOff and reduced availability.
+        - Potential loss of in-flight work not checkpointed to durable storage.
+      tags:
+        - k8s
+        - exit-code
+        - out-of-memory
+        - memory
+        - crash-loop
+        - reliability
+      mitigation: |
+        - Raise memory requests/limits; add headroom for peak allocations.
+        - Enable profiling and leak detection; tune GC/heap where applicable.
+        - Consider Vertical Pod Autoscaler for right-sizing.
+        - Watch node memory pressure and eviction thresholds.
+      references:
+        - "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-states"
+        - "https://kubernetes.io/docs/tasks/administer-cluster/out-of-resource/"
+      applications:
+        - name: kubernetes
+          version: ">=1.16"
+      impactScore: 6
+      mitigationScore: 2
+      reports: 12
+    rule:
+      set:
+        event:
+          source: cre.log.k8s      
+        match:
+          - regex: "^[^\\t]+\\t[^\\t/]+/[^\\t]+\\t[^\\t]+\\tOOMKilled\\t137$"
