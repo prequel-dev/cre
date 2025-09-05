@@ -4,7 +4,7 @@ rules:
       id: 5UD1RZxGC5LJQnVmAkV11B
       gen: 1
     cre:
-      id: CRE-2025-0108
+      id: CRE-2025-0126
       severity: 1
       title: "MongoDB Replica Set Primary Election Failure"
       category: "database-problem"

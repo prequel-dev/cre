@@ -1,0 +1,14 @@
+2025-08-29 14:23:45.123 [ERROR] Loading model stable-diffusion-v1.5
+2025-08-29 14:23:47.456 [INFO] Model weights: 4.27 GB
+2025-08-29 14:23:48.789 [INFO] Allocating GPU memory...
+2025-08-29 14:23:49.012 [ERROR] torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 GiB (GPU 0; 6.00 GiB total capacity; 4.50 GiB already allocated; 1.20 GiB free; 4.80 GiB reserved in total by PyTorch)
+2025-08-29 14:23:49.013 [ERROR] RuntimeError: CUDA out of memory. Tried to allocate 2.00 GiB. GPU 0 has a total capacity of 6.00 GiB of which 1.20 GiB is free. Process 12345 has 4.50 GiB memory in use.
+2025-08-29 14:23:49.014 [CRITICAL] Stable Diffusion model failed to load: OutOfMemoryError
+2025-08-29 14:23:49.015 [ERROR] CUDA error: out of memory
+2025-08-29 14:23:49.016 [ERROR] GPU 0 has a total capacity of 6.00 GiB of which 1.20 GiB is free. Allocation failed.
+2025-08-29 14:23:49.017 [ERROR] Failed to generate image: CUDA out of memory
+2025-08-29 14:23:49.018 [INFO] Attempting to clear cache...
+2025-08-29 14:23:50.123 [INFO] Cache cleared, retrying...
+2025-08-29 14:23:51.456 [ERROR] torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.50 GiB
+2025-08-29 14:23:51.457 [CRITICAL] Image generation failed after retry
+2025-08-29 14:23:51.458 [ERROR] WebUI shutting down due to memory error

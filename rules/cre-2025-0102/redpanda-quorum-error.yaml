@@ -67,7 +67,9 @@ rules:
       reports: 1
     rule:
       set:
+        window: 10s
         event:
           source: cre.log.redpanda
         match:
-          - regex: 'failure|leaving all raft groups|down|CRITICAL|Multiple nodes unresponsive|Low available memory|health degraded'
+          - value: 'Marking node as down'
+          - value: 'Not enough live replicas to form quorum'
