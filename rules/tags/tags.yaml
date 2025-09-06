@@ -896,6 +896,24 @@ tags:
   - name: replica
     displayName: Replica
     description: Issues related to database replicas and read-only instances
+  - name: exit-code
+    displayName: Exit Code
+    description: Problems identified by specific process/container exit codes (e.g., 137, 127, 134, 139).
+  - name: entrypoint
+    displayName: Entrypoint
+    description: Failures caused by invalid or missing container ENTRYPOINT/CMD definitions.
+  - name: command
+    displayName: Command
+    description: Problems caused by invalid commands or arguments at startup (e.g., not found, bad path, non-executable).
+  - name: sigabrt
+    displayName: SIGABRT
+    description: Crashes where a process aborts with SIGABRT (exit 134), often due to assertion failures or allocator checks.
+  - name: native
+    displayName: Native
+    description: Issues in native code paths (C/C++/Rust, libc/ABI), including crashes and memory faults.
+  - name: reliability
+    displayName: Reliability
+    description: Unstable behavior such as unexpected restarts, crash loops, or intermittent failures affecting service reliability.
   - name: autogpt
     displayName: AutoGPT
     description: Problems related to AutoGPT autonomous AI agent framework

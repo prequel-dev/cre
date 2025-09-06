@@ -37,6 +37,8 @@ rules:
       applications:
         - name: istio-ambient
           version: ">=1.26.0"
+      impactScore: 8
+      mitigationScore: 7 
     rule:
       set:
         event:
