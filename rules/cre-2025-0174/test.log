@@ -1,0 +1,8 @@
+2024-01-15 12:00:01.123 [ERROR] Redis authentication failed: WRONGPASS invalid username-password pair or user is disabled.
+2024-01-15 12:00:02.234 [ERROR] (error) NOAUTH Authentication required.
+2024-01-15 12:00:03.345 [ERROR] redis.exceptions.ResponseError: ERR invalid password
+2024-01-15 12:00:04.456 [ERROR] Command rejected: ERR wrong password provided
+2024-01-15 12:00:05.567 [ERROR] ACL violation: NOPERM User 'readonly' has no permissions to run the 'SET' command
+2024-01-15 12:00:06.678 [ERROR] ERR ACL permission denied for user 'app_user' on command 'FLUSHDB'
+2024-01-15 12:00:07.789 [ERROR] AUTH failed: invalid username/password credentials
+2024-01-15 12:00:08.890 [WARN] Redis server returned: NOAUTH Authentication required for this operation

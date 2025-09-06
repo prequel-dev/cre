@@ -1,0 +1,91 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: Qm7WxPr3NbKfLs9YhVaEz2
+      hash: Td5Gn8XqPmWsRf4BkLyVe3
+    cre:
+      id: CRE-2025-0175
+      severity: 0
+      title: "Redis Master-Replica Synchronization Failure"
+      category: "in-memory-database-problem"
+      author: Prequel Community
+      description: |
+        Detects failures in Redis master-replica synchronization including broken replication links, sync timeouts, and full resync loops. These issues compromise data consistency and high availability in Redis deployments.
+      cause: |
+        - Network partition between master and replica
+        - Replica unable to keep up with master write load
+        - Insufficient replica output buffer size
+        - Master rewrite of AOF/RDB during sync
+        - Replica disk I/O too slow for sync
+        - Version incompatibility between master and replica
+        - Replication backlog size too small
+      impact: |
+        - Replicas serve stale or inconsistent data
+        - Failover capability compromised
+        - Read scaling degraded with out-of-sync replicas
+        - Full resync causing performance impact
+        - Potential data loss during failover
+        - Increased load on master during resync attempts
+      tags:
+        - redis
+        - replication
+        - master-replica
+        - sync
+        - psync
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Check replication status: `redis-cli INFO replication`
+        - Verify replica connectivity: `redis-cli -h replica ping`
+        - Monitor sync progress: `redis-cli INFO | grep master_sync`
+        - Check replication lag: `redis-cli INFO | grep master_repl_offset`
+        
+        RECOVERY:
+        - Restart replication on replica:
+          ```
+          redis-cli REPLICAOF NO ONE
+          redis-cli REPLICAOF master-host master-port
+          ```
+        - Increase replication backlog:
+          `redis-cli CONFIG SET repl-backlog-size 256mb`
+        - Adjust replica output buffer:
+          `redis-cli CONFIG SET client-output-buffer-limit "replica 256mb 64mb 60"`
+        - Force full resync if partial sync fails:
+          `redis-cli PSYNC replicationid -1`
+        
+        TROUBLESHOOTING:
+        - Check network latency: `ping -c 100 master-host`
+        - Monitor disk I/O: `iostat -x 1`
+        - Review Redis logs: `tail -f /var/log/redis/redis-server.log`
+        - Verify firewall rules allow port 6379
+        
+        PREVENTION:
+        - Size replication backlog appropriately
+        - Monitor replication lag metrics
+        - Use dedicated network for replication
+        - Optimize disk I/O on replicas
+        - Regular testing of failover procedures
+        - Keep master and replica versions in sync
+      references:
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/replication/
+        - https://redis.io/commands/psync/
+        - https://redis.io/topics/persistence
+      applications:
+        - name: redis
+          version: ">=2.8.0"
+      impactScore: 8
+      mitigationScore: 6
+      reports: 67
+    rule:
+      set:
+        window: 300s
+        event:
+          source: cre.log.redis
+        match:
+          - regex: "Unable to connect to MASTER"
+          - regex: "MASTER.*sync.*timeout"
+          - regex: "Partial resynchronization not accepted"
+          - regex: "SYNC failed.*Cannot allocate memory"
+          - regex: "Full resync.*aborted"
+          - regex: "Replication.*broken.*disconnected"
+          - regex: "Error condition on socket for SYNC"
+          - regex: "master_link_status:down"

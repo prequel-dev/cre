@@ -1,0 +1,8 @@
+2024-01-15 16:00:01.123 [ERROR] READONLY You can't write against a read only replica.
+2024-01-15 16:00:02.234 [ERROR] Redis command failed: READONLY You cannot write against a read only replica
+2024-01-15 16:00:03.345 [ERROR] -READONLY error: Cannot write to replica instance
+2024-01-15 16:00:04.456 [ERROR] ERR operation not permitted on readonly replica
+2024-01-15 16:00:05.567 [ERROR] Cannot execute write command on readonly replica: SET key value
+2024-01-15 16:00:06.678 [WARN] Write operation rejected: READONLY You can't write against a read only replica
+2024-01-15 16:00:07.789 [ERROR] Application error: Attempted DEL on readonly replica
+2024-01-15 16:00:08.890 [ERROR] Transaction failed: READONLY You cannot write against a read only replica

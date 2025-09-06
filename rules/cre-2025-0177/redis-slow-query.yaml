@@ -1,0 +1,94 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: Kp9XmNw4RbTfGs7YqLaVe3
+      hash: Hm5Wd8PsKnRq2BfVtXyLm6
+    cre:
+      id: CRE-2025-0177
+      severity: 0
+      title: "Redis Slow Query Performance Degradation"
+      category: "in-memory-database-problem"
+      author: Prequel Community
+      description: |
+        Detects slow query execution in Redis that exceeds configured thresholds. Slow queries indicate performance problems that can impact overall Redis responsiveness and application latency.
+      cause: |
+        - Large dataset operations (KEYS *, SMEMBERS on huge sets)
+        - Inefficient Lua scripts with complex logic
+        - Blocking operations on large lists/sets/sorted sets
+        - O(N) operations on large datasets
+        - High CPU contention from concurrent operations
+        - Memory swapping causing disk I/O
+        - Unoptimized data structures
+      impact: |
+        - Increased application response times
+        - Redis becomes unresponsive during slow operations
+        - Connection timeouts for other clients
+        - Queue buildup and memory pressure
+        - Potential cascading failures
+        - Poor user experience
+      tags:
+        - redis
+        - performance
+        - slowlog
+        - latency
+        - slow-query
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Check slowlog: `redis-cli SLOWLOG GET 10`
+        - Monitor current operations: `redis-cli --latency`
+        - Identify blocking clients: `redis-cli CLIENT LIST`
+        - Check CPU usage: `redis-cli INFO cpu`
+        
+        OPTIMIZATION:
+        - Replace KEYS with SCAN:
+          ```
+          # Bad: KEYS pattern*
+          # Good: SCAN 0 MATCH pattern* COUNT 100
+          ```
+        - Use pagination for large collections:
+          ```
+          ZRANGE key start stop
+          LRANGE key start stop
+          ```
+        - Optimize Lua scripts:
+          - Minimize Redis calls within scripts
+          - Avoid complex computations
+        - Break large operations into smaller batches
+        
+        CONFIGURATION:
+        - Adjust slowlog threshold:
+          `redis-cli CONFIG SET slowlog-log-slower-than 10000`
+        - Increase slowlog size:
+          `redis-cli CONFIG SET slowlog-max-len 128`
+        - Enable latency monitoring:
+          `redis-cli CONFIG SET latency-monitor-threshold 100`
+        
+        PREVENTION:
+        - Regular slowlog analysis
+        - Use appropriate data structures
+        - Implement query timeouts in clients
+        - Cache computation results
+        - Use Redis modules for complex operations
+        - Monitor and alert on slow query patterns
+      references:
+        - https://redis.io/commands/slowlog/
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/latency/
+        - https://redis.io/docs/latest/develop/use/patterns/
+      applications:
+        - name: redis
+          version: ">=2.2.12"
+      impactScore: 6
+      mitigationScore: 8
+      reports: 145
+    rule:
+      set:
+        window: 300s
+        event:
+          source: cre.log.redis
+        match:
+          - regex: "Slow log.*microseconds|slowlog.*exceeded"
+          - regex: "command.*took.*milliseconds|Query execution.*slow"
+          - regex: "SLOWLOG.*latency.*threshold"
+          - regex: "Latency spike detected"
+          - regex: "Operation.*exceeded.*timeout"
+          - regex: "Redis.*high latency.*detected"
