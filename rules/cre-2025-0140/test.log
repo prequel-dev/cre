@@ -1,0 +1,11 @@
+2025-01-28T10:35:10Z ERROR   supabase-realtime invalid replication mode: 'invalid_mode' is not a supported replication mode
+2025-01-28T10:35:10Z ERROR   supabase-realtime REPLICATION_MODE configuration error: unknown value 'invalid_mode'
+2025-01-28T10:35:11Z ERROR   supabase-realtime realtime configuration error: INVALID_CONFIG_PARAM is not recognized
+2025-01-28T10:35:11Z ERROR   supabase-realtime SECRET_KEY_BASE must be at least 64 characters long
+2025-01-28T10:35:12Z ERROR   supabase-realtime DB_ENC_KEY missing or invalid format
+2025-01-28T10:35:12Z ERROR   supabase-realtime realtime startup failed: configuration validation error
+2025-01-28T10:35:13Z ERROR   supabase-realtime websocket connection failed: invalid configuration
+2025-01-28T10:35:13Z ERROR   supabase-realtime elixir application failed to start: configuration error
+2025-01-28T10:35:14Z ERROR   supabase-realtime realtime service crash: {:error, :invalid_config}
+
+

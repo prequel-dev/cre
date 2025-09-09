@@ -1,11 +1,1 @@
-2025-01-28T11:00:12Z ERROR   supabase-kong   SSL certificate not found: /etc/ssl/certs/server.crt: no such file or directory
-2025-01-28T11:00:12Z ERROR   supabase-kong   SSL configuration error: certificate file missing or unreadable
-2025-01-28T11:00:13Z ERROR   supabase-kong   invalid certificate format: unable to load certificate
-2025-01-28T11:00:13Z ERROR   supabase-kong   certificate verification failed: invalid certificate content
-2025-01-28T11:00:14Z ERROR   supabase-kong   SSL handshake failed: certificate and key do not match
-2025-01-28T11:00:14Z ERROR   supabase-kong   permission denied reading certificate: /etc/ssl/private/server.key
-2025-01-28T11:00:15Z ERROR   supabase-kong   certificate expired: not valid after 2024-01-01T00:00:00Z
-2025-01-28T11:00:15Z ERROR   supabase-kong   SSL cert invalid: unable to verify certificate chain
-2025-01-28T11:00:16Z ERROR   supabase-kong   TLS configuration failed: missing SSL certificate files
-
-
+2025-08-27T13:32:40Z	cre-demo/segv-139	segv	Error	139
