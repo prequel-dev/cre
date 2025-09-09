@@ -1,0 +1,79 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: SB8D1skFullMigrat11nErr
+      gen: 1
+    cre:
+      id: CRE-2025-0141
+      severity: 1
+      title: "Supabase Self-Hosted: Disk Full During Database Migration Operations"
+      category: "storage-problem"
+      author: Prequel
+      description: |
+        Detects when Supabase PostgreSQL database operations fail due to insufficient disk space during migrations,
+        data imports, or large transactions. This can corrupt the database, leave migrations in inconsistent state,
+        and cause complete service failure requiring manual intervention.
+      cause: |
+        - Insufficient disk space for database operations
+        - Large migration files that exceed available storage
+        - WAL (Write-Ahead Log) files consuming all available space
+        - Temporary tables or indexes requiring more space than available
+        - Docker volume size limits reached
+        - Database backup/restore operations running out of space
+      tags:
+        - supabase
+        - postgres
+        - disk-full
+        - storage
+        - migration-failure
+        - wal
+        - self-hosted
+        - critical-failure
+        - data-loss-risk
+        - public
+      mitigation: |
+        IMMEDIATE:
+          - Stop database operations: `docker-compose stop db`
+          - Check disk usage: `df -h` and `docker system df`
+          - Free up disk space by removing unnecessary files
+          - Increase volume size or move to larger storage
+        RECOVERY:
+          - Restart database service after freeing space
+          - Check database integrity: `docker-compose exec db pg_check`
+          - Manually complete failed migrations if needed
+          - Restore from backup if database is corrupted
+        PREVENTION:
+          - Monitor disk usage continuously
+          - Set up disk space alerts (< 10% free)
+          - Use larger Docker volumes for production
+          - Implement automated cleanup of old WAL files
+          - Test migrations on staging with similar data volumes
+          - Configure PostgreSQL to limit WAL retention
+      references:
+        - https://www.postgresql.org/docs/current/wal-internals.html
+        - https://www.postgresql.org/docs/current/disk-usage.html
+      applications:
+        - name: postgres
+          containerName: supabase-db
+          version: "15.*"
+      impact: |
+        - Database corruption and data loss risk
+        - Incomplete migrations leaving schema in inconsistent state  
+        - Complete service outage until disk space resolved
+        - Potential need for database restore from backup
+        - Development/production environment downtime
+      impactScore: 10
+      mitigationScore: 7
+      reports: 8
+    rule:
+      set:
+        window: 5m
+        event:
+          source: cre.log.supabase
+        match:
+          - regex: 'No space left on device|disk full|insufficient disk space'
+          - regex: 'could not.*write.*WAL|checkpoint.*failed.*disk full'
+          - regex: 'ERROR.*disk full|could not extend file.*No space left'
+          - value: "migration"
+
+

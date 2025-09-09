@@ -213,6 +213,9 @@ tags:
   - name: api-key
     displayName: Api Key
     description: Problems related to API keys, such as missing, invalid, or expired credentials
+  - name: jwt
+    displayName: JWT
+    description: Problems related to JSON Web Tokens, such as invalid signatures, expired tokens, or malformed claims
   - name: async
     displayName: Async
     description: Problems related to asynchronous execution, such as hung tasks, race conditions, or callback errors
@@ -845,6 +848,18 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
+  - name: supabase
+    displayName: Supabase
+    description: Problems related to Supabase self-hosted deployments and services
+  - name: gotrue
+    displayName: GoTrue
+    description: Problems related to Supabase's GoTrue authentication service
+  - name: realtime
+    displayName: Realtime
+    description: Problems related to Supabase's realtime service and WebSocket connections
+  - name: self-hosted
+    displayName: Self-Hosted
+    description: Problems specific to self-hosted deployments and infrastructure
   - name: exit-code
     displayName: Exit Code
     description: Problems identified by specific process/container exit codes (e.g., 137, 127, 134, 139).

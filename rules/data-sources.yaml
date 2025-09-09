@@ -1,0 +1,83 @@
+# Data Sources Configuration for Supabase CRE Rules
+# This file defines the log sources used by Supabase self-hosted CRE rules (CRE-2025-0130 through CRE-2025-0139)
+
+# Docker container logs for port conflicts and startup failures
+cre.log.docker:
+  description: "Docker daemon and container startup logs, used for detecting port conflicts and container failures"
+  examples:
+    - "Docker daemon logs from docker-compose or docker run commands"
+    - "Container startup failure messages"
+    - "Port binding and networking errors"
+  common_sources:
+    - "/var/log/docker.log"
+    - "docker-compose logs output"
+    - "journalctl -u docker.service"
+
+# Supabase service logs (general)
+cre.log.supabase:
+  description: "General Supabase service logs from Auth, REST API, and other core services"
+  examples:
+    - "GoTrue (Auth service) logs"
+    - "PostgREST API logs"
+    - "Database connection and authentication errors"
+  common_sources:
+    - "supabase-auth container logs"
+    - "supabase-rest container logs"
+    - "Application logs from Supabase services"
+
+# PostgreSQL database logs
+cre.log.postgres:
+  description: "PostgreSQL database logs for migration errors, disk space issues, and connection problems"
+  examples:
+    - "Migration and schema change logs"
+    - "Disk space and WAL file errors"
+    - "Database constraint violations"
+  common_sources:
+    - "PostgreSQL container logs"
+    - "/var/log/postgresql/postgresql-*.log"
+    - "supabase-db container logs"
+
+# Storage service logs
+cre.log.storage:
+  description: "Supabase Storage service logs for S3 connectivity and file operations"
+  examples:
+    - "S3 authentication and credential errors"
+    - "Bucket access and permission issues"
+    - "File upload/download failures"
+  common_sources:
+    - "supabase-storage container logs"
+    - "Storage service application logs"
+
+# Realtime service logs
+cre.log.realtime:
+  description: "Supabase Realtime service logs for websocket connections and real-time subscriptions"
+  examples:
+    - "Elixir application startup errors"
+    - "Websocket connection failures"
+    - "Database replication configuration issues"
+  common_sources:
+    - "supabase-realtime container logs"
+    - "Elixir/Phoenix application logs"
+
+# Kong API Gateway logs
+cre.log.kong:
+  description: "Kong API Gateway logs for rate limiting, SSL issues, and API routing"
+  examples:
+    - "Rate limiting and quota enforcement"
+    - "SSL/TLS certificate errors"
+    - "API routing and upstream failures"
+  common_sources:
+    - "kong container logs"
+    - "/usr/local/kong/logs/error.log"
+    - "API gateway access logs"
+
+# Vector log collector configuration
+cre.log.vector:
+  description: "Vector log aggregation configuration for centralized logging"
+  examples:
+    - "Log transformation and routing"
+    - "Multi-service log aggregation"
+    - "Structured log parsing"
+  common_sources:
+    - "Vector container logs"
+    - "Centralized logging pipeline output"

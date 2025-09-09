@@ -1,0 +1,9 @@
+2025-01-28T10:15:30Z ERROR   supabase-db     Error starting userland proxy: listen tcp 0.0.0.0:5432: bind: address already in use
+2025-01-28T10:15:30Z ERROR   supabase-db     driver failed programming external connectivity on endpoint supabase-db: Error starting userland proxy: listen tcp 0.0.0.0:5432: bind: address already in use
+2025-01-28T10:15:31Z ERROR   supabase-db     Ports are not available: listen tcp 0.0.0.0:5432: bind: address already in use
+2025-01-28T10:15:31Z ERROR   supabase-db     failed to create task for container: failed to create shim task: OCI runtime create failed: container_linux.go:380: starting container process caused: listen tcp 0.0.0.0:5432: bind: address already in use
+2025-01-28T10:15:32Z ERROR   supabase-db     Error response from daemon: driver failed programming external connectivity on endpoint supabase-db (a1b2c3d4e5f6): Error starting userland proxy: listen tcp 0.0.0.0:5432: bind: address already in use
+2025-01-28T10:15:32Z ERROR   supabase-db     Container supabase-db  exited with code 125
+2025-01-28T10:15:32Z ERROR   supabase-db     Service 'db' failed to build: Error starting userland proxy: listen tcp 0.0.0.0:5432: bind: address already in use
+
+
