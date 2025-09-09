@@ -44,6 +44,8 @@ rules:
           version: "1.x"
         - name: "kubernetes"
           version: "1.19+"
+      mitigationScore: 7
+      impactScore: 9
     metadata:
       kind: prequel
       id: UseRulerToGenerateThis

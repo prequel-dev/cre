@@ -43,6 +43,8 @@ rules:
       applications:
         - name: istio-cni
           version: ">=1.26.0"
+      impactScore: 9
+      mitigationScore: 7
     rule:
       set:
         window: 60s

@@ -53,6 +53,8 @@ rules:
           version: ">= 1.0.0"
         - name: nginx
           version: ">= 1.0.0"
+      impactScore: 8
+      mitigationScore: 6
     metadata:
       gen: 1
       kind: prequel

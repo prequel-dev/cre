@@ -254,3 +254,12 @@ categories:
     description: |
       Failures in real-time communication systems including WebSocket connection issues, real-time subscription failures,
       and problems with live data streaming that affect user experience in interactive applications.
+  - name: infinite-loop-problem
+    displayName: Infinite Loop Problems
+    description: |
+      Problems where applications enter infinite loops causing resource exhaustion, system hangs, or crashes.
+      This includes recursive loops, circular dependencies, and runaway processes that consume CPU, memory,
+      or API resources without termination conditions.
+  - name: workflow-automation-problem
+    displayName: Workflow Automation Problems
+    description: Problems related to workflow automation platforms including silent data loss, execution failures, and data integrity issues in workflow processing systems
