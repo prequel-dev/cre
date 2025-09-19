@@ -39,10 +39,11 @@ rules:
   rule:
     set:
       event:
-        source: cre.log.aws.eks-nodeagent
-      window: 10s
+        source: cre.log.ebs-csi-snapshotter
+      window: 1m
       match:
-        - value: the server could not find the requested resource (get volumesnapshotcontents.snapshot.storage.k8s.io)
         - value: Unhandled Error
-        - regex: k8s.io/client-go@(.+)/tools/cache/reflector.go
         - value: Failed to watch *v1.VolumeSnapshotClass
+        - value: Failed to watch *v1.VolumeSnapshotContent
+        - value: the server could not find the requested resource (get volumesnapshotclasses.snapshot.storage.k8s.io)
+        - value: the server could not find the requested resource (get volumesnapshotcontents.snapshot.storage.k8s.io)
