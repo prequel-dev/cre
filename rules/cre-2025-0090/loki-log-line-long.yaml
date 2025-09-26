@@ -51,6 +51,6 @@ rules:
     rule:
       set: # Using 'set' for single event matching, as it's a single log line detection
         event:
-          source: Alloy log
+          source: cre.log.alloy
         match:
           - regex: level=error(.+)final error sending batch(.+)component_id=loki\.write\.endpoint(.+)error(.+)server returned HTTP status 400 Bad Request(.+)Max entry size(.+)exceeded for stream

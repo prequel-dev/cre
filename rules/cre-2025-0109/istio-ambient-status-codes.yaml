@@ -44,7 +44,7 @@ rules:
     rule:
       set:
         event:
-          source: cre.log.ambient
+          source: cre.log.istio-proxy
         match:
           - regex: "status=(?:4[0-9]{2}|5[0-9]{2})"
         negate: []

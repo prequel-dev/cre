@@ -38,7 +38,7 @@ rules:
   rule:
     set:
       event:
-        source: cre.log.opentelemetry-python
+        source: cre.log.opentelemetry-collector
       window: 5s
       match:
         - value: ERROR opentelemetry.context:Failed to detach context

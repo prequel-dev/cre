@@ -46,7 +46,7 @@ rules:
       set:
         window: 300s
         event:
-          source: cre.log.ambient
+          source: cre.kubernetes
         match:
           - regex: "Readiness probe failed:"
             count: 4
