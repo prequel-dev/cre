@@ -1,0 +1,78 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: SB3DbConn3ct11nT1m31ut
+      gen: 1
+    cre:
+      id: CRE-2025-0132
+      severity: 2
+      title: "Supabase Self-Hosted: Database Connection Timeout and Service Failure"
+      category: "database-problem"
+      author: Prequel
+      description: |
+        Detects when Supabase services lose connection to the PostgreSQL database due to timeouts, network issues,
+        or database unavailability. This affects Auth, REST API, Storage, and all database-dependent operations.
+        Occurs during database restarts, network partitions, or when database becomes unresponsive.
+      cause: |
+        - PostgreSQL database container stopped or crashed
+        - Network connectivity issues between services and database
+        - Database server overloaded and not responding to connections
+        - Database connection pool exhaustion
+        - Firewall rules blocking database access
+        - DNS resolution failures for database hostname
+      tags:
+        - supabase
+        - postgres
+        - connection
+        - timeout
+        - network
+        - self-hosted
+        - connectivity
+        - public
+      mitigation: |
+        IMMEDIATE:
+          - Check database container status: `docker-compose ps db`
+          - Restart database service: `docker-compose restart db`
+          - Verify database connectivity: `docker-compose exec db pg_isready -U postgres`
+        INVESTIGATION:
+          - Check database logs: `docker-compose logs db`
+          - Monitor connection pool: Check for connection limit errors
+          - Verify network connectivity between containers
+        PREVENTION:
+          - Implement database health checks with proper timeouts
+          - Configure connection pooling limits appropriately
+          - Set up database monitoring and alerting
+          - Use connection retry logic with exponential backoff
+      references:
+        - https://www.postgresql.org/docs/current/runtime-config-connection.html
+        - https://supabase.com/docs/guides/platform/troubleshooting
+      applications:
+        - name: gotrue
+          containerName: supabase-auth
+        - name: postgrest
+          containerName: supabase-rest
+        - name: storage-api
+          containerName: supabase-storage
+        - name: realtime
+          containerName: supabase-realtime
+      impact: |
+        - API requests fail with database connection errors
+        - User authentication becomes unavailable
+        - File storage operations fail
+        - Real-time subscriptions disconnect
+        - Application becomes unusable until database connectivity is restored
+      impactScore: 8
+      mitigationScore: 5
+      reports: 30
+    rule:
+      set:
+        window: 5m
+        event:
+          source: cre.log.supabase
+        match:
+          - regex: 'connection.*refused.*5432|timeout.*database|dial tcp.*5432.*connection refused'
+          - regex: 'failed to connect to.*postgres|database connection.*timeout|connection reset by peer'
+          - regex: 'could not connect to server|server closed the connection|connection timed out'
+          - value: "database"
+
+

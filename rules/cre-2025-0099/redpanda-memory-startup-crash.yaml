@@ -61,7 +61,7 @@ rules:
       sequence:
         window: "120s"
         event:
-          source: application-logs
+          source: cre.log.redpanda
           origin: true
         order:
           - permission_failures

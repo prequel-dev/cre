@@ -42,7 +42,7 @@ rules:
     rule:
       set:
         event:
-          source: cre.log.ambient
+          source: cre.log.istiod
         match:
           - regex: "timed out waiting for workload .* from xds"
         negate:

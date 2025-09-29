@@ -49,7 +49,7 @@ rules:
       set:
         window: 60s
         event:
-          source: cre.log.ambient
+          source: cre.kubernetes
         match:
           - regex: "FailedCreatePodSandBox"
           - regex: "no ztunnel connection"

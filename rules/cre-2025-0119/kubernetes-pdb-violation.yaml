@@ -80,7 +80,7 @@ rules:
     rule:
       set:
         event:
-          source: cre.log.kubernetes
+          source: cre.kubernetes
         window: 5m
         match:
           - regex: "Warning\\s+PodDisruptionBudgetViolation.+Pod disruption budget violation detected: maxUnavailable: \\d+ conflicts with minAvailable: \\d+"
@@ -92,7 +92,7 @@ rules:
       sequence:
         window: 10m
         event:
-          source: cre.log.kubernetes
+          source: cre.kubernetes
         order:
           - regex: "Normal\\s+ScalingReplicaSet.+Scaled up replica set.+"
           - regex: "Warning\\s+PodDisruptionBudgetViolation.+"

@@ -38,7 +38,7 @@ rules:
     rule:
       set:
         event:
-          source: mongodb
+          source: cre.log.mongodb
         match:
           - regex: "Slow query"
         negate:

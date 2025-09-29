@@ -1,0 +1,9 @@
+2025-01-28T10:55:45Z ERROR   supabase-kong   HTTP 429 Too Many Requests: rate limit exceeded for API endpoint
+2025-01-28T10:55:45Z ERROR   supabase-kong   rate-limiting plugin rejected request: quota exceeded (5 requests per minute)
+2025-01-28T10:55:46Z ERROR   supabase-kong   API throttled: too many requests from client in 1 minute window
+2025-01-28T10:55:46Z ERROR   supabase-kong   request rate limited: exceeded maximum of 5 requests per minute
+2025-01-28T10:55:47Z ERROR   supabase-kong   rate limit exceeded for consumer 'anon': 429 Too Many Requests
+2025-01-28T10:55:47Z ERROR   supabase-kong   rejected request due to rate limiting policy violation
+2025-01-28T10:55:48Z ERROR   supabase-kong   quota exceeded: client has exceeded their rate limit allocation
+2025-01-28T10:55:48Z ERROR   supabase-kong   too many requests in time window: blocking further requests
+2025-01-28T10:55:49Z ERROR   supabase-kong   rate-limiting: request blocked due to excessive traffic
