@@ -1,0 +1,12 @@
+2025-01-28T10:40:05Z ERROR   supabase-db     ERROR: syntax error at or near ")" at character 45
+2025-01-28T10:40:05Z ERROR   supabase-db     ERROR: relation "non_existent_users" does not exist
+2025-01-28T10:40:06Z ERROR   supabase-db     ERROR: type "invalid_data_type" does not exist
+2025-01-28T10:40:06Z ERROR   supabase-db     ERROR: invalid SQL statement in migration 001_invalid_syntax.sql
+2025-01-28T10:40:07Z ERROR   supabase-db     ERROR: foreign key constraint "orders_user_id_fkey" cannot be created
+2025-01-28T10:40:07Z ERROR   supabase-db     ERROR: constraint violation: relation "table_a" does not exist
+2025-01-28T10:40:08Z ERROR   supabase-db     ERROR: column "column1" must appear in the GROUP BY clause
+2025-01-28T10:40:08Z ERROR   supabase-db     migration failed: ERROR: unterminated quoted string
+2025-01-28T10:40:09Z ERROR   supabase-db     ERROR: function "broken_function" already exists with same argument types
+2025-01-28T10:40:09Z ERROR   supabase-db     ERROR: missing FROM-clause entry for table "non_existent_table"
+
+

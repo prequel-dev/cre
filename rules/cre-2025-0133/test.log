@@ -1,0 +1,11 @@
+2025-01-28T10:30:22Z ERROR   supabase-storage AWS credentials are invalid: InvalidAccessKeyId: The AWS Access Key Id you provided does not exist in our records
+2025-01-28T10:30:22Z ERROR   supabase-storage S3 authentication failed: SignatureDoesNotMatch: The request signature we calculated does not match
+2025-01-28T10:30:23Z ERROR   supabase-storage S3 operation failed: NoSuchBucket: The specified bucket does not exist: invalid-bucket-name-12345
+2025-01-28T10:30:23Z ERROR   supabase-storage unable to connect to S3 endpoint: dial tcp: lookup s3.amazonaws.com: no such host
+2025-01-28T10:30:24Z ERROR   supabase-storage AccessDenied: Access Denied for bucket operations
+2025-01-28T10:30:24Z ERROR   supabase-storage S3 connection failed: InvalidBucketName: The specified bucket is not valid
+2025-01-28T10:30:25Z ERROR   supabase-storage AWS SDK error: credentials: environment credentials not found
+2025-01-28T10:30:25Z ERROR   supabase-storage storage backend initialization failed: S3 service unavailable
+2025-01-28T10:30:26Z ERROR   supabase-storage file upload failed: S3 authentication error - check credentials
+
+
