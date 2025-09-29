@@ -39,6 +39,6 @@ rules:
     rule:
       set:
         event:
-          source: cre.log.k8s
+          source: cre.kubernetes
         match:
           - regex: "^[^\\t]+\\t[^\\t/]+/[^\\t]+\\t[^\\t]+\\t[^\\t]*\\t134$"
