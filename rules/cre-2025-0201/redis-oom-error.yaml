@@ -1,6 +1,6 @@
 rules:
 - cre:
-    id: CRE-2025-0136
+    id: CRE-2025-0201
     severity: 0
     title: "Redis Out-of-Memory Error - Maxmemory Limit Exceeded"
     category: "in-memory-database-problem"

@@ -1,6 +1,6 @@
 rules:
 - cre:
-    id: CRE-2025-0135
+    id: CRE-2025-0200
     severity: 0
     title: Redis Comprehensive Troubleshooting - Multiple Common Issues Detection
     category: in-memory-database-problem
