@@ -45,7 +45,7 @@ rules:
       set:
         window: 180s
         event:
-          source: cre.log.kubernetes
+          source: cre.kubernetes
         match:
           - regex: 'Evented PLEG:.*DeadlineExceeded'
           - regex: 'panic: send on closed channel'
