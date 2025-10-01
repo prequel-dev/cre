@@ -40,11 +40,13 @@ rules:
       applications:
         - name: istio-ambient
           version: ">=1.26.0"
+      impactScore: 9
+      mitigationScore: 6
     rule:
       set:
         window: 300s
         event:
-          source: cre.log.ambient
+          source: cre.kubernetes
         match:
           - regex: "Readiness probe failed:"
             count: 4

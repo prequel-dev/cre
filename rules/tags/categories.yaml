@@ -244,3 +244,22 @@ categories:
     description: |
       Failures that prevent MongoDB from starting successfully due to corrupted metadata, invalid configurations,
       or unrecoverable internal errors (e.g., WiredTiger metadata corruption). These failures often require manual repair or backup restoration.
+  - name: supabase-problem
+    displayName: Supabase Problems  
+    description: |
+      Problems specific to Supabase self-hosted deployments including authentication failures, database connectivity issues,
+      storage misconfigurations, realtime service crashes, and infrastructure-related failures that affect the entire Supabase stack.
+  - name: realtime-problem
+    displayName: Realtime Problems
+    description: |
+      Failures in real-time communication systems including WebSocket connection issues, real-time subscription failures,
+      and problems with live data streaming that affect user experience in interactive applications.
+  - name: infinite-loop-problem
+    displayName: Infinite Loop Problems
+    description: |
+      Problems where applications enter infinite loops causing resource exhaustion, system hangs, or crashes.
+      This includes recursive loops, circular dependencies, and runaway processes that consume CPU, memory,
+      or API resources without termination conditions.
+  - name: workflow-automation-problem
+    displayName: Workflow Automation Problems
+    description: Problems related to workflow automation platforms including silent data loss, execution failures, and data integrity issues in workflow processing systems

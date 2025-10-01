@@ -1,3 +1,8 @@
-E0413 23:38:00.000000       1 reflector.go:158] "Unhandled Error" err="k8s.io/client-go@v0.31.3/tools/cache/reflector.go:243: Failed to watch *v1.VolumeSnapshotContent: failed to list *v1.VolumeSnapshotContent: the server could not find the requested resource (get volumesnapshotcontents.snapshot.storage.k8s.io)" logger="UnhandledError"
-E0413 23:38:00.000002       1 reflector.go:158] "Unhandled Error" err="k8s.io/client-go@v0.31.3/tools/cache/reflector.go:243: Failed to watch *v1.VolumeSnapshotClass: failed to list *v1.VolumeSnapshotClass: the server could not find the requested resource (get volumesnapshotclasses.snapshot.storage.k8s.io)" logger="UnhandledError"
-E0413 23:38:00.874041       1 reflector.go:158] "Unhandled Error" err="k8s.io/client-go@v0.31.3/tools/cache/reflector.go:243: Failed to watch *v1.VolumeSnapshotClass: failed to list *v1.VolumeSnapshotClass: the server could not find the requested resource (get volumesnapshotclasses.snapshot.storage.k8s.io)" logger="UnhandledError"
+2024-01-15 10:23:45.123 [ERROR] redis.clients.jedis.exceptions.JedisDataException: OOM command not allowed when used memory > 'maxmemory'.
+2024-01-15 10:23:45.234 [ERROR] Redis server returned error: -OOM command not allowed when used memory > 'maxmemory'. 
+2024-01-15 10:23:45.345 [WARN] RedisCommandExecutionException: ERR OOM command not allowed when used memory > 'maxmemory'.
+2024-01-15 10:23:45.456 [ERROR] Failed to execute SET command: OOM command not allowed when used memory > 'maxmemory'.
+2024-01-15 10:23:45.567 [ERROR] Cache write failed: redis.exceptions.ResponseError: OOM command not allowed when used memory > 'maxmemory'.
+2024-01-15 10:23:45.678 [ERROR] Application Error: Cannot write to cache - OOM command not allowed when used memory > 'maxmemory'
+2024-01-15 10:23:45.789 [CRITICAL] Redis memory full: used_memory:2147483648 maxmemory:2147483648 OOM errors occurring
+2024-01-15 10:23:45.890 [ERROR] LPUSH mylist value1 failed: -OOM command not allowed when used memory exceeded maxmemory limit

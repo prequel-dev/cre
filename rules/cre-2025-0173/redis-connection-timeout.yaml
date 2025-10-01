@@ -1,0 +1,87 @@
+rules:
+- cre:
+    id: CRE-2025-0173
+    severity: 0
+    title: "Redis Connection Timeout and Connectivity Issues"
+    category: "in-memory-database-problem"
+    author: Prequel Community
+    description: |
+      Detects Redis connection timeout errors and connectivity failures that prevent clients from establishing or maintaining connections to the Redis server. These issues commonly occur during high load, network problems, or server resource exhaustion.
+    cause: |
+      - Network latency or packet loss between client and Redis server
+      - Redis server CPU overload causing slow response times
+      - Client connection pool exhaustion or misconfiguration
+      - Firewall or security group blocking connections
+      - Redis server reached max clients limit
+      - DNS resolution failures
+      - Redis server process crashed or unresponsive
+    impact: |
+      - Application unable to read/write cache data
+      - Increased latency for user requests
+      - Potential data inconsistency if writes fail silently
+      - Backend database overload due to cache unavailability
+      - Service degradation or complete outage
+      - Connection pool exhaustion leading to thread blocking
+    impactScore: 10
+    tags:
+      - redis
+      - connection
+      - timeout
+      - connectivity
+      - network
+    mitigation: |
+      IMMEDIATE ACTIONS:
+      - Verify Redis server is running: `systemctl status redis`
+      - Test connectivity: `redis-cli -h <host> -p <port> ping`
+      - Check current connections: `redis-cli CLIENT LIST | wc -l`
+      - Review max clients setting: `redis-cli CONFIG GET maxclients`
+      
+      RECOVERY:
+      - Restart Redis service if unresponsive:
+        `systemctl restart redis`
+      - Increase connection timeout in client:
+        `redis.conf: timeout 300`
+      - Kill idle connections:
+        `redis-cli CLIENT KILL TYPE normal`
+      - Increase max clients limit:
+        `redis-cli CONFIG SET maxclients 10000`
+      
+      NETWORK TROUBLESHOOTING:
+      - Check firewall rules: `iptables -L -n`
+      - Test network connectivity: `telnet redis-host 6379`
+      - Verify DNS resolution: `nslookup redis-host`
+      - Check for packet loss: `ping -c 100 redis-host`
+      
+      PREVENTION:
+      - Implement connection pooling with proper sizing
+      - Configure appropriate timeout values
+      - Monitor connection metrics and set alerts
+      - Use Redis Sentinel or Cluster for high availability
+      - Implement circuit breaker pattern in clients
+      - Regular load testing and capacity planning
+    mitigationScore: 7
+    references:
+      - https://redis.io/docs/latest/operate/oss_and_stack/management/troubleshooting/#latency-issues
+      - https://redis.io/commands/client-list/
+      - https://redis.io/docs/latest/develop/clients/
+    applications:
+      - name: redis
+        version: "*"
+      - name: redis-cli
+        version: "*"
+    reports: 89
+  metadata:
+    kind: prequel
+    id: Hf8NpQr4VxKmLw9TbYaZe6
+    gen: 1
+  rule:
+    set:
+      window: 180s
+      event:
+        source: cre.log.redis
+      match:
+        - regex: "Connection timeout"
+        - regex: "Unable to connect to Redis"
+        - regex: "Could not connect to Redis"
+        - regex: "redis connection timeout"
+        - regex: "Connection pool.*exhausted"

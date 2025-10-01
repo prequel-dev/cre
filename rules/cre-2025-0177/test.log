@@ -1,0 +1,8 @@
+2024-01-15 15:00:01.123 [WARN] Slow log entry: command KEYS * took 15234 microseconds
+2024-01-15 15:00:02.234 [WARN] Redis slowlog threshold exceeded for command: SMEMBERS large_set
+2024-01-15 15:00:03.345 [WARN] Query execution slow: ZRANGE bigset 0 -1 took 8500 milliseconds
+2024-01-15 15:00:04.456 [WARN] SLOWLOG: latency threshold exceeded (5000 microseconds)
+2024-01-15 15:00:05.567 [WARN] Latency spike detected: 12000 microseconds for GET operation
+2024-01-15 15:00:06.678 [ERROR] Operation LRANGE exceeded timeout of 5000ms
+2024-01-15 15:00:07.789 [WARN] Redis server high latency detected: avg response time 850ms
+2024-01-15 15:00:08.890 [WARN] Lua script execution took 25000 microseconds

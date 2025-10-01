@@ -43,11 +43,13 @@ rules:
       applications:
         - name: istio-cni
           version: ">=1.26.0"
+      impactScore: 9
+      mitigationScore: 7
     rule:
       set:
         window: 60s
         event:
-          source: cre.log.ambient
+          source: cre.kubernetes
         match:
           - regex: "FailedCreatePodSandBox"
           - regex: "no ztunnel connection"

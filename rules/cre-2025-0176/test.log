@@ -1,0 +1,8 @@
+2024-01-15 14:00:01.123 [ERROR] MISCONF Redis is configured to save RDB snapshots, but it's currently unable to persist to disk
+2024-01-15 14:00:02.234 [ERROR] Can't save in background: fork: Cannot allocate memory
+2024-01-15 14:00:03.345 [ERROR] Failed opening dump.rdb for saving: No space left on device
+2024-01-15 14:00:04.456 [ERROR] Write error saving DB on disk: No space left on device
+2024-01-15 14:00:05.567 [ERROR] AOF rewrite: write error - no space left on device
+2024-01-15 14:00:06.678 [ERROR] Error moving temp DB file dump.rdb.tmp on the final destination dump.rdb
+2024-01-15 14:00:07.789 [ERROR] BGSAVE failed: No space left on device
+2024-01-15 14:00:08.890 [CRITICAL] Redis persistence disabled due to repeated write failures

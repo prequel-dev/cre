@@ -1,0 +1,12 @@
+2025-01-28T10:20:15Z ERROR   supabase-auth    GOTRUE_JWT_SECRET is required but not provided
+2025-01-28T10:20:15Z ERROR   supabase-auth    invalid JWT secret: JWT_SECRET must be at least 32 characters long
+2025-01-28T10:20:16Z ERROR   supabase-auth    authentication failed: invalid JWT signature
+2025-01-28T10:20:16Z ERROR   supabase-rest    JWT validation failed: token signature is invalid
+2025-01-28T10:20:17Z ERROR   supabase-auth    failed to validate JWT token: crypto/rsa: verification error
+2025-01-28T10:20:17Z ERROR   supabase-rest    authentication error: invalid token signature, expected different signing method
+2025-01-28T10:20:18Z WARN    supabase-auth    JWT_SECRET environment variable is empty, using default (INSECURE)
+2025-01-28T10:20:18Z ERROR   supabase-rest    PGRST_JWT_SECRET validation failed: secret too short
+2025-01-28T10:20:19Z ERROR   supabase-auth    cannot decode JWT token: illegal base64 data
+2025-01-28T10:20:19Z ERROR   supabase-kong    authentication plugin error: JWT verification failed
+
+

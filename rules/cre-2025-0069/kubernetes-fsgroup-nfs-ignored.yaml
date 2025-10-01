@@ -49,7 +49,7 @@ rules:
       set:
         window: 5s
         event:
-          source: cre.k8s.manifest
+          source: cre.prequel.kubernetes.resource.persistentvolumes.v1
         match:
           - jq: '.kind == "PersistentVolume" and (.spec.nfs != null)'
           - jq: >

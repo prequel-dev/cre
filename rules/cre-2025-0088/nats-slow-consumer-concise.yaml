@@ -47,7 +47,7 @@ rules:
     rule:
       set:
         event:
-          source: cre.log.nats.jetstream
+          source: cre.log.nats
         match:
           - regex: '(?i)jetstream\s+failed\s+to\s+store.*maximum\s+bytes\s+exceeded'
             count: 1
