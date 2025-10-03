@@ -37,11 +37,13 @@ rules:
         - Monitor ztunnel logs for frequent timeouts & alert
       references:
         - https://github.com/istio/istio/wiki/Troubleshooting-Istio-Ambient#scenario-traffic-timeout-with-ztunnel
+      impactScore: 8
+      mitigationScore: 7
     rule:
       set:
         window: 180s
         event:
-          source: cre.log.ambient
+          source: cre.log.istio-proxy
         match:
         - regex: 'error +access +connection +complete +.*error="io error: deadline has elapsed"'
         - regex: 'error +access +connection +complete +.*error="connection timed out, maybe a NetworkPolicy is blocking HBONE port 15008: deadline has elapsed"'
