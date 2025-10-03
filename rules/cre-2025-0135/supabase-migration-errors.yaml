@@ -69,7 +69,7 @@ rules:
       set:
         window: 5m
         event:
-          source: cre.log.postgres
+          source: cre.log.postgresql
         match:
           - regex: 'syntax error at or near|ERROR.*invalid syntax|SQL.*parse error'
           - regex: 'relation.*does not exist|column.*does not exist|invalid.*data.*type'
