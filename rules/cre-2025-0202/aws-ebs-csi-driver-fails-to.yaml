@@ -1,6 +1,6 @@
 rules:
 - cre:
-    id: CRE-2025-0201
+    id: CRE-2025-0202
     severity: 3
     title: The snapshot functionality of the AWS EBS CSI Driver is failing.
     category: storage-problem

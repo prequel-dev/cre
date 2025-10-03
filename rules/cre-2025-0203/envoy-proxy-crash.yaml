@@ -3,7 +3,7 @@ rules:
       kind: prequel
       id: Xf7XtYhAqPrV2ZaC1Kj4Lm
     cre:
-      id: CRE-2025-0105
+      id: CRE-2025-0203
       severity: 0
       title: Envoy Proxy Crash Due to Assertion Failure
       category: envoy-proxy-failures
@@ -37,7 +37,7 @@ rules:
       set:
         window: 1s
         event:
-          source: cre.log
+          source: cre.log.envoy
         match:
           - regex: '(?i)critical\]\[assert\]'
             count: 1
