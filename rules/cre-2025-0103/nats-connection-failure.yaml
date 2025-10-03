@@ -48,6 +48,8 @@ rules:
       applications:
         - name: "nats"
           version: ">=2.0.0"
+      impactScore: 8
+      mitigationScore: 7
     rule:
       sequence:
         window: 30s

@@ -53,6 +53,6 @@ rules:
     rule:
       set:
         event:
-          source: cre.log.kubernetes
+          source: cre.kubernetes
         match:
           - regex: "Scaled down replica set coredns-.+ from [1-9]+ to 0|Stopping container coredns|Readiness probe failed.+connection refused" 

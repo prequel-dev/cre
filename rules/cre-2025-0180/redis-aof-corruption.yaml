@@ -1,0 +1,108 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: Rm7WpNx4KfQbTs9YeLaGd3
+      hash: Xk5Nf8PmWsRq2VbLtHeYn6
+    cre:
+      id: CRE-2025-0180
+      severity: 0
+      title: "Redis AOF File Corruption and Recovery Failure"
+      category: "in-memory-database-problem"
+      author: Prequel Community
+      description: |
+        Detects Redis Append-Only File (AOF) corruption that prevents Redis from starting or causes data loss. AOF corruption typically occurs due to unexpected shutdowns, disk errors, or incomplete writes during crashes.
+      cause: |
+        - Unexpected server shutdown during AOF write
+        - Disk errors or bad sectors
+        - Filesystem corruption
+        - Incomplete AOF rewrite operation
+        - Power failure during persistence
+        - Manual AOF file modification
+        - Disk full during AOF append
+        - Memory corruption affecting AOF buffer
+      impact: |
+        - Redis fails to start with corrupted AOF
+        - Potential data loss up to corruption point
+        - Service complete unavailability
+        - Recovery requires manual intervention
+        - Possible loss of recent transactions
+        - Extended downtime for large AOF files
+      tags:
+        - redis
+        - aof
+        - corruption
+        - persistence
+        - recovery
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Check Redis logs: `tail -100 /var/log/redis/redis-server.log`
+        - Verify AOF file integrity: `redis-check-aof /var/lib/redis/appendonly.aof`
+        - Backup corrupted AOF before repair:
+          `cp /var/lib/redis/appendonly.aof /var/lib/redis/appendonly.aof.backup`
+        
+        RECOVERY:
+        - Option 1: Repair AOF file (may lose some data):
+          ```
+          redis-check-aof --fix /var/lib/redis/appendonly.aof
+          systemctl start redis
+          ```
+        - Option 2: Truncate corrupted portion:
+          ```
+          # Find last valid command position
+          redis-check-aof /var/lib/redis/appendonly.aof
+          # Truncate at valid position
+          truncate -s <valid_position> /var/lib/redis/appendonly.aof
+          ```
+        - Option 3: Start without AOF (data loss):
+          ```
+          mv /var/lib/redis/appendonly.aof /var/lib/redis/appendonly.aof.corrupt
+          redis-server --appendonly no
+          ```
+        
+        AOF VALIDATION:
+        - Test AOF in safe environment:
+          ```
+          redis-server --appendonly yes --appendfilename test.aof --dir /tmp/
+          ```
+        - Verify data after recovery:
+          `redis-cli DBSIZE`
+        
+        PREVENTION:
+        - Enable AOF with RDB for redundancy:
+          ```
+          appendonly yes
+          save 900 1
+          save 300 10
+          ```
+        - Configure AOF fsync policy:
+          `appendfsync everysec`
+        - Regular AOF rewrites:
+          `auto-aof-rewrite-percentage 100`
+        - Monitor disk health regularly
+        - Implement proper shutdown procedures
+        - Use UPS to prevent power-related corruption
+        - Regular backups and recovery testing
+      references:
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/#append-only-file
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/debugging/#redis-check-aof
+        - https://redis.io/topics/problems#aof-corruption
+      applications:
+        - name: redis
+          version: ">=1.0.0"
+      impactScore: 10
+      mitigationScore: 6
+      reports: 45
+    rule:
+      set:
+        window: 300s
+        event:
+          source: cre.log.redis
+        match:
+          - regex: "Bad file format reading the append only file"
+          - regex: "AOF.*corrupted|corrupt.*AOF"
+          - regex: "Short read or OOM loading DB"
+          - regex: "Error loading the AOF"
+          - regex: "Invalid AOF.*signature"
+          - regex: "Unexpected end of file reading AOF"
+          - regex: "AOF.*truncated|truncate.*AOF"
+          - regex: "Wrong signature trying to load AOF"

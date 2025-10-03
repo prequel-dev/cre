@@ -40,7 +40,7 @@ rules:
       set:
         window: 5s
         event:
-          source: cre.log.keda-operator.2.*
+          source: cre.log.keda-operator
         match:
           - value: "ResolveScaleTargetPodSpec"
           - value: "scale_resolvers.go"
