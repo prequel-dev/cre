@@ -1,0 +1,32 @@
+{"timestamp":"2025-08-30T22:24:12.001Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"=== Real Meta Tensor Corruption Failure Reproduction ==="}
+{"timestamp":"2025-08-30T22:24:12.002Z","level":"ERROR","source":"cre.log.stable-diffusion-webui","message":"This script will actually trigger PyTorch meta tensor errors"}
+{"timestamp":"2025-08-30T22:24:12.003Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":""}
+{"timestamp":"2025-08-30T22:24:12.004Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Test 1: Direct Meta Tensor Corruption ---"}
+{"timestamp":"2025-08-30T22:24:12.005Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Creating meta tensor..."}
+{"timestamp":"2025-08-30T22:24:12.006Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Attempting to copy meta tensor to CUDA..."}
+{"timestamp":"2025-08-30T22:24:12.007Z","level":"ERROR","source":"cre.log.stable-diffusion-webui","message":"Meta tensor error triggered: Cannot copy out of meta tensor; no data!"}
+{"timestamp":"2025-08-30T22:24:12.008Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":""}
+{"timestamp":"2025-08-30T22:24:12.009Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Test 2: Device Mismatch ---"}
+{"timestamp":"2025-08-30T22:24:12.010Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Creating tensors on different devices..."}
+{"timestamp":"2025-08-30T22:24:12.011Z","level":"ERROR","source":"cre.log.stable-diffusion-webui","message":"Device mismatch error: CUDA error: no kernel image is available for execution on the device"}
+{"timestamp":"2025-08-30T22:24:12.012Z","level":"ERROR","source":"cre.log.stable-diffusion-webui","message":"kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect."}
+{"timestamp":"2025-08-30T22:24:12.013Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"debugging consider passing CUDA_LAUNCH_BLOCKING=1"}
+{"timestamp":"2025-08-30T22:24:12.014Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"with `TORCH_USE_CUDA_DSA` to enable device-side assertions."}
+{"timestamp":"2025-08-30T22:24:12.015Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":""}
+{"timestamp":"2025-08-30T22:24:12.016Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":""}
+{"timestamp":"2025-08-30T22:24:12.017Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Test 3: Model Loading Failure ---"}
+{"timestamp":"2025-08-30T22:24:12.018Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Starting model loading simulation..."}
+{"timestamp":"2025-08-30T22:24:12.019Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Creating model from config: configs/v1-inference.yaml"}
+{"timestamp":"2025-08-30T22:24:12.020Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Loading weights from models/Stable-diffusion/model.safetensors"}
+{"timestamp":"2025-08-30T22:24:12.021Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Creating model with corrupted tensors..."}
+{"timestamp":"2025-08-30T22:24:12.022Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Model created successfully"}
+{"timestamp":"2025-08-30T22:24:12.023Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Attempting to move model to CUDA..."}
+{"timestamp":"2025-08-30T22:24:12.024Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Model loading completed successfully"}
+{"timestamp":"2025-08-30T22:24:12.025Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":""}
+{"timestamp":"2025-08-30T22:24:12.026Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Test 4: Corrupted Checkpoint ---"}
+{"timestamp":"2025-08-30T22:24:12.027Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Creating corrupted checkpoint file..."}
+{"timestamp":"2025-08-30T22:24:12.028Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Created corrupted checkpoint: /tmp/tmp86_xfqpp.safetensors"}
+{"timestamp":"2025-08-30T22:24:12.029Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Corrupted checkpoint created: /tmp/tmp86_xfqpp.safetensors"}
+{"timestamp":"2025-08-30T22:24:12.030Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":""}
+{"timestamp":"2025-08-30T22:24:12.031Z","level":"INFO","source":"cre.log.stable-diffusion-webui","message":"Reproduction Complete ==="}
+{"timestamp":"2025-08-30T22:24:12.032Z","level":"ERROR","source":"cre.log.stable-diffusion-webui","message":"Check 'real_failure.log' for actual error logs"}
