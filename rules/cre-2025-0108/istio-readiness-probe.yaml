@@ -48,6 +48,6 @@ rules:
         event:
           source: cre.kubernetes
         match:
-          - regex: "Readiness probe failed:"
+          - regex: 'Readiness probe failed: .*: context deadline exceeded \(Client.Timeout exceeded while awaiting headers\)'
             count: 4
-          - regex: "Back-off restarting failed container"
+          - regex: 'Back-off restarting failed container'
