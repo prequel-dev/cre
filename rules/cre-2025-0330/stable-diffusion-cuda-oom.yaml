@@ -4,7 +4,7 @@ rules:
       id: StableDiffusionCUDAOOMDetector
       generation: 1
     cre:
-      id: CRE-2025-0130
+      id: CRE-2025-0330
       severity: 0
       title: Stable Diffusion WebUI Critical CUDA Out of Memory Failure
       category: memory-problem
