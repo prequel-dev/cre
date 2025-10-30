@@ -1,0 +1,35 @@
+2025-08-31 14:23:45.234 [INFO] [autogpt.main] Starting AutoGPT v0.5.1 with goal: "Optimize my Python code for better performance"
+2025-08-31 14:23:45.567 [INFO] [autogpt.llm] Initializing OpenAI API client with model gpt-4
+2025-08-31 14:23:46.102 [INFO] [autogpt.agent] Agent initialized with memory backend: LocalCache
+2025-08-31 14:23:47.234 [INFO] [autogpt.agent] COMMAND = analyze_code args: {"code": "def slow_function():\\n    result = []\\n    for i in range(1000000):\\n        result.append(i**2)\\n    return result"}
+2025-08-31 14:23:48.567 [ERROR] [autogpt.commands] Error executing analyze_code: JSONDecodeError in response
+2025-08-31 14:23:48.890 [WARN] [autogpt.agent] Entering recursive analysis loop to debug previous error
+2025-08-31 14:23:49.234 [INFO] [autogpt.agent] THOUGHTS: Previous command failed, need to analyze what went wrong
+2025-08-31 14:23:49.567 [INFO] [autogpt.agent] NEXT ACTION: COMMAND = analyze_code args: {"code": "analyze_code function from autogpt/commands/analyze_code.py", "recursion depth": 1}
+2025-08-31 14:23:50.123 [DEBUG] [autogpt.memory] Storing error context, current size: 2.3MB
+2025-08-31 14:23:50.890 [ERROR] [autogpt.commands] Error executing analyze_code: Cannot analyze own execution context
+2025-08-31 14:23:51.234 [WARN] [autogpt.agent] Thinking... need to fix my own error handling
+2025-08-31 14:23:51.678 [INFO] [autogpt.agent] COMMAND = analyze_code args: {"code": "autogpt error handling module", "recursion depth": 2}
+2025-08-31 14:23:52.345 [DEBUG] [autogpt.memory] Memory usage increasing: 5.7MB, token count: 8234
+2025-08-31 14:23:52.890 [ERROR] [autogpt.llm] API request failed: context length exceeded
+2025-08-31 14:23:53.234 [INFO] [autogpt.agent] SYSTEM: Potential loop detected but continuing to resolve errors
+2025-08-31 14:23:53.567 [INFO] [autogpt.agent] THOUGHTS: Error analyzing previous attempt, need deeper analysis
+2025-08-31 14:23:54.012 [INFO] [autogpt.agent] NEXT ACTION: COMMAND = analyze_code args: {"code": "full autogpt execution trace", "recursion depth": 3}
+2025-08-31 14:23:54.678 [WARN] [autogpt.monitor] Task queue growing: 12 pending tasks
+2025-08-31 14:23:55.234 [DEBUG] [autogpt.memory] Memory usage: 12.4MB, token count: 15672
+2025-08-31 14:23:55.890 [ERROR] [autogpt.commands] RecursionError: maximum recursion depth exceeded while calling analyze_code
+2025-08-31 14:23:56.345 [CRITICAL] [autogpt.agent] Task queue overflow: 47 pending recursive tasks
+2025-08-31 14:23:56.789 [INFO] [autogpt.agent] COMMAND = analyze_code args: {"code": "recursion error in analyze_code", "recursion depth": 4}
+2025-08-31 14:23:57.234 [ERROR] [autogpt.llm] openai.error.RateLimitError: Rate limit reached for gpt-4 in organization
+2025-08-31 14:23:57.567 [WARN] [autogpt.monitor] Token consumption rate: 2341 tokens/second
+2025-08-31 14:23:58.012 [DEBUG] [autogpt.memory] Memory usage critical: 45.8MB, token count: 42318
+2025-08-31 14:23:58.456 [ERROR] [autogpt.agent] Too many pending tasks: 89 in queue
+2025-08-31 14:23:58.890 [INFO] [autogpt.agent] THOUGHTS: Still analyzing previous errors, must understand the recursion
+2025-08-31 14:23:59.234 [INFO] [autogpt.agent] NEXT ACTION: COMMAND = analyze_code args: {"code": "entire autogpt error stack", "recursion depth": 5}
+2025-08-31 14:23:59.678 [CRITICAL] [autogpt.monitor] JavaScript heap out of memory
+2025-08-31 14:24:00.123 [ERROR] [autogpt.memory] MemoryError: Cannot allocate memory for context storage
+2025-08-31 14:24:00.456 [CRITICAL] [autogpt.agent] Task buffer exceeded: 156 recursive analyze_code calls pending
+2025-08-31 14:24:00.789 [ERROR] [autogpt.llm] API rate limit exceeded: 429 Too Many Requests
+2025-08-31 14:24:01.123 [FATAL] [autogpt.main] AutoGPT crashed: Unrecoverable recursive loop detected
+2025-08-31 14:24:01.234 [INFO] [autogpt.cleanup] Emergency shutdown initiated
+2025-08-31 14:24:01.345 [ERROR] [autogpt.cleanup] Failed to save state: Out of memory

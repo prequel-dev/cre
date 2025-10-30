@@ -1,0 +1,68 @@
+rules:
+- cre:
+    id: CRE-2025-0145
+    severity: 0
+    title: AutoGPT Recursive Self-Analysis Loop Leading to Token Exhaustion and System Crash
+    category: infinite-loop-problem
+    author: prequel
+    description: |
+      - AutoGPT enters an infinite recursive loop when attempting to analyze and fix its own execution errors
+      - The agent repeatedly tries to debug its own code, spawning new analysis tasks for each failure
+      - Each iteration consumes API tokens and memory, eventually exhausting resources
+      - The loop accelerates as error messages grow longer, consuming tokens exponentially
+      - System becomes unresponsive and crashes with out-of-memory errors or API rate limit failures
+    cause: |
+      - AutoGPT's autonomous reasoning incorrectly identifies its own execution as a problem to solve
+      - Lack of loop detection mechanisms allows unlimited recursive task spawning
+      - Error context accumulation causes exponential growth in prompt size
+      - Missing safeguards for self-referential task creation
+      - Insufficient resource monitoring and circuit breakers for runaway processes
+    tags:
+      - autogpt
+      - infinite-loop
+      - token-exhaustion
+      - autonomous-agents
+      - llm
+      - openai
+      - recursive-analysis
+      - critical-failure
+      - memory-exhaustion
+      - crash-loop
+      - rate-limiting
+    mitigation: |
+      - Implement loop detection to identify and break recursive self-analysis patterns
+      - Add resource consumption thresholds (tokens, memory, API calls) with automatic shutdown
+      - Create task depth limits to prevent unlimited recursion
+      - Implement circuit breakers that trigger after repeated similar failures
+      - Add explicit blacklist for self-referential task creation
+      - Monitor token usage rate and implement exponential backoff
+      - Use separate monitoring process to detect and kill runaway AutoGPT instances
+      - Implement task deduplication to prevent identical recursive operations
+    references:
+      - https://github.com/Significant-Gravitas/AutoGPT/issues/1994
+      - https://github.com/Significant-Gravitas/AutoGPT/issues/3766
+      - https://github.com/Significant-Gravitas/AutoGPT/issues/1543
+      - https://jina.ai/news/auto-gpt-unmasked-hype-hard-truths-production-pitfalls/
+    applications:
+      - name: autogpt
+        version: ">=0.3.0"
+      - name: openai
+        version: ">=0.27.0"
+    impact: Complete system failure with resource exhaustion, potential financial losses from API overconsumption
+    impactScore: 9
+    mitigationScore: 3
+    reports: 15
+  metadata:
+    kind: prequel
+    id: 4kRDJ3CPPMtMZu5xr8Vo28
+    gen: 1
+  rule:
+    set:
+      window: 30s
+      event:
+        source: cre.log.autogpt
+      match:
+        - value: 'Entering recursive analysis loop'
+        - value: 'COMMAND = analyze_code'
+        - value: 'recursion depth'
+        - value: 'RecursionError: maximum recursion depth exceeded'
