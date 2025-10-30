@@ -848,6 +848,9 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
+  - name: sqlite
+    displayName: SQLite
+    description: Problems related to SQLite database system
   - name: maxmemory
     displayName: Max Memory
     description: Problems related to Redis maxmemory configuration and memory limits
@@ -951,14 +954,41 @@ tags:
     displayName: Recursive Analysis
     description: Problems where systems enter recursive self-analysis loops leading to resource exhaustion
   - name: n8n
-    displayName: N8N
+    displayName: n8n
     description: Problems related to n8n workflow automation platform
+  - name: production-issue
+    displayName: Production Issue
+    description: Problems that occur specifically in production environments
+  - name: configuration-error
+    displayName: Configuration Error
+    description: Problems caused by incorrect configuration settings or environment variables
+  - name: connection-pooling
+    displayName: Connection Pooling
+    description: Problems related to database connection pool management and configuration
+  - name: single-connection
+    displayName: Single Connection
+    description: Problems caused by single connection mode in database systems
+  - name: concurrent-access
+    displayName: Concurrent Access
+    description: Problems related to concurrent access patterns in database or file systems
+  - name: data-persistence
+    displayName: Data Persistence
+    description: Problems with data persistence mechanisms and storage reliability
   - name: workflow-automation
     displayName: Workflow Automation
-    description: Problems related to workflow automation systems and platforms
+    description: Problems related to workflow automation platforms and orchestration systems
+  - name: business-critical
+    displayName: Business Critical
+    description: Problems that have direct impact on business operations and continuity
   - name: silent-failure
     displayName: Silent Failure
-    description: Problems that occur without visible error messages or alerts, making detection extremely difficult
+    description: Problems that occur without obvious error messages or warnings
+  - name: database-reliability
+    displayName: Database Reliability
+    description: Problems affecting database system reliability and data consistency
+  - name: database-write-failure
+    displayName: Database Write Failure
+    description: Problems where database write operations fail or are not properly persisted
   - name: production-critical
     displayName: Production Critical
     description: Issues that have severe impact on production systems and require immediate attention
