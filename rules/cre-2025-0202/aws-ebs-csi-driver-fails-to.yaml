@@ -1,0 +1,46 @@
+rules:
+- cre:
+    id: CRE-2025-0202
+    severity: 3
+    title: The snapshot functionality of the AWS EBS CSI Driver is failing.
+    category: storage-problem
+    author: Prequel
+    description: |
+      The AWS EBS CSI driver, fails to list `VolumeSnapshotClass` and `VolumeSnapshotContent`.
+    cause: |
+      To manipulate snapshots of a Kubernetes `PersistentVolume` backed by the AWS EBS CSI driver, the installation of external-snapshotter is required.
+    tags:
+      - ebs
+      - csi
+      - aws
+      - storage
+      - public
+    mitigation: | 
+      - Install external-snapshotter
+    references:
+      - https://github.com/kubernetes-sigs/aws-ebs-csi-driver/issues/1447#issuecomment-1664682557
+      - https://github.com/kubernetes-csi/external-snapshotter
+    applications:
+      - name: aws-ebs-csi-driver
+        version:  1.26.1
+        imageUrl: public.ecr.aws/eks/aws-ebs-csi-driver:v1.25.0
+        containerName: ebs-csi-controller
+    impact: degraded volume snapshotting functionality
+    impactScore: 3
+    mitigationScore: 1
+    reports: 4
+  metadata:
+    kind: prequel
+    id: 3o6P1D452JrSTHb3449WcB
+    gen: 1
+  rule:
+    set:
+      event:
+        source: cre.log.ebs-csi-snapshotter
+      window: 1m
+      match:
+        - value: Unhandled Error
+        - value: Failed to watch *v1.VolumeSnapshotClass
+        - value: Failed to watch *v1.VolumeSnapshotContent
+        - value: the server could not find the requested resource (get volumesnapshotclasses.snapshot.storage.k8s.io)
+        - value: the server could not find the requested resource (get volumesnapshotcontents.snapshot.storage.k8s.io)

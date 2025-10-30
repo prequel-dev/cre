@@ -1,0 +1,85 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: Bx5MnWq8TdRpLk3YfNvGa7
+      hash: Jk9Pf4XsNmRw2QbVtHeLy6
+    cre:
+      id: CRE-2025-0174
+      severity: 0
+      title: "Redis Authentication Failures and ACL Permission Denials"
+      category: "in-memory-database-problem"
+      author: Prequel Community
+      description: |
+        Detects Redis authentication failures including wrong passwords, missing authentication, and ACL permission denials. These errors prevent legitimate clients from accessing Redis and may indicate security misconfigurations or attempted unauthorized access.
+      cause: |
+        - Incorrect password provided by client
+        - Redis requirepass configured but client not sending auth
+        - ACL user lacks required permissions for commands
+        - Password rotation without updating client configs
+        - Expired or disabled ACL user accounts
+        - Misconfigured Redis AUTH settings
+      impact: |
+        - Complete inability to access Redis cache/data
+        - Application features dependent on Redis fail
+        - Service outages if Redis is critical infrastructure
+        - Security risk if authentication is bypassed
+        - Potential data exposure if misconfigured
+      tags:
+        - redis
+        - authentication
+        - security
+        - acl
+        - wrongpass
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Verify Redis auth configuration: `redis-cli CONFIG GET requirepass`
+        - Test authentication: `redis-cli -a <password> ping`
+        - Check ACL users: `redis-cli ACL LIST`
+        - Review client connection strings for correct credentials
+        
+        RECOVERY:
+        - Update client password configuration
+        - Reset Redis password if needed:
+          `redis-cli CONFIG SET requirepass newpassword`
+        - Fix ACL permissions for user:
+          `redis-cli ACL SETUSER username +@all`
+        - Disable auth temporarily (UNSAFE):
+          `redis-cli CONFIG SET requirepass ""`
+        
+        ACL TROUBLESHOOTING:
+        - List user permissions: `redis-cli ACL GETUSER username`
+        - Grant specific command access:
+          `redis-cli ACL SETUSER username +get +set +del`
+        - Create new user with full access:
+          `redis-cli ACL SETUSER newuser on >password +@all`
+        
+        PREVENTION:
+        - Use environment variables for passwords
+        - Implement proper secret management
+        - Regular password rotation with coordination
+        - Monitor authentication failure rates
+        - Use ACL for fine-grained access control
+        - Document authentication requirements
+      references:
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/
+        - https://redis.io/commands/auth/
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/security/
+      applications:
+        - name: redis
+          version: ">=6.0.0"
+      impactScore: 7
+      mitigationScore: 8
+      reports: 156
+    rule:
+      set:
+        window: 120s
+        event:
+          source: cre.log.redis
+        match:
+          - regex: "WRONGPASS invalid username-password pair"
+          - regex: "NOAUTH Authentication required"
+          - regex: "ERR invalid password"
+          - regex: "ERR wrong password"
+          - regex: "NOPERM.*has no permissions to run"
+          - regex: "ERR ACL.*permission denied"
+          - regex: "AUTH failed.*invalid.*credentials"

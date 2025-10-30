@@ -213,6 +213,9 @@ tags:
   - name: api-key
     displayName: Api Key
     description: Problems related to API keys, such as missing, invalid, or expired credentials
+  - name: jwt
+    displayName: JWT
+    description: Problems related to JSON Web Tokens, such as invalid signatures, expired tokens, or malformed claims
   - name: async
     displayName: Async
     description: Problems related to asynchronous execution, such as hung tasks, race conditions, or callback errors
@@ -848,6 +851,108 @@ tags:
   - name: sqlite
     displayName: SQLite
     description: Problems related to SQLite database system
+  - name: maxmemory
+    displayName: Max Memory
+    description: Problems related to Redis maxmemory configuration and memory limits
+  - name: noeviction
+    displayName: No Eviction
+    description: Issues when Redis noeviction policy prevents writing new data
+  - name: wrongpass
+    displayName: Wrong Password
+    description: Authentication failures due to incorrect Redis passwords
+  - name: master-replica
+    displayName: Master-Replica
+    description: Issues with Redis master-replica replication relationships
+  - name: sync
+    displayName: Sync
+    description: Data synchronization problems in distributed systems
+  - name: psync
+    displayName: Partial Sync
+    description: Redis partial resynchronization issues
+  - name: aof
+    displayName: AOF
+    description: Redis Append-Only File persistence issues
+  - name: slowlog
+    displayName: Slow Log
+    description: Database slow query logging and performance issues
+  - name: latency
+    displayName: Latency
+    description: Response time and performance latency issues
+  - name: slow-query
+    displayName: Slow Query
+    description: Database queries that exceed performance thresholds
+  - name: write-error
+    displayName: Write Error
+    description: Failures when attempting write operations
+  - name: recovery
+    displayName: Recovery
+    description: Data recovery and restoration operations
+  - name: maxclients
+    displayName: Max Clients
+    description: Connection limit issues in database systems
+  - name: connection-pool
+    displayName: Connection Pool
+    description: Problems with database connection pooling
+  - name: limit
+    displayName: Limit
+    description: Various system and resource limits being exceeded
+  - name: disk
+    displayName: Disk
+    description: Problems related to disk storage, space, or I/O operations
+  - name: replica
+    displayName: Replica
+    description: Issues related to database replicas and read-only instances
+  - name: supabase
+    displayName: Supabase
+    description: Problems related to Supabase self-hosted deployments and services
+  - name: gotrue
+    displayName: GoTrue
+    description: Problems related to Supabase's GoTrue authentication service
+  - name: realtime
+    displayName: Realtime
+    description: Problems related to Supabase's realtime service and WebSocket connections
+  - name: self-hosted
+    displayName: Self-Hosted
+    description: Problems specific to self-hosted deployments and infrastructure
+  - name: exit-code
+    displayName: Exit Code
+    description: Problems identified by specific process/container exit codes (e.g., 137, 127, 134, 139).
+  - name: entrypoint
+    displayName: Entrypoint
+    description: Failures caused by invalid or missing container ENTRYPOINT/CMD definitions.
+  - name: command
+    displayName: Command
+    description: Problems caused by invalid commands or arguments at startup (e.g., not found, bad path, non-executable).
+  - name: sigabrt
+    displayName: SIGABRT
+    description: Crashes where a process aborts with SIGABRT (exit 134), often due to assertion failures or allocator checks.
+  - name: native
+    displayName: Native
+    description: Issues in native code paths (C/C++/Rust, libc/ABI), including crashes and memory faults.
+  - name: reliability
+    displayName: Reliability
+    description: Unstable behavior such as unexpected restarts, crash loops, or intermittent failures affecting service reliability.
+  - name: autogpt
+    displayName: AutoGPT
+    description: Problems related to AutoGPT autonomous AI agent framework
+  - name: infinite-loop
+    displayName: Infinite Loop
+    description: Problems where code enters infinite loops causing resource exhaustion or system hangs
+  - name: token-exhaustion
+    displayName: Token Exhaustion
+    description: Problems where LLM API token limits are exceeded causing service failures
+  - name: autonomous-agents
+    displayName: Autonomous Agents
+    description: Problems related to autonomous AI agents that chain LLM reasoning with real-world actions
+  - name: llm
+    displayName: LLM
+    description: Problems related to Large Language Models and their API integrations
+  - name: openai
+    displayName: OpenAI
+    description: Problems related to OpenAI API services including GPT models
+  - name: recursive-analysis
+    displayName: Recursive Analysis
+    description: Problems where systems enter recursive self-analysis loops leading to resource exhaustion
   - name: n8n
     displayName: n8n
     description: Problems related to n8n workflow automation platform

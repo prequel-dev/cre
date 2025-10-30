@@ -1,0 +1,44 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: TDtvSvVJU5vUaLZuRZBVk9
+    cre:
+      id: CRE-2025-0127
+      severity: 2
+      title: Container exited 127 due to command not found (bad entrypoint/command)
+      category: configuration-problem
+      author: CRE Community
+      description: |
+        Exit code 127 indicates the configured command/entrypoint was not found in the image or PATH.
+        New or misconfigured deployments commonly hit this and immediately crash.
+      cause: |
+        - Typo in command/entrypoint or wrong binary path.
+        - Missing executable in the image or non-executable file permissions.
+        - Different base image where the tool isn’t installed by default.
+      impact: |
+        - Pod fails to start; controllers may enter CrashLoopBackOff.
+        - Service remains unavailable until the image/command is fixed.
+      tags:
+        - k8s
+        - exit-code
+        - command
+        - entrypoint
+        - startup-failure
+      mitigation: |
+        - Verify the binary exists and is executable (`chmod +x`).
+        - Use absolute paths or fix PATH; test with `docker run` locally.
+        - Add pre-deploy checks in CI to validate entrypoint presence.
+      references:
+        - "https://kubernetes.io/docs/concepts/workloads/pods/"
+      applications:
+        - name: kubernetes
+          version: ">=1.16"
+      impactScore: 3
+      mitigationScore: 3
+      reports: 6
+    rule:
+      set:
+        event:
+          source: cre.kubernetes
+        match:
+          - regex: "^[^\\t]+\\t[^\\t/]+/[^\\t]+\\t[^\\t]+\\t[^\\t]*\\t127$"

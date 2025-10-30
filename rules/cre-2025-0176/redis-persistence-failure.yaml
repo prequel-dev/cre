@@ -1,0 +1,96 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: Yx4NmQp7RdWfKs8LbHaVt9
+      hash: Pm3Xk6WsNbRq5TfGeLyVn2
+    cre:
+      id: CRE-2025-0176
+      severity: 0
+      title: "Redis Persistence Failure - MISCONF Disk Write Errors"
+      category: "in-memory-database-problem"
+      author: Prequel Community
+      description: |
+        Detects Redis MISCONF errors when the server cannot persist data to disk due to RDB/AOF write failures. This critical error prevents Redis from saving snapshots and may lead to data loss on restart.
+      cause: |
+        - Disk full or insufficient space for RDB/AOF files
+        - File system permissions preventing writes
+        - Disk I/O errors or hardware failures
+        - AOF file corruption
+        - Background save process (BGSAVE) failures
+        - Operating system resource limits reached
+        - File system mounted read-only
+      impact: |
+        - Redis stops accepting write commands (by default)
+        - Complete data loss on server restart
+        - Inability to create backups
+        - Replication to slaves may fail
+        - Application write operations blocked
+        - Service degradation or outage
+      tags:
+        - redis
+        - persistence
+        - misconf
+        - rdb
+        - aof
+        - disk
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Check disk space: `df -h /var/lib/redis`
+        - Review Redis persistence status: `redis-cli INFO persistence`
+        - Check last save status: `redis-cli LASTSAVE`
+        - Verify file permissions: `ls -la /var/lib/redis/`
+        
+        RECOVERY:
+        - Free disk space:
+          ```
+          # Clean old logs
+          find /var/log -name "*.gz" -delete
+          # Remove old backups
+          rm /var/lib/redis/dump.rdb.old
+          ```
+        - Fix permissions:
+          `chown redis:redis /var/lib/redis/*`
+        - Temporarily disable persistence (RISKY):
+          ```
+          redis-cli CONFIG SET save ""
+          redis-cli CONFIG SET stop-writes-on-bgsave-error no
+          ```
+        - Force manual save after fixing:
+          `redis-cli BGSAVE`
+        
+        DISK TROUBLESHOOTING:
+        - Check disk errors: `dmesg | grep -i error`
+        - Verify filesystem: `fsck /dev/sda1`
+        - Monitor I/O: `iostat -x 1`
+        - Check mount options: `mount | grep redis`
+        
+        PREVENTION:
+        - Monitor disk usage with alerts at 80% capacity
+        - Regular disk cleanup automation
+        - Separate partition for Redis data
+        - Configure appropriate save intervals
+        - Use both RDB and AOF for redundancy
+        - Regular backup verification
+      references:
+        - https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/
+        - https://redis.io/commands/bgsave/
+        - https://redis.io/topics/problems#background-saving-fails-with-a-fork-error
+      applications:
+        - name: redis
+          version: "*"
+      impactScore: 9
+      mitigationScore: 7
+      reports: 234
+    rule:
+      set:
+        window: 180s
+        event:
+          source: cre.log.redis
+        match:
+          - regex: "MISCONF Redis is configured to save RDB snapshots.*unable to persist.*disk"
+          - regex: "Can't save in background"
+          - regex: "Failed opening.*rdb for saving"
+          - regex: "Write error saving DB on disk"
+          - regex: "AOF.*write error"
+          - regex: "Error moving temp.*file.*final destination"
+          - regex: "BGSAVE.*failed.*No space"
