@@ -132,6 +132,9 @@ categories:
   - name: ubuntu-desktop-problem
     displayName: Ubuntu Desktop Problems
     description: "Problems related to Ubuntu Desktop"
+  - name: ai-ml-framework-problem
+    displayName: AI/ML Framework Problems
+    description: Problems related to AI/ML frameworks such as Stable Diffusion, PyTorch, and TensorFlow
   - name: hpc-database-problem
     displayName: HPC Database Problems
     description: Database issues specific to high-performance computing systems like SLURM
