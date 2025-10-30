@@ -2,9 +2,8 @@ rules:
   - metadata:
       kind: prequel
       id: 5K8mNpQr8vTzHJsEXwGcM
-      version: "1.0.0"
     cre:
-      id: CRE-2025-0100
+      id: CRE-2025-0150
       severity: 0
       title: "AutoGPT Prompt Injection + Memory Exhaustion Cascade"
       category: "prompt-injection-memory-exhaustion"
@@ -64,7 +63,6 @@ rules:
       applications:
         - name: "AutoGPT"
           version: ">=0.4.0"
-          containerName: "autogpt-backend"
       tags:
         - autogpt
         - prompt-injection
@@ -84,39 +82,14 @@ rules:
           source: application-logs
           origin: true
         order:
-          - prompt_compression_errors
-          - memory_pressure_indicators
-          - llm_retry_failures
-          - system_crash
+          - regex: "(?i)(compress_prompt.*exceeds budget|prompt.*compression.*triggered|token.*count.*exceeded)"
+            count: 2
+          - regex: "(?i)(memory.*usage.*exceeded|memory.*accumulation.*retry|memory.*exhaustion)"
+            count: 3
+          - regex: "(?i)(LLM.*API.*call.*failed.*retrying|maximum.*retry.*attempts.*exceeded)"
+            count: 2
+          - regex: "(?i)(process.*killed.*signal.*9|SIGKILL|OOM.*killer.*activated|container.*crashed)"
+            count: 1
         negate:
-          - normal_operation
-          - graceful_shutdown
-
-terms:
-  prompt_compression_errors:
-    field: message
-    regex: "(?i)(compress_prompt.*exceeds budget|prompt.*compression.*triggered|token.*count.*exceeded)"
-    count: 2
-
-  memory_pressure_indicators:
-    field: message
-    regex: "(?i)(memory.*usage.*exceeded|memory.*accumulation.*retry|memory.*exhaustion)"
-    count: 3
-
-  llm_retry_failures:
-    field: message
-    regex: "(?i)(LLM.*API.*call.*failed.*retrying|maximum.*retry.*attempts.*exceeded)"
-    count: 2
-
-  system_crash:
-    field: message
-    regex: "(?i)(process.*killed.*signal.*9|SIGKILL|OOM.*killer.*activated|container.*crashed)"
-    count: 1
-
-  normal_operation:
-    field: message
-    regex: "(?i)(started.*successfully|ready.*accept.*connections|health.*check.*passed)"
-
-  graceful_shutdown:
-    field: message
-    regex: "(?i)(graceful.*shutdown|shutting.*down.*normally|clean.*exit)"
+          - regex: "(?i)(started.*successfully|ready.*accept.*connections|health.*check.*passed)"
+          - regex: "(?i)(graceful.*shutdown|shutting.*down.*normally|clean.*exit)"
