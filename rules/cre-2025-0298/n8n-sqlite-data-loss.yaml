@@ -1,6 +1,6 @@
 rules:
   - cre:
-      id: CRE-2025-0178
+      id: CRE-2025-0298
       severity: 0
       title: n8n SQLite data loss due to incorrect pool size configuration
       category: database-problem
