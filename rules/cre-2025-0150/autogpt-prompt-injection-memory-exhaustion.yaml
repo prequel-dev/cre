@@ -65,15 +65,9 @@ rules:
           version: ">=0.4.0"
       tags:
         - autogpt
-        - prompt-injection
         - memory-exhaustion
         - crash
         - sigkill
-        - oom-killer
-        - recursive-tasks
-        - prompt-compression
-        - llm-retry
-        - critical-failure
       reports: 1
     rule:
       sequence:
