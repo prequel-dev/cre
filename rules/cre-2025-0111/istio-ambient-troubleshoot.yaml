@@ -46,6 +46,8 @@ rules:
         - network
       references:
         - https://github.com/istio/istio/wiki/Troubleshooting-Istio-Ambient#scenario-ztunnel-fails-with-failed-to-bind-to-address-115053-address-family-not-supported
+      impactScore: 8
+      mitigationScore: 7
     rule:
       set:
         event:

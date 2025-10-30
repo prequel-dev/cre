@@ -33,10 +33,12 @@ rules:
       applications:
         - name: "mongodb"
           version: "8.0"
+      mitigationScore: 6
+      impactScore: 8
     rule:
       set:
         event:
-          source: mongodb
+          source: cre.log.mongodb
         match:
           - regex: "Slow query"
         negate:

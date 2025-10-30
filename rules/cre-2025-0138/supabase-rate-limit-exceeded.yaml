@@ -1,0 +1,83 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: SB9R4t3L1m1tExc33d3dA
+      gen: 1
+    cre:
+      id: CRE-2025-0138
+      severity: 3
+      title: "Supabase Self-Hosted: API Rate Limit Exceeded and Request Throttling"
+      category: "api-problem"
+      author: Prequel
+      description: |
+        Detects when Supabase API requests are being rate-limited due to excessive traffic or aggressive client behavior.
+        This results in HTTP 429 responses and can indicate DDoS attacks, misconfigured clients, or insufficient
+        rate limiting configuration for the application's traffic patterns.
+      cause: |
+        - Aggressive rate limiting configuration (too low limits)
+        - Client applications making excessive API requests
+        - DDoS attack or malicious traffic patterns
+        - Retry loops in client code causing request amplification
+        - Missing request caching leading to redundant API calls
+        - Load testing without appropriate rate limit adjustments
+      tags:
+        - supabase
+        - rate-limiting
+        - throttling
+        - proxy
+        - performance
+        - self-hosted
+        - public
+      mitigation: |
+        IMMEDIATE:
+          - Review rate limiting configuration in Kong
+          - Identify source of excessive requests in logs
+          - Temporarily increase rate limits if legitimate traffic
+          - Block malicious IPs if under attack
+        CONFIGURATION:
+          - Adjust Kong rate limiting plugin settings:
+            ```yaml
+            rate-limiting:
+              config:
+                minute: 100    # Increase from current limits
+                policy: local
+            ```
+          - Implement different limits for different API endpoints
+          - Use Redis for distributed rate limiting if scaling
+        CLIENT-SIDE:
+          - Implement exponential backoff in client retry logic
+          - Add request caching for frequently accessed data
+          - Use WebSocket for real-time updates instead of polling
+          - Implement client-side rate limiting
+        MONITORING:
+          - Set up alerts for high rate limit rejection rates
+          - Monitor API usage patterns and trends
+          - Track legitimate vs. malicious traffic
+      references:
+        - https://docs.konghq.com/hub/kong-inc/rate-limiting/
+        - https://supabase.com/docs/guides/platform/rate-limits
+      applications:
+        - name: kong
+          containerName: supabase-kong
+          version: "2.*"
+      impact: |
+        - Legitimate API requests rejected with HTTP 429
+        - Application functionality degraded or unavailable
+        - User experience impacted by failed operations
+        - Potential service unavailability during traffic spikes
+        - Client applications may enter error states
+      impactScore: 5
+      mitigationScore: 4
+      reports: 22
+    rule:
+      set:
+        window: 5m
+        event:
+          source: cre.log.kong
+        match:
+          - regex: 'HTTP.*429.*Too Many Requests|rate limit exceeded|quota exceeded'
+          - regex: 'rate-limiting.*rejected|API.*throttled|request.*rate limited'
+          - regex: 'too many requests.*minute|exceeded.*rate.*limit'
+          - value: "rate-limiting"
+
+
