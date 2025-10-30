@@ -1,0 +1,84 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: StableDiffusionCUDAOOMDetector
+      generation: 1
+    cre:
+      id: CRE-2025-0330
+      severity: 0
+      title: Stable Diffusion WebUI Critical CUDA Out of Memory Failure
+      category: memory-problem
+      author: CRE Community
+      description: |
+        - The Stable Diffusion WebUI (AUTOMATIC1111) is experiencing critical CUDA out of memory errors during image generation.
+        - This typically occurs when attempting to generate high-resolution images or large batch sizes that exceed available GPU VRAM.
+        - The failure cascades from initial memory allocation errors to complete WebUI unresponsiveness and service failure.
+        - This is one of the most common and disruptive failures affecting Stable Diffusion deployments.
+      cause: |
+        - GPU VRAM exhaustion due to insufficient memory for model loading and tensor operations.
+        - High-resolution image generation (e.g., 1024x1024 or larger) requiring more memory than available.
+        - Large batch sizes that multiply memory requirements beyond GPU capacity.
+        - Memory fragmentation from previous operations that prevents allocation of required contiguous memory blocks.
+        - Inefficient model loading or caching that consumes excessive VRAM.
+        - Running multiple concurrent generation processes without proper memory management.
+      impact: |
+        - Complete service interruption - the WebUI becomes unresponsive and requires manual restart.
+        - Loss of current generation progress and any queued generation tasks.
+        - Potential CUDA context corruption requiring process restart to recover.
+        - User experience degradation with failed image generations and error messages.
+        - System instability in multi-user deployments where one user's OOM can affect others.
+        - Cascading failures where recovery attempts also fail due to memory constraints.
+      tags:
+        - memory-exhaustion
+        - crash
+        - errors
+        - service
+        - python
+        - memory
+        - oom-kill
+        - critical-failure
+        - cuda
+        - pytorch
+      mitigation: |
+        - **Immediate Response:**
+          - Restart the Stable Diffusion WebUI process to clear CUDA context and reset memory state.
+          - Check GPU memory usage with `nvidia-smi` to verify memory is properly released after restart.
+        - **Configuration Adjustments:**
+          - Add command line arguments: `--medvram` (moderate memory reduction) or `--lowvram` (aggressive memory reduction).
+          - Use `--opt-sdp-no-mem-attention` or `--xformers` to enable memory-efficient attention mechanisms.
+          - Set environment variable: `PYTORCH_CUDA_ALLOC_CONF=garbage_collection_threshold:0.6,max_split_size_mb:128`.
+        - **Generation Parameter Tuning:**
+          - Reduce image resolution (e.g., from 1024x1024 to 768x768 or 512x512).
+          - Decrease batch size from 4+ to 1-2 images per generation.
+          - Enable "Tiled VAE" extension for high-resolution images to reduce VRAM usage during decoding.
+        - **System-Level Solutions:**
+          - Upgrade to GPU with more VRAM (12GB+ recommended for high-resolution work).
+          - Monitor GPU memory usage proactively and set alerts before reaching 90% capacity.
+          - Implement resource limits in multi-user deployments to prevent memory monopolization.
+        - **Preventative Measures:**
+          - Install memory monitoring extensions like VRAM-ESTIMATOR to track usage in real-time.
+          - Educate users on appropriate generation parameters for their hardware.
+          - Implement automatic parameter adjustment based on available VRAM.
+      references:
+        - "https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/16114"
+        - "https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/12992"
+        - "https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/13878"
+        - "https://www.aiarty.com/stable-diffusion-guide/fix-cuda-out-of-memory-stable-diffusion.htm"
+      applications:
+        - name: stable-diffusion-webui
+          processName: python
+          repoUrl: "https://github.com/AUTOMATIC1111/stable-diffusion-webui"
+          version: "*"
+        - name: pytorch
+          version: "*"
+      impactScore: 9
+      mitigationScore: 3
+      reports: 1
+    rule:
+      sequence:
+        window: 30s
+        event:
+          source: cre.log.stable-diffusion
+        order:
+          - regex: "torch\\.cuda\\.OutOfMemoryError: CUDA out of memory"
+          - regex: "Fatal error during image generation|Complete service failure"
