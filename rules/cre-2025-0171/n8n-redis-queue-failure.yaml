@@ -1,0 +1,55 @@
+rules:
+- cre:
+    id: CRE-2025-0131
+    severity: 1
+    title: n8n Redis Queue Authentication Failure
+    category: workflow-automation-problem
+    author: Dhaval
+    description: |
+      n8n instances configured with EXECUTIONS_MODE=queue fail to connect to Redis due to authentication mismatches, causing complete instance outages. This leads to silent execution drops, workflow failures, and data loss in production environments where queue mode is used for scalability and reliability.
+    cause: |
+      * Redis authentication configuration mismatch between n8n and Redis server
+      * Incorrect QUEUE_BULL_REDIS_PASSWORD environment variable
+      * Redis server requires authentication but n8n is configured without password
+      * Redis server doesn't require authentication but n8n is configured with password
+      * Redis connection string format errors in queue configuration
+      * Redis server password changes without updating n8n configuration
+      * Redis server authentication requirements changed without corresponding n8n updates
+    tags:
+      - n8n
+      - redis
+      - silent-failure
+      - data-integrity
+      - production-critical
+    mitigation: |
+      - **Verify Redis authentication** - Ensure Redis password matches QUEUE_BULL_REDIS_PASSWORD in n8n config
+      - **Test Redis connectivity** - Use redis-cli to verify authentication before starting n8n
+      - **Monitor Redis health** - Set up Redis monitoring to detect authentication issues early
+      - **Use Redis connection pooling** - Configure proper Redis connection settings for reliability
+      - **Implement circuit breakers** - Add fallback mechanisms when Redis is unavailable
+      - **Regular configuration audits** - Periodically verify Redis and n8n configuration alignment
+      - **Backup execution mode** - Consider running in regular mode as fallback when queue mode fails
+      - **Redis cluster configuration** - Use Redis Sentinel or Redis Cluster for high availability
+    references: 
+      - https://docs.n8n.io/hosting/configuration/queue-mode/
+      - https://docs.n8n.io/hosting/configuration/environment-variables/environment-variables/
+      - https://redis.io/docs/management/security/
+    applications:
+      - name: n8n
+        version: "1.109.0"
+    impact: |
+      Redis queue authentication failures cause complete n8n instance outages in queue mode, leading to silent execution drops, workflow failures, missed data synchronization, and broken automations. This particularly impacts enterprise deployments where queue mode is used for scalability and high availability, resulting in significant business impact and data loss.
+    impactScore: 9
+    mitigationScore: 7
+  metadata:
+    kind: prequel
+    id: TK5md1TrQdvUBtn6eY2Brm
+    gen: 1
+  rule:
+    sequence:
+      window: 30s
+      event:
+        source: cre.log.n8n
+      order:
+        - regex: "((WRONGPASS|NOAUTH).*(Authentication required|invalid username|user is disabled))"
+        - regex: "(\\[Redis client\\]|ReplyError)"
