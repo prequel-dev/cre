@@ -113,24 +113,25 @@ func TestCres(t *testing.T) {
 		testFpData, _ = os.ReadFile(filepath.Join(cre, testFPLogFile))
 
 		t.Run(filepath.Base(cre), func(t *testing.T) {
-			_, stats, err := eval.Detect(ctx, "", string(testData), string(ruleData))
+			_, stats, err := eval.Detect(ctx, nil, string(testData), string(ruleData))
 			if err != nil {
 				t.Fatalf("Error running detection: %v", err)
 			}
 
-			if stats["problems"] != uint32(1) {
+			if stats["problems"] != 1 {
 				t.Fatalf("Expected problems, got %d", stats["problems"])
 			}
 
 			if len(testFpData) > 0 {
-				_, stats, err := eval.Detect(ctx, "", string(testFpData), string(ruleData))
+				_, stats, err := eval.Detect(ctx, nil, string(testFpData), string(ruleData))
 				if err != nil {
 					t.Fatalf("Error running detection: %v", err)
 				}
 
-				if stats["problems"] != uint32(0) {
+				if stats["problems"] != 0 {
 					t.Fatalf("Expected no problems, got %d", stats["problems"])
 				}
+
 			}
 		})
 	}
