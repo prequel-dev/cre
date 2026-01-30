@@ -1,0 +1,36 @@
+rules:
+  - cre:
+      id: CRE-2026-0310
+      severity: 1
+      title: "ECK operator reconciliation errors"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for Elasticsearch on Kubernetes via ECK (elastic/cloud-on-k8s) — ~15 CREs based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for Elasticsearch on Kubernetes via ECK (elastic/cloud-on-k8s) — ~15 CREs.
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/elastic/cloud-on-k8s
+        - https://github.com/elastic/cloud-on-k8s/issues?q=reconcile+error
+      applications:
+        - name: elasticsearch-on-kubernetes-via-eck-elastic-cloud-on-k8s-15-cres
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 9XzoU3Z8JG6Zk4LVt91Taw
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.elasticsearch-on-kubernetes-via-eck-elastic-cloud-on-k8s-15-cres
+        match:
+          - value: "reconcile error"

@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0169
+      severity: 1
+      title: "OOM / resource starvation (collection lag)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for metrics-server (kubernetes-sigs/metrics-server) based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for metrics-server (kubernetes-sigs/metrics-server).
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://raw.githubusercontent.com/kubernetes-sigs/metrics-server/master/README.md
+      applications:
+        - name: metrics-server-kubernetes-sigs-metrics-server
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 85P9PnzhBkfjkPb5wGv1Dj
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.metrics-server-kubernetes-sigs-metrics-server
+        match:
+          - value: "OOMKilled"

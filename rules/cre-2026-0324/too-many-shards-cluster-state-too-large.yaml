@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0324
+      severity: 1
+      title: "Too many shards / cluster state too large"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for Elasticsearch on Kubernetes via ECK (elastic/cloud-on-k8s) — ~15 CREs based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for Elasticsearch on Kubernetes via ECK (elastic/cloud-on-k8s) — ~15 CREs.
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://www.elastic.co/guide/en/elasticsearch/reference/current/size-your-shards.html
+      applications:
+        - name: elasticsearch-on-kubernetes-via-eck-elastic-cloud-on-k8s-15-cres
+          version: "*"
+    metadata:
+      kind: prequel
+      id: EsV2p2u1vpw3J9Ps9Kwc8B
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.elasticsearch-on-kubernetes-via-eck-elastic-cloud-on-k8s-15-cres
+        match:
+          - value: "too many shards"

@@ -1,0 +1,36 @@
+rules:
+  - cre:
+      id: CRE-2026-0125
+      severity: 2
+      title: "Ingress-shim creating wrong Certificate (annotation drift)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for cert-manager (cert-manager/cert-manager) based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for cert-manager (cert-manager/cert-manager).
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://cert-manager.io/docs/troubleshooting/
+        - https://github.com/cert-manager/cert-manager/search?q=ingress-shim+failed&type=code
+      applications:
+        - name: cert-manager-cert-manager-cert-manager
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 6jps7B3mGTqqA1ygRYAVp8
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.cert-manager-cert-manager-cert-manager
+        match:
+          - value: "ingress-shim creating new Certificate"

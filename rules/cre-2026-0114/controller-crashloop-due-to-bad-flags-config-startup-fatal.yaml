@@ -1,0 +1,36 @@
+rules:
+  - cre:
+      id: CRE-2026-0114
+      severity: 1
+      title: "Controller crashloop due to bad flags/config (startup fatal)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for ingress-nginx (kubernetes/ingress-nginx) based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for ingress-nginx (kubernetes/ingress-nginx).
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://kubernetes.github.io/ingress-nginx/troubleshooting/
+        - https://github.com/kubernetes/ingress-nginx/search?q=%22flag+provided+but+not+defined%22&type=code
+      applications:
+        - name: ingress-nginx-kubernetes-ingress-nginx
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 3L4X6vVDKUEzPDvSVcbon5
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.ingress-nginx-kubernetes-ingress-nginx
+        match:
+          - value: "FATAL"

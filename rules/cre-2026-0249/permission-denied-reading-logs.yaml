@@ -1,0 +1,38 @@
+rules:
+  - cre:
+      id: CRE-2026-0249
+      severity: 1
+      title: "Permission denied reading logs"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for Fluent Bit — ~15 log-based CRE candidates based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for Fluent Bit — ~15 log-based CRE candidates.
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/prometheus/prometheus/issues/4705
+        - https://github.com/prometheus/prometheus/issues/13027
+        - https://github.com/prometheus/prometheus/issues/7835
+        - https://github.com/prometheus/prometheus/issues/7299
+      applications:
+        - name: fluent-bit-15-log-based-cre-candidates
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 7wfPM2DavT5aDyBzPid75w
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.fluent-bit-15-log-based-cre-candidates
+        match:
+          - value: "permission denied /var/log/containers"

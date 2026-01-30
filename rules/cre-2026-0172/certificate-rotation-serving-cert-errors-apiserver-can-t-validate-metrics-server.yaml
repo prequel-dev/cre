@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0172
+      severity: 1
+      title: "Certificate rotation / serving cert errors (apiserver can\u2019t validate metrics-server)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for metrics-server (kubernetes-sigs/metrics-server) based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for metrics-server (kubernetes-sigs/metrics-server).
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/kubernetes-sigs/metrics-server/issues?q=caBundle+x509
+      applications:
+        - name: metrics-server-kubernetes-sigs-metrics-server
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 5QFZaDwy4opRVmCyeGoVAN
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.metrics-server-kubernetes-sigs-metrics-server
+        match:
+          - value: "x509: metrics-server"

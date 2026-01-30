@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0141
+      severity: 2
+      title: "TXT registry missing/blocked (can\u2019t assert ownership)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for external-dns (kubernetes-sigs/external-dns) based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for external-dns (kubernetes-sigs/external-dns).
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/kubernetes-sigs/external-dns/search?q=TXT+registry+failed&type=code
+      applications:
+        - name: external-dns-kubernetes-sigs-external-dns
+          version: "*"
+    metadata:
+      kind: prequel
+      id: FFeMBSaR2NFRiKzkwhu2wt
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.external-dns-kubernetes-sigs-external-dns
+        match:
+          - value: "TXT record"

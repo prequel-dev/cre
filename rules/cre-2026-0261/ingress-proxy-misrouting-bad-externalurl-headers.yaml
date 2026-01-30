@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0261
+      severity: 2
+      title: "Ingress/proxy misrouting (bad externalURL / headers)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for Harbor (goharbor/harbor) — ~15 log-based CRE candidates based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for Harbor (goharbor/harbor) — ~15 log-based CRE candidates.
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://goharbor.io/docs/
+      applications:
+        - name: harbor-goharbor-harbor-15-log-based-cre-candidates
+          version: "*"
+    metadata:
+      kind: prequel
+      id: B9KrQ6773fopZgtFLbTE6Z
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.harbor-goharbor-harbor-15-log-based-cre-candidates
+        match:
+          - value: "failed to parse"

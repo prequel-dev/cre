@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0004
+      severity: 1
+      title: "Elasticsearch JVM GC overhead / stop-the-world pressure"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Draft rule for Elasticsearch/Kibana reliability issues (logs-first).
+      cause: |
+        See references.
+      impact: |
+        Reliability degradation or outage symptoms.
+      impactScore: 6
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream guidance; validate in your environment.
+      mitigationScore: 6
+      references:
+        - https://www.elastic.co/guide/en/elasticsearch/reference/current/high-jvm-memory-pressure.html
+      applications:
+        - name: elastic
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 5LxjgSuYertf6AqPrB7rEo
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.elasticsearch
+        match:
+          - value: "JvmGcMonitorService] [gc] overhead"

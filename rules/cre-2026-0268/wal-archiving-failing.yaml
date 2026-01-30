@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0268
+      severity: 1
+      title: "WAL archiving failing"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for Crunchy Postgres Operator (CrunchyData Postgres Operator / PGO v5 “postgres-operator”) — ~15 CREs based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for Crunchy Postgres Operator (CrunchyData Postgres Operator / PGO v5 “postgres-operator”) — ~15 CREs.
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/CrunchyData/postgres-operator/issues?q=WAL+archive+failed
+      applications:
+        - name: crunchy-postgres-operator-crunchydata-postgres-operator-pgo-v5-postgres-operator
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 2ESwBWqbBfgnALDG8LMJXq
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.crunchy-postgres-operator-crunchydata-postgres-operator-pgo-v5-postgres-operator
+        match:
+          - value: "archive_command failed"

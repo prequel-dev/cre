@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0013
+      severity: 0
+      title: "Elasticsearch snapshot/SLM failure: repository access unauthorized (GCS 401)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Draft rule for Elasticsearch/Kibana reliability issues (logs-first).
+      cause: |
+        See references.
+      impact: |
+        Reliability degradation or outage symptoms.
+      impactScore: 6
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream guidance; validate in your environment.
+      mitigationScore: 6
+      references:
+        - https://github.com/elastic/elasticsearch/issues/75368
+      applications:
+        - name: elastic
+          version: "*"
+    metadata:
+      kind: prequel
+      id: AVFeZgSKcBHqPfcwy62akL
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.elasticsearch
+        match:
+          - value: "StorageException[401 Unauthorized]"

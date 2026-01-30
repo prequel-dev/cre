@@ -1,0 +1,36 @@
+rules:
+  - cre:
+      id: CRE-2026-0144
+      severity: 1
+      title: "Provider client init failures"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for external-dns (kubernetes-sigs/external-dns) based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for external-dns (kubernetes-sigs/external-dns).
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/kubernetes-sigs/external-dns#usage
+        - https://github.com/kubernetes-sigs/external-dns/search?q=failed+to+initialize+provider&type=code
+      applications:
+        - name: external-dns-kubernetes-sigs-external-dns
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 4QMtRA5nt1WVasKmyAM51j
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.external-dns-kubernetes-sigs-external-dns
+        match:
+          - value: "failed to initialize provider"

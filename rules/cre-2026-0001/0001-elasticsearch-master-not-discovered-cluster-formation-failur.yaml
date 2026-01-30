@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0001
+      severity: 1
+      title: "Elasticsearch master not discovered / cluster formation failure"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Draft rule for Elasticsearch/Kibana reliability issues (logs-first).
+      cause: |
+        See references.
+      impact: |
+        Reliability degradation or outage symptoms.
+      impactScore: 6
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream guidance; validate in your environment.
+      mitigationScore: 6
+      references:
+        - https://www.elastic.co/guide/en/elasticsearch/reference/current/discovery-troubleshooting.html
+      applications:
+        - name: elastic
+          version: "*"
+    metadata:
+      kind: prequel
+      id: FXwiLMB7hjrZHJjGSpDdW8
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.elasticsearch
+        match:
+          - value: "master not discovered yet"

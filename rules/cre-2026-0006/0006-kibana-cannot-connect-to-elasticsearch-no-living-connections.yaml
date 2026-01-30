@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0006
+      severity: 1
+      title: "Kibana cannot connect to Elasticsearch (No Living connections)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Draft rule for Elasticsearch/Kibana reliability issues (logs-first).
+      cause: |
+        See references.
+      impact: |
+        Reliability degradation or outage symptoms.
+      impactScore: 6
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream guidance; validate in your environment.
+      mitigationScore: 6
+      references:
+        - https://www.elastic.co/guide/en/kibana/current/troubleshooting.html
+      applications:
+        - name: elastic
+          version: "*"
+    metadata:
+      kind: prequel
+      id: APE5a7i8aRsySS7DFqvksg
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.kibana
+        match:
+          - value: "No Living connections"

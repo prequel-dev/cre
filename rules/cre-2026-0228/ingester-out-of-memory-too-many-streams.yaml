@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0228
+      severity: 0
+      title: "Ingester out of memory / too many streams"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for Loki — ~15 log-based CRE candidates based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for Loki — ~15 log-based CRE candidates.
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/prequel-dev/cre
+      applications:
+        - name: loki-15-log-based-cre-candidates
+          version: "*"
+    metadata:
+      kind: prequel
+      id: FTcm4LBBcpdfWGHLN9hKpY
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.loki-15-log-based-cre-candidates
+        match:
+          - value: "too many streams"

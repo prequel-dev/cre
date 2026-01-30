@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0290
+      severity: 1
+      title: "AOF rewrite failures"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for Redis on Kubernetes (commonly: spotahome/redis-operator, or Redis pods managed by StatefulSet) — ~15 CREs based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for Redis on Kubernetes (commonly: spotahome/redis-operator, or Redis pods managed by StatefulSet) — ~15 CREs.
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://redis.io/docs/latest/
+      applications:
+        - name: redis-on-kubernetes-commonly-spotahome-redis-operator-or-redis-pods-managed-by-s
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 7XH3vQdv6fpdnajsE8FgqT
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.redis-on-kubernetes-commonly-spotahome-redis-operator-or-redis-pods-managed-by-s
+        match:
+          - value: "Background append only file rewriting failed"
