@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0137
+      severity: 2
+      title: "Record set rejected (invalid change batch / conflict)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for external-dns (kubernetes-sigs/external-dns) based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for external-dns (kubernetes-sigs/external-dns).
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/kubernetes-sigs/external-dns/search?q=InvalidChangeBatch&type=code
+      applications:
+        - name: external-dns-kubernetes-sigs-external-dns
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 94GLPSBLXmqoFKLEwz4aBy
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.external-dns-kubernetes-sigs-external-dns
+        match:
+          - value: "InvalidChangeBatch"

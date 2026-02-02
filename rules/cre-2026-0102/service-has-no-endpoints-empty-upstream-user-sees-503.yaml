@@ -1,0 +1,36 @@
+rules:
+  - cre:
+      id: CRE-2026-0102
+      severity: 0
+      title: "Service has no endpoints / empty upstream (user sees 503)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for ingress-nginx (kubernetes/ingress-nginx) based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for ingress-nginx (kubernetes/ingress-nginx).
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://kubernetes.github.io/ingress-nginx/troubleshooting/
+        - https://github.com/kubernetes/ingress-nginx/search?q=%22active+Endpoint%22&type=code
+      applications:
+        - name: ingress-nginx-kubernetes-ingress-nginx
+          version: "*"
+    metadata:
+      kind: prequel
+      id: FZErFwk5zS186zcXGC1Pg7
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.ingress-nginx-kubernetes-ingress-nginx
+        match:
+          - value: "Service does not have any active Endpoint"

@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0205
+      severity: 1
+      title: "Notification delivery failures (general)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for Alertmanager — ~15 log-based CRE candidates based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for Alertmanager — ~15 log-based CRE candidates.
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/prequel-dev/cre
+      applications:
+        - name: alertmanager-15-log-based-cre-candidates
+          version: "*"
+    metadata:
+      kind: prequel
+      id: B7niFYeoA2QSUwmhj6mbbe
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.alertmanager-15-log-based-cre-candidates
+        match:
+          - value: "level=error notify failed"

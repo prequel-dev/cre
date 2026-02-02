@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0108
+      severity: 2
+      title: "ConfigMap parse/validation errors (global behavior wrong)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for ingress-nginx (kubernetes/ingress-nginx) based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for ingress-nginx (kubernetes/ingress-nginx).
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/kubernetes/ingress-nginx/search?q=failed+to+parse+configmap&type=code
+      applications:
+        - name: ingress-nginx-kubernetes-ingress-nginx
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 6oR9ZMiJHRXYGCrJ4p4aHn
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.ingress-nginx-kubernetes-ingress-nginx
+        match:
+          - value: "configmap Invalid"

@@ -1,0 +1,36 @@
+rules:
+  - cre:
+      id: CRE-2026-0318
+      severity: 1
+      title: "Snapshot failures (S3/GCS/Azure repo)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for Elasticsearch on Kubernetes via ECK (elastic/cloud-on-k8s) — ~15 CREs based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for Elasticsearch on Kubernetes via ECK (elastic/cloud-on-k8s) — ~15 CREs.
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-register-repository.html
+        - https://github.com/elastic/cloud-on-k8s/issues?q=snapshot+failed
+      applications:
+        - name: elasticsearch-on-kubernetes-via-eck-elastic-cloud-on-k8s-15-cres
+          version: "*"
+    metadata:
+      kind: prequel
+      id: 5JBdVhN4ZBgd7sPwKMWSCS
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.elasticsearch-on-kubernetes-via-eck-elastic-cloud-on-k8s-15-cres
+        match:
+          - value: "snapshot failed"

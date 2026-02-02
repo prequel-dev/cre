@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0016
+      severity: 1
+      title: "Elasticsearch ILM policy execution errors (stuck lifecycle management)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Draft rule for Elasticsearch/Kibana reliability issues (logs-first).
+      cause: |
+        See references.
+      impact: |
+        Reliability degradation or outage symptoms.
+      impactScore: 6
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream guidance; validate in your environment.
+      mitigationScore: 6
+      references:
+        - https://github.com/elastic/elasticsearch/issues/101639
+      applications:
+        - name: elastic
+          version: "*"
+    metadata:
+      kind: prequel
+      id: DPcw1227rXNJ9tbKBKqmHh
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.elasticsearch
+        match:
+          - value: "IndexLifecycleRunner policy [x] for index [y] failed"

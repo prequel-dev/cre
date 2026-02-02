@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0303
+      severity: 1
+      title: "Topic Operator failures (create/update topics)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for Strimzi Kafka Operator (strimzi/strimzi-kafka-operator) — ~15 CREs based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for Strimzi Kafka Operator (strimzi/strimzi-kafka-operator) — ~15 CREs.
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/strimzi/strimzi-kafka-operator/issues?q=topic-operator+failed
+      applications:
+        - name: strimzi-kafka-operator-strimzi-strimzi-kafka-operator-15-cres
+          version: "*"
+    metadata:
+      kind: prequel
+      id: GFbiss65CSGingQ2sA1gdm
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.strimzi-kafka-operator-strimzi-strimzi-kafka-operator-15-cres
+        match:
+          - value: "topic-operator failed"

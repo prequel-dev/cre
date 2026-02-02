@@ -1,0 +1,36 @@
+rules:
+  - cre:
+      id: CRE-2026-0118
+      severity: 2
+      title: "ACME account registration / rate limit errors"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for cert-manager (cert-manager/cert-manager) based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for cert-manager (cert-manager/cert-manager).
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://cert-manager.io/docs/troubleshooting/acme/
+        - https://letsencrypt.org/docs/rate-limits/
+      applications:
+        - name: cert-manager-cert-manager-cert-manager
+          version: "*"
+    metadata:
+      kind: prequel
+      id: Ea3sM9PoZ6hWPiapMsbsXe
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.cert-manager-cert-manager-cert-manager
+        match:
+          - value: "urn:ietf:params:acme:error:rateLimited"

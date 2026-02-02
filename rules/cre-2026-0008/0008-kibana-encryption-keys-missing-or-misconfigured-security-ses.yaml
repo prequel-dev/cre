@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0008
+      severity: 1
+      title: "Kibana encryption keys missing or misconfigured (security/session issues)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Draft rule for Elasticsearch/Kibana reliability issues (logs-first).
+      cause: |
+        See references.
+      impact: |
+        Reliability degradation or outage symptoms.
+      impactScore: 6
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream guidance; validate in your environment.
+      mitigationScore: 6
+      references:
+        - https://www.elastic.co/guide/en/kibana/current/security-settings-kb.html
+      applications:
+        - name: elastic
+          version: "*"
+    metadata:
+      kind: prequel
+      id: FfCUtuanRxDp35ZxEWVMzt
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.kibana
+        match:
+          - value: "Generating a random key for xpack.security.encryptionKey"

@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0011
+      severity: 0
+      title: "Kibana saved objects migration fatal: Lucene immense term (max 32766)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Draft rule for Elasticsearch/Kibana reliability issues (logs-first).
+      cause: |
+        See references.
+      impact: |
+        Reliability degradation or outage symptoms.
+      impactScore: 6
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream guidance; validate in your environment.
+      mitigationScore: 6
+      references:
+        - https://github.com/elastic/kibana/issues/69720
+      applications:
+        - name: elastic
+          version: "*"
+    metadata:
+      kind: prequel
+      id: ByAQP6oCtKLzkmdhyS1Nz8
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.kibana
+        match:
+          - value: "Document contains at least one immense term"

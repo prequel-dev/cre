@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0154
+      severity: 2
+      title: "DNSSEC/edns0 related truncation/format errors"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for CoreDNS (coredns/coredns) based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for CoreDNS (coredns/coredns).
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/coredns/coredns/issues?q=edns0+truncated
+      applications:
+        - name: coredns-coredns-coredns
+          version: "*"
+    metadata:
+      kind: prequel
+      id: Be6VYngacH1NZWAM76gSrK
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.coredns-coredns-coredns
+        match:
+          - value: "format error"

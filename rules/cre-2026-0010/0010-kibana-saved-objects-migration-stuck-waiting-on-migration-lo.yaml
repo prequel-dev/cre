@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0010
+      severity: 1
+      title: "Kibana saved objects migration stuck waiting on migration lock"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Draft rule for Elasticsearch/Kibana reliability issues (logs-first).
+      cause: |
+        See references.
+      impact: |
+        Reliability degradation or outage symptoms.
+      impactScore: 6
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream guidance; validate in your environment.
+      mitigationScore: 6
+      references:
+        - https://github.com/elastic/kibana/issues/25806
+      applications:
+        - name: elastic
+          version: "*"
+    metadata:
+      kind: prequel
+      id: DJDkGFE8CzNhNwZxyXz7Fg
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.kibana
+        match:
+          - value: "Another Kibana instance appears to be migrating the index"

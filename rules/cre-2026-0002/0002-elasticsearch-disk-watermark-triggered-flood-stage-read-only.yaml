@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0002
+      severity: 1
+      title: "Elasticsearch disk watermark triggered (flood-stage / read-only indices)"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Draft rule for Elasticsearch/Kibana reliability issues (logs-first).
+      cause: |
+        See references.
+      impact: |
+        Reliability degradation or outage symptoms.
+      impactScore: 6
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream guidance; validate in your environment.
+      mitigationScore: 6
+      references:
+        - https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-watermark-errors.html
+      applications:
+        - name: elastic
+          version: "*"
+    metadata:
+      kind: prequel
+      id: f2aKPd2GJJayyy1PuCwhuo
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.elasticsearch
+        match:
+          - value: "flood stage disk watermark [95%] exceeded"

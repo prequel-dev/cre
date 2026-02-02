@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0177
+      severity: 1
+      title: "TSDB compaction failed"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for Prometheus — ~15 log-based CRE candidates based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for Prometheus — ~15 log-based CRE candidates.
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/prometheus/prometheus/issues/7299
+      applications:
+        - name: prometheus-15-log-based-cre-candidates
+          version: "*"
+    metadata:
+      kind: prequel
+      id: NTRnSMoPXVxpuTE97JF8Mz
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.prometheus-15-log-based-cre-candidates
+        match:
+          - value: "component=tsdb msg=\"compaction failed\""

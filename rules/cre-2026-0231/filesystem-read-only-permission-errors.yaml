@@ -1,0 +1,35 @@
+rules:
+  - cre:
+      id: CRE-2026-0231
+      severity: 0
+      title: "Filesystem read-only / permission errors"
+      category: kubernetes-problem
+      author: Prequel (draft)
+      description: |
+        Auto-generated draft CRE for Loki — ~15 log-based CRE candidates based on common log error patterns.
+      cause: |
+        See references and upstream docs/issues.
+      impact: |
+        Reliability degradation or outage symptoms for Loki — ~15 log-based CRE candidates.
+      impactScore: 5
+      tags:
+        - public
+        - kubernetes
+      mitigation: |
+        Follow upstream runbooks and verify the triggering condition in context.
+      mitigationScore: 5
+      references:
+        - https://github.com/prequel-dev/cre
+      applications:
+        - name: loki-15-log-based-cre-candidates
+          version: "*"
+    metadata:
+      kind: prequel
+      id: HXdZPsDd4CYrmtZBn89nYG
+      gen: 1
+    rule:
+      set:
+        event:
+          source: cre.log.loki-15-log-based-cre-candidates
+        match:
+          - value: "read-only file system"
