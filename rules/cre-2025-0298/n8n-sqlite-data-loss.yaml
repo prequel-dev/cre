@@ -1,0 +1,89 @@
+rules:
+  - cre:
+      id: CRE-2025-0298
+      severity: 0
+      title: n8n SQLite data loss due to incorrect pool size configuration
+      category: database-problem
+      author: mavrick
+      description: |
+        This rule detects when n8n is running with SQLite database and a pool size of 0, which can cause critical data loss including complete disappearance of workflows and execution history. The issue occurs because the default SQLite driver configuration (DB_SQLITE_POOL_SIZE=0) uses an unreliable single connection mode that can lead to database corruption or data not being properly persisted during concurrent operations.
+      cause: |
+        The root cause is the default SQLite configuration in n8n when DB_SQLITE_POOL_SIZE is set to 0:
+        - **Single connection mode**: When pool size is 0, SQLite operates with a single connection which can fail to properly persist data
+        - **Concurrent operation conflicts**: Multiple workflow executions or save operations can conflict without proper connection pooling
+        - **WAL mode issues**: SQLite Write-Ahead Logging (WAL) mode may not function correctly with a single connection
+        - **Upgrade/migration triggers**: Data loss often manifests during n8n version upgrades (e.g., 1.100 to 1.101)
+        - **Silent failures**: Data disappears without error messages or warnings, making detection difficult
+      impact: |
+        - **CRITICAL**: Complete loss of workflows, including all configuration and logic
+        - **Total execution history loss**: All past execution logs and debugging information disappear
+        - **Business continuity failure**: Production workflows vanish, causing immediate service disruption
+        - **Unrecoverable data loss**: No backup or recovery mechanism available for lost workflows
+        - **Silent failure**: Data loss occurs without error messages, potentially going unnoticed for hours or days
+      impactScore: 10
+      tags:
+        - data-loss
+        - database-corruption
+        - data-loss-risk
+        - workflow-orchestration
+        - known-problem
+        - database-write-failure
+        - sqlite
+        - n8n
+        - production-issue
+        - configuration-error
+        - connection-pooling
+        - single-connection
+        - concurrent-access
+        - data-persistence
+        - workflow-automation
+        - business-critical
+        - silent-failure
+        - database-reliability
+      mitigation: |
+        **Immediate response:**
+        - **Stop n8n immediately**: Prevent further data loss by stopping the n8n service
+        - **Check environment variables**: Verify DB_SQLITE_POOL_SIZE setting with `echo $DB_SQLITE_POOL_SIZE`
+        - **Backup database**: Create immediate backup of the SQLite database file (typically ~/.n8n/database.sqlite)
+        - **Check for WAL files**: Look for .sqlite-wal and .sqlite-shm files that may contain uncommitted data
+
+        **Resolution steps:**
+        1. **Set proper pool size**: Configure `DB_SQLITE_POOL_SIZE=2` or higher in environment variables
+        2. **Update n8n configuration**: Add to .env file or systemd service:
+           ```
+           DB_SQLITE_POOL_SIZE=2
+           ```
+        3. **Restart n8n service**: Apply the configuration change
+        4. **Verify configuration**: Check logs for proper SQLite pool initialization
+        5. **Test workflow persistence**: Create a test workflow and verify it persists after restart
+
+        **Prevention measures:**
+        - **Always configure pool size**: Never run production n8n with default SQLite settings
+        - **Consider PostgreSQL**: For production environments, migrate to PostgreSQL for better reliability
+        - **Regular backups**: Implement automated SQLite database backups every hour
+        - **Monitor database writes**: Set up monitoring for successful database write operations
+        - **Version upgrade testing**: Always test n8n upgrades in staging environment first
+        - **Export workflows regularly**: Use n8n CLI to export workflows as JSON backups
+      references:
+        - https://github.com/n8n-io/n8n/issues/17271
+        - https://docs.n8n.io/hosting/configuration/environment-variables/#sqlite
+        - https://www.sqlite.org/wal.html
+        - https://docs.n8n.io/hosting/databases/sqlite/
+      applications:
+        - name: n8n
+          version: ">=1.100.0"
+      mitigationScore: 3
+    metadata:
+      gen: 1
+      id: 6unur45AyiTScMHo4MHWmP
+      kind: prequel
+    rule:
+      sequence:
+        window: 30s
+        event:
+          source: cre.log.n8n
+        order:
+          - regex: 'DB_TYPE.*sqlite|DATABASE_TYPE.*sqlite|Using SQLite as database'
+          - regex: 'DB_SQLITE_POOL_SIZE.*0|pool.*size.*0|sqlite.*pool.*0'
+        negate:
+          - regex: 'DB_SQLITE_POOL_SIZE.*[1-9]'
