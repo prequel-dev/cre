@@ -848,6 +848,12 @@ tags:
   - name: cluster-scaling
     displayName: Cluster Scaling
     description: Problems related to Kubernetes cluster scaling operations and capacity management
+  - name: cuda
+    displayName: CUDA
+    description: Problems related to NVIDIA CUDA GPU computing platform and memory management
+  - name: pytorch
+    displayName: PyTorch
+    description: Problems related to PyTorch deep learning framework and tensor operation
   - name: maxmemory
     displayName: Max Memory
     description: Problems related to Redis maxmemory configuration and memory limits
@@ -949,7 +955,7 @@ tags:
     description: Problems related to OpenAI API services including GPT models
   - name: recursive-analysis
     displayName: Recursive Analysis
-    description: Problems where systems enter recursive self-analysis loops leading to resource exhaustion
+    description: Problems where systems enter recursive self-analysis loops leading to resource exhaustio
   - name: n8n
     displayName: N8N
     description: Problems related to n8n workflow automation platform
