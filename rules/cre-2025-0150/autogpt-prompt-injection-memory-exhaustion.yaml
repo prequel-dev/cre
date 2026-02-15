@@ -1,0 +1,89 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: 5K8mNpQr8vTzHJsEXwGcM
+    cre:
+      id: CRE-2025-0150
+      severity: 0
+      title: "AutoGPT Prompt Injection + Memory Exhaustion Cascade"
+      category: "prompt-injection-memory-exhaustion"
+      author: "Security Researcher"
+      description: |
+        AutoGPT is vulnerable to a sophisticated prompt injection attack that triggers a memory exhaustion cascade, 
+        leading to complete system failure. This vulnerability exploits the interaction between prompt compression logic, 
+        LLM retry mechanisms, and task execution loops.
+        
+        The vulnerability stems from three interconnected failure modes:
+        1. Prompt Compression Infinite Loop: The compress_prompt function can enter an infinite loop during middle-out deletion
+        2. LLM Retry Memory Accumulation: Retry mechanisms accumulate memory during failed API calls without proper cleanup
+        3. Task Execution Loop Exploitation: Main execution loop can be exploited to create recursive task generation
+        
+        A malicious user can craft a prompt that triggers the prompt compression algorithm to enter an infinite loop, 
+        causes LLM API failures that accumulate memory during retries, and exploits the task execution loop to generate 
+        recursive tasks, resulting in memory exhaustion and system crash (SIGKILL).
+      cause: |
+        ROOT CAUSES:
+        - Prompt compression algorithm in backend/util/prompt.py lacks proper loop detection and timeout mechanisms
+        - LLM retry mechanism in backend/blocks/llm.py accumulates memory during failed API calls without cleanup
+        - Task execution loop in backend/executor/manager.py can be exploited for recursive task generation
+        - Insufficient input validation for prompt size and structure
+        - Missing circuit breakers for resource exhaustion scenarios
+      impact: |
+        BUSINESS IMPACT:
+        - CRITICAL: Complete system failure with AutoGPT process crash (exit code 137)
+        - Memory exhaustion causing OOM killer termination
+        - Service outage affecting all running agents and tasks
+        - Data loss of in-progress tasks and agent states
+        - Resource exhaustion consuming CPU and memory until system failure
+        - Potential cascading failures across integrated systems
+      impactScore: 10
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Set strict memory limits on AutoGPT containers (max 2GB per container)
+        - Implement input validation for prompt size and structure
+        - Reduce LLM retry attempts and implement exponential backoff
+        - Deploy real-time resource monitoring and alerting
+        
+        RECOVERY ACTIONS (15-60 minutes):
+        - Restart AutoGPT services with memory limits
+        - Implement prompt compression timeout mechanisms
+        - Add proper memory cleanup in retry mechanisms
+        - Deploy circuit breakers for resource exhaustion scenarios
+        
+        PREVENTION STRATEGIES:
+        - Implement loop detection and timeout mechanisms in prompt compression
+        - Add task structure validation to prevent recursive loops
+        - Deploy comprehensive monitoring for memory usage patterns
+        - Implement rate limiting and request size validation
+      mitigationScore: 7
+      references:
+        - "https://github.com/Significant-Gravitas/AutoGPT/blob/main/autogpt_platform/backend/backend/util/prompt.py"
+        - "https://github.com/Significant-Gravitas/AutoGPT/blob/main/autogpt_platform/backend/backend/blocks/llm.py"
+        - "https://github.com/Significant-Gravitas/AutoGPT/blob/main/autogpt_platform/backend/backend/executor/manager.py"
+      applications:
+        - name: "AutoGPT"
+          version: ">=0.4.0"
+      tags:
+        - autogpt
+        - memory-exhaustion
+        - crash
+        - sigkill
+      reports: 1
+    rule:
+      sequence:
+        window: "300s"
+        event:
+          source: application-logs
+          origin: true
+        order:
+          - regex: "(?i)(compress_prompt.*exceeds budget|prompt.*compression.*triggered|token.*count.*exceeded)"
+            count: 2
+          - regex: "(?i)(memory.*usage.*exceeded|memory.*accumulation.*retry|memory.*exhaustion)"
+            count: 3
+          - regex: "(?i)(LLM.*API.*call.*failed.*retrying|maximum.*retry.*attempts.*exceeded)"
+            count: 2
+          - regex: "(?i)(process.*killed.*signal.*9|SIGKILL|OOM.*killer.*activated|container.*crashed)"
+            count: 1
+        negate:
+          - regex: "(?i)(started.*successfully|ready.*accept.*connections|health.*check.*passed)"
+          - regex: "(?i)(graceful.*shutdown|shutting.*down.*normally|clean.*exit)"
