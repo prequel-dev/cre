@@ -1,0 +1,104 @@
+rules:
+- cre:
+    id: CRE-2025-0171
+    severity: 0
+    title: AutoGPT Runaway Task Loop with Resource Exhaustion
+    category: task-management-problem
+    author: Claude Code Assistant
+    description: |
+      AutoGPT autonomous agent enters a runaway task execution loop, repeatedly attempting 
+      the same failed operation without termination conditions. This critical failure pattern 
+      causes resource exhaustion, infinite API calls, and system unresponsiveness. The agent 
+      gets stuck in recursive task generation cycles, creating thousands of identical subtasks 
+      that consume CPU, memory, and API quotas without making progress toward the original goal.
+    cause: |
+      * Faulty task completion detection logic allowing infinite retry cycles
+      * Missing or ineffective loop detection mechanisms in the task scheduler
+      * Prompt engineering flaws that cause the LLM to generate recursive task chains
+      * Resource limit bypass causing memory leaks in task queue management
+      * API rate limiting failures that don't properly halt task generation
+      * Context window overflow causing the agent to lose track of completed tasks
+      * Improper error handling that treats retryable failures as new tasks
+    tags:
+      - async
+      - batch
+      - retry
+      - timeout
+      - memory-leak
+      - memory-exhaustion
+      - cpu-memory-exhaustion
+      - crash-loop
+      - oom-kill
+      - container-crash
+      - critical-failure
+      - cascading-failure
+      - service-unavailability
+      - rate-limiting
+      - throttling
+      - api-key
+      - configuration
+      - deadlock
+      - performance
+      - scalability-issue
+      - infrastructure-failure
+      - capacity-exceeded
+      - revenue-impact
+      - public
+    mitigation: |
+      IMMEDIATE ACTIONS:
+      - **Kill AutoGPT process** - Terminate the runaway agent immediately to stop resource consumption
+      - **Review task queue** - Check for thousands of identical or similar pending tasks
+      - **Monitor API usage** - Check API quotas and potential overage charges
+      - **Clear persistent state** - Remove corrupted task history and agent memory
+      
+      RECOVERY STEPS:
+      1. Implement task loop detection with maximum retry limits (default: 3 attempts)
+      2. Add resource monitoring with automatic circuit breakers
+      3. Configure API rate limiting with exponential backoff
+      4. Set maximum task depth limits to prevent infinite recursion
+      5. Implement task deduplication to detect identical operations
+      6. Add memory usage monitoring with automatic cleanup
+      
+      PREVENTION:
+      - Configure task execution timeouts (recommend 5-10 minutes per task)
+      - Implement prompt validation to detect recursive instruction patterns
+      - Set up monitoring for repetitive API call patterns
+      - Use task completion validators to ensure progress measurement
+      - Implement graceful degradation when resource limits are approached
+    references:
+      - https://github.com/Significant-Gravitas/AutoGPT/issues/
+      - https://docs.agpt.co/AutoGPT/configuration/
+      - https://github.com/prequel-dev/cre/issues/129
+    applications:
+      - name: autogpt
+        version: ">= 0.5.0"
+        processName: autogpt
+        containerName: autogpt
+      - name: auto-gpt
+        version: ">= 0.5.0"
+        processName: auto-gpt
+    impact: |
+      Runaway task loops can cause complete system resource exhaustion, leading to:
+      - Massive unexpected API costs (potentially thousands of dollars)
+      - System crashes due to memory/CPU exhaustion
+      - Service denial for other applications on the same host
+      - Data corruption from incomplete task executions
+      - Loss of agent work progress and context
+      - Potential security risks from uncontrolled API calls
+      The autonomous nature makes this particularly dangerous as it can continue for hours/days undetected.
+    impactScore: 10
+    mitigationScore: 6
+  metadata:
+    kind: prequel
+    id: AutoGPTRunawayTaskLoop171
+    gen: 1
+  rule:
+    sequence:
+      window: 180s
+      event:
+        source: cre.log.autogpt
+      order:
+        - regex: "(Starting task.*|Executing.*|Task created:|Creating subtask)"
+        - regex: "(Starting task.*|Executing.*|Task created:|Creating subtask)"
+        - regex: "(Starting task.*|Executing.*|Task created:|Creating subtask)"
+        - regex: "(Memory usage.*[0-9]+MB|CPU usage.*[0-9]+%|API calls.*rate limit|Resource exhaustion detected|Out of memory|System overload)"
