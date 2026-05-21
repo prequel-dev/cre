@@ -1,0 +1,84 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: N8nWh3kP7qRzYvMr2aLfJ8
+      hash: ZpQ9Lm4Zk8TnVb2Ry6HwGs
+    cre:
+      id: CRE-2025-0178
+      severity: 0
+      title: "n8n Webhook Silent Failure with Data Loss"
+      category: "data-loss"
+      author: Prequel Community
+      description: |
+        Detects critical n8n webhook silent failures where incoming webhook requests fail to trigger workflows, resulting in complete data loss without proper error reporting or alerting. This represents the most dangerous type of n8n failure - silent data drops that can go undetected for days or weeks while business-critical automations silently fail to process incoming data, leads, or API events.
+      cause: |
+        - Webhook endpoint returning 500 Internal Server Error with "Workflow could not be started!" message
+        - Database connection issues preventing workflow execution initiation  
+        - Timeout issues in webhook processing causing gateway timeouts (504 errors)
+        - Worker process failures unable to find execution data
+        - Connection refused errors when n8n service becomes unresponsive
+        - Version compatibility issues between n8n components causing webhook registration failures
+        - Memory exhaustion or resource limits preventing webhook processing
+        - Failed authentication or credential expiration silently dropping requests
+      impact: |
+        - Complete silent data loss - incoming webhook data is permanently lost
+        - Business-critical automations stop working without notification
+        - Customer leads, orders, or notifications are dropped indefinitely
+        - No error visibility in execution logs or monitoring systems  
+        - Potential revenue loss from missed sales opportunities
+        - SLA violations due to unprocessed customer requests
+        - Data integrity issues in downstream systems expecting webhook data
+        - Silent cascade failures affecting dependent workflows and integrations
+      tags:
+        - webhook
+        - crash
+        - timeout
+        - memory
+        - configuration
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Check n8n service status and restart if necessary: systemctl restart n8n
+        - Verify webhook endpoint accessibility: curl -X POST [webhook-url] -d "test"
+        - Examine n8n logs for specific error patterns: docker logs n8n-container
+        - Test manual workflow execution to isolate webhook vs workflow issues
+        DATABASE & CONNECTION FIXES:
+        - Verify database connectivity: check PostgreSQL/Redis connection status
+        - Restart database services if connection issues detected
+        - Check n8n environment variables: N8N_DATABASE_*, N8N_REDIS_*
+        - Validate network connectivity between n8n and database services
+        WEBHOOK CONFIGURATION:
+        - Verify webhook URLs are correctly configured and accessible
+        - Check N8N_URL, N8N_EDITOR_BASE_URL environment variables
+        - Validate reverse proxy configuration (Nginx, Apache) if used
+        - Ensure firewall rules allow incoming webhook traffic
+        MONITORING & ALERTING:
+        - Implement webhook health checks with external monitoring
+        - Set up alerts for webhook response time anomalies (>5s response times)
+        - Monitor n8n execution success/failure rates via API
+        - Create dead letter queue for failed webhook processing
+        PREVENTION:
+        - Implement webhook retry mechanism with exponential backoff
+        - Add webhook timeout monitoring and alerting
+        - Use multiple webhook endpoints for critical data flows
+        - Set up automated n8n service health checks and auto-restart
+        - Regular database maintenance and connection pool optimization
+        - Monitor system resources (memory, CPU, disk) to prevent exhaustion
+      references:
+        - https://github.com/n8n-io/n8n/issues/18268
+        - https://github.com/n8n-io/n8n/issues/12535
+        - https://github.com/n8n-io/n8n/issues/10728
+        - https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.webhook/common-issues/
+        - https://docs.n8n.io/flow-logic/error-handling/
+      applications:
+        - name: n8n
+          version: ">=1.0.0"
+      impactScore: 10
+      mitigationScore: 6
+      reports: 47
+    rule:
+      set:
+        event:
+          source: cre.log.n8n
+        match:
+          - regex: 'Workflow could not be started'
+            count: 1
