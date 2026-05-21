@@ -1,0 +1,80 @@
+rules:
+  - metadata:
+      kind: prequel
+      id: AG3xK8mP2qQzYvWr9aLfT7
+      hash: YpQ9Lm4Zk8TnVb2Ry6HwGs
+    cre:
+      id: CRE-2025-0169
+      severity: 0
+      title: "AutoGPT Agent Runaway Loop Execution"
+      category: "memory-problem"
+      author: Prequel Community
+      description: |
+        Detects AutoGPT agents stuck in runaway execution loops where the agent repeatedly performs the same planning or research tasks without making meaningful progress toward the goal. This critical failure pattern can silently derail agent execution, consume excessive resources, and prevent task completion even when left running for hours.
+      cause: |
+        - Poor prompt engineering leading to circular reasoning patterns
+        - Inadequate memory management causing repetitive action sequences
+        - Insufficient world model preventing the agent from tracking completed work
+        - Overly complex planning that creates unnecessary recursive sub-tasks
+        - Semantic search over previous actions increasing loop likelihood
+        - GPT-4's constrained reasoning ability in complex multi-step scenarios
+      impact: |
+        - Agent never completes assigned tasks despite extended execution
+        - Excessive resource consumption (API calls, compute, memory)
+        - Silent failure that appears as continued "progress" to users
+        - Loss of productivity and wasted computational resources
+        - Potential infinite execution without manual intervention
+      tags:
+        - memory
+        - crash
+        - configuration
+        - performance
+        - timeout
+        - python
+        - deadlock
+        - retry
+        - api-key
+        - threads
+      mitigation: |
+        IMMEDIATE ACTIONS:
+        - Stop the current AutoGPT execution immediately
+        - Review the agent's execution log for repetitive patterns
+        - Implement loop detection with maximum iteration limits
+        CONFIGURATION FIXES:
+        - Set MAX_LOOPS environment variable (e.g., MAX_LOOPS=25)
+        - Enable execution summary logging to track progress
+        - Implement task completion validation checkpoints
+        - Add time-based execution limits (e.g., --timeout 3600)
+        PROMPT IMPROVEMENTS:
+        - Simplify task descriptions to reduce planning complexity
+        - Break large tasks into smaller, concrete sub-tasks
+        - Add explicit success criteria and completion conditions
+        - Use more directive language rather than open-ended requests
+        PREVENTION:
+        - Monitor execution logs for repetitive action patterns
+        - Implement progress tracking metrics
+        - Use task-specific timeouts and loop detection
+        - Regular checkpoint validation of intermediate results
+      references:
+        - https://github.com/Significant-Gravitas/AutoGPT/issues/2726
+        - https://github.com/reworkd/AgentGPT/issues/1252
+        - https://www.taivo.ai/__why-autogpt-fails-and-how-to-fix-it/
+        - https://jina.ai/news/auto-gpt-unmasked-hype-hard-truths-production-pitfalls/
+      applications:
+        - name: autogpt
+          version: ">=0.4.0"
+        - name: auto-gpt
+          version: ">=0.4.0"
+      impactScore: 9
+      mitigationScore: 6
+      reports: 23
+    rule:
+      set:
+        window: 300s
+        event:
+          source: cre.log.autogpt
+        match:
+          - regex: 'REASONING.*I need to.*research'
+            count: 3
+          - regex: 'REASONING.*I should.*research'
+            count: 2
