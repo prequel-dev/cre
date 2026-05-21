@@ -99,6 +99,9 @@ categories:
   - name: configuration-problem
     displayName: Configuration Problem
     description: Problems related to system or application configurations
+  - name: prompt-injection-memory-exhaustion
+    displayName: Prompt Injection Memory Exhaustion
+    description: Security vulnerabilities related to prompt injection attacks causing memory exhaustion and system failures
   - name: monitoring-problem
     displayName: Monitoring Problem
     description: Problems related to system or application monitoring
