@@ -1,0 +1,11 @@
+name: redis_sentinel_split_brain_and_replication_overflow
+target: redis
+description: Detects Redis Sentinel partition failures, split-brain scenarios, and client buffer replication drops.
+conditions:
+  log_patterns:
+    - 'sdown master'
+    - 'odown master'
+    - 'client-output-buffer-limit exceeded'
+    - 'sync with replica failed'
+severity: HIGH
+remediation: "Verify quorum settings in sentinel.conf, check network partitions between master and replicas, and increase client-output-buffer-limit for slave."

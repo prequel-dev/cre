@@ -1,0 +1,4 @@
+1:M 05 Sep 2026 20:00:00.123 # +sdown master mymaster 127.0.0.1 6379
+1:M 05 Sep 2026 20:00:05.456 # +odown master mymaster 127.0.0.1 6379 #quorum 2/2
+1:S 05 Sep 2026 20:00:10.789 # Scheduled to sync with replica failed
+1:M 05 Sep 2026 20:00:15.012 # Client id=42 addr=10.0.0.5:54321 client-output-buffer-limit exceeded for slave
