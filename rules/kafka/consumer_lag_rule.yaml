@@ -1,0 +1,15 @@
+﻿id: kafka-consumer-group-lag
+name: Kafka High Consumer Group Lag Detection
+severity: HIGH
+description: Detects consumer groups lagging behind topic partition watermark
+match:
+  engine: kafka
+  query: |
+    SELECT group_id, topic, partition, current_offset, log_end_offset,
+           (log_end_offset - current_offset) AS lag
+    FROM kafka_consumer_offsets
+    WHERE (log_end_offset - current_offset) > 10000
+assertion:
+  condition: count(group_id) == 0
+  on_failure:
+    message: "High consumer group lag detected exceeding 10,000 record threshold."
