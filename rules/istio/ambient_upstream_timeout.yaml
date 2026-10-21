@@ -1,0 +1,7 @@
+name: istio_ambient_upstream_failure
+target: ztunnel
+conditions:
+  log_contains: "connection reset by peer"
+  http_status: 503
+severity: HIGH
+remediation: "Verify Istio Ambient mTLS certificate rotation and waypoint proxy reachability."
